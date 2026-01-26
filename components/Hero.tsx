@@ -6,7 +6,7 @@ const Hero: React.FC = () => {
   const startYear = 2021;
   const currentYear = new Date().getFullYear();
   const yearsExperience = currentYear - startYear;
-  
+
   const numberToWords = (num: number): string => {
     const words = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
     return words[num] || num.toString();
@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
         top: offsetPosition,
         behavior: 'smooth'
       });
-      
+
       // Update hash without jump
       window.history.pushState(null, '', '#section-articles');
     }
@@ -39,9 +39,9 @@ const Hero: React.FC = () => {
       {/* Background Texture & Elements */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: `url('https://www.transparenttextures.com/patterns/paper-fibers.png')` }}></div>
       <div className="absolute top-0 right-0 w-1/2 h-full bg-[#f3f2ee] hidden lg:block"></div>
-      
+
       <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center py-20">
-        
+
         {/* Left Column: Text Content */}
         <div className="lg:col-span-7 space-y-10 z-10">
           <div className="space-y-6">
@@ -51,11 +51,11 @@ const Hero: React.FC = () => {
                 Independent
               </span>
             </div>
-            
+
             <h1 className="font-serif text-6xl md:text-8xl lg:text-[7rem] font-medium text-stone-900 leading-[0.95] tracking-tight animate-in fade-in slide-in-from-left-8 duration-1000">
-              The <span className="italic font-light text-stone-400">Art</span> of <br /> 
-              Human <span className="relative">
-                Narrative.
+              Let me <span className="italic font-light text-stone-400">help</span> you <br />
+              find the <span className="relative">
+                right words.
                 <svg className="absolute -bottom-2 left-0 w-full h-3 text-stone-200 -z-10 opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none">
                   <path d="M0 5 Q 25 0 50 5 T 100 5" fill="none" stroke="currentColor" strokeWidth="4" />
                 </svg>
@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-6 sm:space-y-0 sm:space-x-10 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
-            <a 
+            <a
               href="#section-articles"
               onClick={scrollToArticles}
               className="group relative inline-flex items-center justify-center px-10 py-5 bg-stone-900 text-white overflow-hidden rounded-full transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-stone-900/20"
@@ -96,9 +96,9 @@ const Hero: React.FC = () => {
           <div className="relative w-full aspect-[4/5] lg:h-full max-w-md group mb-12 lg:mb-0">
             {/* Main Image Mask */}
             <div className="absolute inset-0 bg-stone-200 rounded-2xl overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] group-hover:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.25)] transition-all duration-700">
-              <img 
-                src="https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2025/12/MoBuzz-Posting-Ideas-7.jpg" 
-                alt="Sonakhi Malla" 
+              <img
+                src="https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2025/12/MoBuzz-Posting-Ideas-7.jpg"
+                alt="Sonakhi Malla"
                 className="w-full h-full object-cover scale-[1.15] group-hover:scale-125 transition-transform duration-[2000ms] ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-stone-900/40 to-transparent opacity-60"></div>
@@ -125,7 +125,7 @@ const Hero: React.FC = () => {
         <span className="text-[9px] font-bold uppercase tracking-[0.4em]">Scroll to Discover</span>
         <div className="w-20 h-px bg-stone-200"></div>
       </div>
-      
+
       <style>{`
         @keyframes bounce-slow {
           0%, 100% { transform: translate(var(--tw-translate-x), 0); }
