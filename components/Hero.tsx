@@ -48,7 +48,7 @@ const Hero: React.FC = () => {
             <div className="flex items-center space-x-4 animate-in fade-in slide-in-from-left-4 duration-700">
               <div className="w-8 h-px bg-stone-300"></div>
               <span className="text-[10px] font-black uppercase tracking-[0.4em] text-stone-400">
-                Independent Editorial Voice
+                Independent
               </span>
             </div>
             
