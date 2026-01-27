@@ -38,8 +38,35 @@ const AllArticlesPage: React.FC = () => {
         const catsData = await catRes.json();
         let actualCategories = [];
         if (Array.isArray(catsData)) {
-          setCategories(catsData);
-          actualCategories = catsData;
+          const processedCats = catsData
+            .filter((c: any) => c.name.toLowerCase() !== 'hindi')
+            .map((c: any) => {
+              if (c.name.toLowerCase() === 'odia') return { ...c, name: 'ଓଡ଼ିଆ' };
+              return c;
+            })
+            .sort((a: any, b: any) => {
+              const nameA = a.name.toLowerCase();
+              const nameB = b.name.toLowerCase();
+
+              // Helper to check for Devanagari script
+              const isDevanagari = (s: string) => /[\u0900-\u097F]/.test(s);
+
+              // 1. English first
+              if (nameA === 'english' && nameB !== 'english') return -1;
+              if (nameA !== 'english' && nameB === 'english') return 1;
+
+              // 2. Hindi (Devanagari) second
+              if (isDevanagari(nameA) && !isDevanagari(nameB)) return -1;
+              if (!isDevanagari(nameA) && isDevanagari(nameB)) return 1;
+
+              // 3. Odia third
+              if (nameA === 'ଓଡ଼ିଆ' && nameB !== 'ଓଡ଼ିଆ') return 1; // Actually logic below handles remaining order if needed, but let's stick to simple priority
+
+              return 0;
+            });
+
+          setCategories(processedCats);
+          actualCategories = processedCats;
         }
 
         const catParam = searchParams.get('category');

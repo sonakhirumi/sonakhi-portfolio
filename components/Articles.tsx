@@ -33,7 +33,29 @@ const Articles: React.FC = () => {
 
         if (!Array.isArray(catsData)) return;
 
-        setCategories(catsData);
+        const processedCats = catsData
+          .filter((c: any) => c.name.toLowerCase() !== 'hindi')
+          .map((c: any) => {
+            if (c.name.toLowerCase() === 'odia') return { ...c, name: 'ଓଡ଼ିଆ' };
+            return c;
+          })
+          .sort((a: any, b: any) => {
+            const nameA = a.name.toLowerCase();
+            const nameB = b.name.toLowerCase();
+            const isDevanagari = (s: string) => /[\u0900-\u097F]/.test(s);
+
+            if (nameA === 'english' && nameB !== 'english') return -1;
+            if (nameA !== 'english' && nameB === 'english') return 1;
+
+            if (isDevanagari(nameA) && !isDevanagari(nameB)) return -1;
+            if (!isDevanagari(nameA) && isDevanagari(nameB)) return 1;
+
+            if (nameA === 'ଓଡ଼ିଆ' && nameB !== 'ଓଡ଼ିଆ') return 1;
+
+            return 0;
+          });
+
+        setCategories(processedCats);
 
         const postsMap: Record<number, Article[]> = {};
 
