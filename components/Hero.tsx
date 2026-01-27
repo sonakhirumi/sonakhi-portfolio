@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Languages, Quote } from 'lucide-react';
 
 const Hero: React.FC = () => {
@@ -74,13 +75,17 @@ const Hero: React.FC = () => {
               <div className="absolute inset-0 bg-stone-800 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
             </a>
 
-            <div className="flex items-center space-x-3 text-stone-400 group cursor-default">
-              <div className="p-2 border border-stone-200 rounded-full group-hover:border-stone-400 transition-colors">
+            <div className="flex items-center space-x-3 text-stone-400">
+              <div className="p-2 border border-stone-200 rounded-full transition-colors">
                 <Languages className="w-4 h-4" />
               </div>
-              <span className="text-[10px] font-bold uppercase tracking-widest">
-                ENG • HIN • ORI
-              </span>
+              <div className="text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
+                <Link to="/writings?category=english" className="hover:text-stone-900 transition-colors">ENG</Link>
+                <span>•</span>
+                <Link to="/writings?category=hindi" className="hover:text-stone-900 transition-colors">HIN</Link>
+                <span>•</span>
+                <Link to="/writings?category=odia" className="hover:text-stone-900 transition-colors">ODI</Link>
+              </div>
             </div>
           </div>
         </div>
