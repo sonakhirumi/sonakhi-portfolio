@@ -47,7 +47,7 @@ const Hero: React.FC = () => {
         <div className="lg:col-span-7 space-y-10 z-10">
 
 
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-[5.5rem] font-medium text-stone-900 leading-[1.1] tracking-tight animate-in fade-in slide-in-from-left-8 duration-1000">
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-[5.5rem] font-medium text-stone-900 leading-[0.95] tracking-tight animate-in fade-in slide-in-from-left-8 duration-1000">
             Let me help you find <br />
             the <span className="relative">
               right <span className="italic font-light text-stone-400">words</span>.
