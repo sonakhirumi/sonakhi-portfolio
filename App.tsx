@@ -37,7 +37,7 @@ const Home: React.FC = () => (
       <About />
     </section>
 
-    <section id="articles" className="py-24 bg-[#f8f7f4]">
+    <section id="writings" className="py-24 bg-[#f8f7f4]">
       <Articles />
     </section>
   </>
@@ -66,7 +66,7 @@ const App: React.FC = () => {
       <main className="flex-grow pt-20">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/articles" element={<AllArticlesPage />} />
+          <Route path="/writings" element={<AllArticlesPage />} />
           <Route path="/article/:id" element={<ArticlePage />} />
         </Routes>
       </main>

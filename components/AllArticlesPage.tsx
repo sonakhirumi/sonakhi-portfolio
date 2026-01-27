@@ -81,7 +81,7 @@ const AllArticlesPage: React.FC = () => {
       }
     };
 
-    
+
     fetchAllData();
   }, [searchParams]);
 
@@ -126,7 +126,7 @@ const AllArticlesPage: React.FC = () => {
                   : 'bg-white text-stone-400 hover:text-stone-900 border border-stone-200'
                   }`}
               >
-                All Stories
+                All Writings
               </button>
               {categories.map(cat => (
                 <button
@@ -203,7 +203,7 @@ const AllArticlesPage: React.FC = () => {
                   onClick={() => updateCategory('All')}
                   className="text-stone-900 font-black uppercase text-xs tracking-widest border-b-2 border-stone-900 pb-1"
                 >
-                  View All Archives
+                  View All Writings
                 </button>
               </div>
             )}

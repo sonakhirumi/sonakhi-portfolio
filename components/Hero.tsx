@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
 
   const scrollToArticles = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    const element = document.getElementById('articles');
+    const element = document.getElementById('writings');
     if (element) {
       const offset = 80; // Offset for fixed navbar
       const bodyRect = document.body.getBoundingClientRect().top;
@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
       });
 
       // Update hash without jump
-      window.history.pushState(null, '', '#section-articles');
+      window.history.pushState(null, '', '#section-writings');
     }
   };
 
@@ -63,7 +63,7 @@ const Hero: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-6 sm:space-y-0 sm:space-x-10 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
             <a
-              href="#section-articles"
+              href="#section-writings"
               onClick={scrollToArticles}
               className="group relative inline-flex items-center justify-center px-10 py-5 bg-stone-900 text-white overflow-hidden rounded-full transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-stone-900/20"
             >

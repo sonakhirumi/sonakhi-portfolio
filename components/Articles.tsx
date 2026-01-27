@@ -93,7 +93,7 @@ const Articles: React.FC = () => {
             <div className="flex items-center justify-between border-b border-stone-200 pb-6">
               <h3 className="font-serif text-3xl md:text-4xl text-stone-900">{cat.name}</h3>
               <Link
-                to={`/articles?category=${encodeURIComponent(cat.name.toLowerCase())}`}
+                to={`/writings?category=${encodeURIComponent(cat.name.toLowerCase())}`}
                 className="flex items-center space-x-2 text-stone-500 hover:text-stone-900 transition-colors text-xs font-bold uppercase tracking-widest"
               >
                 <span>View All</span>

@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
   const navigationLinks = [
     { name: 'Home', href: '#/' },
     { name: 'About Me', href: '#section-about' },
-    { name: 'Articles', href: '#/articles' },
+    { name: 'Writings', href: '#/writings' },
     { name: 'Topmate', href: 'https://topmate.io/sonakhirumi', isExternal: true },
   ];
 
@@ -38,9 +38,9 @@ const Footer: React.FC = () => {
             <h4 className="text-white font-bold text-xs uppercase tracking-[0.3em]">Navigation</h4>
             <nav className="flex flex-col space-y-4">
               {navigationLinks.map((link) => (
-                <a 
-                  key={link.name} 
-                  href={link.href} 
+                <a
+                  key={link.name}
+                  href={link.href}
                   className="hover:text-white transition-colors flex items-center gap-2 text-sm"
                   {...(link.isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 >
@@ -58,13 +58,13 @@ const Footer: React.FC = () => {
               <p className="text-sm leading-relaxed">
                 Interested in collaborating on editorial features, creative scripts, or brand storytelling? Let's connect across the digital landscape.
               </p>
-              
+
               <div className="flex flex-wrap gap-4">
                 {socialLinks.map((social, idx) => (
-                  <a 
-                    key={idx} 
-                    href={social.href} 
-                    target="_blank" 
+                  <a
+                    key={idx}
+                    href={social.href}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="group relative p-3 border border-stone-800 rounded-full text-stone-500 hover:text-white hover:border-stone-500 transition-all duration-300 bg-stone-900/50"
                     aria-label={social.label}
@@ -76,11 +76,11 @@ const Footer: React.FC = () => {
                   </a>
                 ))}
               </div>
-              
+
               <div className="pt-2">
-                <a 
-                  href="https://topmate.io/sonakhirumi" 
-                  target="_blank" 
+                <a
+                  href="https://topmate.io/sonakhirumi"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 text-white font-bold text-xs uppercase tracking-widest border-b border-stone-700 hover:border-white transition-colors pb-1"
                 >
