@@ -47,9 +47,9 @@ const Hero: React.FC = () => {
 
 
           <h1 className="font-serif text-6xl md:text-8xl lg:text-[7rem] font-medium text-stone-900 leading-[0.95] tracking-tight animate-in fade-in slide-in-from-left-8 duration-1000">
-            Let me <span className="italic font-light text-stone-400">help</span> you find <br />
+            Let me help you find <br />
             the <span className="relative">
-              right words.
+              right <span className="italic font-light text-stone-400">words</span>.
               <svg className="absolute -bottom-2 left-0 w-full h-3 text-stone-200 -z-10 opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none">
                 <path d="M0 5 Q 25 0 50 5 T 100 5" fill="none" stroke="currentColor" strokeWidth="4" />
               </svg>
