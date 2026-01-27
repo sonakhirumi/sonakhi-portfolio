@@ -41,13 +41,13 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: `url('https://www.transparenttextures.com/patterns/paper-fibers.png')` }}></div>
       <div className="absolute top-0 right-0 w-1/2 h-full bg-[#f3f2ee] hidden lg:block"></div>
 
-      <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-start pt-0 pb-20">
+      <div className="relative max-w-7xl mx-auto px-6 flex flex-col items-center text-center gap-16 pt-0 pb-20">
 
-        {/* Left Column: Text Content */}
-        <div className="lg:col-span-7 space-y-10 z-10">
+        {/* Text Content */}
+        <div className="w-full max-w-5xl space-y-10 z-10 flex flex-col items-center">
 
 
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-[5.5rem] font-medium text-stone-900 leading-[0.95] tracking-tight animate-in fade-in slide-in-from-left-8 duration-1000">
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-[6rem] font-medium text-stone-900 leading-[0.95] tracking-tight animate-in fade-in slide-in-from-bottom-8 duration-1000">
             Let me help you <br />
             find the <span className="relative">
               right <span className="italic font-light text-stone-400">words</span>.
@@ -58,11 +58,11 @@ const Hero: React.FC = () => {
           </h1>
 
 
-          <p className="text-xl md:text-2xl text-stone-500 max-w-xl font-light leading-relaxed animate-in fade-in slide-in-from-left-12 duration-1000 delay-200">
+          <p className="text-xl md:text-2xl text-stone-500 max-w-2xl font-light leading-relaxed animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-200">
             Sonakhi Malla (Rumi) is a trilingual writer with over <span className="text-stone-900 font-medium">{yearsWords} years</span> of experience exploring the delicate threads of <span className="text-stone-900 font-medium italic">culture, identity</span> and the modern <span className="text-stone-900 font-medium">human experience.</span>
           </p>
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-6 sm:space-y-0 sm:space-x-10 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
+          <div className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-10 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
             <a
               href="#section-writings"
               onClick={scrollToArticles}
@@ -90,11 +90,11 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Column: Imagery & Editorial Flourishes */}
-        <div className="lg:col-span-5 relative lg:h-auto flex items-start justify-center animate-in fade-in zoom-in duration-1000 mt-4 lg:mt-0">
-          <div className="relative w-full aspect-[4/5] lg:h-full max-w-md group mb-12 lg:mb-0">
+        {/* Imagery & Editorial Flourishes */}
+        <div className="w-full max-w-md relative flex justify-center animate-in fade-in zoom-in duration-1000">
+          <div className="relative w-full aspect-[4/5] group">
             {/* Main Image Mask */}
-            <div className="absolute inset-0 bg-stone-200 rounded-2xl overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] group-hover:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.25)] transition-all duration-700">
+            <div className="relative z-10 inset-0 bg-stone-200 rounded-2xl overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] group-hover:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.25)] transition-all duration-700">
               <img
                 src="https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2025/12/MoBuzz-Posting-Ideas-7.jpg"
                 alt="Sonakhi Malla"
@@ -103,18 +103,19 @@ const Hero: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-stone-900/40 to-transparent opacity-60"></div>
             </div>
 
-            {/* Floating Editorial Card - Improved Mobile Position */}
-            <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 md:-bottom-10 md:-left-20 md:translate-x-0 p-6 md:p-8 bg-white shadow-2xl rounded-2xl w-[85%] max-w-[280px] md:w-auto border border-stone-100 block animate-bounce-slow z-20">
+            {/* Floating Editorial Card - Centered relative to image */}
+            <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 md:top-1/2 md:-right-32 md:left-auto md:-translate-y-1/2 md:-translate-x-0 p-6 md:p-8 bg-white shadow-2xl rounded-2xl w-[85%] max-w-[280px] border border-stone-100 block animate-bounce-slow z-30">
               <Quote className="w-6 h-6 md:w-8 md:h-8 text-stone-200 mb-3 md:mb-4" />
-              <p className="font-serif italic text-base md:text-lg text-stone-800 leading-snug mb-3 md:mb-4">
+              <p className="font-serif italic text-base md:text-lg text-stone-800 leading-snug mb-3 md:mb-4 text-left">
                 "Writing is the only way I know how to breathe life into the silence."
               </p>
               <div className="h-px w-12 bg-stone-900 mb-2"></div>
-              <span className="text-[8px] md:text-[9px] font-black uppercase tracking-[0.2em] text-stone-400">Editorial Philosophy No. 01</span>
+              <span className="text-[8px] md:text-[9px] font-black uppercase tracking-[0.2em] text-stone-400 block text-left">Editorial Philosophy No. 01</span>
             </div>
 
             {/* Decorative Geometry */}
-            <div className="absolute -top-6 -right-6 w-24 h-24 border-t-2 border-r-2 border-stone-300 rounded-tr-3xl -z-10 group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-700"></div>
+            <div className="absolute -top-6 -left-6 md:-left-12 w-24 h-24 border-t-2 border-l-2 border-stone-300 rounded-tl-3xl -z-10 group-hover:-translate-x-2 group-hover:-translate-y-2 transition-transform duration-700 hidden md:block"></div>
+            <div className="absolute -bottom-6 -right-6 md:-right-12 w-24 h-24 border-b-2 border-r-2 border-stone-300 rounded-br-3xl -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-700 hidden md:block"></div>
           </div>
         </div>
       </div>

@@ -20,23 +20,23 @@ const Footer: React.FC = () => {
 
   return (
     <footer id="contact" className="bg-[#1a1a1a] text-stone-400 py-24">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-12 gap-16 mb-20">
-          {/* Column 1: Brand */}
-          <div className="md:col-span-5 space-y-8">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col items-center text-center">
+        <div className="space-y-16 w-full max-w-4xl">
+          {/* Section 1: Brand */}
+          <div className="space-y-8 flex flex-col items-center">
             <div className="flex items-center space-x-2 text-white">
               <Feather className="w-6 h-6" />
               <span className="font-serif text-2xl font-bold tracking-tight uppercase">SONAKHI RUMI</span>
             </div>
-            <p className="text-lg text-stone-500 max-w-sm leading-relaxed">
+            <p className="text-lg text-stone-500 max-w-lg mx-auto leading-relaxed">
               Exploring human experience through the art of storytelling, investigative depth, and cultural commentary.
             </p>
           </div>
 
-          {/* Column 2: Navigation */}
-          <div className="md:col-span-3 space-y-6">
+          {/* Section 2: Navigation */}
+          <div className="space-y-6 flex flex-col items-center">
             <h4 className="text-white font-bold text-xs uppercase tracking-[0.3em]">Navigation</h4>
-            <nav className="flex flex-col space-y-4">
+            <nav className="flex flex-wrap justify-center gap-x-8 gap-y-4">
               {navigationLinks.map((link) => (
                 <a
                   key={link.name}
@@ -51,15 +51,15 @@ const Footer: React.FC = () => {
             </nav>
           </div>
 
-          {/* Column 3: Get in Touch & Socials */}
-          <div className="md:col-span-4 space-y-8">
+          {/* Section 3: Get in Touch & Socials */}
+          <div className="space-y-8 flex flex-col items-center">
             <h4 className="text-white font-bold text-xs uppercase tracking-[0.3em]">Get in Touch</h4>
-            <div className="space-y-6">
-              <p className="text-sm leading-relaxed">
+            <div className="space-y-6 flex flex-col items-center">
+              <p className="text-sm leading-relaxed max-w-lg mx-auto">
                 Interested in collaborating on editorial features, creative scripts, or brand storytelling? Let's connect across the digital landscape.
               </p>
 
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap justify-center gap-4">
                 {socialLinks.map((social, idx) => (
                   <a
                     key={idx}
@@ -92,7 +92,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="pt-10 border-t border-stone-800/50 flex flex-col items-center gap-6 text-[11px] font-medium uppercase tracking-widest text-stone-600">
+        <div className="pt-16 mt-16 w-full border-t border-stone-800/50 flex flex-col items-center gap-6 text-[11px] font-medium uppercase tracking-widest text-stone-600">
           <p>© {new Date().getFullYear()} Sonakhi Malla (Rumi). Crafted for narratives.</p>
         </div>
       </div>
