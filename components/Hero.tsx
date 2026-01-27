@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowRight, Languages, Minus, Quote } from 'lucide-react';
+import { ArrowRight, Languages, Quote } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const startYear = 2021;
@@ -44,24 +44,18 @@ const Hero: React.FC = () => {
 
         {/* Left Column: Text Content */}
         <div className="lg:col-span-7 space-y-10 z-10">
-          <div className="space-y-6">
-            <div className="flex items-center space-x-4 animate-in fade-in slide-in-from-left-4 duration-700">
-              <div className="w-8 h-px bg-stone-300"></div>
-              <span className="text-[10px] font-black uppercase tracking-[0.4em] text-stone-400">
-                Independent
-              </span>
-            </div>
 
-            <h1 className="font-serif text-6xl md:text-8xl lg:text-[7rem] font-medium text-stone-900 leading-[0.95] tracking-tight animate-in fade-in slide-in-from-left-8 duration-1000">
-              Let me <span className="italic font-light text-stone-400">help</span> you find <br />
-              the <span className="relative">
-                right words.
-                <svg className="absolute -bottom-2 left-0 w-full h-3 text-stone-200 -z-10 opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none">
-                  <path d="M0 5 Q 25 0 50 5 T 100 5" fill="none" stroke="currentColor" strokeWidth="4" />
-                </svg>
-              </span>
-            </h1>
-          </div>
+
+          <h1 className="font-serif text-6xl md:text-8xl lg:text-[7rem] font-medium text-stone-900 leading-[0.95] tracking-tight animate-in fade-in slide-in-from-left-8 duration-1000">
+            Let me <span className="italic font-light text-stone-400">help</span> you find <br />
+            the <span className="relative">
+              right words.
+              <svg className="absolute -bottom-2 left-0 w-full h-3 text-stone-200 -z-10 opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none">
+                <path d="M0 5 Q 25 0 50 5 T 100 5" fill="none" stroke="currentColor" strokeWidth="4" />
+              </svg>
+            </span>
+          </h1>
+
 
           <p className="text-xl md:text-2xl text-stone-500 max-w-xl font-light leading-relaxed animate-in fade-in slide-in-from-left-12 duration-1000 delay-200">
             Sonakhi Malla (Rumi) is a trilingual writer with over <span className="text-stone-900 font-medium">{yearsWords} years</span> of experience exploring the delicate threads of <span className="text-stone-900 font-medium italic">culture, identity</span> and the modern <span className="text-stone-900 font-medium">human experience.</span>
