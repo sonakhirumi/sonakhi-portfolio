@@ -36,18 +36,18 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-[90vh] md:min-h-screen flex flex-col justify-center lg:justify-start lg:pt-32 bg-[#faf9f6] overflow-hidden">
+    <div className="relative min-h-[90vh] md:min-h-screen flex flex-col justify-center lg:justify-start lg:pt-10 bg-[#faf9f6] overflow-hidden">
       {/* Background Texture & Elements */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: `url('https://www.transparenttextures.com/patterns/paper-fibers.png')` }}></div>
       <div className="absolute top-0 right-0 w-1/2 h-full bg-[#f3f2ee] hidden lg:block"></div>
 
-      <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center pt-10 pb-20">
+      <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-start pt-0 pb-20">
 
         {/* Left Column: Text Content */}
         <div className="lg:col-span-7 space-y-10 z-10">
 
 
-          <h1 className="font-serif text-6xl md:text-8xl lg:text-[7rem] font-medium text-stone-900 leading-[0.95] tracking-tight animate-in fade-in slide-in-from-left-8 duration-1000">
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-[5.5rem] font-medium text-stone-900 leading-[1.1] tracking-tight animate-in fade-in slide-in-from-left-8 duration-1000">
             Let me help you find <br />
             the <span className="relative">
               right <span className="italic font-light text-stone-400">words</span>.
@@ -91,7 +91,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Right Column: Imagery & Editorial Flourishes */}
-        <div className="lg:col-span-5 relative lg:h-[80vh] flex items-center justify-center animate-in fade-in zoom-in duration-1000">
+        <div className="lg:col-span-5 relative lg:h-auto flex items-start justify-center animate-in fade-in zoom-in duration-1000 mt-4 lg:mt-0">
           <div className="relative w-full aspect-[4/5] lg:h-full max-w-md group mb-12 lg:mb-0">
             {/* Main Image Mask */}
             <div className="absolute inset-0 bg-stone-200 rounded-2xl overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] group-hover:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.25)] transition-all duration-700">
