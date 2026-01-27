@@ -37,6 +37,7 @@ const Articles: React.FC = () => {
           .filter((c: any) => c.name.toLowerCase() !== 'hindi')
           .map((c: any) => {
             if (c.name.toLowerCase() === 'odia') return { ...c, name: 'ଓଡ଼ିଆ' };
+            if (c.name.toLowerCase() === 'english') return { ...c, name: 'English' };
             return c;
           })
           .sort((a: any, b: any) => {
