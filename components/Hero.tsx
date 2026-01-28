@@ -44,11 +44,11 @@ const Hero: React.FC = () => {
       <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-start pt-0 pb-20">
 
         {/* Left Column: Text Content */}
-        <div className="lg:col-span-7 space-y-10 z-10">
+        <div className="lg:col-span-7 space-y-10 z-10 flex flex-col items-center lg:items-start text-center lg:text-left">
 
 
           <h1 className="font-serif text-5xl md:text-7xl lg:text-[5.5rem] font-medium text-stone-900 leading-[0.95] tracking-tight animate-in fade-in slide-in-from-left-8 duration-1000">
-            Let me help you <br />
+            Let me help you <br className="hidden lg:block" />
             find the <span className="relative">
               right <span className="italic font-light text-stone-400">words</span>.
               <svg className="absolute -bottom-2 left-0 w-full h-3 text-stone-200 -z-10 opacity-60" viewBox="0 0 100 10" preserveAspectRatio="none">
@@ -58,11 +58,11 @@ const Hero: React.FC = () => {
           </h1>
 
 
-          <p className="text-xl md:text-2xl text-stone-500 max-w-xl font-light leading-relaxed animate-in fade-in slide-in-from-left-12 duration-1000 delay-200">
+          <p className="text-xl md:text-2xl text-stone-500 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed animate-in fade-in slide-in-from-left-12 duration-1000 delay-200">
             Sonakhi Malla (Rumi) is a trilingual writer with over <span className="text-stone-900 font-medium">{yearsWords} years</span> of experience exploring the delicate threads of <span className="text-stone-900 font-medium italic">culture, identity</span> and the modern <span className="text-stone-900 font-medium">human experience.</span>
           </p>
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-6 sm:space-y-0 sm:space-x-10 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
+          <div className="flex flex-col sm:flex-row items-center space-y-6 sm:space-y-0 sm:space-x-10 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
             <a
               href="#section-writings"
               onClick={scrollToArticles}
@@ -80,11 +80,11 @@ const Hero: React.FC = () => {
                 <Languages className="w-4 h-4" />
               </div>
               <div className="text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
-                <Link to="/writings?category=english" className="hover:text-stone-900 transition-colors">ENG</Link>
+                <Link to="/writings?category=english" className="hover:text-stone-900 transition-colors p-2">ENG</Link>
                 <span>•</span>
-                <Link to="/writings?category=hindi" className="hover:text-stone-900 transition-colors">HIN</Link>
+                <Link to="/writings?category=hindi" className="hover:text-stone-900 transition-colors p-2">HIN</Link>
                 <span>•</span>
-                <Link to="/writings?category=odia" className="hover:text-stone-900 transition-colors">ODI</Link>
+                <Link to="/writings?category=odia" className="hover:text-stone-900 transition-colors p-2">ODI</Link>
               </div>
             </div>
           </div>
