@@ -36,15 +36,15 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-[90vh] md:min-h-screen flex flex-col justify-center lg:justify-start lg:pt-10 bg-[#faf9f6] overflow-hidden">
+    <div className="relative min-h-[90vh] md:min-h-screen flex flex-col justify-start lg:justify-start pt-28 lg:pt-10 bg-[#faf9f6] overflow-hidden">
       {/* Background Texture & Elements */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: `url('https://www.transparenttextures.com/patterns/paper-fibers.png')` }}></div>
       <div className="absolute top-0 right-0 w-1/2 h-full bg-[#f3f2ee] hidden lg:block"></div>
 
-      <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-start pt-0 pb-20">
+      <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-start pb-20">
 
         {/* Left Column: Text Content */}
-        <div className="lg:col-span-7 space-y-10 z-10 flex flex-col items-center lg:items-start text-center lg:text-left">
+        <div className="lg:col-span-7 space-y-10 z-10 flex flex-col items-start text-left">
 
 
           <h1 className="font-serif text-5xl md:text-7xl lg:text-[5.5rem] font-medium text-stone-900 leading-[0.95] tracking-tight animate-in fade-in slide-in-from-left-8 duration-1000">
@@ -58,11 +58,11 @@ const Hero: React.FC = () => {
           </h1>
 
 
-          <p className="text-xl md:text-2xl text-stone-500 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed animate-in fade-in slide-in-from-left-12 duration-1000 delay-200">
+          <p className="text-xl md:text-2xl text-stone-500 max-w-xl font-light leading-relaxed animate-in fade-in slide-in-from-left-12 duration-1000 delay-200">
             Sonakhi Malla (Rumi) is a trilingual writer with over <span className="text-stone-900 font-medium">{yearsWords} years</span> of experience exploring the delicate threads of <span className="text-stone-900 font-medium italic">culture, identity</span> and the modern <span className="text-stone-900 font-medium">human experience.</span>
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center space-y-6 sm:space-y-0 sm:space-x-10 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
+          <div className="flex flex-col sm:flex-row items-start space-y-6 sm:space-y-0 sm:space-x-10 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
             <a
               href="#section-writings"
               onClick={scrollToArticles}
