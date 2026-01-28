@@ -82,9 +82,9 @@ const Hero: React.FC = () => {
               <div className="text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
                 <Link to="/writings?category=english" className="hover:text-stone-900 transition-colors p-2">ENG</Link>
                 <span>•</span>
-                <Link to="/writings?category=hindi" className="hover:text-stone-900 transition-colors p-2">HIN</Link>
+                <Link to="/writings?category=हिंदी" className="hover:text-stone-900 transition-colors p-2">HIN</Link>
                 <span>•</span>
-                <Link to="/writings?category=odia" className="hover:text-stone-900 transition-colors p-2">ODI</Link>
+                <Link to="/writings?category=ଓଡ଼ିଆ" className="hover:text-stone-900 transition-colors p-2">ODI</Link>
               </div>
             </div>
           </div>
