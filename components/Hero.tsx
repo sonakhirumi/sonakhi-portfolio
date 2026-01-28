@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-[90vh] md:min-h-screen flex flex-col justify-start lg:justify-start pt-20 lg:pt-10 bg-[#faf9f6] overflow-hidden">
+    <div className="relative min-h-[90vh] md:min-h-screen flex flex-col justify-start lg:justify-start pt-10 lg:pt-10 bg-[#faf9f6] overflow-hidden">
       {/* Background Texture & Elements */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: `url('https://www.transparenttextures.com/patterns/paper-fibers.png')` }}></div>
       <div className="absolute top-0 right-0 w-1/2 h-full bg-[#f3f2ee] hidden lg:block"></div>
