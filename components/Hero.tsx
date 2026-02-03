@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Languages, Quote } from 'lucide-react';
 
 const Hero: React.FC = () => {
+  console.log("Portfolio v2.0 loaded");
   const startYear = 2021;
   const currentYear = new Date().getFullYear();
   const yearsExperience = currentYear - startYear;
