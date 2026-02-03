@@ -111,7 +111,14 @@ const Hero: React.FC = () => {
                 5+ years of making words work harder so you don't have to.
               </p>
               <div className="h-px w-12 bg-stone-900 mb-2"></div>
-              <span className="text-[8px] md:text-[9px] font-black uppercase tracking-[0.2em] text-stone-400">Editorial Philosophy No. 01</span>
+              <a
+                href="https://topmate.io/sonakhirumi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[8px] md:text-[9px] font-black uppercase tracking-[0.2em] text-stone-400 hover:text-stone-900 transition-colors duration-300"
+              >
+                Let's connect
+              </a>
             </div>
 
             {/* Decorative Geometry */}
