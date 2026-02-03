@@ -62,7 +62,7 @@ const Hero: React.FC = () => {
             Sonakhi Malla (Rumi) is a trilingual writer with over <span className="text-stone-900 font-medium">{yearsWords} years</span> of experience exploring the delicate threads of <span className="text-stone-900 font-medium italic">culture, identity</span> and the modern <span className="text-stone-900 font-medium">human experience.</span>
           </p>
 
-          <div className="flex flex-col sm:flex-row items-start space-y-6 sm:space-y-0 sm:space-x-10 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-6 sm:space-y-0 sm:space-x-10 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
             <a
               href="#section-writings"
               onClick={scrollToArticles}
