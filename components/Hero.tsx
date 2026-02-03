@@ -115,9 +115,9 @@ const Hero: React.FC = () => {
                 href="https://topmate.io/sonakhirumi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[8px] md:text-[9px] font-black uppercase tracking-[0.2em] text-stone-400 hover:text-stone-900 transition-colors duration-300"
+                className="text-[8px] md:text-[9px] font-black uppercase tracking-[0.2em] text-stone-400 hover:text-stone-900 hover:underline transition-all duration-300"
               >
-                Let's connect
+                LET'S CONNECT
               </a>
             </div>
 
