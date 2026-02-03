@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Languages, Quote } from 'lucide-react';
 
 const Hero: React.FC = () => {
-  console.log("Portfolio v2.0 loaded");
+
   const startYear = 2021;
   const currentYear = new Date().getFullYear();
   const yearsExperience = currentYear - startYear;
@@ -108,7 +108,7 @@ const Hero: React.FC = () => {
             <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 md:-bottom-10 md:-left-20 md:translate-x-0 p-6 md:p-8 bg-white shadow-2xl rounded-2xl w-[85%] max-w-[280px] md:w-auto border border-stone-100 block animate-bounce-slow z-20">
               <Quote className="w-6 h-6 md:w-8 md:h-8 text-stone-200 mb-3 md:mb-4" />
               <p className="font-serif italic text-base md:text-lg text-stone-800 leading-snug mb-3 md:mb-4">
-                5+ years making words work harder so you don't have to.
+                5+ years of making words work harder so you don't have to.
               </p>
               <div className="h-px w-12 bg-stone-900 mb-2"></div>
               <span className="text-[8px] md:text-[9px] font-black uppercase tracking-[0.2em] text-stone-400">Editorial Philosophy No. 01</span>
