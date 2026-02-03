@@ -75,7 +75,7 @@ const Hero: React.FC = () => {
               <div className="absolute inset-0 bg-stone-800 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
             </a>
 
-            <div className="flex items-center space-x-3 text-stone-400">
+            <div className="flex items-center space-x-3 text-stone-400 sm:self-center">
               <div className="p-2 border border-stone-200 rounded-full transition-colors">
                 <Languages className="w-4 h-4" />
               </div>
