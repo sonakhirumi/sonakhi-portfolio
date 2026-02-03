@@ -60,7 +60,7 @@ const Hero: React.FC = () => {
 
 
           <p className="text-xl md:text-2xl text-stone-500 max-w-xl font-light leading-relaxed animate-in fade-in slide-in-from-left-12 duration-1000 delay-200">
-            Three languages, one obsession: <span className="text-stone-900 font-medium italic">making words hit differently!</span> I'm <span className="text-stone-900 font-medium">Sonakhi Malla (Rumi)</span>, your obsessive overthinking connoisseur who writes, edits, translates and also guides fellow budding word lovers discovering their voice. <span className="text-stone-900 font-medium italic">Khikhikhakhakhukhu!</span>
+            Three languages, one mission: <span className="text-stone-900 font-medium italic">making words hit differently!</span> I'm <span className="text-stone-900 font-medium">Sonakhi Malla (Rumi)</span>, your obsessive overthinking connoisseur who writes, edits, translates and guides fellow budding word lovers discovering their voice. <span className="text-stone-900 font-medium italic">Khikhikhakhakhukhu!</span>
           </p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-6 sm:space-y-0 sm:space-x-10 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
