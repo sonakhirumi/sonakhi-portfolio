@@ -80,19 +80,7 @@ const About: React.FC = () => {
 
           </div>
 
-          <div className="prose prose-stone max-w-none space-y-6 text-stone-600 leading-relaxed text-base md:text-lg font-light">
-            <p className="first-letter:text-5xl first-letter:font-serif first-letter:mr-3 first-letter:float-left first-letter:text-stone-900">
-              With over <strong>{yearsWords} years</strong> of professional experience in creating meaningful content across diverse formats and age groups, my work spans <strong>content writing, copywriting, ghostwriting, script writing, editing, visual storytelling, UX writing,</strong> and <strong>trilingual translation</strong> across English, Hindi, and Odia.
-            </p>
-            <p>
-              I have contributed to a wide range of projects that require both creative intuition and editorial clarity to shape compelling narratives and build brand voices that feel honest and human. My focus remains on bridge-building between complex data and human wisdom.
-            </p>
-            <p>
-              I am currently exploring opportunities that provide the creative space to spend more time with words and challenge me to broaden my horizon in the ever-evolving landscape of digital storytelling.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 gap-12 pt-12 border-t border-stone-100">
+          <div className="grid sm:grid-cols-2 gap-12 pb-12 border-b border-stone-100">
             <div className="group space-y-4">
               <div className="inline-flex items-center justify-center p-3 bg-stone-900 text-white rounded-xl transition-transform group-hover:-translate-y-1">
                 <Languages className="w-6 h-6" />
@@ -117,6 +105,20 @@ const About: React.FC = () => {
               </div>
             </div>
           </div>
+
+          <div className="prose prose-stone max-w-none space-y-6 text-stone-600 leading-relaxed text-base md:text-lg font-light">
+            <p className="first-letter:text-5xl first-letter:font-serif first-letter:mr-3 first-letter:float-left first-letter:text-stone-900">
+              With over <strong>{yearsWords} years</strong> of professional experience in creating meaningful content across diverse formats and age groups, my work spans <strong>content writing, copywriting, ghostwriting, script writing, editing, visual storytelling, UX writing,</strong> and <strong>trilingual translation</strong> across English, Hindi, and Odia.
+            </p>
+            <p>
+              I have contributed to a wide range of projects that require both creative intuition and editorial clarity to shape compelling narratives and build brand voices that feel honest and human. My focus remains on bridge-building between complex data and human wisdom.
+            </p>
+            <p>
+              I am currently exploring opportunities that provide the creative space to spend more time with words and challenge me to broaden my horizon in the ever-evolving landscape of digital storytelling.
+            </p>
+          </div>
+
+
 
           <div className="flex items-center justify-between pt-8">
             <div className="flex -space-x-3">
