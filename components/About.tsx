@@ -6,7 +6,7 @@ const About: React.FC = () => {
   const startYear = 2021;
   const currentYear = new Date().getFullYear();
   const yearsExperience = currentYear - startYear;
-  
+
   const numberToWords = (num: number): string => {
     const words = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
     return words[num] || num.toString();
@@ -18,22 +18,22 @@ const About: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-6">
       <div className="grid lg:grid-cols-12 gap-16">
-        
+
         {/* Left Side: Creative Manifesto (Sticky Container) */}
         <div className="lg:col-span-5 relative">
           <div className="lg:sticky lg:top-28 space-y-12 py-4">
             <div className="relative p-10 bg-[#f3f2ee] rounded-3xl overflow-hidden group">
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#e9e8e4] rounded-full blur-3xl opacity-50 group-hover:scale-150 transition-transform duration-1000"></div>
-              
+
               <div className="relative space-y-8">
                 <div className="w-12 h-px bg-stone-900"></div>
                 <h4 className="font-serif text-3xl md:text-4xl text-stone-900 leading-tight italic">
                   "Words are not just symbols; they are the architecture of our shared reality."
                 </h4>
                 <p className="text-stone-500 text-sm leading-relaxed font-light">
-                  My writing process is anchored in the belief that every narrative deserves a voice that is both academically rigorous and humanly resonant. 
+                  My writing process is anchored in the belief that every narrative deserves a voice that is both academically rigorous and humanly resonant.
                 </p>
-                
+
                 <div className="space-y-6 pt-6">
                   <div className="flex items-start space-x-4">
                     <div className="mt-1 p-2 bg-white rounded-lg shadow-sm">
@@ -58,8 +58,8 @@ const About: React.FC = () => {
             </div>
 
             <div className="px-4 border-l border-stone-100">
-               <span className="text-[10px] font-black uppercase tracking-[0.3em] text-stone-300 block mb-4">Core Competencies</span>
-               <div className="flex flex-wrap gap-2">
+              <span className="text-[10px] font-black uppercase tracking-[0.3em] text-stone-300 block mb-4">Core Competencies</span>
+              <div className="flex flex-wrap gap-2">
                 {['Investigative journalism', 'Content Strategy', 'Ghostwriting', 'UX Copy', 'Script Development', 'Cultural Criticism'].map((skill) => (
                   <span key={skill} className="px-3 py-1 text-[9px] font-bold uppercase tracking-widest text-stone-400 border border-stone-100 rounded-full">
                     {skill}
@@ -69,7 +69,7 @@ const About: React.FC = () => {
             </div>
           </div>
         </div>
-        
+
         {/* Right Side: Professional Narrative (Condensed Content) */}
         <div className="lg:col-span-7 space-y-12 py-4">
           <div className="space-y-6">
@@ -77,12 +77,9 @@ const About: React.FC = () => {
               <div className="w-1.5 h-1.5 bg-stone-900 rounded-full"></div>
               <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-stone-400">Sonakhi Malla (Rumi)</h2>
             </div>
-            <h3 className="font-serif text-5xl md:text-7xl text-stone-900 leading-[1.1] tracking-tight">
-              Crafting <span className="italic font-light text-stone-400">clarity</span> from the <br /> 
-              complexities of <span className="underline decoration-stone-200 underline-offset-8">thought.</span>
-            </h3>
+
           </div>
-          
+
           <div className="prose prose-stone max-w-none space-y-6 text-stone-600 leading-relaxed text-base md:text-lg font-light">
             <p className="first-letter:text-5xl first-letter:font-serif first-letter:mr-3 first-letter:float-left first-letter:text-stone-900">
               With over <strong>{yearsWords} years</strong> of professional experience in creating meaningful content across diverse formats and age groups, my work spans <strong>content writing, copywriting, ghostwriting, script writing, editing, visual storytelling, UX writing,</strong> and <strong>trilingual translation</strong> across English, Hindi, and Odia.
@@ -107,7 +104,7 @@ const About: React.FC = () => {
                 </p>
               </div>
             </div>
-            
+
             <div className="group space-y-4">
               <div className="inline-flex items-center justify-center p-3 bg-white border border-stone-200 text-stone-900 rounded-xl transition-transform group-hover:-translate-y-1 shadow-sm">
                 <PenTool className="w-6 h-6" />
