@@ -102,7 +102,7 @@ const About: React.FC = () => {
               <div>
                 <h4 className="font-bold text-xs uppercase tracking-[0.2em] text-stone-900 mb-2">Trilingual Fluency</h4>
                 <p className="text-sm text-stone-500 leading-relaxed font-light">
-                  Seamless localization and transcreation across <span className="text-stone-900 font-medium">English, Hindi, and Odia</span>. Preserving nuance across linguistic borders.
+                  Seamless localisation and transcreation across <span className="text-stone-900 font-medium">English, Hindi, and Odia</span>. Keeping the meaning, mood, and magic intact.
                 </p>
               </div>
             </div>
