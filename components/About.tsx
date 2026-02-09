@@ -94,7 +94,7 @@ const About: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-12 pt-12 border-t border-stone-100">
+          <div className="grid sm:grid-cols-2 gap-12 pt-6 border-t border-stone-100">
             <div className="group space-y-4">
               <div className="inline-flex items-center justify-center p-3 bg-stone-900 text-white rounded-xl transition-transform group-hover:-translate-y-1">
                 <Languages className="w-6 h-6" />
