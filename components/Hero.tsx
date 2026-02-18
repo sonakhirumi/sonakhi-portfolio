@@ -62,7 +62,7 @@ const Hero: React.FC = () => {
 
           {/* Hero Text Content - Updated v3 */}
           <p className="font-sans text-base md:text-lg text-stone-600 font-light leading-relaxed max-w-xl animate-in fade-in slide-in-from-left-12 duration-1000 delay-200">
-            Hi, I'm <a href="#section-about" className="text-stone-900 font-medium hover:text-stone-600 transition-colors">Sonakhi Malla (Rumi)</a>, your obsessive overthinking connoisseur who <span className="text-stone-900 font-medium">writes</span>, <span className="text-stone-900 font-medium">edits</span>, <span className="text-stone-900 font-medium">translates</span>, and <span className="text-stone-900 font-medium">guides</span> fellow budding word lovers discovering their voice.
+            Hi, I'm <a href="#about" className="text-stone-900 font-medium hover:text-stone-600 transition-colors">Sonakhi Malla (Rumi)</a>, your obsessive overthinking connoisseur who <span className="text-stone-900 font-medium">writes</span>, <span className="text-stone-900 font-medium">edits</span>, <span className="text-stone-900 font-medium">translates</span>, and <span className="text-stone-900 font-medium">guides</span> fellow budding word lovers discovering their voice.
           </p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-6 sm:space-y-0 sm:space-x-10 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">

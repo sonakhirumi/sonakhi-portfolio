@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
 
   const navigationLinks = [
     { name: 'Home', href: '#/' },
-    { name: 'About Me', href: '#section-about' },
+    { name: 'About Me', href: '#about' },
     { name: 'Writings', href: '#/writings' },
     { name: 'Topmate', href: 'https://topmate.io/sonakhirumi', isExternal: true },
   ];
@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
         <div className="grid md:grid-cols-12 gap-16 mb-20">
           {/* Column 1: Brand */}
           <div className="md:col-span-5 space-y-8">
-            <a href="#section-about" className="flex items-center space-x-2 text-white hover:opacity-80 transition-opacity">
+            <a href="#about" className="flex items-center space-x-2 text-white hover:opacity-80 transition-opacity">
               <Feather className="w-6 h-6" />
               <span className="font-serif text-2xl font-bold tracking-tight uppercase">SONAKHI RUMI</span>
             </a>
@@ -93,7 +93,7 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="pt-10 border-t border-stone-800/50 flex flex-col items-center gap-6 text-[11px] font-medium uppercase tracking-widest text-stone-600">
-          <p>© {new Date().getFullYear()} <a href="#section-about" className="hover:text-stone-400 transition-colors">Sonakhi Malla (Rumi)</a>. Crafted for narratives.</p>
+          <p>© {new Date().getFullYear()} <a href="#about" className="hover:text-stone-400 transition-colors">Sonakhi Malla (Rumi)</a>. Crafted for narratives.</p>
         </div>
       </div>
     </footer>
