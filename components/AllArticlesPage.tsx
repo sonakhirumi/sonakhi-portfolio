@@ -132,15 +132,17 @@ const AllArticlesPage: React.FC = () => {
     <div className="bg-white min-h-screen">
       <div className="bg-[#f8f7f4] border-b border-stone-100 pt-20 pb-24">
         <div className="max-w-7xl mx-auto px-6 space-y-12">
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12">
-            <div className="space-y-4">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+            {/* Left: Title */}
+            <div className="space-y-3">
               <h1 className="font-serif text-6xl md:text-8xl text-stone-900 leading-none">My Archive.</h1>
               <p className="text-stone-500 text-lg max-w-xl font-light italic">
                 Words and a lot of me.
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-2">
+            {/* Right: Filters — aligned to bottom */}
+            <div className="flex flex-wrap gap-2 lg:justify-end lg:pb-2">
               <button
                 onClick={() => updateCategory('All')}
                 className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${selectedCategory === 'All'
