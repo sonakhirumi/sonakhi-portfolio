@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 import ArticlePage from './components/ArticlePage';
 import AllArticlesPage from './components/AllArticlesPage';
 import Preloader from './components/Preloader';
-
+import Contacts from './components/Contact';
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
 
@@ -68,6 +68,7 @@ const App: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/writings" element={<AllArticlesPage />} />
           <Route path="/article/:id" element={<ArticlePage />} />
+          <Route path="/contact" element={<Contacts />} />
         </Routes>
       </main>
       <Footer />
