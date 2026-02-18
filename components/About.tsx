@@ -34,25 +34,14 @@ const About: React.FC = () => {
                   My writing process is anchored in the belief that every narrative deserves a voice that is both academically rigorous and humanly resonant.
                 </p>
 
-                <div className="space-y-6 pt-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="mt-1 p-2 bg-white rounded-lg shadow-sm">
-                      <Fingerprint className="w-4 h-4 text-stone-900" />
-                    </div>
-                    <div>
-                      <h5 className="text-[10px] font-black uppercase tracking-widest text-stone-900 mb-1">Authenticity</h5>
-                      <p className="text-xs text-stone-500">Unearthing the unique 'DNA' of every story.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-4">
-                    <div className="mt-1 p-2 bg-white rounded-lg shadow-sm">
-                      <Compass className="w-4 h-4 text-stone-900" />
-                    </div>
-                    <div>
-                      <h5 className="text-[10px] font-black uppercase tracking-widest text-stone-900 mb-1">Precision</h5>
-                      <p className="text-xs text-stone-500">Navigating complex cultural contexts with ease.</p>
-                    </div>
-                  </div>
+                <div className="space-y-6 pt-6 border-t border-stone-200">
+                  <h5 className="text-[10px] font-black uppercase tracking-widest text-stone-900 mb-2">About this space</h5>
+                  <p className="text-sm text-stone-600 leading-relaxed font-light">
+                    This website is a quiet home for my words. My poems, personal essays, opinions, and reflections live at the center of it. Alongside them, you can also find ways to connect with me, including a dedicated section for my professional work and collaborations.
+                  </p>
+                  <p className="text-sm text-stone-900 font-medium italic">
+                    Read what calls you. Reach out if something feels like it was meant for you.
+                  </p>
                 </div>
               </div>
             </div>
