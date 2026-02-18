@@ -51,6 +51,21 @@ const About: React.FC = () => {
               </div>
             </div>
 
+            <div className="flex items-center justify-between pt-2 px-2">
+              <div className="flex -space-x-3">
+                {[1, 2, 3].map(i => (
+                  <div key={i} className={`w-10 h-10 rounded-full border-2 border-white bg-stone-${i * 100 + 100}`}></div>
+                ))}
+                <div className="w-10 h-10 rounded-full border-2 border-white bg-stone-900 flex items-center justify-center text-[10px] text-white font-bold">
+                  {displayYears}
+                </div>
+              </div>
+              <div className="flex flex-col items-end">
+                <span className="text-[10px] font-black uppercase tracking-widest text-stone-400 mb-1">Industry Professional</span>
+                <span className="font-serif italic text-stone-900">Since {startYear}</span>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -118,20 +133,7 @@ const About: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-between pt-4">
-            <div className="flex -space-x-3">
-              {[1, 2, 3].map(i => (
-                <div key={i} className={`w-10 h-10 rounded-full border-2 border-white bg-stone-${i * 100 + 100}`}></div>
-              ))}
-              <div className="w-10 h-10 rounded-full border-2 border-white bg-stone-900 flex items-center justify-center text-[10px] text-white font-bold">
-                {displayYears}
-              </div>
-            </div>
-            <div className="flex flex-col items-end">
-              <span className="text-[10px] font-black uppercase tracking-widest text-stone-400 mb-1">Industry Professional</span>
-              <span className="font-serif italic text-stone-900">Since {startYear}</span>
-            </div>
-          </div>
+
 
 
         </div>
