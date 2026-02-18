@@ -136,7 +136,7 @@ const AllArticlesPage: React.FC = () => {
             <div className="space-y-4">
               <h1 className="font-serif text-6xl md:text-8xl text-stone-900 leading-none">My Archive.</h1>
               <p className="text-stone-500 text-lg max-w-xl font-light italic">
-                A live repository of published works, filtered by thematic focus and language.
+                Words and a lot of me.
               </p>
             </div>
 
