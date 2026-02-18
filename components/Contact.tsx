@@ -19,9 +19,7 @@ const Contact: React.FC = () => {
                     <h1 className="font-serif text-5xl md:text-7xl text-stone-900 leading-tight">
                         Get in Touch
                     </h1>
-                    <p className="text-stone-500 text-lg md:text-xl font-light leading-relaxed max-w-xl mx-auto">
-                        Interested in collaborating on editorial features, creative scripts, or brand storytelling? Let's connect across the digital landscape.
-                    </p>
+
                 </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 justify-center items-center animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
