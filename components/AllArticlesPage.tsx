@@ -134,7 +134,7 @@ const AllArticlesPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 space-y-12">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12">
             <div className="space-y-4">
-              <h1 className="font-serif text-6xl md:text-8xl text-stone-900 leading-none">The Archive.</h1>
+              <h1 className="font-serif text-6xl md:text-8xl text-stone-900 leading-none">My Archive.</h1>
               <p className="text-stone-500 text-lg max-w-xl font-light italic">
                 A live repository of published works, filtered by thematic focus and language.
               </p>
