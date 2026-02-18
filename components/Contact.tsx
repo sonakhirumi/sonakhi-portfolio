@@ -78,11 +78,10 @@ const Contact: React.FC = () => {
                     </a>
 
                     <div className="mt-12 pt-12 border-t border-stone-200">
-                        <a href="mailto:hello@sonakhirumi.com" className="inline-flex items-center space-x-2 text-stone-500 hover:text-stone-900 transition-colors">
+                        <a href="mailto:sonakhirumi@gmail.com" className="inline-flex items-center space-x-2 text-stone-500 hover:text-stone-900 transition-colors">
                             <Mail className="w-4 h-4" />
-                            <span className="text-sm font-medium">hello@sonakhirumi.com</span>
+                            <span className="text-sm font-medium">sonakhirumi@gmail.com</span>
                         </a>
-                        <p className="text-xs text-stone-400 mt-4">(Or whatever official email you prefer)</p>
                     </div>
                 </div>
 

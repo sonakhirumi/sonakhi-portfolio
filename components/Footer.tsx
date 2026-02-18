@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Linkedin, Instagram, Facebook, Link2, Calendar, ExternalLink } from 'lucide-react';
+import { Linkedin, Instagram, Facebook, Link2, Calendar, ExternalLink, Mail } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const socialLinks = [
@@ -35,7 +35,11 @@ const Footer: React.FC = () => {
           ))}
         </nav>
 
-        <div className="text-[10px] font-medium uppercase tracking-widest text-stone-600">
+        <div className="text-[10px] font-medium uppercase tracking-widest text-stone-600 flex flex-col md:flex-row items-center gap-6">
+          <a href="mailto:sonakhirumi@gmail.com" className="flex items-center gap-2 hover:text-stone-400 transition-colors">
+            <Mail className="w-4 h-4" />
+            <span>sonakhirumi@gmail.com</span>
+          </a>
           <p>© {new Date().getFullYear()} <a href="#about" className="hover:text-stone-400 transition-colors">Sonakhi Malla (Rumi)</a>. Crafted for narratives.</p>
         </div>
 
