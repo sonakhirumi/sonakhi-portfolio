@@ -84,13 +84,19 @@ const About: React.FC = () => {
 
           <div className="prose prose-stone max-w-none space-y-6 text-stone-600 leading-relaxed text-base md:text-lg font-light">
             <p className="first-letter:text-5xl first-letter:font-serif first-letter:mr-3 first-letter:float-left first-letter:text-stone-900">
-              With over <strong>{yearsWords} years</strong> of professional experience in creating meaningful content across diverse formats and age groups, my work spans <strong>content writing, copywriting, ghostwriting, script writing, editing, visual storytelling, UX writing,</strong> and <strong>trilingual translation</strong> across English, Hindi, and Odia.
+              I have spent the last five years working with words across content, copy, scripts, UX, editing, visual storytelling, and translation. I have learnt to move between forms without losing what matters.
             </p>
             <p>
-              I have contributed to a wide range of projects that require both creative intuition and editorial clarity to shape compelling narratives and build brand voices that feel honest and human. My focus remains on bridge-building between complex data and human wisdom.
+              Writing was manifested for me long before I developed my sense of self. I continue to choose it with intention because words help me breathe. They let me place the weight on my chest onto paper. When I began writing for others, my goal was simple: to help people find the right words!
             </p>
             <p>
-              I am currently exploring opportunities that provide the creative space to spend more time with words and challenge me to broaden my horizon in the ever-evolving landscape of digital storytelling.
+              Now I am at a place where I want to challenge myself and take up projects that broaden my horizons. I also want to mentor writers who are still figuring out if they are allowed to call themselves writers. Because I was that person too. Some days, I still am.
+            </p>
+            <p>
+              If you are looking for someone who not only knows how to write but ensures that your words move people, not just fill space, whether you need content, editing, translation, or just someone to tell you your writing does not suck—I am here.
+            </p>
+            <p className="font-medium text-stone-900">
+              Let’s spend some time with words together.
             </p>
           </div>
 
