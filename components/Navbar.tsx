@@ -25,14 +25,14 @@ const Navbar: React.FC = () => {
     <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md py-4 shadow-md border-b border-stone-200' : 'bg-[#faf9f6]/80 backdrop-blur-sm py-6 shadow-sm border-b border-stone-200/50'
       }`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <Link
-          to="/#about"
+        <a
+          href="/#about"
           className="flex items-center space-x-2 group hover:opacity-80 transition-opacity"
           onClick={() => setIsMobileMenuOpen(false)}
         >
           <Feather className="w-6 h-6 text-stone-800" />
           <span className="font-serif text-xl font-bold tracking-tight text-stone-900 uppercase">SONAKHI RUMI</span>
-        </Link>
+        </a>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8">
