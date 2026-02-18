@@ -34,6 +34,7 @@ const Footer: React.FC = () => {
     { icon: Facebook, href: 'https://www.facebook.com/sonakhi.rumi', label: 'Facebook' },
     { icon: LinktreeIcon, href: 'https://linktr.ee/sonakhirumi', label: 'Linktree' },
     { icon: TopmateIcon, href: 'https://topmate.io/sonakhirumi', label: 'Topmate' },
+    { icon: Mail, href: 'mailto:sonakhirumi@gmail.com', label: 'Email' },
   ];
 
   const navigationLinks: { name: string; href: string; isExternal?: boolean }[] = [
@@ -99,13 +100,6 @@ const Footer: React.FC = () => {
                   <ExternalLink className="w-3 h-3" />
                 </a>
 
-                <a
-                  href="mailto:sonakhirumi@gmail.com"
-                  className="inline-flex items-center space-x-2 text-white font-bold text-xs uppercase tracking-widest border-b border-stone-700 hover:border-white transition-colors pb-1"
-                >
-                  <span>sonakhirumi@gmail.com</span>
-                  <Mail className="w-3 h-3" />
-                </a>
               </div>
             </div>
           </div>
