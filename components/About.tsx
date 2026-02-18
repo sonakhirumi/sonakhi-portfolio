@@ -21,7 +21,7 @@ const About: React.FC = () => {
 
         {/* Left Side: Creative Manifesto (Sticky Container) */}
         <div className="lg:col-span-5 relative">
-          <div className="lg:sticky lg:top-28 space-y-12 py-4">
+          <div className="lg:sticky lg:top-28 space-y-8 py-4 h-full flex flex-col justify-start">
             <div className="relative p-8 bg-[#f3f2ee] rounded-3xl overflow-hidden group border border-stone-100 shadow-sm">
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#e9e8e4] rounded-full blur-3xl opacity-50 group-hover:scale-150 transition-transform duration-1000"></div>
               <span className="relative z-10 text-[10px] font-black uppercase tracking-[0.3em] text-stone-400 block mb-6">Core Competencies</span>
@@ -62,7 +62,7 @@ const About: React.FC = () => {
 
             <div className="flex items-center justify-between p-6 bg-stone-900 rounded-2xl text-white shadow-xl shadow-stone-900/10">
               <div className="flex flex-col">
-                <span className="text-[9px] font-bold uppercase tracking-widest text-stone-400 mb-1">Experience</span>
+                <span className="text-[9px] font-bold uppercase tracking-widest text-stone-400 mb-1">Industry Professional</span>
                 <span className="font-serif italic text-lg">Since {startYear}</span>
               </div>
               <div className="flex items-center space-x-2">
