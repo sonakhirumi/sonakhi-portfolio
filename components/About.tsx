@@ -78,7 +78,7 @@ const About: React.FC = () => {
           <div className="space-y-6">
             <div className="flex items-center space-x-3">
               <div className="w-1.5 h-1.5 bg-stone-900 rounded-full"></div>
-              <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-stone-400">Sonakhi Malla (Rumi)</h2>
+              <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-stone-400">About Me</h2>
             </div>
 
           </div>
