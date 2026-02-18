@@ -22,46 +22,12 @@ const About: React.FC = () => {
         {/* Left Side: Creative Manifesto (Sticky Container) */}
         <div className="lg:col-span-5 relative">
           <div className="lg:sticky lg:top-28 space-y-12 py-4">
-            <div className="relative p-10 bg-[#f3f2ee] rounded-3xl overflow-hidden group">
+            <div className="relative p-8 bg-[#f3f2ee] rounded-3xl overflow-hidden group border border-stone-100">
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#e9e8e4] rounded-full blur-3xl opacity-50 group-hover:scale-150 transition-transform duration-1000"></div>
-
-              <div className="relative space-y-8">
-                <div className="w-12 h-px bg-stone-900"></div>
-                <h4 className="font-serif text-3xl md:text-4xl text-stone-900 leading-tight italic">
-                  "Words are not just symbols; they are the architecture of our shared reality."
-                </h4>
-                <p className="text-stone-500 text-sm leading-relaxed font-light">
-                  My writing process is anchored in the belief that every narrative deserves a voice that is both academically rigorous and humanly resonant.
-                </p>
-
-                <div className="space-y-6 pt-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="mt-1 p-2 bg-white rounded-lg shadow-sm">
-                      <Fingerprint className="w-4 h-4 text-stone-900" />
-                    </div>
-                    <div>
-                      <h5 className="text-[10px] font-black uppercase tracking-widest text-stone-900 mb-1">Authenticity</h5>
-                      <p className="text-xs text-stone-500">Unearthing the unique 'DNA' of every story.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-4">
-                    <div className="mt-1 p-2 bg-white rounded-lg shadow-sm">
-                      <Compass className="w-4 h-4 text-stone-900" />
-                    </div>
-                    <div>
-                      <h5 className="text-[10px] font-black uppercase tracking-widest text-stone-900 mb-1">Precision</h5>
-                      <p className="text-xs text-stone-500">Navigating complex cultural contexts with ease.</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="px-4 border-l border-stone-100">
-              <span className="text-[10px] font-black uppercase tracking-[0.3em] text-stone-300 block mb-4">Core Competencies</span>
-              <div className="flex flex-wrap gap-2">
-                {['Investigative journalism', 'Content Strategy', 'Ghostwriting', 'UX Copy', 'Script Development', 'Cultural Criticism'].map((skill) => (
-                  <span key={skill} className="px-3 py-1 text-[9px] font-bold uppercase tracking-widest text-stone-400 border border-stone-100 rounded-full">
+              <span className="relative z-10 text-[10px] font-black uppercase tracking-[0.3em] text-stone-400 block mb-6">Core Competencies</span>
+              <div className="relative z-10 flex flex-wrap gap-2">
+                {['Content Writing', 'Copywriting', 'Script Writing', 'UX Writing', 'Editing', 'Visual Storytelling', 'Translation', 'Mentorship'].map((skill) => (
+                  <span key={skill} className="px-3 py-1.5 text-[9px] font-bold uppercase tracking-widest text-stone-600 bg-white/60 backdrop-blur-sm border border-stone-200/50 rounded-full shadow-sm">
                     {skill}
                   </span>
                 ))}
