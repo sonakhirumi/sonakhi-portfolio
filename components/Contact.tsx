@@ -77,12 +77,7 @@ const Contact: React.FC = () => {
                         <ExternalLink className="w-4 h-4" />
                     </a>
 
-                    <div className="mt-12 pt-12 border-t border-stone-200">
-                        <a href="mailto:sonakhirumi@gmail.com" className="inline-flex items-center space-x-2 text-stone-500 hover:text-stone-900 transition-colors">
-                            <Mail className="w-4 h-4" />
-                            <span className="text-sm font-medium">sonakhirumi@gmail.com</span>
-                        </a>
-                    </div>
+
                 </div>
 
             </div>

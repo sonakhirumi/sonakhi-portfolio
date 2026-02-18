@@ -15,6 +15,7 @@ const Footer: React.FC = () => {
     { name: 'Home', href: '#/' },
     { name: 'About', href: '#about' },
     { name: 'Writings', href: '#/writings' },
+    { name: 'Contact', href: '/contact' },
 
   ];
 
@@ -40,7 +41,7 @@ const Footer: React.FC = () => {
             <Mail className="w-4 h-4" />
             <span>sonakhirumi@gmail.com</span>
           </a>
-          <p>© {new Date().getFullYear()} <a href="#about" className="hover:text-stone-400 transition-colors">Sonakhi Malla (Rumi)</a>. Crafted for narratives.</p>
+          <p>© {new Date().getFullYear()} <a href="#about" className="hover:text-stone-400 transition-colors">Sonakhi Malla (Rumi)</a></p>
         </div>
 
       </div>
