@@ -46,9 +46,7 @@ const Footer: React.FC = () => {
           <div className="md:col-span-7 space-y-8">
             <h4 className="text-white font-bold text-xs uppercase tracking-[0.3em]">Get in Touch</h4>
             <div className="space-y-6">
-              <p className="text-sm leading-relaxed">
-                Interested in collaborating on editorial features, creative scripts, or brand storytelling? Let's connect across the digital landscape.
-              </p>
+
 
               <div className="flex flex-wrap gap-4">
                 {socialLinks.map((social, idx) => (
