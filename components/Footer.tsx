@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Feather, Linkedin, Instagram, Facebook, Link2, Calendar, ExternalLink } from 'lucide-react';
+import { Linkedin, Instagram, Facebook, Link2, Calendar, ExternalLink } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const socialLinks = [
@@ -22,17 +22,10 @@ const Footer: React.FC = () => {
     <footer id="contact" className="bg-[#1a1a1a] text-stone-400 py-24">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-12 gap-16 mb-20">
-          {/* Column 1: Brand */}
-          <div className="md:col-span-5 space-y-8">
-            <a href="#about" className="flex items-center space-x-2 text-white hover:opacity-80 transition-opacity">
-              <Feather className="w-6 h-6" />
-              <span className="font-serif text-2xl font-bold tracking-tight uppercase">SONAKHI RUMI</span>
-            </a>
 
-          </div>
 
           {/* Column 2: Navigation */}
-          <div className="md:col-span-3 space-y-6">
+          <div className="md:col-span-5 space-y-6">
             <h4 className="text-white font-bold text-xs uppercase tracking-[0.3em]">Navigation</h4>
             <nav className="flex flex-col space-y-4">
               {navigationLinks.map((link) => (
@@ -50,7 +43,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Column 3: Get in Touch & Socials */}
-          <div className="md:col-span-4 space-y-8">
+          <div className="md:col-span-7 space-y-8">
             <h4 className="text-white font-bold text-xs uppercase tracking-[0.3em]">Get in Touch</h4>
             <div className="space-y-6">
               <p className="text-sm leading-relaxed">
