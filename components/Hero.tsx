@@ -114,11 +114,7 @@ const Hero: React.FC = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-20 left-6 hidden md:flex items-center space-x-4 text-stone-300 transform -rotate-90 origin-left">
-        <span className="text-[9px] font-bold uppercase tracking-[0.4em]">Scroll to Discover</span>
-        <div className="w-20 h-px bg-stone-200"></div>
-      </div>
+
 
       <style>{`
         @keyframes bounce-slow {
