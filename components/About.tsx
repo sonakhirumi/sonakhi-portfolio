@@ -102,7 +102,7 @@ const About: React.FC = () => {
                 href="https://topmate.io/sonakhirumi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative z-20 inline-flex items-center gap-2 text-stone-900 underline underline-offset-4 decoration-stone-300 hover:decoration-stone-900 transition-all cursor-pointer"
+                className="relative z-20 inline-flex items-center gap-2 text-stone-900 hover:underline underline-offset-4 decoration-stone-900 transition-all cursor-pointer"
               >
                 Let’s spend some time with words together.
                 <ExternalLink className="w-4 h-4 text-stone-400" />
