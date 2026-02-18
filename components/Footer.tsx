@@ -11,11 +11,11 @@ const Footer: React.FC = () => {
     { icon: Calendar, href: 'https://topmate.io/sonakhirumi', label: 'Topmate' },
   ];
 
-  const navigationLinks = [
+  const navigationLinks: { name: string; href: string; isExternal?: boolean }[] = [
     { name: 'Home', href: '#/' },
     { name: 'About', href: '#about' },
     { name: 'Writings', href: '#/writings' },
-    { name: 'Topmate', href: 'https://topmate.io/sonakhirumi', isExternal: true },
+
   ];
 
   return (
