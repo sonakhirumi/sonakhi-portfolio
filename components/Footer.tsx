@@ -28,9 +28,7 @@ const Footer: React.FC = () => {
               <Feather className="w-6 h-6" />
               <span className="font-serif text-2xl font-bold tracking-tight uppercase">SONAKHI RUMI</span>
             </a>
-            <p className="text-lg text-stone-500 max-w-sm leading-relaxed">
-              Exploring human experience through the art of storytelling, investigative depth, and cultural commentary.
-            </p>
+
           </div>
 
           {/* Column 2: Navigation */}
