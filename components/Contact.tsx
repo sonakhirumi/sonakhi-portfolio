@@ -48,7 +48,7 @@ const Contact: React.FC = () => {
 
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 justify-center items-center animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+                <div className="flex flex-wrap gap-6 justify-center items-center animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
                     {socialLinks.map((social, idx) => (
                         <a
                             key={idx}
