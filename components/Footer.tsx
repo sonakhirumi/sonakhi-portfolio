@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
 
   const navigationLinks = [
     { name: 'Home', href: '#/' },
-    { name: 'About Me', href: '#about' },
+    { name: 'About', href: '#about' },
     { name: 'Writings', href: '#/writings' },
     { name: 'Topmate', href: 'https://topmate.io/sonakhirumi', isExternal: true },
   ];
