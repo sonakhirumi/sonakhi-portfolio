@@ -72,7 +72,7 @@ const Hero: React.FC = () => {
               className="group relative inline-flex items-center justify-center px-10 py-5 bg-stone-900 text-white overflow-hidden rounded-full transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-stone-900/20"
             >
               <span className="relative z-10 font-bold text-xs uppercase tracking-widest flex items-center">
-                Enter the Archive
+                Enter my Archive
                 <ArrowRight className="ml-3 w-4 h-4 transition-transform group-hover:translate-x-2" />
               </span>
               <div className="absolute inset-0 bg-stone-800 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
