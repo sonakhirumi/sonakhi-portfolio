@@ -34,6 +34,7 @@ const Contact: React.FC = () => {
         { icon: Facebook, href: 'https://www.facebook.com/sonakhi.rumi', label: 'Facebook' },
         { icon: LinktreeIcon, href: 'https://linktr.ee/sonakhirumi', label: 'Linktree' },
         { icon: TopmateIcon, href: 'https://topmate.io/sonakhirumi', label: 'Topmate' },
+        { icon: Mail, href: 'mailto:sonakhirumi@gmail.com', label: 'Email' },
     ];
 
     return (
