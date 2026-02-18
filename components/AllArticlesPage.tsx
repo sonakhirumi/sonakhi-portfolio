@@ -181,56 +181,25 @@ const AllArticlesPage: React.FC = () => {
             ))}
           </div>
         ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20">
-            {filteredArticles.length > 0 ? (
-              filteredArticles.map(article => (
-                <Link
-                  key={article.id}
-                  to={`/article/${article.id}`}
-                  className="group text-left flex flex-col h-full border-b border-stone-100 pb-12 hover:border-stone-300 transition-colors"
-                >
-                  <div className="relative aspect-[16/10] mb-8 overflow-hidden rounded-2xl shadow-2xl shadow-stone-200/50">
-                    <img
-                      src={article.imageUrl}
-                      alt={article.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <span className="px-4 py-1.5 bg-white/90 backdrop-blur-sm text-[9px] font-black uppercase tracking-widest text-stone-900 rounded-full">
-                        {article.category}
-                      </span>
-                    </div>
-                  </div>
+          <div className="flex flex-col items-center justify-center py-16 gap-12">
+            {/* Image */}
+            <div className="w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl shadow-stone-200/60 border border-stone-100">
+              <img
+                src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&auto=format&fit=crop&q=80"
+                alt="Under Construction"
+                className="w-full h-72 object-cover object-center"
+              />
+            </div>
 
-                  <div className="flex-grow space-y-4">
-                    <div className="flex items-center space-x-4 text-[10px] font-black tracking-widest text-stone-400 uppercase">
-                      <span className="flex items-center"><Calendar className="w-3 h-3 mr-1.5" /> {article.date}</span>
-                    </div>
-                    <h3 className="font-serif text-3xl text-stone-900 leading-tight group-hover:text-stone-600 transition-colors">
-                      {article.title}
-                    </h3>
-                    <p className="text-stone-500 text-sm leading-relaxed line-clamp-3 font-light">
-                      {article.excerpt}
-                    </p>
-                  </div>
-
-                  <div className="mt-8 flex items-center space-x-3 text-stone-900 font-bold text-xs uppercase tracking-widest group-hover:translate-x-3 transition-transform">
-                    <span>Read Story</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </div>
-                </Link>
-              ))
-            ) : (
-              <div className="col-span-full py-32 text-center space-y-6">
-                <div className="font-serif text-3xl text-stone-300 italic">This chapter is currently empty.</div>
-                <button
-                  onClick={() => updateCategory('All')}
-                  className="text-stone-900 font-black uppercase text-xs tracking-widest border-b-2 border-stone-900 pb-1"
-                >
-                  View All Writings
-                </button>
-              </div>
-            )}
+            {/* Text */}
+            <div className="text-center space-y-4 max-w-lg">
+              <span className="text-[10px] font-black uppercase tracking-[0.4em] text-stone-400">Coming Soon</span>
+              <h2 className="font-serif text-4xl md:text-5xl text-stone-900 leading-tight">Under Construction.</h2>
+              <p className="text-stone-500 font-light leading-relaxed text-base">
+                Words are being carefully placed. This section is being built with the same intention I bring to everything I write — slowly, and with purpose.
+              </p>
+              <p className="font-serif italic text-stone-400 text-sm">Check back soon.</p>
+            </div>
           </div>
         )}
       </div>
