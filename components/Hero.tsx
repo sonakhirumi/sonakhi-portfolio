@@ -16,25 +16,7 @@ const Hero: React.FC = () => {
 
   const yearsWords = numberToWords(yearsExperience);
 
-  const scrollToArticles = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    const element = document.getElementById('writings');
-    if (element) {
-      const offset = 80; // Offset for fixed navbar
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-
-      // Update hash without jump
-      window.history.pushState(null, '', '#section-writings');
-    }
-  };
 
   return (
     <div className="relative min-h-auto md:min-h-screen flex flex-col justify-start lg:justify-start pt-10 lg:pt-10 bg-[#faf9f6] overflow-hidden">
@@ -62,13 +44,12 @@ const Hero: React.FC = () => {
 
           {/* Hero Text Content - Updated v3 */}
           <p className="font-sans text-base md:text-lg text-stone-600 font-light leading-relaxed max-w-xl animate-in fade-in slide-in-from-left-12 duration-1000 delay-200">
-            Hi, I'm <a href="#about" className="text-stone-900 font-medium hover:text-stone-600 transition-colors">Sonakhi Malla (Rumi)</a>, your obsessive overthinking connoisseur who <span className="text-stone-900 font-medium">writes</span>, <span className="text-stone-900 font-medium">edits</span>, <span className="text-stone-900 font-medium">translates</span>, and <span className="text-stone-900 font-medium">guides</span> fellow budding word lovers discovering their voice.
+            Hi, I'm <a href="/about" className="text-stone-900 font-medium hover:text-stone-600 transition-colors">Sonakhi Malla (Rumi)</a>, your obsessive overthinking connoisseur who <span className="text-stone-900 font-medium">writes</span>, <span className="text-stone-900 font-medium">edits</span>, <span className="text-stone-900 font-medium">translates</span>, and <span className="text-stone-900 font-medium">guides</span> fellow budding word lovers discovering their voice.
           </p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-6 sm:space-y-0 sm:space-x-10 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
-            <a
-              href="#section-writings"
-              onClick={scrollToArticles}
+            <Link
+              to="/writings"
               className="group relative inline-flex items-center justify-center px-10 py-5 bg-stone-900 text-white overflow-hidden rounded-full transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-stone-900/20"
             >
               <span className="relative z-10 font-bold text-xs uppercase tracking-widest flex items-center">
@@ -76,18 +57,18 @@ const Hero: React.FC = () => {
                 <ArrowRight className="ml-3 w-4 h-4 transition-transform group-hover:translate-x-2" />
               </span>
               <div className="absolute inset-0 bg-stone-800 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-            </a>
+            </Link>
 
             <div className="flex items-center space-x-3 text-stone-400 sm:self-center">
               <div className="p-2 border border-stone-200 rounded-full transition-colors">
                 <Languages className="w-4 h-4" />
               </div>
               <div className="text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
-                <Link to="/writings?category=english" className="hover:text-stone-900 transition-colors p-2">ENG</Link>
+                <Link to="/writings/english" className="hover:text-stone-900 transition-colors p-2">ENG</Link>
                 <span>•</span>
-                <Link to="/writings?category=हिंदी" className="hover:text-stone-900 transition-colors p-2">HIN</Link>
+                <Link to="/writings/hindi" className="hover:text-stone-900 transition-colors p-2">HIN</Link>
                 <span>•</span>
-                <Link to="/writings?category=ଓଡ଼ିଆ" className="hover:text-stone-900 transition-colors p-2">ODI</Link>
+                <Link to="/writings/odia" className="hover:text-stone-900 transition-colors p-2">ODI</Link>
               </div>
             </div>
           </div>

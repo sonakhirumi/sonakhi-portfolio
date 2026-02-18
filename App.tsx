@@ -28,19 +28,13 @@ const ScrollToTop = () => {
 };
 
 const Home: React.FC = () => (
-  <>
-    <section id="home">
-      <Hero />
-    </section>
+  <Hero />
+);
 
-    <section id="about" className="py-24 bg-white">
-      <About />
-    </section>
-
-    <section id="writings" className="py-24 bg-[#f8f7f4]">
-      <Articles />
-    </section>
-  </>
+const AboutPage: React.FC = () => (
+  <section className="py-24 bg-white">
+    <About />
+  </section>
 );
 
 const App: React.FC = () => {
@@ -66,6 +60,7 @@ const App: React.FC = () => {
       <main className="flex-grow pt-20">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/writings" element={<AllArticlesPage />} />
           <Route path="/article/:id" element={<ArticlePage />} />
           <Route path="/contact" element={<Contacts />} />

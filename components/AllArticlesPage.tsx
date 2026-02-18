@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useSearchParams, useNavigate } from 'react-router-dom';
+import { Link, useSearchParams, useNavigate, useParams } from 'react-router-dom';
 import { ArrowLeft, Calendar, ArrowRight } from 'lucide-react';
 import { Article } from '../types';
 
@@ -7,6 +7,7 @@ const BASE_URL = 'https://live-sonakhi-rumi.pantheonsite.io/wp-json/wp/v2';
 
 const AllArticlesPage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const { category: routeCategory } = useParams();
   const navigate = useNavigate();
 
   const [articles, setArticles] = useState<Article[]>([]);
@@ -70,18 +71,19 @@ const AllArticlesPage: React.FC = () => {
           actualCategories = processedCats;
         }
 
-        const catParam = searchParams.get('category');
-        if (catParam) {
+        let initialCategory = 'All';
+        const paramCategory = routeCategory || searchParams.get('category');
+
+        if (paramCategory) {
           // Find the correctly-cased category name from the list
-          const match = actualCategories.find(c => c.name.toLowerCase() === catParam.toLowerCase());
+          const match = actualCategories.find(c => c.name.toLowerCase() === paramCategory.toLowerCase());
           if (match) {
-            setSelectedCategory(match.name);
-          } else if (catParam.toLowerCase() === 'all') {
-            setSelectedCategory('All');
+            initialCategory = match.name;
+          } else if (paramCategory.toLowerCase() === 'all') {
+            initialCategory = 'All';
           }
-        } else {
-          setSelectedCategory('All');
         }
+        setSelectedCategory(initialCategory);
 
         const postRes = await fetch(`${BASE_URL}/posts?_embed&per_page=100&_=${Date.now()}`);
         const postsData = await postRes.json();
@@ -111,7 +113,7 @@ const AllArticlesPage: React.FC = () => {
 
 
     fetchAllData();
-  }, [searchParams]);
+  }, [searchParams, routeCategory]);
 
   const filteredArticles = selectedCategory === 'All'
     ? articles
@@ -120,9 +122,9 @@ const AllArticlesPage: React.FC = () => {
   const updateCategory = (catName: string) => {
     setSelectedCategory(catName);
     if (catName === 'All') {
-      setSearchParams({});
+      navigate('/writings');
     } else {
-      setSearchParams({ category: catName.toLowerCase() });
+      navigate(`/writings/${catName.toLowerCase()}`);
     }
   };
 
