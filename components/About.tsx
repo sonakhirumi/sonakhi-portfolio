@@ -34,42 +34,6 @@ const About: React.FC = () => {
               </div>
             </div>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-1 gap-6">
-              <div className="group p-6 bg-white border border-stone-100 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300">
-                <div className="flex items-center space-x-4 mb-3">
-                  <div className="p-2 bg-stone-900 text-white rounded-lg group-hover:scale-110 transition-transform duration-300">
-                    <Languages className="w-5 h-5" />
-                  </div>
-                  <h4 className="font-bold text-xs uppercase tracking-widest text-stone-900">Trilingual Fluency</h4>
-                </div>
-                <p className="text-xs text-stone-500 leading-relaxed font-light">
-                  Seamless localisation and transcreation across <span className="text-stone-900 font-medium">English, Hindi, and Odia</span>. Keeping the meaning, mood, and magic intact.
-                </p>
-              </div>
-
-              <div className="group p-6 bg-white border border-stone-100 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300">
-                <div className="flex items-center space-x-4 mb-3">
-                  <div className="p-2 bg-white border border-stone-200 text-stone-900 rounded-lg group-hover:border-stone-900 transition-colors duration-300">
-                    <PenTool className="w-5 h-5" />
-                  </div>
-                  <h4 className="font-bold text-xs uppercase tracking-widest text-stone-900">Format Versatility</h4>
-                </div>
-                <p className="text-xs text-stone-500 leading-relaxed font-light">
-                  From long-form editorial features and scripts to micro-copy and visual brand strategy. Adaptive tone for every medium.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-center justify-between p-6 bg-stone-900 rounded-2xl text-white shadow-xl shadow-stone-900/10">
-              <div className="flex flex-col">
-                <span className="text-[9px] font-bold uppercase tracking-widest text-stone-400 mb-1">Industry Professional</span>
-                <span className="font-serif italic text-lg">Since {startYear}</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <div className="text-3xl font-serif">{displayYears}</div>
-                <div className="text-[9px] font-bold uppercase tracking-widest text-stone-400 max-w-[50px] leading-tight">Years Active</div>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -101,6 +65,47 @@ const About: React.FC = () => {
             <p className="font-medium text-stone-900">
               Let’s spend some time with words together.
             </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-12 pt-4 border-t border-stone-100 !mt-8">
+            <div className="group space-y-4">
+              <div className="inline-flex items-center justify-center p-3 bg-stone-900 text-white rounded-xl transition-transform group-hover:-translate-y-1">
+                <Languages className="w-6 h-6" />
+              </div>
+              <div>
+                <h4 className="font-bold text-xs uppercase tracking-[0.2em] text-stone-900 mb-2">Trilingual Fluency</h4>
+                <p className="text-sm text-stone-500 leading-relaxed font-light">
+                  Seamless localisation and transcreation across <span className="text-stone-900 font-medium">English, Hindi, and Odia</span>. Keeping the meaning, mood, and magic intact.
+                </p>
+              </div>
+            </div>
+
+            <div className="group space-y-4">
+              <div className="inline-flex items-center justify-center p-3 bg-white border border-stone-200 text-stone-900 rounded-xl transition-transform group-hover:-translate-y-1 shadow-sm">
+                <PenTool className="w-6 h-6" />
+              </div>
+              <div>
+                <h4 className="font-bold text-xs uppercase tracking-[0.2em] text-stone-900 mb-2">Format Versatility</h4>
+                <p className="text-sm text-stone-500 leading-relaxed font-light">
+                  From long-form editorial features and scripts to micro-copy and visual brand strategy. Adaptive tone for every medium.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between pt-8">
+            <div className="flex -space-x-3">
+              {[1, 2, 3].map(i => (
+                <div key={i} className={`w-10 h-10 rounded-full border-2 border-white bg-stone-${i * 100 + 100}`}></div>
+              ))}
+              <div className="w-10 h-10 rounded-full border-2 border-white bg-stone-900 flex items-center justify-center text-[10px] text-white font-bold">
+                {displayYears}
+              </div>
+            </div>
+            <div className="flex flex-col items-end">
+              <span className="text-[10px] font-black uppercase tracking-widest text-stone-400 mb-1">Industry Professional</span>
+              <span className="font-serif italic text-stone-900">Since {startYear}</span>
+            </div>
           </div>
 
 
