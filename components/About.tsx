@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Languages, PenTool, Fingerprint, Compass } from 'lucide-react';
+import { Languages, PenTool, Fingerprint, Compass, ExternalLink } from 'lucide-react';
 
 const About: React.FC = () => {
   const startYear = 2021;
@@ -97,9 +97,17 @@ const About: React.FC = () => {
             <p>
               If you are looking for someone who not only knows how to write but ensures that your words move people, not just fill space, whether you need content, editing, translation, or just someone to tell you your writing does not suck—I am here.
             </p>
-            <p className="font-medium text-stone-900">
-              Let’s spend some time with words together.
-            </p>
+            <div className="font-medium text-stone-900 mt-2">
+              <a
+                href="https://topmate.io/sonakhirumi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative z-20 inline-flex items-center gap-2 border-b-2 border-stone-900 text-stone-900 hover:text-stone-600 hover:border-stone-600 pb-0.5 cursor-pointer"
+              >
+                Let’s spend some time with words together.
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-6 pt-4 border-t border-stone-100 !mt-6">
