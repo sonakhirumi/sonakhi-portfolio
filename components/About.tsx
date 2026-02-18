@@ -27,14 +27,7 @@ const About: React.FC = () => {
 
               <div className="relative space-y-8">
                 <div className="w-12 h-px bg-stone-900"></div>
-                <h4 className="font-serif text-3xl md:text-4xl text-stone-900 leading-tight italic">
-                  "Words are not just symbols; they are the architecture of our shared reality."
-                </h4>
-                <p className="text-stone-500 text-sm leading-relaxed font-light">
-                  My writing process is anchored in the belief that every narrative deserves a voice that is both academically rigorous and humanly resonant.
-                </p>
-
-                <div className="space-y-6 pt-6 border-t border-stone-200">
+                <div className="space-y-6">
                   <h5 className="text-[10px] font-black uppercase tracking-widest text-stone-900 mb-2">About this space</h5>
                   <p className="text-sm text-stone-600 leading-relaxed font-light">
                     This website is a quiet home for my words. My poems, personal essays, opinions, and reflections live at the center of it. Alongside them, you can also find ways to connect with me, including a dedicated section for my professional work and collaborations.
