@@ -73,7 +73,7 @@ const About: React.FC = () => {
         </div>
 
         {/* Right Side: Professional Narrative (Condensed Content) */}
-        <div className="lg:col-span-7 space-y-12 py-4">
+        <div className="lg:col-span-7 space-y-8 py-4">
           <div className="space-y-6">
             <div className="flex items-center space-x-3">
               <div className="w-1.5 h-1.5 bg-stone-900 rounded-full"></div>
@@ -84,7 +84,7 @@ const About: React.FC = () => {
 
 
 
-          <div className="prose prose-stone max-w-none space-y-6 text-stone-600 leading-relaxed text-base md:text-lg font-light">
+          <div className="prose prose-stone max-w-none space-y-4 text-stone-600 leading-relaxed text-base md:text-lg font-light">
             <p className="first-letter:text-5xl first-letter:font-serif first-letter:mr-3 first-letter:float-left first-letter:text-stone-900">
               I have spent the last five years working with words across content, copy, scripts, UX, editing, visual storytelling, and translation. I have learnt to move between forms without losing what matters.
             </p>
@@ -102,7 +102,7 @@ const About: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-12 pt-4 border-t border-stone-100 !mt-8">
+          <div className="grid sm:grid-cols-2 gap-6 pt-4 border-t border-stone-100 !mt-6">
             <div className="group space-y-4">
               <div className="inline-flex items-center justify-center p-3 bg-stone-900 text-white rounded-xl transition-transform group-hover:-translate-y-1">
                 <Languages className="w-6 h-6" />
@@ -128,7 +128,7 @@ const About: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex items-center justify-between pt-8">
+          <div className="flex items-center justify-between pt-4">
             <div className="flex -space-x-3">
               {[1, 2, 3].map(i => (
                 <div key={i} className={`w-10 h-10 rounded-full border-2 border-white bg-stone-${i * 100 + 100}`}></div>
