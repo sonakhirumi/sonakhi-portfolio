@@ -24,10 +24,10 @@ const About: React.FC = () => {
           <div className="lg:sticky lg:top-28 space-y-8 py-4 h-full flex flex-col justify-start">
             <div className="relative p-8 bg-[#f3f2ee] rounded-3xl overflow-hidden group border border-stone-100 shadow-sm">
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#e9e8e4] rounded-full blur-3xl opacity-50 group-hover:scale-150 transition-transform duration-1000"></div>
-              <span className="relative z-10 text-[10px] font-black uppercase tracking-[0.3em] text-stone-400 block mb-8">Core Competencies</span>
-              <div className="relative z-10 flex flex-wrap gap-x-3 gap-y-4">
+              <span className="relative z-10 text-[10px] font-black uppercase tracking-[0.3em] text-stone-400 block mb-6">Core Competencies</span>
+              <div className="relative z-10 flex flex-wrap gap-2">
                 {['Content Writing', 'Copywriting', 'Script Writing', 'UX Writing', 'Editing', 'Visual Storytelling', 'Translation', 'Mentorship'].map((skill) => (
-                  <span key={skill} className="px-4 py-2 text-[9px] font-bold uppercase tracking-widest text-stone-600 bg-white/60 backdrop-blur-sm border border-stone-200/50 rounded-full shadow-sm hover:bg-white transition-colors cursor-default">
+                  <span key={skill} className="px-3 py-1.5 text-[9px] font-bold uppercase tracking-widest text-stone-600 bg-white/60 backdrop-blur-sm border border-stone-200/50 rounded-full shadow-sm hover:bg-white transition-colors cursor-default">
                     {skill}
                   </span>
                 ))}
