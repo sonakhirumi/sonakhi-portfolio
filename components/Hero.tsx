@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Languages, Quote } from 'lucide-react';
+import { ArrowRight, Languages, Quote, ExternalLink } from 'lucide-react';
 
 const Hero: React.FC = () => {
 
@@ -117,9 +117,10 @@ const Hero: React.FC = () => {
                 href="https://topmate.io/sonakhirumi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[8px] md:text-[9px] font-black uppercase tracking-[0.2em] text-stone-400 hover:text-stone-900 hover:underline transition-all duration-300"
+                className="flex items-center gap-2 text-[8px] md:text-[9px] font-black uppercase tracking-[0.2em] text-stone-400 hover:text-stone-900 hover:underline transition-all duration-300 group/link"
               >
                 LET'S CONNECT
+                <ExternalLink className="w-3 h-3 group-hover/link:text-stone-900 transition-colors" />
               </a>
             </div>
 
