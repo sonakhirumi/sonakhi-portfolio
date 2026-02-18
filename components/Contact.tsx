@@ -48,14 +48,14 @@ const Contact: React.FC = () => {
 
                 </div>
 
-                <div className="flex flex-wrap gap-6 justify-center items-center animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+                <div className="flex flex-wrap gap-4 justify-center items-center animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
                     {socialLinks.map((social, idx) => (
                         <a
                             key={idx}
                             href={social.href}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group flex flex-col items-center gap-4 p-6 bg-white border border-stone-200 rounded-2xl hover:border-stone-400 hover:shadow-xl transition-all duration-300"
+                            className="group flex flex-col items-center gap-3 p-4 bg-white border border-stone-200 rounded-2xl hover:border-stone-400 hover:shadow-xl transition-all duration-300"
                         >
                             <div className="p-4 bg-stone-50 text-stone-900 rounded-full group-hover:scale-110 transition-transform duration-300">
                                 <social.icon className="w-6 h-6" />
