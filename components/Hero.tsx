@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
 
 
   return (
-    <div className="relative min-h-auto md:min-h-screen flex flex-col justify-start lg:justify-start pt-10 lg:pt-10 bg-[#faf9f6] overflow-hidden">
+    <div className="relative min-h-auto md:min-h-screen flex flex-col justify-start lg:justify-start pt-2 lg:pt-10 bg-[#faf9f6] overflow-hidden">
       {/* Background Texture & Elements */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: `url('https://www.transparenttextures.com/patterns/paper-fibers.png')` }}></div>
       <div className="absolute top-0 right-0 w-1/2 h-full bg-[#f3f2ee] hidden lg:block"></div>
@@ -27,10 +27,10 @@ const Hero: React.FC = () => {
       <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-start pb-8 md:pb-16">
 
         {/* Left Column: Text Content */}
-        <div className="lg:col-span-7 space-y-10 z-10 flex flex-col items-start text-left">
+        <div className="lg:col-span-7 space-y-6 lg:space-y-10 z-10 flex flex-col items-start text-left">
 
 
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-[5.5rem] font-medium text-stone-900 leading-[0.95] tracking-tight animate-in fade-in slide-in-from-left-8 duration-1000">
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-medium text-stone-900 leading-[0.95] tracking-tight animate-in fade-in slide-in-from-left-8 duration-1000">
             Let me help you <br className="hidden lg:block" />
             find the <span className="relative">
               right <span className="italic font-light text-stone-400">words</span>.
@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
           </h1>
 
           {/* Mobile-Only Image Placement - Between Title and Intro */}
-          <div className="block lg:hidden w-full relative aspect-[4/5] max-w-sm mx-auto my-6">
+          <div className="block lg:hidden w-full relative aspect-[4/5] max-w-[200px] mx-auto my-6 group">
             <div className="absolute inset-0 bg-stone-200 rounded-2xl overflow-hidden shadow-xl">
               <img
                 src="https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2025/12/MoBuzz-Posting-Ideas-7.jpg"
@@ -49,6 +49,22 @@ const Hero: React.FC = () => {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-stone-900/40 to-transparent opacity-60"></div>
+            </div>
+
+            {/* Mobile Floating Card */}
+            <div className="absolute -bottom-8 -right-4 bg-white shadow-xl rounded-xl p-3 border border-stone-100 w-[180px] z-20 animate-bounce-slow">
+              <p className="font-serif italic text-xs text-stone-800 leading-snug mb-2">
+                5+ years of making words work harder.
+              </p>
+              <div className="h-px w-6 bg-stone-900 mb-1"></div>
+              <a
+                href="https://topmate.io/sonakhirumi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1 text-[8px] font-black uppercase tracking-wider text-stone-400 hover:text-stone-900 transition-colors"
+              >
+                LET'S CONNECT <ExternalLink className="w-2 h-2" />
+              </a>
             </div>
           </div>
 

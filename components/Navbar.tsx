@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md py-4 shadow-md border-b border-stone-200' : 'bg-[#faf9f6]/80 backdrop-blur-sm py-6 shadow-sm border-b border-stone-200/50'
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md py-3 md:py-4 shadow-md border-b border-stone-200' : 'bg-[#faf9f6]/80 backdrop-blur-sm py-4 md:py-6 shadow-sm border-b border-stone-200/50'
       }`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <a
