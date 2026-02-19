@@ -49,7 +49,7 @@ const About: React.FC = () => {
     <div className="space-y-4">
       <div className="flex items-center space-x-3">
         <div className="w-1.5 h-1.5 bg-stone-900 rounded-full"></div>
-        <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-stone-400">About Me</h2>
+        <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-stone-800">About Me</h2>
       </div>
       <div className="prose prose-stone max-w-none space-y-3 text-stone-600 leading-relaxed text-base font-light">
         <p className="first-letter:text-5xl first-letter:font-serif first-letter:mr-3 first-letter:float-left first-letter:text-stone-900">
@@ -90,7 +90,7 @@ const About: React.FC = () => {
         </div>
       </div>
       <div className="flex flex-col items-end">
-        <span className="text-[10px] font-black uppercase tracking-widest text-stone-400 mb-1">Industry Professional</span>
+        <span className="text-[10px] font-black uppercase tracking-widest text-stone-800 mb-1">Industry Professional</span>
         <span className="font-serif italic text-stone-900">Since {startYear}</span>
       </div>
     </div>
@@ -99,7 +99,7 @@ const About: React.FC = () => {
   const CoreCompetenciesBlock = () => (
     <div className="relative p-8 bg-[#f3f2ee] rounded-3xl overflow-hidden group border border-stone-100 shadow-sm">
       <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#e9e8e4] rounded-full blur-3xl opacity-50 group-hover:scale-150 transition-transform duration-1000"></div>
-      <span className="relative z-10 text-[10px] font-black uppercase tracking-[0.3em] text-stone-400 block mb-6">Core Competencies</span>
+      <span className="relative z-10 text-[10px] font-black uppercase tracking-[0.3em] text-stone-800 block mb-6">Core Competencies</span>
       <div className="relative z-10 flex flex-wrap gap-2">
         {['Content Writing', 'Copywriting', 'Script Writing', 'UX Writing', 'Editing', 'Visual Storytelling', 'Translation', 'Mentorship'].map((skill) => (
           <span key={skill} className="px-3 py-1.5 text-[9px] font-bold uppercase tracking-widest text-stone-600 bg-white/60 backdrop-blur-sm border border-stone-200/50 rounded-full shadow-sm hover:bg-white transition-colors cursor-default">
@@ -116,7 +116,7 @@ const About: React.FC = () => {
         <Languages className="w-6 h-6" />
       </div>
       <div>
-        <h4 className="font-bold text-xs uppercase tracking-[0.2em] text-stone-900 mb-2">Trilingual Fluency</h4>
+        <h4 className="font-extrabold text-xs uppercase tracking-[0.2em] text-stone-900 mb-2">Trilingual Fluency</h4>
         <p className="text-sm text-stone-500 leading-relaxed font-light">
           Seamless localisation and transcreation across <span className="text-stone-900 font-medium">English, Hindi, and Odia</span>. Keeping the meaning, mood, and magic intact.
         </p>
@@ -130,7 +130,7 @@ const About: React.FC = () => {
         <PenTool className="w-6 h-6" />
       </div>
       <div>
-        <h4 className="font-bold text-xs uppercase tracking-[0.2em] text-stone-900 mb-2">Format Versatility</h4>
+        <h4 className="font-extrabold text-xs uppercase tracking-[0.2em] text-stone-900 mb-2">Format Versatility</h4>
         <p className="text-sm text-stone-500 leading-relaxed font-light">
           From long-form editorial features and scripts to micro-copy and visual brand strategy. Adaptive tone for every medium.
         </p>
