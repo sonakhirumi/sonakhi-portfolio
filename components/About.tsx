@@ -209,7 +209,7 @@ const About: React.FC = () => {
       </div>
 
       {/* ── DESKTOP LAYOUT (hidden lg:grid) ─────────────────────── */}
-      <div className="hidden lg:grid lg:grid-cols-12 gap-12">
+      <div className="hidden lg:grid lg:grid-cols-12 gap-12 [&_p]:text-justify [&_p]:leading-relaxed">
 
         {/* Left Side: Creative Manifesto (Sticky Container) */}
         <div className="lg:col-span-5 relative">
