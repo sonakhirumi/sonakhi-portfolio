@@ -46,13 +46,13 @@ const Hero: React.FC = () => {
               <img
                 src="https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2025/12/MoBuzz-Posting-Ideas-7.jpg"
                 alt="Sonakhi Malla"
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-top scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-stone-900/40 to-transparent opacity-60"></div>
             </div>
 
             {/* Mobile Floating Card */}
-            <div className="absolute -bottom-8 -right-4 bg-white shadow-xl rounded-xl p-3 border border-stone-100 w-[180px] z-20 animate-bounce-slow">
+            <div className="absolute -bottom-4 -right-1 bg-white shadow-xl rounded-xl p-3 border border-stone-100 w-[180px] z-20 animate-bounce-slow">
               <p className="font-serif italic text-xs text-stone-800 leading-snug mb-2">
                 5+ years of making words work harder.
               </p>
