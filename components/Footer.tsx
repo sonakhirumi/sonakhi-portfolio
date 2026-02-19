@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
   const navigationLinks: { name: string; href: string; isExternal?: boolean }[] = [
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
-    { name: 'Writings', href: '/writings' },
+    { name: 'My Archive', href: '/writings' },
     { name: 'Contact', href: '/contact' },
   ];
 
