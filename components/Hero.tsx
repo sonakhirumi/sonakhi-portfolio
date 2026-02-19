@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
           </h1>
 
           {/* Mobile-Only Image Placement - Between Title and Intro */}
-          <div className="block lg:hidden w-full relative aspect-[3/4] max-w-[200px] mx-auto my-6 group">
+          <div className="block lg:hidden w-full relative aspect-[3/4] max-w-[200px] self-start ml-6 my-6 group">
             <div className="absolute inset-0 bg-stone-200 rounded-2xl overflow-hidden shadow-xl">
               <img
                 src="https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2025/12/MoBuzz-Posting-Ideas-7.jpg"
@@ -52,7 +52,7 @@ const Hero: React.FC = () => {
             </div>
 
             {/* Mobile Floating Card */}
-            <div className="absolute -bottom-4 -right-12 bg-white shadow-xl rounded-xl p-3 border border-stone-100 w-[180px] z-20 animate-bounce-slow">
+            <div className="absolute -bottom-4 -right-36 bg-white shadow-xl rounded-xl p-3 border border-stone-100 w-[180px] z-20 animate-bounce-slow">
               <p className="font-serif italic text-xs text-stone-800 leading-snug mb-2">
                 5+ years of making words work harder.
               </p>
