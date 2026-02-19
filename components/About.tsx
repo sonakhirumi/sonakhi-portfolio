@@ -134,25 +134,28 @@ const About: React.FC = () => {
     <div className="max-w-7xl mx-auto px-6">
 
       {/* MOBILE LAYOUT (lg:hidden) */}
-      <div className="lg:hidden">
-        {/* Sticky background: locks to screen while scrolling About, disappears with section */}
+      {/* overflow-hidden clips the sticky image to this section — no footer bleed */}
+      <div className="lg:hidden relative overflow-hidden -mx-6 px-6">
+
+        {/* Sticky full-bleed background image — contained within this div */}
         <div
           aria-hidden="true"
-          className="sticky top-0 h-screen w-screen pointer-events-none select-none z-0"
-          style={{ marginBottom: '-100vh', left: '-1.5rem', position: 'sticky' }}
+          className="sticky top-0 h-screen pointer-events-none select-none -mx-6"
+          style={{ marginBottom: '-100vh' }}
         >
           <img
             src={HERO_IMAGE}
             alt=""
-            className="w-full h-full object-cover object-top opacity-[0.28]"
-            style={{ filter: 'grayscale(15%)' }}
+            className="w-full h-full object-cover object-top"
+            style={{ opacity: 0.32, filter: 'grayscale(10%)' }}
           />
-          {/* Light wash so text stays legible */}
-          <div className="absolute inset-0 bg-white/42"></div>
+          {/* Gradient: stronger at bottom so text at foot of page stays readable */}
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(255,255,255,0.30) 0%, rgba(255,255,255,0.42) 60%, rgba(255,255,255,0.72) 100%)' }}></div>
         </div>
 
-        {/* Content scrolls above the sticky image */}
-        <div className="relative z-10 space-y-8 py-4">
+        {/* Content — scrolls over the sticky image; [&_p]:text-justify applies to all <p> inside */}
+        <div className="relative z-10 space-y-6 py-3 [&_p]:text-justify [&_p]:leading-relaxed">
+
           {/* 1. About Me */}
           <AboutMeBlock />
 
@@ -163,7 +166,7 @@ const About: React.FC = () => {
           <CoreCompetenciesBlock />
 
           {/* 4. Trilingual Fluency */}
-          <div className="border-t border-stone-100 pt-6">
+          <div className="border-t border-stone-100/60 pt-4">
             <TrilingualBlock />
           </div>
 
