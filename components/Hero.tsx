@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
       <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-start pb-8 md:pb-16">
 
         {/* Left Column: Text Content */}
-        <div className="lg:col-span-7 space-y-6 lg:space-y-10 z-10 flex flex-col items-start text-left">
+        <div className="lg:col-span-7 space-y-6 lg:space-y-10 z-10 flex flex-col items-center lg:items-start text-center lg:text-left">
 
 
           <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-medium text-stone-900 leading-[0.95] tracking-tight animate-in fade-in slide-in-from-left-8 duration-1000">
@@ -41,12 +41,12 @@ const Hero: React.FC = () => {
           </h1>
 
           {/* Mobile-Only Image Placement - Between Title and Intro */}
-          <div className="block lg:hidden w-full relative aspect-[4/5] max-w-[200px] mx-auto my-6 group">
+          <div className="block lg:hidden w-full relative aspect-[3/4] max-w-[200px] mx-auto my-6 group">
             <div className="absolute inset-0 bg-stone-200 rounded-2xl overflow-hidden shadow-xl">
               <img
                 src="https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2025/12/MoBuzz-Posting-Ideas-7.jpg"
                 alt="Sonakhi Malla"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-stone-900/40 to-transparent opacity-60"></div>
             </div>
@@ -71,14 +71,14 @@ const Hero: React.FC = () => {
 
 
           {/* Hero Text Content - Updated v3 */}
-          <p className="font-sans text-base md:text-lg text-stone-600 font-light leading-relaxed max-w-xl animate-in fade-in slide-in-from-left-12 duration-1000 delay-200">
+          <p className="font-sans text-base md:text-lg text-stone-600 font-light leading-relaxed max-w-xl mx-auto lg:mx-0 animate-in fade-in slide-in-from-left-12 duration-1000 delay-200">
             Hi, I'm <a href="/about" className="text-stone-900 font-medium hover:text-stone-600 transition-colors">Sonakhi Malla (Rumi)</a>, your obsessive overthinking connoisseur who <span className="text-stone-900 font-medium">writes</span>, <span className="text-stone-900 font-medium">edits</span>, <span className="text-stone-900 font-medium">translates</span>, and <span className="text-stone-900 font-medium">guides</span> fellow budding word lovers discovering their voice.{' '}
             <Link to="/about" className="inline-flex items-center gap-1 text-sm text-stone-400 font-medium underline underline-offset-4 decoration-stone-200 hover:text-stone-900 hover:decoration-stone-900 transition-all">
               know more <ArrowRight className="w-3 h-3" />
             </Link>
           </p>
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-6 sm:space-y-0 sm:space-x-10 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
+          <div className="flex flex-col sm:flex-row items-center sm:items-center space-y-6 sm:space-y-0 sm:space-x-10 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500 w-full justify-center lg:justify-start">
             <Link
               to="/my-archive"
               className="group relative inline-flex items-center justify-center px-10 py-5 bg-stone-900 text-white overflow-hidden rounded-full transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-stone-900/20"
