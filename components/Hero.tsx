@@ -52,7 +52,7 @@ const Hero: React.FC = () => {
             </div>
 
             {/* Mobile Floating Card */}
-            <div className="absolute -bottom-4 -right-1 bg-white shadow-xl rounded-xl p-3 border border-stone-100 w-[180px] z-20 animate-bounce-slow">
+            <div className="absolute -bottom-4 -right-12 bg-white shadow-xl rounded-xl p-3 border border-stone-100 w-[180px] z-20 animate-bounce-slow">
               <p className="font-serif italic text-xs text-stone-800 leading-snug mb-2">
                 5+ years of making words work harder.
               </p>
