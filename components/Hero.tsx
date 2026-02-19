@@ -52,7 +52,7 @@ const Hero: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-6 sm:space-y-0 sm:space-x-10 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-500">
             <Link
-              to="/writings"
+              to="/my-archive"
               className="group relative inline-flex items-center justify-center px-10 py-5 bg-stone-900 text-white overflow-hidden rounded-full transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-stone-900/20"
             >
               <span className="relative z-10 font-bold text-xs uppercase tracking-widest flex items-center">
@@ -67,11 +67,11 @@ const Hero: React.FC = () => {
                 <Languages className="w-4 h-4" />
               </div>
               <div className="text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
-                <Link to="/writings/english" className="hover:text-stone-900 transition-colors p-2">ENG</Link>
+                <Link to="/my-archive/english" className="hover:text-stone-900 transition-colors p-2">ENG</Link>
                 <span>•</span>
-                <Link to="/writings/hindi" className="hover:text-stone-900 transition-colors p-2">HIN</Link>
+                <Link to="/my-archive/hindi" className="hover:text-stone-900 transition-colors p-2">HIN</Link>
                 <span>•</span>
-                <Link to="/writings/odia" className="hover:text-stone-900 transition-colors p-2">ODI</Link>
+                <Link to="/my-archive/odia" className="hover:text-stone-900 transition-colors p-2">ODI</Link>
               </div>
             </div>
           </div>

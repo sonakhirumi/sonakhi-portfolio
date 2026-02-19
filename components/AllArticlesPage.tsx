@@ -122,9 +122,9 @@ const AllArticlesPage: React.FC = () => {
   const updateCategory = (catName: string) => {
     setSelectedCategory(catName);
     if (catName === 'All') {
-      navigate('/writings');
+      navigate('/my-archive');
     } else {
-      navigate(`/writings/${catName.toLowerCase()}`);
+      navigate(`/my-archive/${catName.toLowerCase()}`);
     }
   };
 
