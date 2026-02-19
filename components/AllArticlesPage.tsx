@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams, useNavigate, useParams } from 'react-router-dom';
-import { ArrowLeft, Calendar, ArrowRight, Clock } from 'lucide-react';
+import { ArrowLeft, Calendar, ArrowRight, Clock, Hammer } from 'lucide-react';
 import { Article } from '../types';
 
 const BASE_URL = 'https://live-sonakhi-rumi.pantheonsite.io/wp-json/wp/v2';
@@ -143,27 +143,6 @@ const AllArticlesPage: React.FC = () => {
 
             {/* Right: Filters — aligned to bottom */}
             <div className="flex flex-wrap gap-2 lg:justify-end lg:pb-2">
-              <button
-                onClick={() => updateCategory('All')}
-                className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${selectedCategory === 'All'
-                  ? 'bg-stone-900 text-white shadow-xl scale-105'
-                  : 'bg-white text-stone-400 hover:text-stone-900 border border-stone-200'
-                  }`}
-              >
-                All Archives
-              </button>
-              {categories.map(cat => (
-                <button
-                  key={cat.id}
-                  onClick={() => updateCategory(cat.name)}
-                  className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${selectedCategory === cat.name
-                    ? 'bg-stone-900 text-white shadow-xl scale-105'
-                    : 'bg-white text-stone-400 hover:text-stone-900 border border-stone-200'
-                    }`}
-                >
-                  {cat.name}
-                </button>
-              ))}
             </div>
           </div>
         </div>
@@ -182,48 +161,14 @@ const AllArticlesPage: React.FC = () => {
           </div>
         ) : (
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
-            {filteredArticles.length > 0 ? (
-              filteredArticles.map((article) => (
-                <Link
-                  key={article.id}
-                  to={`/article/${article.id}`}
-                  className="group block space-y-4"
-                >
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-stone-100 shadow-md">
-                    <img
-                      src={article.imageUrl}
-                      alt={article.title}
-                      className="w-full h-full object-cover transition-transform group-hover:scale-105"
-                    />
-                    <div className="absolute top-3 left-3">
-                      <span className="px-3 py-1 bg-white/90 text-[8px] font-black uppercase tracking-widest text-stone-900 rounded-full">
-                        {article.category}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="space-y-3">
-                    <div className="flex items-center space-x-4 text-[9px] font-bold tracking-widest text-stone-400 uppercase">
-                      <span className="flex items-center"><Calendar className="w-3 h-3 mr-1" /> {article.date}</span>
-                      <span className="flex items-center"><Clock className="w-3 h-3 mr-1" /> {article.readTime}</span>
-                    </div>
-
-                    <h4 className="font-serif text-2xl text-stone-900 group-hover:text-stone-600 transition-colors">
-                      {article.title}
-                    </h4>
-
-                    <p className="text-stone-500 text-sm leading-relaxed line-clamp-2">
-                      {article.excerpt}
-                    </p>
-                  </div>
-                </Link>
-              ))
-            ) : (
-              <div className="col-span-full py-24 text-center">
-                <p className="font-serif text-2xl text-stone-300 italic">No articles found in this category.</p>
-              </div>
-            )}
+          <div className="flex flex-col items-center justify-center py-24 gap-8">
+            <div className="p-8 bg-stone-100 rounded-full animate-bounce-slow">
+              <Hammer className="w-12 h-12 text-stone-400" />
+            </div>
+            <div className="text-center space-y-4 max-w-lg">
+              <h2 className="font-serif text-4xl md:text-5xl text-stone-900 leading-tight">Under Construction.</h2>
+              <p className="font-serif italic text-stone-500 text-lg">We are currently curating this archive. Check back soon for updates.</p>
+            </div>
           </div>
         )}
       </div>
