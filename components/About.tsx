@@ -134,21 +134,24 @@ const About: React.FC = () => {
     <div className="max-w-7xl mx-auto px-6">
 
       {/* MOBILE LAYOUT (lg:hidden) */}
-      <div className="lg:hidden relative">
-        {/* Fixed background image — stays on screen as content scrolls over */}
-        <div className="fixed inset-0 pointer-events-none select-none z-0">
+      <div className="lg:hidden">
+        {/* Sticky background: locks to screen while scrolling About, disappears with section */}
+        <div
+          aria-hidden="true"
+          className="sticky top-0 h-screen w-screen pointer-events-none select-none z-0"
+          style={{ marginBottom: '-100vh', left: '-1.5rem', position: 'sticky' }}
+        >
           <img
             src={HERO_IMAGE}
             alt=""
-            aria-hidden="true"
-            className="w-full h-full object-cover object-top opacity-[0.18]"
-            style={{ filter: 'grayscale(20%)' }}
+            className="w-full h-full object-cover object-top opacity-[0.28]"
+            style={{ filter: 'grayscale(15%)' }}
           />
-          {/* Subtle gradient overlay so text stays readable */}
-          <div className="absolute inset-0 bg-white/55"></div>
+          {/* Light wash so text stays legible */}
+          <div className="absolute inset-0 bg-white/42"></div>
         </div>
 
-        {/* Content scrolls above the fixed image */}
+        {/* Content scrolls above the sticky image */}
         <div className="relative z-10 space-y-8 py-4">
           {/* 1. About Me */}
           <AboutMeBlock />
