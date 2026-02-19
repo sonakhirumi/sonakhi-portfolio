@@ -133,21 +133,23 @@ const About: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-6">
 
-      {/* ── MOBILE LAYOUT (lg:hidden) ─────────────────────────── */}
+      {/* MOBILE LAYOUT (lg:hidden) */}
       <div className="lg:hidden relative">
-        {/* Transparent background image that scrolls with content */}
-        <div className="absolute inset-0 pointer-events-none select-none overflow-hidden rounded-3xl">
+        {/* Fixed background image — stays on screen as content scrolls over */}
+        <div className="fixed inset-0 pointer-events-none select-none z-0">
           <img
             src={HERO_IMAGE}
             alt=""
             aria-hidden="true"
-            className="w-full h-full object-cover object-top opacity-[0.07]"
-            style={{ filter: 'grayscale(30%)' }}
+            className="w-full h-full object-cover object-top opacity-[0.18]"
+            style={{ filter: 'grayscale(20%)' }}
           />
+          {/* Subtle gradient overlay so text stays readable */}
+          <div className="absolute inset-0 bg-white/55"></div>
         </div>
 
-        {/* Content in desired mobile order */}
-        <div className="relative space-y-8 py-4">
+        {/* Content scrolls above the fixed image */}
+        <div className="relative z-10 space-y-8 py-4">
           {/* 1. About Me */}
           <AboutMeBlock />
 
