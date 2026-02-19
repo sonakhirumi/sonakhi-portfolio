@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Languages, PenTool, ExternalLink } from 'lucide-react';
 
 const HERO_IMAGE = 'https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2025/12/MoBuzz-Posting-Ideas-7.jpg';
@@ -8,6 +8,32 @@ const About: React.FC = () => {
   const startYear = 2021;
   const currentYear = new Date().getFullYear();
   const yearsExperience = currentYear - startYear;
+
+  // Refs for the JS-driven fixed background effect (mobile only)
+  const mobileSectionRef = useRef<HTMLDivElement>(null);
+  const bgRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const section = mobileSectionRef.current;
+      const bg = bgRef.current;
+      if (!section || !bg) return;
+
+      const rect = section.getBoundingClientRect();
+
+      if (rect.bottom > 0 && rect.top < window.innerHeight) {
+        // Counteract the scroll: push image down by how much the section has scrolled up
+        bg.style.transform = `translateY(${-rect.top}px)`;
+        bg.style.opacity = '1';
+      } else {
+        bg.style.opacity = '0';
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // run once on mount
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const numberToWords = (num: number): string => {
     const words = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
@@ -133,26 +159,31 @@ const About: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-6">
 
-      {/* MOBILE LAYOUT (lg:hidden) */}
-      {/* overflow-hidden clips image to this section — no footer bleed */}
-      <div className="lg:hidden relative overflow-hidden -mx-6 px-6">
+      {/* ─── MOBILE LAYOUT ─────────────────────────────────────── */}
+      {/* overflow-hidden clips bg to this div — image never bleeds into footer */}
+      <div ref={mobileSectionRef} className="lg:hidden relative overflow-hidden -mx-6 px-6">
 
-        {/* Background image: absolute, fills full About section height, face stays at top */}
-        <div aria-hidden="true" className="absolute inset-0 pointer-events-none select-none">
+        {/* Background panel: JS scroll listener keeps it viewport-locked */}
+        <div
+          ref={bgRef}
+          aria-hidden="true"
+          className="absolute top-0 left-0 w-full h-screen pointer-events-none select-none"
+          style={{ willChange: 'transform', transition: 'opacity 0.2s ease' }}
+        >
           <img
             src={HERO_IMAGE}
             alt=""
             className="w-full h-full object-cover object-top"
             style={{ opacity: 0.30, filter: 'grayscale(10%)' }}
           />
-          {/* Gradient overlay: lighter at top (face visible), heavier at bottom */}
+          {/* Gradient overlay: face clear at top, text readable at bottom */}
           <div
             className="absolute inset-0"
-            style={{ background: 'linear-gradient(to bottom, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0.45) 50%, rgba(255,255,255,0.70) 100%)' }}
+            style={{ background: 'linear-gradient(to bottom, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.42) 55%, rgba(255,255,255,0.70) 100%)' }}
           />
         </div>
 
-        {/* Content scrolls over the background image */}
+        {/* Content scrolls naturally over the locked background */}
         <div className="relative z-10 space-y-6 pt-1 pb-4 [&_p]:text-justify [&_p]:leading-relaxed">
 
           {/* 1. About Me */}
