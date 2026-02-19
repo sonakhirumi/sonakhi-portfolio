@@ -174,17 +174,17 @@ const About: React.FC = () => {
             src={HERO_IMAGE}
             alt=""
             className="w-full h-full object-cover object-top"
-            style={{ opacity: 0.30, filter: 'grayscale(10%)' }}
+            style={{ opacity: 0.22, filter: 'grayscale(8%)' }}
           />
           {/* Gradient overlay: face clear at top, text readable at bottom */}
           <div
             className="absolute inset-0"
-            style={{ background: 'linear-gradient(to bottom, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.42) 55%, rgba(255,255,255,0.70) 100%)' }}
+            style={{ background: 'linear-gradient(to bottom, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.38) 55%, rgba(255,255,255,0.65) 100%)' }}
           />
         </div>
 
         {/* Content scrolls naturally over the locked background */}
-        <div className="relative z-10 space-y-6 pt-1 pb-4 [&_p]:text-justify [&_p]:leading-relaxed">
+        <div className="relative z-10 space-y-6 pb-4 text-stone-800 [&_p]:text-justify [&_p]:leading-relaxed [&_h2]:text-stone-900 [&_h4]:text-stone-900 [&_h5]:text-stone-900">
 
           {/* 1. About Me */}
           <AboutMeBlock />

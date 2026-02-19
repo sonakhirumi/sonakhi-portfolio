@@ -32,7 +32,7 @@ const Home: React.FC = () => (
 );
 
 const AboutPage: React.FC = () => (
-  <section className="pt-4 pb-14 lg:py-14 bg-white">
+  <section className="pt-0 pb-14 lg:py-14 bg-white">
     <About />
   </section>
 );
