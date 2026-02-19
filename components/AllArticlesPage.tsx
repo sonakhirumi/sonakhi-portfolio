@@ -188,7 +188,7 @@ const AllArticlesPage: React.FC = () => {
             </div>
             <div className="text-center space-y-4 max-w-lg">
               <h2 className="font-serif text-4xl md:text-5xl text-stone-900 leading-tight">Under Construction.</h2>
-              <p className="font-serif italic text-stone-500 text-lg">We are currently curating this archive. Check back soon for updates.</p>
+              <p className="font-serif italic text-stone-500 text-lg">Check back soon.</p>
             </div>
           </div>
         )}
