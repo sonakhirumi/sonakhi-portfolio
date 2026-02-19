@@ -139,7 +139,7 @@ const AllArticlesPage: React.FC = () => {
 
   return (
     <div className="bg-white min-h-screen">
-      <div className="bg-[#f8f7f4] border-b border-stone-100 pt-20 pb-24 relative overflow-hidden">
+      <div className="bg-[#f8f7f4] border-b border-stone-100 pt-16 pb-16 relative overflow-hidden">
         {/* Falling Letters Animation */}
         <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
           {Array.from({ length: 50 }).map((_, i) => {
@@ -174,7 +174,7 @@ const AllArticlesPage: React.FC = () => {
           }
         `}</style>
 
-        <div className="max-w-7xl mx-auto px-6 space-y-12">
+        <div className="max-w-7xl mx-auto px-6 space-y-8">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
             {/* Left: Title */}
             <div className="space-y-3">
@@ -212,7 +212,7 @@ const AllArticlesPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-24">
+      <div className="max-w-7xl mx-auto px-6 py-12">
         {isLoading ? (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
             {[1, 2, 3, 4, 5, 6].map(i => (
@@ -225,7 +225,7 @@ const AllArticlesPage: React.FC = () => {
           </div>
         ) : (
 
-          <div className="flex flex-col items-center justify-center py-24 gap-8">
+          <div className="flex flex-col items-center justify-center py-16 gap-8">
             <div className="p-8 bg-stone-100 rounded-full animate-bounce-slow">
               <Hammer className="w-12 h-12 text-stone-400" />
             </div>

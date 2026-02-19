@@ -45,12 +45,12 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-[#1a1a1a] text-stone-400 py-24">
+    <footer className="bg-[#1a1a1a] text-stone-400 py-16">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-12 gap-16 mb-20">
+        <div className="grid md:grid-cols-12 gap-12 mb-12">
 
           {/* Column 2: Navigation */}
-          <div className="md:col-span-5 space-y-6">
+          <div className="md:col-span-5 space-y-4">
             <h4 className="text-white font-bold text-xs uppercase tracking-[0.3em]">Navigation</h4>
             <nav className="flex flex-col space-y-4">
               {navigationLinks.map((link) => (
@@ -68,9 +68,9 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Column 3: Get in Touch & Socials */}
-          <div className="md:col-span-7 space-y-8">
+          <div className="md:col-span-7 space-y-6">
             <h4 className="text-white font-bold text-xs uppercase tracking-[0.3em]">Get in Touch</h4>
-            <div className="space-y-6">
+            <div className="space-y-4">
               <div className="flex flex-wrap gap-4">
                 {socialLinks.map((social, idx) => (
                   <a
@@ -105,11 +105,14 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="pt-10 border-t border-stone-800/50 flex flex-col items-center gap-6 text-[11px] font-medium uppercase tracking-widest text-stone-600">
+
+
+        <div className="pt-8 border-t border-stone-800/50 flex flex-col items-center gap-6 text-[11px] font-medium uppercase tracking-widest text-stone-600">
           <p>© {new Date().getFullYear()} <a href="/about" className="hover:text-stone-400 transition-colors">Sonakhi Malla (Rumi)</a>. All rights reserved.</p>
         </div>
+
       </div>
-    </footer>
+    </footer >
   );
 };
 

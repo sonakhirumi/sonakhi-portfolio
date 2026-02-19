@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: `url('https://www.transparenttextures.com/patterns/paper-fibers.png')` }}></div>
       <div className="absolute top-0 right-0 w-1/2 h-full bg-[#f3f2ee] hidden lg:block"></div>
 
-      <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-start pb-8 md:pb-16">
+      <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-start pb-4 md:pb-10">
 
         {/* Left Column: Text Content */}
         <div className="lg:col-span-7 space-y-6 lg:space-y-10 z-10 flex flex-col items-center lg:items-start text-center lg:text-left">

@@ -38,8 +38,8 @@ const Contact: React.FC = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-[#faf9f6] pt-32 pb-24 px-6 flex flex-col items-center justify-center">
-            <div className="max-w-3xl w-full space-y-16 text-center">
+        <div className="min-h-screen bg-[#faf9f6] pt-24 pb-16 px-6 flex flex-col items-center justify-center">
+            <div className="max-w-3xl w-full space-y-10 text-center">
 
                 <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
                     <h1 className="font-serif text-5xl md:text-7xl text-stone-900 leading-tight">

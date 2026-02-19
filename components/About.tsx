@@ -17,17 +17,17 @@ const About: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-6">
-      <div className="grid lg:grid-cols-12 gap-16">
+      <div className="grid lg:grid-cols-12 gap-12">
 
         {/* Left Side: Creative Manifesto (Sticky Container) */}
         <div className="lg:col-span-5 relative">
-          <div className="lg:sticky lg:top-28 space-y-8 py-4 h-full flex flex-col justify-start">
-            <div className="relative p-10 bg-[#f3f2ee] rounded-3xl overflow-hidden group border border-stone-100 shadow-sm">
+          <div className="lg:sticky lg:top-28 space-y-6 py-4 h-full flex flex-col justify-start">
+            <div className="relative p-8 bg-[#f3f2ee] rounded-3xl overflow-hidden group border border-stone-100 shadow-sm">
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#e9e8e4] rounded-full blur-3xl opacity-50 group-hover:scale-150 transition-transform duration-1000"></div>
 
               <div className="relative space-y-8">
                 <div className="w-12 h-px bg-stone-900"></div>
-                <div className="space-y-6">
+                <div className="space-y-4">
                   <h5 className="text-[10px] font-black uppercase tracking-widest text-stone-900 mb-2">About this space</h5>
                   <p className="text-sm text-stone-600 leading-relaxed font-light">
                     This website is a quiet home for my words. My poems, personal essays, opinions, and reflections live at the center of it. Alongside them, you can also find ways to connect with me, including a dedicated section for my professional work and collaborations.
@@ -70,8 +70,8 @@ const About: React.FC = () => {
         </div>
 
         {/* Right Side: Professional Narrative (Condensed Content) */}
-        <div className="lg:col-span-7 space-y-8 py-4">
-          <div className="space-y-6">
+        <div className="lg:col-span-7 space-y-6 py-4">
+          <div className="space-y-4">
             <div className="flex items-center space-x-3">
               <div className="w-1.5 h-1.5 bg-stone-900 rounded-full"></div>
               <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-stone-400">About Me</h2>
@@ -81,7 +81,7 @@ const About: React.FC = () => {
 
 
 
-          <div className="prose prose-stone max-w-none space-y-4 text-stone-600 leading-relaxed text-base md:text-lg font-light">
+          <div className="prose prose-stone max-w-none space-y-3 text-stone-600 leading-relaxed text-base md:text-lg font-light">
             <p className="first-letter:text-5xl first-letter:font-serif first-letter:mr-3 first-letter:float-left first-letter:text-stone-900">
               I have spent the last five years working with words across content, copy, scripts, UX, editing, visual storytelling, and translation. I have learnt to move between forms without losing what matters.
             </p>

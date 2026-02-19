@@ -90,7 +90,7 @@ const Articles: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="max-w-7xl mx-auto px-6 space-y-16">
+      <div className="max-w-7xl mx-auto px-6 space-y-10">
         {[1, 2].map((i) => (
           <div key={i} className="animate-pulse space-y-8">
             <div className="h-10 bg-stone-200 w-1/4 rounded"></div>
@@ -106,13 +106,13 @@ const Articles: React.FC = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-6 space-y-24">
+    <div className="max-w-7xl mx-auto px-6 space-y-16">
       {categories.map((cat) => {
         const posts = categoryPosts[cat.id] || [];
         if (posts.length === 0) return null;
 
         return (
-          <div key={cat.id} className="space-y-10">
+          <div key={cat.id} className="space-y-6">
             <div className="flex items-center justify-between border-b border-stone-200 pb-6">
               <h3 className="font-serif text-3xl md:text-4xl text-stone-900">{cat.name}</h3>
               <Link
@@ -144,7 +144,7 @@ const Articles: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="space-y-3">
+                  <div className="space-y-2">
                     <div className="flex items-center space-x-4 text-[9px] font-bold tracking-widest text-stone-400 uppercase">
                       <span className="flex items-center"><Calendar className="w-3 h-3 mr-1" /> {article.date}</span>
                       <span className="flex items-center"><Clock className="w-3 h-3 mr-1" /> {article.readTime}</span>
