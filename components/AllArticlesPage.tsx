@@ -5,6 +5,15 @@ import { Article } from '../types';
 
 const BASE_URL = 'https://live-sonakhi-rumi.pantheonsite.io/wp-json/wp/v2';
 
+const CHARACTERS = [
+  // English
+  'A', 'a', 'B', 'b', 'C', 'c', 'D', 'd', 'E', 'e', 'F', 'f', 'G', 'g', 'H', 'h', 'I', 'i', 'J', 'j', 'K', 'k', 'L', 'l', 'M', 'm', 'N', 'n', 'O', 'o', 'P', 'p', 'Q', 'q', 'R', 'r', 'S', 's', 'T', 't', 'U', 'u', 'V', 'v', 'W', 'w', 'X', 'x', 'Y', 'y', 'Z', 'z',
+  // Hindi
+  'अ', 'आ', 'क', 'ख', 'ग', 'घ', 'च', 'छ', 'ज', 'झ', 'त', 'थ', 'द', 'ध', 'न', 'प', 'फ', 'ब', 'भ', 'म', 'य', 'र', 'ल', 'व', 'श', 'ष', 'स', 'ह',
+  // Odia
+  'ଅ', 'ଆ', 'କ', 'ଖ', 'ଗ', 'ଘ', 'ଚ', 'ଛ', 'ଜ', 'ଝ', 'ଟ', 'ଠ', 'ଡ', 'ଢ', 'ଣ', 'ତ', 'ଥ', 'ଦ', 'ଧ', 'ନ', 'ପ', 'ଫ', 'ବ', 'ଭ', 'ମ', 'ଯ', 'ର', 'ଲ', 'ଳ', 'ଶ', 'ଷ', 'ସ', 'ହ'
+];
+
 const AllArticlesPage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const { category: routeCategory } = useParams();
@@ -130,7 +139,41 @@ const AllArticlesPage: React.FC = () => {
 
   return (
     <div className="bg-white min-h-screen">
-      <div className="bg-[#f8f7f4] border-b border-stone-100 pt-20 pb-24">
+      <div className="bg-[#f8f7f4] border-b border-stone-100 pt-20 pb-24 relative overflow-hidden">
+        {/* Falling Letters Animation */}
+        <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+          {Array.from({ length: 50 }).map((_, i) => {
+            const char = CHARACTERS[Math.floor(Math.random() * CHARACTERS.length)];
+            const left = Math.random() * 100;
+            const duration = 3 + Math.random() * 4; // 3-7s duration
+            const delay = Math.random() * 5;
+            const size = 10 + Math.random() * 14; // 10-24px
+            const opacity = 0.1 + Math.random() * 0.2; // 0.1-0.3 opacity (subtle)
+
+            return (
+              <span
+                key={i}
+                className="absolute text-stone-400 font-serif"
+                style={{
+                  left: `${left}%`,
+                  top: -30,
+                  fontSize: `${size}px`,
+                  opacity: opacity,
+                  animation: `fall ${duration}s linear ${delay}s infinite`
+                }}
+              >
+                {char}
+              </span>
+            );
+          })}
+        </div>
+        <style>{`
+          @keyframes fall {
+            0% { transform: translateY(-20px) rotate(0deg); }
+            100% { transform: translateY(600px) rotate(10deg); }
+          }
+        `}</style>
+
         <div className="max-w-7xl mx-auto px-6 space-y-12">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
             {/* Left: Title */}
