@@ -143,6 +143,27 @@ const AllArticlesPage: React.FC = () => {
 
             {/* Right: Filters — aligned to bottom */}
             <div className="flex flex-wrap gap-2 lg:justify-end lg:pb-2">
+              <button
+                onClick={() => updateCategory('All')}
+                className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${selectedCategory === 'All'
+                  ? 'bg-stone-900 text-white shadow-xl scale-105'
+                  : 'bg-white text-stone-400 hover:text-stone-900 border border-stone-200'
+                  }`}
+              >
+                All Archives
+              </button>
+              {categories.map(cat => (
+                <button
+                  key={cat.id}
+                  onClick={() => updateCategory(cat.name)}
+                  className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${selectedCategory === cat.name
+                    ? 'bg-stone-900 text-white shadow-xl scale-105'
+                    : 'bg-white text-stone-400 hover:text-stone-900 border border-stone-200'
+                    }`}
+                >
+                  {cat.name}
+                </button>
+              ))}
             </div>
           </div>
         </div>
