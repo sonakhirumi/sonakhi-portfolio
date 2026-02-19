@@ -40,6 +40,18 @@ const Hero: React.FC = () => {
             </span>
           </h1>
 
+          {/* Mobile-Only Image Placement - Between Title and Intro */}
+          <div className="block lg:hidden w-full relative aspect-[4/5] max-w-sm mx-auto my-6">
+            <div className="absolute inset-0 bg-stone-200 rounded-2xl overflow-hidden shadow-xl">
+              <img
+                src="https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2025/12/MoBuzz-Posting-Ideas-7.jpg"
+                alt="Sonakhi Malla"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-stone-900/40 to-transparent opacity-60"></div>
+            </div>
+          </div>
+
 
 
           {/* Hero Text Content - Updated v3 */}
@@ -78,7 +90,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Right Column: Imagery & Editorial Flourishes */}
-        <div className="lg:col-span-5 relative lg:h-auto flex items-start justify-center animate-in fade-in zoom-in duration-1000 mt-4 lg:mt-0">
+        <div className="hidden lg:col-span-5 relative lg:h-auto lg:flex items-start justify-center animate-in fade-in zoom-in duration-1000 mt-4 lg:mt-0">
           <div className="relative w-full aspect-[4/5] lg:h-full max-w-md group mb-12 lg:mb-0">
             {/* Main Image Mask */}
             <div className="absolute inset-0 bg-stone-200 rounded-2xl overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] group-hover:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.25)] transition-all duration-700">
