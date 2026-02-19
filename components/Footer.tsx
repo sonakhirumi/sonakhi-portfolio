@@ -33,7 +33,6 @@ const Footer: React.FC = () => {
     { icon: Instagram, href: 'https://www.instagram.com/sonakhi_rumi', label: 'Instagram' },
     { icon: Facebook, href: 'https://www.facebook.com/sonakhi.rumi', label: 'Facebook' },
     { icon: LinktreeIcon, href: 'https://linktr.ee/sonakhirumi', label: 'Linktree' },
-    { icon: TopmateIcon, href: 'https://topmate.io/sonakhirumi', label: 'Topmate' },
     { icon: Mail, href: 'mailto:sonakhirumi@gmail.com', label: 'Email' },
   ];
 

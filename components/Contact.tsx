@@ -33,13 +33,12 @@ const Contact: React.FC = () => {
         { icon: Instagram, href: 'https://www.instagram.com/sonakhi_rumi', label: 'Instagram' },
         { icon: Facebook, href: 'https://www.facebook.com/sonakhi.rumi', label: 'Facebook' },
         { icon: LinktreeIcon, href: 'https://linktr.ee/sonakhirumi', label: 'Linktree' },
-        { icon: TopmateIcon, href: 'https://topmate.io/sonakhirumi', label: 'Topmate' },
         { icon: Mail, href: 'mailto:sonakhirumi@gmail.com', label: 'Email' },
     ];
 
     return (
-        <div className="min-h-screen bg-[#faf9f6] pt-24 pb-16 px-6 flex flex-col items-center justify-center">
-            <div className="max-w-3xl w-full space-y-10 text-center">
+        <div className="min-h-screen bg-[#faf9f6] pt-16 pb-12 px-6 flex flex-col items-center justify-center">
+            <div className="max-w-3xl w-full space-y-8 text-center">
 
                 <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-700">
                     <h1 className="font-serif text-5xl md:text-7xl text-stone-900 leading-tight">
