@@ -3,6 +3,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Languages, Quote, ExternalLink } from 'lucide-react';
 
+const CHARACTERS = [
+  // English
+  'A', 'a', 'B', 'b', 'C', 'c', 'D', 'd', 'E', 'e', 'F', 'f', 'G', 'g', 'H', 'h', 'I', 'i', 'J', 'j', 'K', 'k', 'L', 'l', 'M', 'm', 'N', 'n', 'O', 'o', 'P', 'p', 'Q', 'q', 'R', 'r', 'S', 's', 'T', 't', 'U', 'u', 'V', 'v', 'W', 'w', 'X', 'x', 'Y', 'y', 'Z', 'z',
+  // Hindi
+  'अ', 'आ', 'क', 'ख', 'ग', 'घ', 'च', 'छ', 'ज', 'झ', 'त', 'थ', 'द', 'ध', 'न', 'प', 'फ', 'ब', 'भ', 'म', 'य', 'र', 'ल', 'व', 'श', 'ष', 'स', 'ह',
+  // Odia
+  'ଅ', 'ଆ', 'କ', 'ଖ', 'ଗ', 'ଘ', 'ଚ', 'ଛ', 'ଜ', 'ଝ', 'ଟ', 'ଠ', 'ଡ', 'ଢ', 'ଣ', 'ତ', 'ଥ', 'ଦ', 'ଧ', 'ନ', 'ପ', 'ଫ', 'ବ', 'ଭ', 'ମ', 'ଯ', 'ର', 'ଲ', 'ଳ', 'ଶ', 'ଷ', 'ସ', 'ହ'
+];
+
 const Hero: React.FC = () => {
 
   const startYear = 2021;
@@ -23,6 +32,34 @@ const Hero: React.FC = () => {
       {/* Background Texture & Elements */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: `url('https://www.transparenttextures.com/patterns/paper-fibers.png')` }}></div>
       <div className="absolute top-0 right-0 w-1/2 h-full bg-[#f3f2ee] hidden lg:block"></div>
+
+      {/* Falling Letters Animation */}
+      <div className="absolute inset-0 pointer-events-none select-none z-0">
+        {Array.from({ length: 60 }).map((_, i) => {
+          const char = CHARACTERS[Math.floor(Math.random() * CHARACTERS.length)];
+          const left = Math.random() * 100;
+          const duration = 4 + Math.random() * 6; // 4-10s duration for hero (slower)
+          const delay = Math.random() * 5;
+          const size = 12 + Math.random() * 16; // 12-28px
+          const opacity = 0.05 + Math.random() * 0.15; // Very subtle
+
+          return (
+            <span
+              key={i}
+              className="absolute text-stone-400 font-serif"
+              style={{
+                left: `${left}%`,
+                top: -40,
+                fontSize: `${size}px`,
+                opacity: opacity,
+                animation: `fall ${duration}s linear ${delay}s infinite`
+              }}
+            >
+              {char}
+            </span>
+          );
+        })}
+      </div>
 
       <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-start pb-8 md:pb-16">
 
@@ -147,6 +184,10 @@ const Hero: React.FC = () => {
       {/* Force rebuild */}
 
       <style>{`
+        @keyframes fall {
+          0% { transform: translateY(-50px) rotate(0deg); }
+          100% { transform: translateY(100vh) rotate(20deg); }
+        }
         @keyframes bounce-slow {
           0%, 100% { transform: translate(var(--tw-translate-x), 0); }
           50% { transform: translate(var(--tw-translate-x), -15px); }
