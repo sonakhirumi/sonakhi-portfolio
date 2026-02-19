@@ -107,7 +107,10 @@ const Footer: React.FC = () => {
 
 
         <div className="pt-8 border-t border-stone-800/50 flex flex-col items-center gap-6 text-[11px] font-medium uppercase tracking-widest text-stone-600">
-          <p>© {new Date().getFullYear()} <a href="/about" className="hover:text-stone-400 transition-colors">Sonakhi Malla (Rumi)</a>. All rights reserved.</p>
+          <p className="text-center">
+            <span>© {new Date().getFullYear()} <a href="/about" className="hover:text-stone-400 transition-colors">Sonakhi Malla (Rumi)</a>.</span>
+            <span className="block sm:inline sm:ml-1">All rights reserved.</span>
+          </p>
         </div>
 
       </div>
