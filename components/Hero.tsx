@@ -41,22 +41,39 @@ const Hero: React.FC = () => {
           </h1>
 
           {/* Mobile-Only Image Placement - Between Title and Intro */}
-          <div className="block lg:hidden w-full relative aspect-[3/4] max-w-[200px] self-start ml-6 my-6 group">
-            <div className="absolute inset-0 bg-stone-200 rounded-2xl overflow-hidden shadow-xl">
+          <div className="block lg:hidden w-full relative aspect-[1/1.2] max-w-[220px] self-start ml-6 my-12 group">
+            {/* Shadow Wrapper - Mobile */}
+            <div className="absolute inset-0 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.2)] rounded-3xl z-0">
+              <div className="absolute inset-0 bg-white"></div>
+            </div>
+
+            {/* Postage Stamp Mask Container - Mobile */}
+            <div
+              className="absolute inset-0 overflow-hidden z-10"
+              style={{
+                WebkitMaskImage: 'radial-gradient(circle at 0px 0px, transparent 8px, black 8.1px)',
+                WebkitMaskSize: '16px 16px',
+                maskImage: 'radial-gradient(circle at 0px 0px, transparent 8px, black 8.1px)',
+                maskSize: '16px 16px'
+              }}
+            >
+              <div className="absolute inset-0 bg-stone-50"></div>
               <img
                 src="https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2025/12/MoBuzz-Posting-Ideas-7.jpg"
                 alt="Sonakhi Malla"
-                className="w-full h-full object-cover object-top scale-110"
+                className="w-full h-full object-cover object-top scale-[1.3] grayscale filter contrast-125"
+                style={{ objectPosition: 'center 15%' }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-stone-900/40 to-transparent opacity-60"></div>
+              <div className="absolute inset-0 bg-stone-900/5 mix-blend-multiply pointer-events-none"></div>
             </div>
 
-            {/* Mobile Floating Card */}
-            <div className="absolute -bottom-4 -right-24 bg-white shadow-xl rounded-xl p-3 border border-stone-100 w-[180px] z-20 animate-bounce-slow">
-              <p className="font-serif italic text-xs text-stone-800 leading-snug mb-2">
-                5+ years of making words work harder.
+            {/* Mobile Dialogue Bubble */}
+            <div className="absolute -top-14 -right-4 bg-white shadow-xl rounded-2xl p-4 border border-stone-100 w-[170px] z-20 animate-bounce-slow">
+              <div className="absolute bottom-[-10px] left-[30px] w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-t-[10px] border-t-white"></div>
+              <p className="font-serif italic text-[11px] text-stone-800 leading-snug mb-3">
+                "5+ years of making words work harder."
               </p>
-              <div className="h-px w-6 bg-stone-900 mb-1"></div>
+              <div className="h-px w-8 bg-stone-300 mb-2"></div>
               <a
                 href="https://topmate.io/sonakhirumi"
                 target="_blank"
@@ -105,39 +122,59 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Column: Imagery & Editorial Flourishes */}
-        <div className="hidden lg:col-span-5 relative lg:h-auto lg:flex items-start justify-center animate-in fade-in zoom-in duration-1000 mt-4 lg:mt-0">
-          <div className="relative w-full aspect-[4/5] lg:h-full max-w-md group mb-12 lg:mb-0">
-            {/* Main Image Mask */}
-            <div className="absolute inset-0 bg-stone-200 rounded-2xl overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] group-hover:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.25)] transition-all duration-700">
+        <div className="hidden lg:col-span-5 relative lg:h-auto lg:flex items-center justify-center animate-in fade-in zoom-in duration-1000 mt-4 lg:mt-0 px-4">
+          <div className="relative w-full aspect-[4/5] lg:h-[500px] max-w-sm group">
+            {/* Shadow Wrapper - Desktop */}
+            <div className="absolute inset-0 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.3)] rounded-2xl z-0">
+              <div className="absolute inset-0 bg-white"></div>
+            </div>
+
+            {/* Main Image Mask Container - Desktop */}
+            <div
+              className="absolute inset-0 overflow-hidden z-10"
+              style={{
+                WebkitMaskImage: 'radial-gradient(circle at 0px 0px, transparent 10px, black 10.1px)',
+                WebkitMaskSize: '20px 20px',
+                maskImage: 'radial-gradient(circle at 0px 0px, transparent 10px, black 10.1px)',
+                maskSize: '20px 20px'
+              }}
+            >
+              <div className="absolute inset-0 bg-stone-50"></div>
               <img
                 src="https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2025/12/MoBuzz-Posting-Ideas-7.jpg"
                 alt="Sonakhi Malla"
-                className="w-full h-full object-cover scale-[1.15] group-hover:scale-125 transition-transform duration-[2000ms] ease-out"
+                className="w-full h-full object-cover scale-[1.4] transition-transform duration-[2000ms] ease-out grayscale filter contrast-125"
+                style={{ objectPosition: 'center 15%' }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-stone-900/40 to-transparent opacity-60"></div>
+              <div className="absolute inset-0 bg-stone-200/5 mix-blend-multiply pointer-events-none"></div>
             </div>
 
-            {/* Floating Editorial Card - Improved Mobile Position */}
-            <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 md:-bottom-10 md:-left-20 md:translate-x-0 p-6 md:p-8 bg-white shadow-2xl rounded-2xl w-[85%] max-w-[280px] md:w-auto border border-stone-100 block animate-bounce-slow z-20">
-              <Quote className="w-6 h-6 md:w-8 md:h-8 text-stone-200 mb-3 md:mb-4" />
-              <p className="font-serif italic text-base md:text-lg text-stone-800 leading-snug mb-3 md:mb-4">
-                5+ years of making words work harder so you don't have to.
+            {/* Floating Dialogue Bubble */}
+            <div className="absolute -top-16 -left-12 p-6 md:p-8 bg-white shadow-2xl rounded-3xl w-[90%] max-w-[280px] border border-stone-50 block animate-bounce-slow z-20">
+              <div className="absolute bottom-[-20px] left-[50px] w-0 h-0 border-l-[20px] border-l-transparent border-r-[20px] border-r-transparent border-t-[20px] border-t-white"></div>
+
+              <Quote className="w-6 h-6 md:w-8 md:h-8 text-stone-100 mb-3 md:mb-4" />
+              <p className="font-serif italic text-base md:text-lg text-stone-800 leading-snug mb-4">
+                "Five years of making words work harder so you don't have to."
               </p>
-              <div className="h-px w-12 bg-stone-900 mb-2"></div>
+              <div className="h-px w-12 bg-stone-900 mb-3"></div>
               <a
                 href="https://topmate.io/sonakhirumi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[8px] md:text-[9px] font-black uppercase tracking-[0.2em] text-stone-400 hover:text-stone-900 hover:underline transition-all duration-300 group/link"
+                className="flex items-center gap-2 text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-stone-400 hover:text-stone-900 hover:underline transition-all duration-300 group/link"
               >
                 LET'S CONNECT
                 <ExternalLink className="w-3 h-3 group-hover/link:text-stone-900 transition-colors" />
               </a>
             </div>
 
-            {/* Decorative Geometry */}
-            <div className="absolute -top-6 -right-6 w-24 h-24 border-t-2 border-r-2 border-stone-300 rounded-tr-3xl -z-10 group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-700"></div>
+            {/* Decorative Element */}
+            <div className="absolute -bottom-10 -right-10 w-32 h-32 border border-stone-200 rounded-full -z-10 group-hover:scale-110 transition-transform duration-700 opacity-30 flex items-center justify-center">
+              <div className="w-24 h-24 border border-stone-200 rounded-full flex items-center justify-center">
+                <div className="w-16 h-16 border border-stone-200 rounded-full"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
