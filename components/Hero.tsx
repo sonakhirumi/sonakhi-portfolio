@@ -46,7 +46,8 @@ const Hero: React.FC = () => {
               <img
                 src="https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2025/12/MoBuzz-Posting-Ideas-7.jpg"
                 alt="Sonakhi Malla"
-                className="w-full h-full object-cover object-top scale-110"
+                className="w-full h-full object-cover scale-[2.2]"
+                style={{ objectPosition: 'center 10%' }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-stone-900/40 to-transparent opacity-60"></div>
             </div>
@@ -113,7 +114,8 @@ const Hero: React.FC = () => {
               <img
                 src="https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2025/12/MoBuzz-Posting-Ideas-7.jpg"
                 alt="Sonakhi Malla"
-                className="w-full h-full object-cover scale-[1.15] group-hover:scale-125 transition-transform duration-[2000ms] ease-out"
+                className="w-full h-full object-cover scale-[2.2] group-hover:scale-[2.3] transition-transform duration-[2000ms] ease-out"
+                style={{ objectPosition: 'center 10%' }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-stone-900/40 to-transparent opacity-60"></div>
             </div>
