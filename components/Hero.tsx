@@ -2,6 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Languages, Quote, ExternalLink } from 'lucide-react';
+import heroImage from '@/hero-image.jpg';
 
 const Hero: React.FC = () => {
 
@@ -44,7 +45,7 @@ const Hero: React.FC = () => {
           <div className="block lg:hidden w-full relative aspect-[3/4] max-w-[200px] self-start ml-6 my-6 group">
             <div className="absolute inset-0 bg-stone-200 rounded-2xl overflow-hidden shadow-xl">
               <img
-                src="https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2025/12/MoBuzz-Posting-Ideas-7.jpg"
+                src={heroImage}
                 alt="Sonakhi Malla"
                 className="w-full h-full object-cover"
               />
@@ -111,7 +112,7 @@ const Hero: React.FC = () => {
             {/* Main Image Mask */}
             <div className="absolute inset-0 bg-stone-200 rounded-2xl overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] group-hover:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.25)] transition-all duration-700">
               <img
-                src="https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2025/12/MoBuzz-Posting-Ideas-7.jpg"
+                src={heroImage}
                 alt="Sonakhi Malla"
                 className="w-full h-full object-cover transition-transform duration-[2000ms] ease-out"
               />
