@@ -59,8 +59,8 @@ const Footer: React.FC = () => {
                   key={link.name}
                   href={link.href}
                   className={`transition-colors flex items-center gap-2 text-sm ${link.name === 'Happy Periods'
-                      ? 'text-red-400 hover:text-red-300 font-bold'
-                      : 'hover:text-white'
+                    ? 'text-[#880808] hover:opacity-80 font-bold'
+                    : 'hover:text-white'
                     }`}
                   {...(link.isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 >

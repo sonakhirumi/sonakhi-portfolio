@@ -42,7 +42,7 @@ const Navbar: React.FC = () => {
               key={link.name}
               to={link.href}
               className={`text-sm font-medium transition-colors ${link.name === 'Happy Periods'
-                ? 'text-red-500 hover:text-red-700 font-bold'
+                ? 'text-[#880808] hover:opacity-80 font-bold'
                 : 'text-stone-600 hover:text-stone-900'
                 }`}
             >
@@ -69,7 +69,7 @@ const Navbar: React.FC = () => {
               key={link.name}
               to={link.href}
               className={`text-lg font-medium ${link.name === 'Happy Periods'
-                ? 'text-red-600 hover:text-red-800'
+                ? 'text-[#880808] hover:opacity-80'
                 : 'text-stone-700 hover:text-stone-900'
                 }`}
               onClick={() => setIsMobileMenuOpen(false)}
