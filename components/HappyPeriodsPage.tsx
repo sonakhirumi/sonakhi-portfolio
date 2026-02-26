@@ -6,72 +6,72 @@ const HappyPeriodsPage: React.FC = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    // 1:1 METICULOUS RECREATIONS FROM THE REFERENCE IMAGE
-    const IconPadWavy = () => ( // Top Left
+    // 12 ICONS - TRACED FAITHFULLY FROM REFERENCE IMAGE
+    const IconPadWavy = () => ( // Row 1, Col 1
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-            <path d="M7 6c0-1 1-2 5-2s5 1 5 2v12c0 1-1 2-5 2s-5-1-5-2V6z" />
-            <path d="M5 10c-1 0-2 1-2 2s1 2 2 2m14-4c1 0 2 1 2 2s-1 2-2 2" />
-            <path d="M10 8c0 2 0 6 0 8m4-8c0 2 0 6 0 8" strokeDasharray="1 2" />
+            <path d="M8 4h8c2 0 2 4 2 8s0 8-2 8H8c-2 0-2-4-2-8s0-8 2-8z" />
+            <path d="M4 10c-1 0-2 1-2 2s1 2 2 2" />
+            <path d="M20 10c1 0 2 1 2 2s-1 2-2 2" />
+            <path d="M10 7v10m4-10v10" strokeDasharray="1 2" strokeOpacity="0.5" />
         </svg>
     );
 
-    const IconTamponSpiral = () => ( // Middle Left
+    const IconTamponSpiral = () => ( // Row 2, Col 1
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-            <path d="M10 5h4v10c0 1-1 2-2 2s-2-1-2-2V5z" />
-            <path d="M10 8l4 2m-4 2l4 2m-4 1.5l2.5 1" />
-            <path d="M12 17c0 1-1 3-3 4" />
+            <rect x="10" y="3" width="4" height="12" rx="1.5" />
+            <path d="M10 6l4 3m-4 2l4 3m-4 1l2 1.5" />
+            <path d="M13 15c1 2 0 4-2 6" />
         </svg>
     );
 
-    const IconCup = () => ( // Middle Row 2 - THE CUP
+    const IconCup = () => ( // Row 2, Col 2
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-            <path d="M7 5h10v1c0 0.5-0.5 1-1 1H8c-0.5 0-1-0.5-1-1V5z" fill="currentColor" fillOpacity="0.05" />
-            <path d="M7 6l1 6c0.5 2 2 3 4 3s3.5-1 4-3l1-6" />
-            <path d="M8 9h8m-7 3h6" opacity="0.5" />
-            <path d="M12 15v3m-2 2h4" />
+            <path d="M6 4h12v1.5c0 0.5-0.5 1-1 1H7c-0.5 0-1-0.5-1-1V4z" />
+            <path d="M7 6.5l1 5c0.5 2 2 3.5 4 3.5s3.5-1.5 4-3.5l1-5" />
+            <path d="M12 15v3.5" />
+            <path d="M10 17.5h4" />
         </svg>
     );
 
-    const IconAnatomy = () => ( // Middle Right - UTERUS
+    const IconAnatomy = () => ( // Row 2, Col 4
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-            <path d="M12 12c-2-2-4-2-6-1m12 1c-2-2-4-2-6-1" />
-            <path d="M12 12v7m-2 0h4" />
-            <path d="M5 11c-1-1-2 0-2 1s1 2 2 1" />
-            <path d="M19 11c1-1 2 0 2 1s-1 2-2 1" />
+            <path d="M12 11c-2-2-5-2-7 0m14 0c-2-2-5-2-7 0" />
+            <path d="M12 11v9" />
+            <circle cx="5" cy="11.5" r="1.5" />
+            <circle cx="19" cy="11.5" r="1.5" />
         </svg>
     );
 
-    const IconBodyCramps = () => ( // Bottom Row 3 - BODY
+    const IconBodyCramps = () => ( // Row 3, Col 3
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-            <path d="M8 5c1 3 1 10 0 14m8-14c-1 3-1 10 0 14" />
-            <path d="M9 14h6l-1 3h-4l-1-3z" />
-            <path d="M4 8l1-1 1 1m13 0l1-1 1 1" />
-            <circle cx="12" cy="11" r="0.5" fill="currentColor" />
+            <path d="M7 6c2 4 2 10 0 14m10-14c-2 4-2 10 0 14" />
+            <path d="M9 15h6l-1 4H10l-1-4z" />
+            <path d="M4 11l1-1 1 1m13 0l1-1 1 1" />
+            <circle cx="12" cy="12" r="0.5" fill="currentColor" />
         </svg>
     );
 
-    const IconCalendar = () => ( // Bottom Right
+    const IconCalendar = () => ( // Row 3, Col 4
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-            <rect x="6" y="6" width="12" height="12" rx="1.5" />
+            <rect x="6" y="6" width="12" height="12" rx="1" />
             <path d="M6 10h12M9 4v4m6-4v4" />
-            <circle cx="9" cy="14" r="0.5" fill="currentColor" />
-            <circle cx="12" cy="14" r="0.5" fill="currentColor" />
-            <circle cx="15" cy="14" r="0.5" fill="currentColor" />
+            <circle cx="9" cy="14" r="0.8" fill="currentColor" />
+            <circle cx="12" cy="14" r="0.8" fill="currentColor" />
+            <circle cx="15" cy="14" r="0.8" fill="currentColor" />
         </svg>
     );
 
-    const IconMeds = () => ( // Bottom Row 2
+    const IconLiner = () => ( // Row 1, Col 3
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-            <rect x="6" y="6" width="12" height="12" rx="2" transform="rotate(10 12 12)" />
-            <circle cx="9" cy="10" r="1" /><circle cx="15" cy="10" r="1" />
-            <circle cx="10" cy="14" r="1" /><circle cx="14" cy="14" r="1" />
+            <path d="M12 4c-3 0-4.5 2-4.5 5s1.5 3.5 1.5 3.5s-1.5 1-1.5 3s2 4.5 4.5 4.5s4.5-2.5 4.5-4.5s-1.5-1-1.5-3s1.5-1 1.5-3.5s-1.5-5-4.5-5z" />
         </svg>
     );
 
-    const IconLiner = () => ( // Top Row 3
+    const IconPills = () => ( // Row 3, Col 2
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-            <path d="M12 5c-2.5 0-3.5 2-3.5 4.5s1 2.5 1 2.5s-1 1-1 3s1.5 4 3.5 4s3.5-2 3.5-4s-1-1-1-3s1 0 1-2.5s-1-4.5-3.5-4.5z" />
-            <path d="M12 8v8" strokeDasharray="1 2" opacity="0.5" />
+            <rect x="6" y="5" width="12" height="14" rx="2" transform="rotate(15 12 12)" />
+            <circle cx="9" cy="9" r="1.2" /><circle cx="15" cy="10" r="1.2" />
+            <circle cx="10" cy="15" r="1.2" /><circle cx="16" cy="16" r="1.2" />
         </svg>
     );
 
@@ -81,25 +81,35 @@ const HappyPeriodsPage: React.FC = () => {
         </svg>
     );
 
-    // VASTLY INCREASED DENSITY AND VISIBILITY
-    const icons = [IconPadWavy, IconTamponSpiral, IconCup, IconAnatomy, IconBodyCramps, IconCalendar, IconMeds, IconLiner];
-    const scattered = Array.from({ length: 40 }).map((_, i) => ({
-        l: `${Math.random() * 90 + 5}%`,
-        t: `${Math.random() * 90 + 5}%`,
-        r: `${Math.random() * 360}deg`,
-        i: icons[i % icons.length],
-        s: 50 + Math.random() * 30
-    }));
+    // SPARSE SCATTERING - AS USER PREFERRED
+    const iconPool = [IconPadWavy, IconTamponSpiral, IconCup, IconAnatomy, IconBodyCramps, IconCalendar, IconLiner, IconPills];
+    const scattered = [
+        { l: '5%', t: '10%', r: '15deg', i: IconPadWavy },
+        { l: '25%', t: '15%', r: '-20deg', i: IconTamponSpiral },
+        { l: '50%', t: '8%', r: '45deg', i: IconCup },
+        { l: '80%', t: '12%', r: '-10deg', i: IconAnatomy },
+        { l: '15%', t: '35%', r: '120deg', i: IconBodyCramps },
+        { l: '40%', t: '45%', r: '30deg', i: IconCalendar },
+        { l: '65%', t: '38%', r: '-45deg', i: IconLiner },
+        { l: '90%', t: '42%', r: '15deg', i: IconPills },
+        { l: '10%', t: '65%', r: '-30deg', i: IconCup },
+        { l: '35%', t: '75%', r: '180deg', i: IconPadWavy },
+        { l: '60%', t: '68%', r: '12deg', i: IconAnatomy },
+        { l: '85%', t: '72%', r: '-15deg', i: IconTamponSpiral },
+        { l: '20%', t: '90%', r: '95deg', i: IconCalendar },
+        { l: '50%', t: '88%', r: '-40deg', i: IconBodyCramps },
+        { l: '80%', t: '92%', r: '25deg', i: IconPills }
+    ];
 
     return (
         <div className="min-h-screen bg-white relative" style={{ isolation: 'isolate' }}>
-            {/* HIGH CONTRAST BACKGROUND */}
-            <div className="fixed inset-0 pointer-events-none select-none z-0 opacity-25">
+            {/* BACKGROUND SCATTERED ICONS */}
+            <div className="fixed inset-0 pointer-events-none select-none z-0 opacity-20">
                 {scattered.map((s, idx) => (
                     <div
                         key={idx}
-                        className="absolute text-stone-600"
-                        style={{ left: s.l, top: s.t, transform: `rotate(${s.r})`, width: `${s.s}px`, height: `${s.s}px` }}
+                        className="absolute text-stone-500"
+                        style={{ left: s.l, top: s.t, transform: `rotate(${s.r})`, width: '50px', height: '50px' }}
                     >
                         <s.i />
                     </div>
@@ -109,6 +119,8 @@ const HappyPeriodsPage: React.FC = () => {
             <div className="relative z-10">
                 <style>{`
                     .text-stroke-red { -webkit-text-stroke: 1.5px #880808; color: white; }
+                    @keyframes slide-up { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+                    .animate-slide-up { animation: slide-up 1s cubic-bezier(0.2, 1, 0.2, 1) forwards; }
                 `}</style>
 
                 {/* Main Content */}
@@ -118,18 +130,18 @@ const HappyPeriodsPage: React.FC = () => {
                         <span className="text-[10px] font-black uppercase tracking-[0.4em] text-stone-800">Reboot of Thoughts on Menstruation</span>
                     </div>
 
-                    <h1 className="font-serif text-[clamp(2.5rem,11vw,8rem)] font-bold tracking-tighter leading-none flex items-center gap-2 md:gap-6 justify-center">
+                    <h1 className="font-serif text-[clamp(2.5rem,11vw,8rem)] font-bold tracking-tighter leading-none flex items-center gap-2 md:gap-6 justify-center animate-slide-up" style={{ animationDelay: '0.2s' }}>
                         <span className="text-stroke-red">Happy</span>{' '}
                         <span className="text-[#880808] italic">Periods</span>
                         <div className="w-[0.8em] h-[1em]"><BloodDropSolid className="w-full h-full" /></div>
                     </h1>
 
-                    <p className="text-xl md:text-2xl text-stone-500 font-light max-w-2xl mx-auto leading-relaxed mt-16">
+                    <p className="text-xl md:text-2xl text-stone-500 font-light max-w-2xl mx-auto leading-relaxed mt-16 animate-slide-up" style={{ animationDelay: '0.4s' }}>
                         Let's make our world <span className="text-[#880808] font-bold tracking-tight">PERIOD FRIENDLY!</span>
                     </p>
                 </section>
 
-                <section className="py-32 px-6 bg-white/60 backdrop-blur-sm border-t border-stone-100">
+                <section className="py-32 px-6 bg-white/70 backdrop-blur-sm border-t border-stone-100">
                     <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 items-center">
                         <div className="lg:col-span-1 border-l-2 border-[#880808] h-32 hidden lg:block" />
                         <div className="lg:col-span-6 space-y-10">
@@ -143,7 +155,7 @@ const HappyPeriodsPage: React.FC = () => {
                     </div>
                 </section>
 
-                <section className="py-32 bg-white/60 backdrop-blur-sm text-center border-t border-stone-50">
+                <section className="py-32 bg-white/70 backdrop-blur-sm text-center border-t border-stone-50">
                     <div className="max-w-3xl mx-auto px-6 space-y-12">
                         <div className="inline-flex p-5 rounded-3xl bg-red-50 mb-4 items-center justify-center animate-bounce"><MessageCircle className="w-10 h-10 text-[#880808]" /></div>
                         <h2 className="font-serif text-5xl md:text-7xl font-bold text-stone-900 tracking-tighter leading-none">Let's <span className="text-[#880808] italic">Collaborate.</span></h2>
