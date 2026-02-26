@@ -10,6 +10,7 @@ import AllArticlesPage from './components/AllArticlesPage';
 import Preloader from './components/Preloader';
 import Contacts from './components/Contact';
 import HappyPeriodsPage from './components/HappyPeriodsPage';
+import HappyPeriodsPreloader from './components/HappyPeriodsPreloader';
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
@@ -39,17 +40,42 @@ const AboutPage: React.FC = () => (
   </section>
 );
 
-const App: React.FC = () => {
-  const [isAppLoading, setIsAppLoading] = useState(true);
+// Custom loader for Happy Periods
+const HappyPeriodsRoute: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Initial loading delay for brand impact
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2400);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return <HappyPeriodsPreloader />;
+  }
+  return <HappyPeriodsPage />;
+};
+
+const App: React.FC = () => {
+  const [isAppLoading, setIsAppLoading] = useState(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    // If we land directly on happy-periods, don't show the global writer preloader, 
+    // let its own route component handle it.
+    if (location.pathname === '/happy-periods') {
+      setIsAppLoading(false);
+      return;
+    }
+
+    // Initial loading delay for brand impact (global)
     const timer = setTimeout(() => {
       setIsAppLoading(false);
     }, 2400);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [location.pathname]);
 
   if (isAppLoading) {
     return <Preloader />;
@@ -65,7 +91,7 @@ const App: React.FC = () => {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/my-archive" element={<AllArticlesPage />} />
           <Route path="/my-archive/:category" element={<AllArticlesPage />} />
-          <Route path="/happy-periods" element={<HappyPeriodsPage />} />
+          <Route path="/happy-periods" element={<HappyPeriodsRoute />} />
           <Route path="/article/:id" element={<ArticlePage />} />
           <Route path="/contact" element={<Contacts />} />
 
