@@ -1,96 +1,13 @@
 import React, { useEffect } from 'react';
 import { ExternalLink, Image as ImageIcon, MessageCircle } from 'lucide-react';
 
+// Import the user's EXACT reference image as a sprite sheet
+import iconSprite from '../period-icons-ref.jpg';
+
 const HappyPeriodsPage: React.FC = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
-
-    // 1:1 RECREATIONS OF THE 11 ICONS FROM THE REFERENCE IMAGE
-    const IconCup = () => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round">
-            <path d="M7 6c0 0 0 0.5 0.5 1s9.5 0.5 10 0s0.5-1 0.5-1H7z" />
-            <path d="M7 7c0.5 3 2 6 5 6s4.5-3 5-6" />
-            <path d="M12 13v3m-2 0.5h4" />
-        </svg>
-    );
-
-    const IconCalendar = () => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round">
-            <rect x="6" y="7" width="12" height="11" rx="1" />
-            <path d="M8 5v4M11 5v4M14 5v4M17 5v4M6 11h12" />
-            <path d="M13 14.5c0 1-0.8 1.5-1.5 1.5s-1.5-0.5-1.5-1.5s1.5-3 1.5-3s1.5 2 1.5 3z" />
-        </svg>
-    );
-
-    const IconUterus = () => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round">
-            <path d="M12 11c-2-2-5-2-7 0c-1 1 0 2.5 1.5 2c1-0.5 2.5-0.5 3.5 1c1 1.5 1 3 2 3s1-1.5 2-3c1-1.5 2.5-1.5 3.5-1c1.5 0.5 2.5-1 1.5-2c-2-2-5-2-7 0z" />
-            <path d="M12 11v8m-2 0h4" />
-        </svg>
-    );
-
-    const IconPad = () => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round">
-            <path d="M9 5h6c3 0 3 4 3 7s0 7-3 7H9c-3 0-3-4-3-7s0-7 3-7z" strokeDasharray="1 2" />
-            <path d="M11.5 11c0 0.5-0.4 1-1 1s-1-0.5-1-1s1-2 1-2s1 1.5 1 2z" />
-        </svg>
-    );
-
-    const IconBlister = () => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round">
-            <rect x="6" y="5" width="12" height="14" rx="2" transform="rotate(15 12 12)" />
-            <circle cx="10" cy="9" r="0.8" /><circle cx="14" cy="10" r="0.8" />
-            <circle cx="10" cy="13" r="0.8" /><circle cx="14" cy="14" r="0.8" />
-            <circle cx="10" cy="17" r="0.8" /><circle cx="14" cy="18" r="0.8" />
-        </svg>
-    );
-
-    const IconTissue = () => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round">
-            <rect x="6" y="11" width="12" height="8" rx="1" />
-            <path d="M8 11c0-2.5 1.5-4 4-4s4 1.5 4 4" />
-            <path d="M10 7c0-1.5 1-2.5 2-2.5s2 1 2 2.5" opacity="0.4" />
-        </svg>
-    );
-
-    const IconPill = () => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round">
-            <circle cx="8" cy="12" r="3.5" />
-            <path d="M6 12h4" />
-            <rect x="13" y="9" width="4" height="9" rx="2" transform="rotate(-35 15 13.5)" />
-            <path d="M14 11.5l3 2" />
-        </svg>
-    );
-
-    const IconDrops = () => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round">
-            <path d="M10 13c0 1.2-1 2-1.8 2s-1.8-0.8-1.8-2s1.8-3.5 1.8-3.5s1.8 2.3 1.8 3.5z" />
-            <path d="M18 15c0 1.2-1 2-1.8 2s-1.8-0.8-1.8-2s1.8-3.5 1.8-3.5s1.8 2.3 1.8 3.5z" />
-        </svg>
-    );
-
-    const IconPhone = () => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round">
-            <rect x="7" y="4" width="10" height="16" rx="2" />
-            <path d="M13 11c0 1-0.8 1.5-1.5 1.5S10 12 10 11s1.5-3 1.5-3s1.5 2 1.5 3z" />
-            <circle cx="12" cy="18" r="0.5" fill="currentColor" />
-        </svg>
-    );
-
-    const IconLiner = () => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round">
-            <path d="M12 5c-2.5 0-3.5 2-3.5 4.5s1 2.5 1 2.5s-1 1-1 3.5c0 2.5 1.5 4.5 3.5 4.5s3.5-2 3.5-4.5c0-2.5-1-3.5-1-3.5s1 0 1-2.5s-1-4.5-3.5-4.5z" />
-        </svg>
-    );
-
-    const IconTampon = () => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round">
-            <rect x="10" y="5" width="4" height="11" rx="2" transform="rotate(-15 12 10.5)" />
-            <path d="M11 6l2 0.5M10.5 9l2 0.5M10 12l2 1" opacity="0.6" />
-            <path d="M12 15c-0.5 1.5-1.5 3-3 4" />
-        </svg>
-    );
 
     const BloodDropSolid = ({ className }: { className?: string }) => (
         <svg viewBox="0 0 24 24" fill="#880808" className={className} xmlns="http://www.w3.org/2000/svg">
@@ -98,30 +15,57 @@ const HappyPeriodsPage: React.FC = () => {
         </svg>
     );
 
-    // PROFESSIONAL SCATTERED WALLPAPER PATTERN
-    const icons = [IconCup, IconCalendar, IconUterus, IconPad, IconBlister, IconTissue, IconPill, IconDrops, IconPhone, IconLiner, IconTampon];
-    const wallpaper = Array.from({ length: 20 }).map((_, i) => ({
-        l: `${(i * 20) % 100}%`,
-        t: `${(Math.floor(i / 5) * 25) + (Math.random() * 10)}%`,
-        r: `${Math.random() * 30 - 15}deg`,
-        Icon: icons[i % icons.length],
-        size: 70
-    }));
+    // EXACT SPATIAL POSITIONS FOR SCATTERING (NO CLUTTER)
+    const scattering = [
+        { l: '8%', t: '12%', r: '15deg', col: 0, row: 0, size: 70 }, // Cup
+        { l: '28%', t: '18%', r: '-5deg', col: 1, row: 0, size: 75 }, // Calendar
+        { l: '45%', t: '8%', r: '25deg', col: 2, row: 0, size: 80 },  // Uterus
+        { l: '70%', t: '15%', r: '-15deg', col: 3, row: 0, size: 70 }, // Pad w/ Drop
+        { l: '88%', t: '25%', r: '10deg', col: 4, row: 0, size: 65 },  // Blister
+        { l: '12%', t: '45%', r: '45deg', col: 5, row: 0, size: 75 },  // Tissue
+        { l: '35%', t: '52%', r: '-15deg', col: 0, row: 1, size: 70 }, // Pills
+        { l: '58%', t: '40%', r: '12deg', col: 1, row: 1, size: 65 },  // Double Drops
+        { l: '82%', t: '45%', r: '30deg', col: 2, row: 1, size: 75 },  // Phone App
+        { l: '10%', t: '75%', r: '-20deg', col: 3, row: 1, size: 65 }, // Liner (Folded pad)
+        { l: '38%', t: '80%', r: '15deg', col: 4, row: 1, size: 70 },  // Tampon
+        // We exclude (col: 5, row: 1) which is "the women one" (female symbol)
+
+        // Add a few more repeats of the most iconic ones to fill out the bottom properly
+        { l: '60%', t: '70%', r: '-10deg', col: 0, row: 0, size: 65 }, // Cup (repeated)
+        { l: '85%', t: '75%', r: '-30deg', col: 1, row: 0, size: 80 }, // Calendar (repeated)
+        { l: '20%', t: '85%', r: '25deg', col: 2, row: 0, size: 85 },   // Uterus (repeated)
+        { l: '75%', t: '90%', r: '120deg', col: 4, row: 0, size: 70 },  // Blister (repeated)
+        { l: '50%', t: '92%', r: '-15deg', col: 3, row: 0, size: 70 }, // Pad w/ Drop (repeated)
+    ];
 
     return (
         <div className="min-h-screen bg-white relative" style={{ isolation: 'isolate' }}>
-            {/* BACKGROUND: GREY CIRCULAR ICONS WALLPAPER */}
-            <div className="fixed inset-0 pointer-events-none select-none z-0 opacity-[0.22]">
-                {wallpaper.map((s, idx) => (
+            {/* 
+               We are using the EXACT image passed by the user as a CSS Sprite.
+               mix-blend-mode: multiply turns the white/peach background into transparent against the white page! 
+               filter: grayscale removes colors, brightness+contrast makes the drawing sharp and clips the off-white background to pure white.
+            */}
+            <div className="fixed inset-0 pointer-events-none select-none z-0">
+                {scattering.map((s, idx) => (
                     <div
                         key={idx}
-                        className="absolute flex items-center justify-center rounded-full border border-stone-100 bg-stone-50/30"
-                        style={{ left: s.l, top: s.t, transform: `rotate(${s.r})`, width: s.size, height: s.size }}
-                    >
-                        <div className="text-stone-400 w-3/5 h-3/5">
-                            <s.Icon />
-                        </div>
-                    </div>
+                        className="absolute"
+                        style={{
+                            left: s.l,
+                            top: s.t,
+                            transform: `rotate(${s.r})`,
+                            width: `${s.size}px`,
+                            height: `${s.size}px`,
+                            backgroundImage: `url(${iconSprite})`,
+                            backgroundSize: '600% 200%',
+                            backgroundPosition: `${s.col * 20}% ${s.row * 100}%`,
+                            backgroundRepeat: 'no-repeat',
+                            // The magic filter to take the user's sketch and blend it perfectly
+                            filter: 'grayscale(100%) brightness(1.2) contrast(1.5)',
+                            mixBlendMode: 'multiply',
+                            opacity: 0.16
+                        }}
+                    />
                 ))}
             </div>
 
@@ -132,7 +76,7 @@ const HappyPeriodsPage: React.FC = () => {
                     .animate-slide-up { animation: slide-up 1s cubic-bezier(0.2, 1, 0.2, 1) forwards; }
                 `}</style>
 
-                {/* Main Hero Content */}
+                {/* Main Content */}
                 <section className="min-h-[85vh] flex flex-col items-center justify-center p-6 text-center">
                     <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-red-100 bg-white shadow-sm mb-12 animate-slide-up">
                         <BloodDropSolid className="w-3.5 h-4" />
@@ -166,7 +110,7 @@ const HappyPeriodsPage: React.FC = () => {
 
                 <section className="py-32 bg-white/70 backdrop-blur-sm text-center border-t border-stone-50">
                     <div className="max-w-3xl mx-auto px-6 space-y-12">
-                        <div className="inline-flex p-5 rounded-3xl bg-red-50 mb-4 items-center justify-center animate-bounce"><MessageCircle className="w-10 h-10 text-[#880808] inverse" /></div>
+                        <div className="inline-flex p-5 rounded-3xl bg-red-50 mb-4 items-center justify-center animate-bounce"><MessageCircle className="w-10 h-10 text-[#880808]" /></div>
                         <h2 className="font-serif text-5xl md:text-7xl font-bold text-stone-900 tracking-tighter leading-none">Let's <span className="text-[#880808] italic">Collaborate.</span></h2>
                         <div className="pt-8"><a href="/contact" className="px-14 py-6 bg-[#880808] text-white font-bold rounded-full hover:bg-stone-900 transition-all shadow-xl uppercase tracking-widest text-[10px]">GET IN TOUCH</a></div>
                     </div>
