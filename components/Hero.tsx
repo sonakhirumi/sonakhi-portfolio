@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Languages, Quote, ExternalLink } from 'lucide-react';
 import heroImage from '@/hero-image.jpg';
 
+// Rebuild trigger after reverting torn cutout effect
 const Hero: React.FC = () => {
 
   const startYear = 2021;
