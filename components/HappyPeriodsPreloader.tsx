@@ -3,10 +3,9 @@ import React, { useState, useEffect } from 'react';
 const HappyPeriodsPreloader: React.FC = () => {
     const [textIndex, setTextIndex] = useState(0);
     const loadingTexts = [
-        "Normalizing the conversation...",
         "Breaking the silence...",
-        "Advocating for empathy...",
-        "Creating a period-friendly world..."
+        "Normalising the talk...",
+        "Advocating with empathy..."
     ];
 
     useEffect(() => {
@@ -17,8 +16,8 @@ const HappyPeriodsPreloader: React.FC = () => {
     }, []);
 
     return (
-        <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white">
-            <div className="relative w-64 h-64 flex flex-col items-center justify-center">
+        <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white px-4">
+            <div className="relative w-full max-w-sm flex flex-col items-center justify-center">
 
                 {/* Minimalist Blood Drop Animation */}
                 <div className="relative w-16 h-24 flex items-center justify-center mb-8">
@@ -32,8 +31,8 @@ const HappyPeriodsPreloader: React.FC = () => {
                 </div>
 
                 {/* Loading Text */}
-                <div className="overflow-hidden h-6 text-center">
-                    <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[#880808] animate-fade-in-out">
+                <div className="h-10 flex items-center justify-center text-center w-full">
+                    <p className="text-[10px] font-black uppercase tracking-[0.2em] sm:tracking-[0.3em] text-[#880808] animate-fade-in-out text-balance">
                         {loadingTexts[textIndex]}
                     </p>
                 </div>
