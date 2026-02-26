@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { ExternalLink, Image as ImageIcon, MessageCircle } from 'lucide-react';
 
+// Trigger Rebuild - Happy Periods Redesign
 const HappyPeriodsPage: React.FC = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
