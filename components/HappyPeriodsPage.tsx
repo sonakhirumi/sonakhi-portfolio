@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Heart, Play, ExternalLink, Image as ImageIcon, BookOpen, Sparkles, MessageCircle, HeartPulse, Droplets } from 'lucide-react';
+import { ExternalLink, Image as ImageIcon, BookOpen, Sparkles, MessageCircle, HeartPulse, Droplets } from 'lucide-react';
 
 const HappyPeriodsPage: React.FC = () => {
     // Force scroll to top on mount
@@ -7,52 +7,62 @@ const HappyPeriodsPage: React.FC = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    // Realistic Product Outlines (Grey Outlines)
-    const CupOutline = () => (
+    // CUSTOM SVG ICONS BASED ON THE REFERENCE IMAGE
+    const PadIcon1 = () => (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-            <path d="M6 4c0 0 0 9 6 9s6-9 6-9H6z" />
-            <path d="M12 13v4" />
-            <circle cx="12" cy="18" r="1.5" />
-            <path d="M7 4a12 12 0 0 1 10 0" />
+            <path d="M8 4h8a4 4 0 0 1 4 4v8a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4z" />
+            <path d="M4 10c-1.5 0-1.5 4 0 4M20 10c1.5 0 1.5 4 0 4" />
+            <path strokeDasharray="1 2" d="M9 7v10M15 7v10" />
         </svg>
     );
-    const TamponOutline = () => (
+    const PadIcon2 = () => (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-            <rect x="9" y="3" width="6" height="12" rx="3" />
-            <path d="M12 15s-1 3 0 6" />
-            <path d="M10 6h4M10 9h4" />
+            <path d="M9 3h6a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5z" />
+            <path d="M4 11h2M18 11h2" />
+            <circle cx="12" cy="12" r="3" strokeDasharray="1 1" />
         </svg>
     );
-    const PantyOutline = () => (
+    const LinerIcon = () => (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-            <path d="M3 6h18l-2 5c-1 4-3 7-7 7s-6-3-7-7L3 6z" />
-            <path d="M3 6c3 1 6 2 9 2s6-1 9-2" />
+            <path d="M12 4c-3.5 0-5 2-5 5v6c0 3 1.5 5 5 5s5-2 5-5V9c0-3-1.5-5-5-5z" />
+            <path strokeDasharray="1 2" d="M10 8v8M14 8v8" />
         </svg>
     );
-    const DiscOutline = () => (
+    const TamponIcon = () => (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-            <ellipse cx="12" cy="11" rx="9" ry="5" />
-            <ellipse cx="12" cy="12" rx="7" ry="2.5" />
-            <path d="M3 11c0 3 4 6 9 6s9-3 9-6" />
+            <rect x="10" y="4" width="4" height="11" rx="2" transform="rotate(15 12 12)" />
+            <path d="M11 7l3 1M10 10l3 1M9 13l3 1" />
+            <path d="M13 15c0 2-1 4-2 6" />
         </svg>
     );
-    const PadOutline = () => (
+    const CupIcon = () => (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-            <path d="M8 3h8a4 4 0 0 1 0 8H8a4 4 0 0 1 0-8z" />
-            <path d="M8 13h8a4 4 0 0 1 0 8H8a4 4 0 0 1 0-8z" />
-            <path d="M5 10c0-2 2-2 3-2h8c1 0 3 0 3 2s-2 2-3 2H8c-1 0-3 0-3-2z" />
+            <path d="M6 4h12l-1 7c-1 3-2 5-5 5s-4-2-5-5L6 4z" />
+            <path d="M6 7h12M7 10h10" />
+            <path d="M12 16v3" />
+            <rect x="10" y="19" width="4" height="1" rx="0.5" />
         </svg>
     );
-    const HeatBagOutline = () => (
+    const UterusIcon = () => (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-            <path d="M7 7h10v12a3 3 0 0 1-3 3h-4a3 3 0 0 1-3-3V7z" />
-            <path d="M10 3h4v4h-4V3z" />
-            <path d="M8 10h8M8 14h8M8 18h8" />
+            <path d="M4 9c2-1 3 1 5 1s3-2 3-2s1 2 3 2s3-2 5-1v2c-2-1-3 1-5 1s-3-2-3-2s-1 2-3 2s-3-2-5-1V9z" />
+            <path d="M12 10v8" />
+            <path d="M10 18h4" />
         </svg>
     );
-    const BloodDropOutline = () => (
+    const PantyIcon = () => (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-            <path d="M12 21.5c-4.142 0-7.5-3.358-7.5-7.5 0-4.142 7.5-12.5 7.5-12.5s7.5 8.358 7.5 12.5c0 4.142-3.358 7.5-7.5 7.5z" />
+            <path d="M3 7h18l-1 4c-1 4-3 6-8 6h-1c-5 0-7-2-8-6L3 7z" />
+            <path d="M12 11c-1.5 2-3 2-4.5 2M12 11c1.5 2 3 2 4.5 2" strokeDasharray="1 1" />
+        </svg>
+    );
+    const MedicationIcon = () => (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+            <rect x="5" y="5" width="14" height="14" rx="3" transform="rotate(10 12 12)" />
+            <circle cx="9" cy="9" r="1.5" />
+            <circle cx="15" cy="9" r="1.5" />
+            <circle cx="9" cy="15" r="1.5" />
+            <circle cx="15" cy="15" r="1.5" />
         </svg>
     );
 
@@ -62,31 +72,55 @@ const HappyPeriodsPage: React.FC = () => {
         </svg>
     );
 
+    // Scattered positions to ensure no sequence
+    const scatteredPositions = [
+        { left: '2%', top: '5%', rotate: '15deg', icon: LinerIcon },
+        { left: '12%', top: '18%', rotate: '-10deg', icon: TamponIcon },
+        { left: '25%', top: '8%', rotate: '45deg', icon: PadIcon1 },
+        { left: '38%', top: '22%', rotate: '-30deg', icon: CupIcon },
+        { left: '55%', top: '12%', rotate: '120deg', icon: UterusIcon },
+        { left: '68%', top: '5%', rotate: '10deg', icon: MedicationIcon },
+        { left: '85%', top: '25%', rotate: '-15deg', icon: PantyIcon },
+        { left: '92%', top: '8%', rotate: '33deg', icon: PadIcon2 },
+        { left: '5%', top: '35%', rotate: '200deg', icon: UterusIcon },
+        { left: '18%', top: '42%', rotate: '12deg', icon: MedicationIcon },
+        { left: '32%', top: '38%', rotate: '-45deg', icon: PadIcon1 },
+        { left: '48%', top: '48%', rotate: '80deg', icon: LinerIcon },
+        { left: '62%', top: '35%', rotate: '-10deg', icon: TamponIcon },
+        { left: '78%', top: '42%', rotate: '350deg', icon: CupIcon },
+        { left: '88%', top: '55%', rotate: '25deg', icon: PadIcon2 },
+        { left: '10%', top: '65%', rotate: '-12deg', icon: CupIcon },
+        { left: '22%', top: '75%', rotate: '150deg', icon: PantyIcon },
+        { left: '35%', top: '62%', rotate: '40deg', icon: LinerIcon },
+        { left: '52%', top: '78%', rotate: '-20deg', icon: TamponIcon },
+        { left: '65%', top: '68%', rotate: '95deg', icon: MedicationIcon },
+        { left: '82%', top: '75%', rotate: '15deg', icon: UterusIcon },
+        { left: '95%', top: '62%', rotate: '-45deg', icon: PadIcon1 },
+        { left: '15%', top: '92%', rotate: '10deg', icon: PadIcon2 },
+        { left: '42%', top: '95%', rotate: '-110deg', icon: PantyIcon },
+        { left: '72%', top: '92%', rotate: '25deg', icon: LinerIcon },
+        { left: '85%', top: '88%', rotate: '-15deg', icon: TamponIcon },
+    ];
+
     return (
         <div className="min-h-screen bg-white relative overflow-hidden" style={{ isolation: 'isolate' }}>
-            {/* BACKGROUND WALLPAPER: Darker Grey Outlines for better visibility */}
-            <div className="fixed inset-0 pointer-events-none select-none z-0 opacity-[0.07]">
-                <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-20 p-10 mt-10">
-                    {Array.from({ length: 96 }).map((_, i) => {
-                        const icons = [
-                            <CupOutline key="c" />, <TamponOutline key="t" />,
-                            <PantyOutline key="p" />, <DiscOutline key="d" />,
-                            <PadOutline key="pa" />, <HeatBagOutline key="h" />,
-                            <BloodDropOutline key="b" />
-                        ];
-                        const icon = icons[i % icons.length];
-                        const rotation = (i * 15) % 360;
-                        return (
-                            <div
-                                key={i}
-                                className="text-stone-500 transform"
-                                style={{ transform: `rotate(${rotation}deg)`, width: '36px', height: '36px' }}
-                            >
-                                {icon}
-                            </div>
-                        );
-                    })}
-                </div>
+            {/* BACKGROUND WALLPAPER: Scattered Grey Outlines based on Reference Image */}
+            <div className="fixed inset-0 pointer-events-none select-none z-0 opacity-[0.12]">
+                {scatteredPositions.map((pos, i) => (
+                    <div
+                        key={i}
+                        className="absolute text-stone-500"
+                        style={{
+                            left: pos.left,
+                            top: pos.top,
+                            transform: `rotate(${pos.rotate})`,
+                            width: '45px',
+                            height: '45px'
+                        }}
+                    >
+                        <pos.icon />
+                    </div>
+                ))}
             </div>
 
             {/* Custom Styles */}
@@ -108,7 +142,7 @@ const HappyPeriodsPage: React.FC = () => {
             {/* Hero Section */}
             <section className="relative min-h-[80vh] flex flex-col items-center justify-center bg-transparent py-24 z-10">
                 <div className="relative z-10 text-center px-6 max-w-7xl mx-auto flex flex-col items-center">
-                    <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-red-100 bg-white/90 backdrop-blur-sm shadow-sm mb-12 animate-fade-in-up">
+                    <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-red-100 bg-white/95 backdrop-blur-sm shadow-sm mb-12 animate-fade-in-up tracking-tight">
                         <BloodDropSolid className="w-3.5 h-4" />
                         <span className="text-[10px] font-black uppercase tracking-[0.4em] text-stone-800">Reboot of Thoughts on Menstruation</span>
                     </div>
@@ -130,7 +164,7 @@ const HappyPeriodsPage: React.FC = () => {
             </section>
 
             {/* Mission Section */}
-            <section className="py-24 px-6 bg-white/90 backdrop-blur-xs relative z-10 border-t border-stone-50">
+            <section className="py-24 px-6 bg-white/95 backdrop-blur-xs relative z-10 border-t border-stone-50">
                 <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 items-center">
                     <div className="lg:col-span-1 border-l-2 border-[#880808] h-32 hidden lg:block" />
                     <div className="lg:col-span-6 space-y-10">
@@ -171,7 +205,7 @@ const HappyPeriodsPage: React.FC = () => {
             </section>
 
             {/* Portfolio Section */}
-            <section className="py-24 bg-[#fafafa]/90 backdrop-blur-xs relative z-10">
+            <section className="py-24 bg-[#fafafa]/95 backdrop-blur-xs relative z-10">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="mb-20">
                         <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-stone-400 font-sans mb-4">Portfolio</h2>
