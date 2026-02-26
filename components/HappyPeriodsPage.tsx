@@ -7,28 +7,63 @@ const HappyPeriodsPage: React.FC = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    // Custom Blood Drop Component for precise color control
-    const BloodDrop = ({ className }: { className?: string }) => (
-        <svg
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            className={className}
-            xmlns="http://www.w3.org/2000/svg"
-        >
+    // Product Outlines for Background Wallpaper
+    const CupOutline = () => (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M19 3H5v2c0 3.87 3.13 7 7 7s7-3.13 7-7V3zm-7 11c-1.66 0-3 1.34-3 3v2c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-2c0-1.66-1.34-3-3-3z" /></svg>
+    );
+    const TamponOutline = () => (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M7 2h10v12H7zM12 14v8M11 22h2" /></svg>
+    );
+    const PantyOutline = () => (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M2 4v4c4 0 7 3 10 3s6-3 10-3V4H2zm10 16c-3.31 0-6-2.69-6-6h12c0 3.31-2.69 6-6 6z" /></svg>
+    );
+    const DiscOutline = () => (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><ellipse cx="12" cy="12" rx="10" ry="6" /><ellipse cx="12" cy="12" rx="7" ry="3" /></svg>
+    );
+    const PadOutline = () => (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="6" y="2" width="12" height="20" rx="6" /><path d="M2 10h4v4H2zM18 10h4v4h-4z" /></svg>
+    );
+    const HeatBagOutline = () => (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M6 6h12v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6zm4-4h4v4h-4V2z" /></svg>
+    );
+    const BloodDropOutline = () => (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 21.5c-4.142 0-7.5-3.358-7.5-7.5 0-4.142 7.5-12.5 7.5-12.5s7.5 8.358 7.5 12.5c0 4.142-3.358 7.5-7.5 7.5z" /></svg>
+    );
+
+    // Static Blood Drop for the title
+    const BloodDropSolid = ({ className }: { className?: string }) => (
+        <svg viewBox="0 0 24 24" fill="#880808" className={className} xmlns="http://www.w3.org/2000/svg">
             <path d="M12 21.5c-4.142 0-7.5-3.358-7.5-7.5 0-4.142 7.5-12.5 7.5-12.5s7.5 8.358 7.5 12.5c0 4.142-3.358 7.5-7.5 7.5z" />
         </svg>
     );
 
-    // High Quality Product Icons for the Rain
-    const CupIcon = () => (<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5v2c0 3.87 3.13 7 7 7s7-3.13 7-7V3zm-7 11c-1.66 0-3 1.34-3 3v2c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-2c0-1.66-1.34-3-3-3z" /></svg>);
-    const TamponIcon = () => (<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10v12H7zM12 14v8M11 22h2" /></svg>);
-    const PantyIcon = () => (<svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 4v4c4 0 7 3 10 3s6-3 10-3V4H2zm10 16c-3.31 0-6-2.69-6-6h12c0 3.31-2.69 6-6 6z" /></svg>);
-    const DiscIcon = () => (<svg viewBox="0 0 24 24" fill="currentColor"><ellipse cx="12" cy="12" rx="10" ry="6" /><ellipse cx="12" cy="12" rx="7" ry="3" fill="white" fillOpacity="0.3" /></svg>);
-    const PadIcon = () => (<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="2" width="12" height="20" rx="6" /><path d="M2 10h4v4H2zM18 10h4v4h-4z" /></svg>);
-    const HeatBagIcon = () => (<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h12v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6zm4-4h4v4h-4V2z" /></svg>);
-
     return (
-        <div className="min-h-screen bg-white" style={{ isolation: 'isolate' }}>
+        <div className="min-h-screen bg-white relative overflow-hidden" style={{ isolation: 'isolate' }}>
+            {/* BACKGROUND WALLPAPER: Grey Outlines Pattern */}
+            <div className="fixed inset-0 pointer-events-none select-none z-0 opacity-[0.03]">
+                <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-20 p-10 mt-10">
+                    {Array.from({ length: 96 }).map((_, i) => {
+                        const icons = [
+                            <CupOutline key="c" />, <TamponOutline key="t" />,
+                            <PantyOutline key="p" />, <DiscOutline key="d" />,
+                            <PadOutline key="pa" />, <HeatBagOutline key="h" />,
+                            <BloodDropOutline key="b" />
+                        ];
+                        const icon = icons[i % icons.length];
+                        const rotation = (i * 15) % 360;
+                        return (
+                            <div
+                                key={i}
+                                className="text-stone-400 transform"
+                                style={{ transform: `rotate(${rotation}deg)`, width: '32px', height: '32px' }}
+                            >
+                                {icon}
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+
             {/* Custom Styles */}
             <style>{`
                 .text-blood-red { color: #880808; }
@@ -43,68 +78,24 @@ const HappyPeriodsPage: React.FC = () => {
                 .animate-fade-in-up {
                     animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
                 }
-                @keyframes fall {
-                    0% { transform: translateY(-100px) rotate(0deg); opacity: 0; }
-                    10% { opacity: 0.8; }
-                    90% { opacity: 0.8; }
-                    100% { transform: translateY(100vh) rotate(40deg); opacity: 0; }
-                }
-                .animate-fall {
-                    animation: fall linear infinite;
-                }
             `}</style>
 
-            {/* PRODUCT RAIN */}
-            <div className="fixed inset-0 pointer-events-none select-none overflow-hidden z-0">
-                {Array.from({ length: 30 }).map((_, i) => {
-                    const left = Math.random() * 100;
-                    const duration = 10 + Math.random() * 15;
-                    const delay = Math.random() * 20;
-                    const size = 18 + Math.random() * 25;
-
-                    const products = [
-                        <CupIcon key="cup" />, <TamponIcon key="tampon" />,
-                        <PantyIcon key="panty" />, <DiscIcon key="disc" />,
-                        <PadIcon key="pad" />, <HeatBagIcon key="heat" />,
-                        <BloodDrop key="blood" />
-                    ];
-
-                    return (
-                        <div
-                            key={i}
-                            className="absolute animate-fall"
-                            style={{
-                                left: `${left}%`,
-                                top: -100,
-                                width: `${size}px`,
-                                height: `${size}px`,
-                                color: i % 3 === 0 ? '#880808' : '#dc2626',
-                                opacity: 0.12,
-                                animationDuration: `${duration}s`,
-                                animationDelay: `${delay}s`,
-                            }}
-                        >
-                            {products[i % products.length]}
-                        </div>
-                    );
-                })}
-            </div>
-
-            {/* Hero Section: Restored Spacing & Minimalist Aesthetic */}
-            <section className="relative min-h-[80vh] flex flex-col items-center justify-center overflow-hidden bg-white border-b border-stone-100 py-24">
-                <div className="relative z-10 text-center px-6 max-w-7xl mx-auto flex flex-col items-center select-none">
-                    {/* RESTORED BADGE STYLE */}
-                    <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-red-100 bg-white shadow-sm mb-12 animate-fade-in-up">
-                        <BloodDrop className="w-3.5 h-4 text-[#880808]" />
+            {/* Hero Section */}
+            <section className="relative min-h-[80vh] flex flex-col items-center justify-center bg-transparent py-24 z-10">
+                <div className="relative z-10 text-center px-6 max-w-7xl mx-auto flex flex-col items-center">
+                    {/* Badge */}
+                    <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-red-100 bg-white/80 backdrop-blur-sm shadow-sm mb-12 animate-fade-in-up">
+                        <BloodDropSolid className="w-3.5 h-4" />
                         <span className="text-[10px] font-black uppercase tracking-[0.4em] text-stone-800">Reboot of Thoughts on Menstruation</span>
                     </div>
 
+                    {/* SINGLE LINE TITLE */}
                     <div className="relative animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                         <h1 className="font-serif text-[clamp(2.5rem,10vw,7.5rem)] font-bold tracking-tighter whitespace-nowrap leading-none flex items-center gap-2 md:gap-4 justify-center">
                             <span className="text-stroke-red">Happy</span>{' '}
                             <span className="text-[#880808] italic">Periods</span>
-                            <div className="w-[0.8em] h-[1em] text-[#880808]">
-                                <BloodDrop />
+                            <div className="w-[0.8em] h-[1em]">
+                                <BloodDropSolid className="w-full h-full" />
                             </div>
                         </h1>
                     </div>
@@ -116,7 +107,7 @@ const HappyPeriodsPage: React.FC = () => {
             </section>
 
             {/* Mission Section */}
-            <section className="py-24 px-6 bg-white relative z-10">
+            <section className="py-24 px-6 bg-white/80 backdrop-blur-xs relative z-10 border-t border-stone-50">
                 <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 items-center">
                     <div className="lg:col-span-1 border-l-2 border-[#880808] h-32 hidden lg:block" />
                     <div className="lg:col-span-6 space-y-10">
@@ -156,14 +147,12 @@ const HappyPeriodsPage: React.FC = () => {
                 </div>
             </section>
 
-            {/* Gallery Section */}
-            <section className="py-24 bg-[#fafafa] relative z-10">
+            {/* Portfolio Section */}
+            <section className="py-24 bg-[#fafafa]/80 backdrop-blur-xs relative z-10">
                 <div className="max-w-7xl mx-auto px-6">
-                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
-                        <div className="space-y-4">
-                            <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-stone-400 font-sans">Portfolio</h2>
-                            <h3 className="font-serif text-5xl font-bold text-stone-900 uppercase tracking-tighter">Work Sessions</h3>
-                        </div>
+                    <div className="mb-20">
+                        <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-stone-400 font-sans mb-4">Portfolio</h2>
+                        <h3 className="font-serif text-5xl font-bold text-stone-900 uppercase tracking-tighter">Work Sessions</h3>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -179,14 +168,14 @@ const HappyPeriodsPage: React.FC = () => {
                                     </div>
                                 </div>
                                 <h4 className="font-serif text-2xl font-bold text-stone-900 mb-1">{title}</h4>
-                                <p className="text-xs font-bold uppercase tracking-widest text-stone-400">2021 — PRESENT</p>
+                                <p className="text-xs font-bold uppercase tracking-widest text-stone-400">2021 Academy</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Resources Section */}
+            {/* Archive Section */}
             <section className="py-24 bg-white relative z-10">
                 <div className="max-w-5xl mx-auto px-6">
                     <div className="bg-[#880808] rounded-[2.5rem] p-12 md:p-20 text-white shadow-2xl relative overflow-hidden">
@@ -214,10 +203,10 @@ const HappyPeriodsPage: React.FC = () => {
                 </div>
             </section>
 
-            {/* Final CTA */}
-            <section className="py-32 bg-white text-center relative z-10 border-t border-stone-50">
+            {/* CTA Section */}
+            <section className="py-32 bg-white/50 text-center relative z-10 border-t border-stone-50">
                 <div className="max-w-3xl mx-auto px-6 space-y-12">
-                    <div className="inline-flex p-5 rounded-3xl bg-red-50 mb-4 items-center justify-center animate-bounce">
+                    <div className="inline-flex p-5 rounded-3xl bg-red-50 mb-4 items-center justify-center">
                         <MessageCircle className="w-10 h-10 text-[#880808]" />
                     </div>
                     <h2 className="font-serif text-5xl md:text-7xl font-bold text-stone-900 tracking-tighter leading-none">
