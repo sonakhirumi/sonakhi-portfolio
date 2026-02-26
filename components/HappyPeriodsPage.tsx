@@ -6,102 +6,99 @@ const HappyPeriodsPage: React.FC = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    // ACCURATE ICON RECREATIONS FROM THE REFERENCE IMAGE
-    const Icon1 = () => ( // Pad with wavy wings
+    // 1:1 FAITHFUL RECREATIONS OF THE 12 ICONS FROM THE REFERENCE IMAGE
+    const Icon1 = () => ( // Top Left: Pad with wavy outer wings and stitch lines
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-            <path d="M7 5h10c2 0 2 4 2 7s0 7-2 7H7c-2 0-2-4-2-7s0-7 2-7z" />
-            <path d="M5 10c-1.5-0.5-2.5 1-2.5 2s1 2.5 2.5 2M19 10c1.5-0.5 2.5 1 2.5 2s-1 2.5-2.5 2" />
-            <path d="M9 8v8M12 8v8M15 8v8" strokeDasharray="1 2" />
+            <path d="M7 5h10c2.5 0 2.5 4 2.5 7s0 7-2.5 7H7c-2.5 0-2.5-4-2.5-7s0-7 2.5-7z" />
+            <path d="M4.5 9c-1.5 0-2 1.5-2 3s0.5 3 2 3M19.5 9c1.5 0 2 1.5 2 3s-0.5 3-2 3" />
+            <path d="M10 8v8M14 8v8" strokeDasharray="1 2" strokeOpacity="0.6" />
         </svg>
     );
 
-    const Icon2 = () => ( // Pad with square wings
+    const Icon2 = () => ( // Top Row 2: Pad with simple rectangular wings
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-            <path d="M8 4h8c2 0 3 3 3 8s-1 8-3 8H8c-2 0-3-3-3-8s1-8 3-8z" />
+            <path d="M8 4h8c2.5 0 3 4 3 8s-0.5 8-3 8H8c-2.5 0-3-4-3-8s0.5-8 3-8z" />
             <path d="M5 10h-2v4h2M19 10h2v4h-2" />
-            <circle cx="12" cy="12" r="4" strokeDasharray="1 1" />
         </svg>
     );
 
-    const Icon3 = () => ( // Peanut/Liner
+    const Icon3 = () => ( // Top Row 3: Small peanut-shaped liner
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-            <path d="M12 4c-3 0-4 2-4 5s1 3 1 3s-1 1-1 3s1 5 4 5s4-2 4-5s-1-1-1-3s1-1 1-3s-1-5-4-5z" />
-            <path d="M12 7v10" strokeDasharray="1 2" />
+            <path d="M12 5c-2.5 0-3.5 2-3.5 4.5s1 2.5 1 2.5s-1 1-1 3s1.5 4 3.5 4s3.5-2 3.5-4s-1-1-1-3s1 0 1-2.5s-1-4.5-3.5-4.5z" />
         </svg>
     );
 
-    const Icon4 = () => ( // Tampon Spiral 1
+    const Icon4 = () => ( // Top Right: Large heart-ish shaped pad
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-            <path d="M10 4h4v11c0 1-1 2-2 2s-2-1-2-2V4z" />
-            <path d="M10 7l4 2M10 10l4 2" />
-            <path d="M12 17c0 2-1 4-3 5" />
+            <path d="M12 20s-5-2-5-6s2-5 5-5s5 1 5 5s0 6-5 6z" />
+            <path d="M9 13s1 1 3 1s3-1 3-1" strokeDasharray="1 1" />
         </svg>
     );
 
-    const Icon5 = () => ( // Tampon Spiral 2
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-            <rect x="10" y="4" width="4" height="12" rx="2" transform="rotate(20 12 10)" />
-            <path d="M12 7l3 1M11 11l3 1" />
-            <path d="M13 16c0 2-1 4-2 5" />
-        </svg>
-    );
-
-    const Icon6 = () => ( // Menstrual Cup
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-            <path d="M6 4h12c0 5-2 9-6 9s-6-4-6-9z" />
-            <path d="M6 7h12M12 13v4M10 17h4" />
-        </svg>
-    );
-
-    const Icon7 = () => ( // Angled Pad
+    const Icon5 = () => ( // Middle Row 1: Spiral tampon with string
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" transform="rotate(-30)">
-            <path d="M7 5h10c2 0 2 4 2 7s0 7-2 7H7c-2 0-2-4-2-7s0-7 2-7z" />
-            <path d="M9 8h6M9 12h6M9 16h6" strokeDasharray="1 2" />
+            <rect x="10" y="4" width="4" height="11" rx="2" />
+            <path d="M10 7l4 2M10 10l4 2M10 13l4 2" />
+            <path d="M12 15s-0.5 2-2 4" />
         </svg>
     );
 
-    const Icon8 = () => ( // Uterus
+    const Icon6 = () => ( // Middle Row 2: Menstrual Cup (Flat rim, tapering body, short stem)
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-            <path d="M12 11c-2-2-5-2-7 0m14 0c-2-2-5-2-7 0" />
-            <path d="M12 11v8M9 19h6" />
-            <circle cx="4" cy="11" r="1" />
-            <circle cx="20" cy="11" r="1" />
+            <path d="M7 5h10l-1 6c-0.5 3-4 3-4 3s-3.5 0-4-3L7 5z" />
+            <path d="M7 7h10" />
+            <path d="M12 14v3" />
+            <path d="M10.5 17h3" />
         </svg>
     );
 
-    const Icon9 = () => ( // Tampon/Applicator
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-            <path d="M10 4h4v12h-4z" />
-            <path d="M9 16h6" />
-            <path d="M12 16v5" />
+    const Icon7 = () => ( // Middle Row 3: Dotted oval pad
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" transform="rotate(45)">
+            <ellipse cx="12" cy="12" rx="9" ry="5" />
+            <path d="M8 12s2 1 4 1s4-1 4-1" strokeDasharray="1 2" />
         </svg>
     );
 
-    const Icon10 = () => ( // Blister Pack
+    const Icon8 = () => ( // Middle Right: Uterus with ovaries
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+            <path d="M12 13c-2-2-5-2-7 0m14 0c-2-2-5-2-7 0" />
+            <path d="M12 13v6" />
+            <path d="M10 19h4" />
+            <circle cx="5" cy="13" r="1.5" />
+            <circle cx="19" cy="13" r="1.5" />
+        </svg>
+    );
+
+    const Icon9 = () => ( // Bottom Row 1: Applicator tampon
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" transform="rotate(-45)">
+            <rect x="10" y="4" width="4" height="10" rx="1" />
+            <path d="M9 14h6" />
+            <path d="M12 14v6" />
+        </svg>
+    );
+
+    const Icon10 = () => ( // Bottom Row 2: 6-pill blister pack
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" transform="rotate(15)">
             <rect x="6" y="5" width="12" height="14" rx="2" />
-            <circle cx="9" cy="9" r="1" /><circle cx="15" cy="9" r="1" />
+            <circle cx="9" cy="8" r="1" /><circle cx="15" cy="8" r="1" />
             <circle cx="9" cy="12" r="1" /><circle cx="15" cy="12" r="1" />
-            <circle cx="9" cy="15" r="1" /><circle cx="15" cy="15" r="1" />
+            <circle cx="9" cy="16" r="1" /><circle cx="15" cy="16" r="1" />
         </svg>
     );
 
-    const Icon11 = () => ( // Cramps/Body
+    const Icon11 = () => ( // Bottom Row 3: Waistline with cramps
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-            <path d="M7 10c2 2 2 6 0 10M17 10c-2 2-2 6 0 10" />
-            <path d="M9 14h6l-1 4H10l-1-4z" />
-            <path d="M4 6l1-1 1 1M20 6l-1-1-1 1" />
-            <circle cx="12" cy="12" r="0.5" fill="currentColor" />
+            <path d="M8 6c1 4 1 8 0 14M16 6c-1 4-1 8 0 14" />
+            <path d="M9 15h6l-1 3h-4l-1-3z" />
+            <path d="M4 10l1-1 1 1M20 10l-1-1-1 1" />
         </svg>
     );
 
-    const Icon12 = () => ( // Calendar
+    const Icon12 = () => ( // Bottom Right: Calendar with droplets
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-            <rect x="5" y="5" width="14" height="14" rx="1" />
-            <path d="M5 10h14M8 3v4M16 3v4" />
-            <circle cx="9" cy="14" r="0.8" fill="currentColor" />
-            <circle cx="12" cy="14" r="0.8" fill="currentColor" />
-            <circle cx="15" cy="14" r="0.8" fill="currentColor" />
+            <rect x="6" y="6" width="12" height="12" rx="1" />
+            <path d="M6 10h12M9 4v4M15 4v4" />
+            <circle cx="9" cy="14" r="0.5" fill="black" /><circle cx="12" cy="14" r="0.5" fill="black" /><circle cx="15" cy="14" r="0.5" fill="black" />
         </svg>
     );
 
@@ -113,37 +110,35 @@ const HappyPeriodsPage: React.FC = () => {
 
     // DENSE SCATTERED POSITIONS
     const scattered = [
-        { l: '3%', t: '8%', r: '15deg', i: Icon1 }, { l: '18%', t: '22%', r: '-10deg', i: Icon4 },
-        { l: '35%', t: '12%', r: '45deg', i: Icon8 }, { l: '52%', t: '28%', r: '-30deg', i: Icon12 },
-        { l: '68%', t: '15%', r: '120deg', i: Icon3 }, { l: '85%', t: '32%', r: '10deg', i: Icon6 },
-        { l: '92%', t: '10%', r: '-15deg', i: Icon10 }, { l: '5%', t: '35%', r: '33deg', i: Icon2 },
-        { l: '22%', t: '48%', r: '200deg', i: Icon11 }, { l: '40%', t: '42%', r: '12deg', i: Icon5 },
-        { l: '58%', t: '55%', r: '-45deg', i: Icon9 }, { l: '75%', t: '38%', r: '80deg', i: Icon1 },
-        { l: '88%', t: '45%', r: '-10deg', i: Icon7 }, { l: '12%', t: '62%', r: '350deg', i: Icon4 },
-        { l: '28%', t: '75%', r: '25deg', i: Icon12 }, { l: '45%', t: '65%', r: '-12deg', i: Icon8 },
-        { l: '62%', t: '78%', r: '150deg', i: Icon2 }, { l: '78%', t: '62%', r: '40deg', i: Icon10 },
-        { l: '95%', t: '85%', r: '-20deg', i: Icon3 }, { l: '8%', t: '88%', r: '95deg', i: Icon6 },
-        { l: '25%', t: '92%', r: '15deg', i: Icon11 }, { l: '42%', t: '82%', r: '-45deg', i: Icon5 },
-        { l: '58%', t: '95%', r: '10deg', i: Icon7 }, { l: '75%', t: '88%', r: '-110deg', i: Icon9 },
-        { l: '88%', t: '92%', r: '25deg', i: Icon1 }, { l: '50%', t: '5%', r: '-15deg', i: Icon12 }
+        { l: '3%', t: '8%', r: '15deg', i: Icon1 }, { l: '20%', t: '15%', r: '-10deg', i: Icon2 },
+        { l: '38%', t: '12%', r: '45deg', i: Icon3 }, { l: '55%', t: '22%', r: '-30deg', i: Icon4 },
+        { l: '72%', t: '10%', r: '120deg', i: Icon5 }, { l: '88%', t: '18%', r: '10deg', i: Icon6 },
+        { l: '10%', t: '32%', r: '-15deg', i: Icon7 }, { l: '28%', t: '45%', r: '33deg', i: Icon8 },
+        { l: '45%', t: '35%', r: '200deg', i: Icon9 }, { l: '62%', t: '48%', r: '12deg', i: Icon10 },
+        { l: '80%', t: '38%', r: '-45deg', i: Icon11 }, { l: '94%', t: '52%', r: '80deg', i: Icon12 },
+        { l: '15%', t: '65%', r: '-10deg', i: Icon1 }, { l: '32%', t: '58%', r: '350deg', i: Icon4 },
+        { l: '50%', t: '72%', r: '25deg', i: Icon6 }, { l: '68%', t: '65%', r: '-12deg', i: Icon8 },
+        { l: '85%', t: '78%', r: '150deg', i: Icon2 }, { l: '5%', t: '85%', r: '40deg', i: Icon10 },
+        { l: '22%', t: '92%', r: '-20deg', i: Icon3 }, { l: '40%', t: '82%', r: '95deg', i: Icon6 },
+        { l: '58%', t: '95%', r: '15deg', i: Icon11 }, { l: '75%', t: '88%', r: '-45deg', i: Icon5 },
+        { l: '92%', t: '92%', r: '10deg', i: Icon7 }, { l: '50%', t: '45%', r: '-110deg', i: Icon9 }
     ];
 
     return (
         <div className="min-h-screen bg-white relative" style={{ isolation: 'isolate' }}>
-            {/* FULL VISIBILITY SCATTERED BACKGROUND */}
-            <div className="fixed inset-0 pointer-events-none select-none z-0 opacity-20">
+            {/* BACKGROUND SCATTERED ICONS */}
+            <div className="fixed inset-0 pointer-events-none select-none z-0 opacity-[0.22]">
                 {scattered.map((s, idx) => (
                     <div
                         key={idx}
                         className="absolute text-stone-500"
-                        style={{ left: s.l, top: s.t, transform: `rotate(${s.r})`, width: '60px', height: '60px' }}
+                        style={{ left: s.l, top: s.t, transform: `rotate(${s.r})`, width: '55px', height: '55px' }}
                     >
                         <s.i />
                     </div>
                 ))}
             </div>
 
-            {/* Content Sections with subtle transparency to show background */}
             <div className="relative z-10">
                 <style>{`
                     .text-stroke-red { -webkit-text-stroke: 1.5px #880808; color: white; }
@@ -151,7 +146,7 @@ const HappyPeriodsPage: React.FC = () => {
                     .animate-slide-up { animation: slide-up 1s cubic-bezier(0.2, 1, 0.2, 1) forwards; }
                 `}</style>
 
-                {/* Hero */}
+                {/* Hero section */}
                 <section className="min-h-[85vh] flex flex-col items-center justify-center p-6 text-center">
                     <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-red-100 bg-white shadow-sm mb-12 animate-slide-up">
                         <BloodDropSolid className="w-3.5 h-4" />
@@ -169,7 +164,7 @@ const HappyPeriodsPage: React.FC = () => {
                     </p>
                 </section>
 
-                {/* Impact */}
+                {/* Content sections with transparency */}
                 <section className="py-32 px-6 bg-white/70 backdrop-blur-sm border-t border-stone-100">
                     <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 items-center">
                         <div className="lg:col-span-1 border-l-2 border-[#880808] h-32 hidden lg:block" />
@@ -189,7 +184,7 @@ const HappyPeriodsPage: React.FC = () => {
                     </div>
                 </section>
 
-                {/* Footer CTA */}
+                {/* Footer Section */}
                 <section className="py-32 bg-white/70 backdrop-blur-sm text-center border-t border-stone-50">
                     <div className="max-w-3xl mx-auto px-6 space-y-12">
                         <div className="inline-flex p-5 rounded-3xl bg-red-50 mb-4 items-center justify-center animate-bounce"><MessageCircle className="w-10 h-10 text-[#880808]" /></div>
