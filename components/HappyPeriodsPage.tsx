@@ -60,9 +60,8 @@ const HappyPeriodsPage: React.FC = () => {
                         </h1>
                     </div>
 
-                    <p className="text-lg md:text-xl text-stone-500 font-light max-w-2xl mx-auto leading-relaxed mt-16 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-                        Empowering lives through <span className="text-stone-900 font-medium tracking-tight">menstrual health</span> education.
-                        Normalizing the conversation with precision, empathy, and truth.
+                    <p className="text-xl md:text-2xl text-stone-500 font-light max-w-2xl mx-auto leading-relaxed mt-16 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+                        Let's make our world <span className="text-[#880808] font-bold tracking-tight">PERIOD FRIENDLY!</span>
                     </p>
 
                     <div className="mt-12 opacity-20 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
