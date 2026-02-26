@@ -7,6 +7,18 @@ const HappyPeriodsPage: React.FC = () => {
         window.scrollTo(0, 0);
     }, []);
 
+    // Custom Blood Drop Component for precise color control
+    const BloodDrop = ({ className }: { className?: string }) => (
+        <svg
+            viewBox="0 0 24 24"
+            fill="#880808"
+            className={className}
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path d="M12 21.5c-4.142 0-7.5-3.358-7.5-7.5 0-4.142 7.5-12.5 7.5-12.5s7.5 8.358 7.5 12.5c0 4.142-3.358 7.5-7.5 7.5z" />
+        </svg>
+    );
+
     return (
         <div className="min-h-screen bg-white" style={{ isolation: 'isolate' }}>
             {/* Custom Styles */}
@@ -26,24 +38,25 @@ const HappyPeriodsPage: React.FC = () => {
                 }
             `}</style>
 
-            {/* Hero Section: Refined Text Stroke & Blood Drop Emoji */}
+            {/* Hero Section */}
             <section className="relative min-h-[70vh] flex flex-col items-center justify-center overflow-hidden bg-white border-b border-stone-100 py-24">
-                <div className="absolute inset-0 z-0">
+                <div className="absolute inset-0 z-0 text-center">
                     <div className="absolute top-0 right-0 w-[40%] h-full bg-red-50/10 -skew-x-12" />
                 </div>
 
                 <div className="relative z-10 text-center px-6 max-w-7xl mx-auto flex flex-col items-center">
                     {/* Awareness Badge */}
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-red-200 bg-white mb-12 shadow-sm animate-fade-in-up">
-                        <Droplets className="w-3.5 h-3.5 text-[#880808]" />
+                        <BloodDrop className="w-3 h-4" />
                         <span className="text-[10px] font-black uppercase tracking-[0.4em] text-stone-800">Menstrual Advocacy</span>
                     </div>
 
-                    {/* UPDATED TITLE: "Happy" with red stroke, and the real Blood Drop Emoji */}
+                    {/* TITLE: "Happy" with red stroke, and the SVG Blood Drop in #880808 */}
                     <div className="relative animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-                        <h1 className="font-serif text-[clamp(2.5rem,10vw,7.5rem)] font-bold tracking-tighter whitespace-nowrap leading-none">
+                        <h1 className="font-serif text-[clamp(2.5rem,10vw,7.5rem)] font-bold tracking-tighter whitespace-nowrap leading-none flex items-center gap-2 md:gap-4 justify-center">
                             <span className="text-stroke-red">Happy</span>{' '}
-                            <span className="text-[#880808] italic">Periods 🩸</span>
+                            <span className="text-[#880808] italic">Periods</span>
+                            <BloodDrop className="w-[0.8em] h-[1em]" />
                         </h1>
                     </div>
 
@@ -52,7 +65,6 @@ const HappyPeriodsPage: React.FC = () => {
                         Normalizing the conversation with precision, empathy, and truth.
                     </p>
 
-                    {/* Minimalist Accent */}
                     <div className="mt-12 opacity-20 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
                         <Sparkles className="w-6 h-6 text-[#880808]" />
                     </div>
