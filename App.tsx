@@ -45,9 +45,10 @@ const HappyPeriodsRoute: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // 3600ms gives exactly enough time for 3 phrases at 1200ms each
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2400);
+    }, 3600);
     return () => clearTimeout(timer);
   }, []);
 
