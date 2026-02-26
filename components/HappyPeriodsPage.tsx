@@ -7,30 +7,55 @@ const HappyPeriodsPage: React.FC = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    // Product Outlines for Background Wallpaper
+    // Realistic Product Outlines (Grey Outlines)
     const CupOutline = () => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M19 3H5v2c0 3.87 3.13 7 7 7s7-3.13 7-7V3zm-7 11c-1.66 0-3 1.34-3 3v2c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-2c0-1.66-1.34-3-3-3z" /></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+            <path d="M6 4c0 0 0 9 6 9s6-9 6-9H6z" />
+            <path d="M12 13v4" />
+            <circle cx="12" cy="18" r="1.5" />
+            <path d="M7 4a12 12 0 0 1 10 0" />
+        </svg>
     );
     const TamponOutline = () => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M7 2h10v12H7zM12 14v8M11 22h2" /></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+            <rect x="9" y="3" width="6" height="12" rx="3" />
+            <path d="M12 15s-1 3 0 6" />
+            <path d="M10 6h4M10 9h4" />
+        </svg>
     );
     const PantyOutline = () => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M2 4v4c4 0 7 3 10 3s6-3 10-3V4H2zm10 16c-3.31 0-6-2.69-6-6h12c0 3.31-2.69 6-6 6z" /></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+            <path d="M3 6h18l-2 5c-1 4-3 7-7 7s-6-3-7-7L3 6z" />
+            <path d="M3 6c3 1 6 2 9 2s6-1 9-2" />
+        </svg>
     );
     const DiscOutline = () => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><ellipse cx="12" cy="12" rx="10" ry="6" /><ellipse cx="12" cy="12" rx="7" ry="3" /></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+            <ellipse cx="12" cy="11" rx="9" ry="5" />
+            <ellipse cx="12" cy="12" rx="7" ry="2.5" />
+            <path d="M3 11c0 3 4 6 9 6s9-3 9-6" />
+        </svg>
     );
     const PadOutline = () => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="6" y="2" width="12" height="20" rx="6" /><path d="M2 10h4v4H2zM18 10h4v4h-4z" /></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+            <path d="M8 3h8a4 4 0 0 1 0 8H8a4 4 0 0 1 0-8z" />
+            <path d="M8 13h8a4 4 0 0 1 0 8H8a4 4 0 0 1 0-8z" />
+            <path d="M5 10c0-2 2-2 3-2h8c1 0 3 0 3 2s-2 2-3 2H8c-1 0-3 0-3-2z" />
+        </svg>
     );
     const HeatBagOutline = () => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M6 6h12v14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6zm4-4h4v4h-4V2z" /></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+            <path d="M7 7h10v12a3 3 0 0 1-3 3h-4a3 3 0 0 1-3-3V7z" />
+            <path d="M10 3h4v4h-4V3z" />
+            <path d="M8 10h8M8 14h8M8 18h8" />
+        </svg>
     );
     const BloodDropOutline = () => (
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 21.5c-4.142 0-7.5-3.358-7.5-7.5 0-4.142 7.5-12.5 7.5-12.5s7.5 8.358 7.5 12.5c0 4.142-3.358 7.5-7.5 7.5z" /></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+            <path d="M12 21.5c-4.142 0-7.5-3.358-7.5-7.5 0-4.142 7.5-12.5 7.5-12.5s7.5 8.358 7.5 12.5c0 4.142-3.358 7.5-7.5 7.5z" />
+        </svg>
     );
 
-    // Static Blood Drop for the title
     const BloodDropSolid = ({ className }: { className?: string }) => (
         <svg viewBox="0 0 24 24" fill="#880808" className={className} xmlns="http://www.w3.org/2000/svg">
             <path d="M12 21.5c-4.142 0-7.5-3.358-7.5-7.5 0-4.142 7.5-12.5 7.5-12.5s7.5 8.358 7.5 12.5c0 4.142-3.358 7.5-7.5 7.5z" />
@@ -39,8 +64,8 @@ const HappyPeriodsPage: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-white relative overflow-hidden" style={{ isolation: 'isolate' }}>
-            {/* BACKGROUND WALLPAPER: Grey Outlines Pattern */}
-            <div className="fixed inset-0 pointer-events-none select-none z-0 opacity-[0.03]">
+            {/* BACKGROUND WALLPAPER: Darker Grey Outlines for better visibility */}
+            <div className="fixed inset-0 pointer-events-none select-none z-0 opacity-[0.07]">
                 <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-20 p-10 mt-10">
                     {Array.from({ length: 96 }).map((_, i) => {
                         const icons = [
@@ -54,8 +79,8 @@ const HappyPeriodsPage: React.FC = () => {
                         return (
                             <div
                                 key={i}
-                                className="text-stone-400 transform"
-                                style={{ transform: `rotate(${rotation}deg)`, width: '32px', height: '32px' }}
+                                className="text-stone-500 transform"
+                                style={{ transform: `rotate(${rotation}deg)`, width: '36px', height: '36px' }}
                             >
                                 {icon}
                             </div>
@@ -83,13 +108,11 @@ const HappyPeriodsPage: React.FC = () => {
             {/* Hero Section */}
             <section className="relative min-h-[80vh] flex flex-col items-center justify-center bg-transparent py-24 z-10">
                 <div className="relative z-10 text-center px-6 max-w-7xl mx-auto flex flex-col items-center">
-                    {/* Badge */}
-                    <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-red-100 bg-white/80 backdrop-blur-sm shadow-sm mb-12 animate-fade-in-up">
+                    <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-red-100 bg-white/90 backdrop-blur-sm shadow-sm mb-12 animate-fade-in-up">
                         <BloodDropSolid className="w-3.5 h-4" />
                         <span className="text-[10px] font-black uppercase tracking-[0.4em] text-stone-800">Reboot of Thoughts on Menstruation</span>
                     </div>
 
-                    {/* SINGLE LINE TITLE */}
                     <div className="relative animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                         <h1 className="font-serif text-[clamp(2.5rem,10vw,7.5rem)] font-bold tracking-tighter whitespace-nowrap leading-none flex items-center gap-2 md:gap-4 justify-center">
                             <span className="text-stroke-red">Happy</span>{' '}
@@ -107,7 +130,7 @@ const HappyPeriodsPage: React.FC = () => {
             </section>
 
             {/* Mission Section */}
-            <section className="py-24 px-6 bg-white/80 backdrop-blur-xs relative z-10 border-t border-stone-50">
+            <section className="py-24 px-6 bg-white/90 backdrop-blur-xs relative z-10 border-t border-stone-50">
                 <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 items-center">
                     <div className="lg:col-span-1 border-l-2 border-[#880808] h-32 hidden lg:block" />
                     <div className="lg:col-span-6 space-y-10">
@@ -148,7 +171,7 @@ const HappyPeriodsPage: React.FC = () => {
             </section>
 
             {/* Portfolio Section */}
-            <section className="py-24 bg-[#fafafa]/80 backdrop-blur-xs relative z-10">
+            <section className="py-24 bg-[#fafafa]/90 backdrop-blur-xs relative z-10">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="mb-20">
                         <h2 className="text-[10px] font-black uppercase tracking-[0.4em] text-stone-400 font-sans mb-4">Portfolio</h2>
@@ -168,7 +191,7 @@ const HappyPeriodsPage: React.FC = () => {
                                     </div>
                                 </div>
                                 <h4 className="font-serif text-2xl font-bold text-stone-900 mb-1">{title}</h4>
-                                <p className="text-xs font-bold uppercase tracking-widest text-stone-400">2021 Academy</p>
+                                <p className="text-xs font-bold uppercase tracking-widest text-stone-400">2021 — PRESENT</p>
                             </div>
                         ))}
                     </div>
@@ -186,8 +209,8 @@ const HappyPeriodsPage: React.FC = () => {
 
                             <div className="grid md:grid-cols-2 gap-8">
                                 {[
-                                    { title: "Menstrual Hygiene Report", type: "PDF" },
-                                    { title: "Grassroots Guidelines", type: "DOC" }
+                                    { title: "Menstrual Hygiene Research Paper", type: "PDF" },
+                                    { title: "Grassroots Advocacy Guidelines", type: "DOC" }
                                 ].map((link, i) => (
                                     <a key={i} href="#" className="flex items-center justify-between p-10 bg-white/5 rounded-2xl border border-white/10 hover:bg-white hover:text-[#880808] transition-all group">
                                         <div>
@@ -204,9 +227,9 @@ const HappyPeriodsPage: React.FC = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-32 bg-white/50 text-center relative z-10 border-t border-stone-50">
+            <section className="py-32 bg-white text-center relative z-10 border-t border-stone-50">
                 <div className="max-w-3xl mx-auto px-6 space-y-12">
-                    <div className="inline-flex p-5 rounded-3xl bg-red-50 mb-4 items-center justify-center">
+                    <div className="inline-flex p-5 rounded-3xl bg-red-50 mb-4 items-center justify-center animate-bounce">
                         <MessageCircle className="w-10 h-10 text-[#880808]" />
                     </div>
                     <h2 className="font-serif text-5xl md:text-7xl font-bold text-stone-900 tracking-tighter leading-none">
