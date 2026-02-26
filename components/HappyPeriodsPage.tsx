@@ -48,7 +48,7 @@ const HappyPeriodsPage: React.FC = () => {
                     {/* Awareness Badge */}
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-red-200 bg-white mb-12 shadow-sm animate-fade-in-up">
                         <BloodDrop className="w-3 h-4" />
-                        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-stone-800">Menstrual Advocacy</span>
+                        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-stone-800">Reboot of Thoughts on Menstruation</span>
                     </div>
 
                     {/* TITLE: "Happy" with red stroke, and the SVG Blood Drop in #880808 */}
