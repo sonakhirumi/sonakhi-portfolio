@@ -9,180 +9,139 @@ const HappyPeriodsPage: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-white" style={{ isolation: 'isolate' }}>
-            {/* Custom Styles for this page */}
+            {/* Custom Styles for high-end aesthetics */}
             <style>{`
-                .text-blood-red { color: #dc2626; }
-                .bg-pure-white { background-color: #ffffff; }
-                .border-red-glow { border-color: #fca5a5; }
-                
-                @keyframes float-carpet {
-                    0%, 100% { transform: translateY(0) rotate(0deg); }
-                    50% { transform: translateY(-20px) rotate(1deg); }
+                @keyframes float-subtle {
+                    0%, 100% { transform: translateY(0); }
+                    50% { transform: translateY(-15px); }
                 }
-                .animate-float-carpet {
-                    animation: float-carpet 4s ease-in-out infinite;
+                .animate-float-subtle {
+                    animation: float-subtle 4s ease-in-out infinite;
                 }
                 
-                @keyframes float-slow {
-                    0%, 100% { transform: translate(0, 0); }
-                    50% { transform: translate(5px, -10px); }
-                }
-                .animate-float-slow {
-                    animation: float-slow 6s ease-in-out infinite;
+                .text-stroke-red {
+                    -webkit-text-stroke: 1px #dc2626;
+                    color: transparent;
                 }
 
-                .pad-carpet {
-                    width: 300px;
-                    height: 100px;
-                    background: white;
-                    border-radius: 50px;
-                    position: relative;
-                    box-shadow: 0 10px 30px rgba(0,0,0,0.05), inset 0 0 15px rgba(220, 38, 38, 0.05);
-                    border: 2px solid #fee2e2;
-                }
-                .pad-wing-left {
-                    position: absolute;
-                    width: 60px;
-                    height: 40px;
-                    background: white;
-                    left: -20px;
-                    top: 30px;
-                    border-radius: 20px 0 0 20px;
-                    border-left: 2px solid #fee2e2;
-                    border-top: 2px solid #fee2e2;
-                    border-bottom: 2px solid #fee2e2;
-                }
-                .pad-wing-right {
-                    position: absolute;
-                    width: 60px;
-                    height: 40px;
-                    background: white;
-                    right: -20px;
-                    top: 30px;
-                    border-radius: 0 20px 20px 0;
-                    border-right: 2px solid #fee2e2;
-                    border-top: 2px solid #fee2e2;
-                    border-bottom: 2px solid #fee2e2;
+                .glass-card {
+                    background: rgba(255, 255, 255, 0.8);
+                    backdrop-filter: blur(12px);
+                    border: 1px solid rgba(220, 38, 38, 0.1);
                 }
             `}</style>
 
-            {/* Hero Section */}
-            <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden bg-white border-b border-red-50 py-20">
-                {/* Background Blood Drops/Abstract Red elements (NO PINK) */}
-                <div className="absolute inset-0 z-0">
-                    <div className="absolute top-20 left-[10%] w-64 h-64 bg-red-100/30 rounded-full blur-[100px]" />
-                    <div className="absolute bottom-20 right-[10%] w-80 h-80 bg-red-50/50 rounded-full blur-[100px]" />
+            {/* Hero Section: Minimalist & High-Fashion Aesthetic */}
+            <section className="relative min-h-[85vh] flex flex-col items-center justify-center overflow-hidden bg-white border-b border-stone-100">
+                {/* Refined Background: Soft red gradients, no weird shapes */}
+                <div className="absolute inset-0 z-0 overflow-hidden">
+                    <div className="absolute top-0 right-0 w-[50%] h-full bg-red-50/30 -skew-x-12 translate-x-20" />
+                    <div className="absolute top-[20%] left-[10%] w-64 h-64 bg-red-100/20 rounded-full blur-[120px]" />
                 </div>
 
-                {/* Floating Products Decoration */}
-                <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-                    {/* Tiny Tampon 1 */}
-                    <div className="absolute top-[15%] left-[20%] animate-float-slow opacity-40">
-                        <div className="w-4 h-12 bg-white border border-red-100 rounded-full shadow-sm" />
-                        <div className="w-[1px] h-8 bg-red-200 mx-auto" />
-                    </div>
-                    {/* Tiny Cup 1 */}
-                    <div className="absolute top-[25%] right-[25%] animate-float-slow opacity-40" style={{ animationDelay: '1s' }}>
-                        <div className="w-8 h-10 border-2 border-red-100 rounded-t-lg rounded-b-[40%] bg-white/50" />
-                        <div className="w-1 h-3 bg-red-100 mx-auto" />
-                    </div>
-                    {/* Tiny Pad 1 */}
-                    <div className="absolute bottom-[20%] left-[15%] animate-float-slow opacity-30" style={{ animationDelay: '2s' }}>
-                        <div className="w-12 h-6 bg-white border border-red-50 rounded-full shadow-sm" />
-                    </div>
-                </div>
-
-                <div className="relative z-10 text-center px-6 max-w-5xl mx-auto flex flex-col items-center">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-50 rounded-full shadow-sm border border-red-100 mb-8 animate-in fade-in zoom-in duration-700">
-                        <Sparkles className="w-4 h-4 text-red-600" />
-                        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-red-700">Awareness Initiative</span>
+                <div className="relative z-10 text-center px-6 max-w-6xl mx-auto flex flex-col items-center select-none">
+                    <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-red-100 bg-white shadow-sm mb-12 animate-in fade-in slide-in-from-top-4 duration-1000">
+                        <Droplets className="w-4 h-4 text-red-600" />
+                        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-stone-800">Menstrual Awareness</span>
                     </div>
 
-                    <div className="relative mb-24">
-                        <h1 className="font-serif text-6xl md:text-9xl font-bold text-stone-900 leading-[0.8] tracking-tighter mb-4 flex items-center justify-center gap-4">
-                            Happy <br className="md:hidden" />
-                            <span className="text-red-600 italic relative">
+                    <div className="relative mb-20">
+                        <h1 className="font-serif text-[clamp(3.5rem,15vw,9rem)] font-bold text-stone-900 leading-[0.85] tracking-tighter animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200">
+                            Happy <br />
+                            <span className="text-red-600 italic font-medium relative block mt-2">
                                 Periods 🩸
+                                <span className="absolute -bottom-4 left-0 w-full h-[2px] bg-red-600/20 scale-x-75" />
                             </span>
                         </h1>
 
-                        {/* THE FLYING CARPET PAD */}
-                        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-8 animate-float-carpet">
-                            <div className="pad-carpet flex items-center justify-center">
-                                <span className="text-red-50/50 font-serif italic text-sm tracking-widest uppercase">Safe & Soft</span>
-                                <div className="pad-wing-left"></div>
-                                <div className="pad-wing-right"></div>
-                                {/* Stitching detail */}
-                                <div className="absolute inset-4 border border-dashed border-red-50/30 rounded-[40px] pointer-events-none"></div>
+                        {/* FLYING CARPET PAD: High-end minimalist execution */}
+                        <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 w-full max-w-[400px] animate-float-subtle pointer-events-none">
+                            <div className="relative py-4 px-12 bg-white rounded-full border border-red-100 shadow-[0_20px_50px_-20px_rgba(220,38,38,0.15)] flex items-center justify-between group overflow-hidden">
+                                <div className="absolute inset-0 bg-red-50/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                {/* Wings: Integrated as subtle side borders */}
+                                <div className="w-2 h-12 bg-red-100/50 rounded-full absolute -left-1" />
+                                <div className="w-2 h-12 bg-red-100/50 rounded-full absolute -right-1" />
+
+                                <Sparkles className="w-4 h-4 text-red-300" />
+                                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-stone-400">Pure Awareness</span>
+                                <HeartPulse className="w-4 h-4 text-red-300" />
                             </div>
-                            {/* Carpet Shadow */}
-                            <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 w-48 h-4 bg-stone-900/5 blur-xl rounded-full scale-x-150"></div>
                         </div>
                     </div>
 
-                    <p className="text-xl md:text-2xl text-stone-600 font-light max-w-2xl mx-auto leading-relaxed mt-16">
-                        A red & white journey towards dignity.
-                        Documenting years of advocacy for menstrual health with <span className="text-red-600 font-medium">unfiltered truth</span>.
+                    <p className="text-lg md:text-xl text-stone-500 font-light max-w-2xl mx-auto leading-relaxed mt-16 animate-in fade-in duration-1000 delay-500">
+                        A dedicated platform for <span className="text-stone-900 font-medium tracking-tight">menstrual dignity</span> and education.
+                        Normalizing the conversation with facts, empathy, and unfiltered storytelling.
                     </p>
+                </div>
+
+                {/* Subtle Floating products: Minimalist icons instead of weird shapes */}
+                <div className="absolute bottom-10 left-10 hidden xl:block opacity-20 animate-float-subtle">
+                    <Droplets className="w-8 h-8 text-red-600" />
+                </div>
+                <div className="absolute top-40 right-10 hidden xl:block opacity-20 animate-float-subtle" style={{ animationDelay: '1.5s' }}>
+                    <Sparkles className="w-8 h-8 text-red-600" />
                 </div>
             </section>
 
-            {/* Mission Section (Red/White Only) */}
-            <section className="py-24 px-6 bg-white relative">
-                <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
-                    <div className="space-y-8">
-                        <div className="flex items-center gap-4">
-                            <div className="w-12 h-px bg-red-600"></div>
-                            <h2 className="text-sm font-black uppercase tracking-[0.5em] text-stone-400">The Mission</h2>
-                        </div>
-                        <h3 className="font-serif text-4xl md:text-5xl text-stone-900 font-bold leading-tight">
-                            Redefining the <br />
-                            <span className="text-red-600">Blood</span> Conversation.
+            {/* Mission Section: Clean, Editorial Layout */}
+            <section className="py-32 px-6 bg-white border-b border-stone-50">
+                <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 items-start">
+                    <div className="lg:col-span-1 border-l border-red-600 h-24 hidden lg:block" />
+                    <div className="lg:col-span-6 space-y-10">
+                        <h2 className="text-[10px] font-black uppercase tracking-[0.5em] text-red-600">The Initiative</h2>
+                        <h3 className="font-serif text-5xl md:text-6xl text-stone-900 font-bold leading-[0.9] tracking-tighter">
+                            Breaking the <br />
+                            <span className="text-red-600">Silence Barrier.</span>
                         </h3>
-                        <div className="prose prose-stone text-lg text-stone-600 leading-relaxed font-light space-y-6">
+                        <div className="prose prose-stone text-lg text-stone-500 leading-relaxed font-light space-y-6 max-w-xl">
                             <p>
                                 Since 2021, I have been actively involved in conducting workshops and awareness sessions across various communities to educate young girls and women about menstrual hygiene.
                             </p>
                             <p>
-                                My work focuses on replacing myths with medical facts and shame with a sense of natural pride. Through 'Happy Periods', I've reached hundreds of individuals, providing them with safe spaces to ask questions and seek help.
+                                My work focuses on replacing myths with medical facts and shame with a sense of natural pride. Through <span className="text-stone-900 font-medium italic">'Happy Periods'</span>, I've reached hundreds of individuals, providing them with safe spaces to ask questions and seek help.
                             </p>
                         </div>
 
-                        <div className="grid grid-cols-2 gap-8 pt-8 border-t border-stone-100">
-                            <div className="bg-red-50 p-6 rounded-2xl border border-red-100">
-                                <h4 className="font-black text-3xl text-red-600">1000+</h4>
-                                <p className="text-[10px] uppercase tracking-widest text-red-800 font-bold mt-1">Lives Impacted</p>
+                        <div className="grid grid-cols-2 gap-12 pt-10 border-t border-stone-100">
+                            <div className="space-y-2">
+                                <h4 className="font-bold text-4xl text-stone-900">1000+</h4>
+                                <p className="text-[9px] font-black uppercase tracking-widest text-red-600">Lives Empowered</p>
                             </div>
-                            <div className="border border-stone-100 p-6 rounded-2xl">
-                                <h4 className="font-black text-3xl text-stone-900">50+</h4>
-                                <p className="text-[10px] uppercase tracking-widest text-stone-400 font-bold mt-1">Sessions Held</p>
+                            <div className="space-y-2">
+                                <h4 className="font-bold text-4xl text-stone-900">50+</h4>
+                                <p className="text-[9px] font-black uppercase tracking-widest text-stone-400">Knowledge Hubs</p>
                             </div>
                         </div>
                     </div>
 
-                    <div className="relative">
-                        <div className="aspect-[3/4] rounded-[2.5rem] bg-stone-50 overflow-hidden shadow-2xl transition-transform duration-700 border-[12px] border-white ring-1 ring-red-50">
-                            <div className="absolute inset-0 flex items-center justify-center bg-red-50/20">
-                                <ImageIcon className="w-16 h-16 text-red-200" />
+                    <div className="lg:col-span-5 relative">
+                        <div className="relative aspect-[4/5] bg-stone-50 rounded-2xl overflow-hidden group shadow-2xl">
+                            <div className="absolute inset-0 bg-red-50/10 group-hover:bg-red-50/0 transition-colors duration-700" />
+                            <div className="absolute inset-0 flex items-center justify-center">
+                                <ImageIcon className="w-12 h-12 text-stone-200" />
                             </div>
                         </div>
-                        <div className="absolute -bottom-10 -left-10 bg-white p-8 rounded-3xl shadow-xl border border-red-100 max-w-[240px] shadow-red-900/5">
-                            <Droplets className="w-8 h-8 text-red-600 mb-4" />
-                            <p className="font-serif italic text-stone-800 text-lg">"Making health a priority, not a secret."</p>
+                        <div className="absolute -bottom-10 -left-10 glass-card p-10 rounded-2xl max-w-[280px] shadow-2xl hidden md:block">
+                            <Droplets className="w-6 h-6 text-red-600 mb-6" />
+                            <p className="font-serif italic text-stone-800 text-xl leading-snug">"Health is a human right, not a whisper."</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Action Section */}
-            <section className="py-24 bg-red-50/30 border-t border-red-50">
+            {/* Impact Gallery: Polished Interaction */}
+            <section className="py-32 bg-[#fafafa]">
                 <div className="max-w-7xl mx-auto px-6">
-                    <div className="text-center mb-16 space-y-4">
-                        <h2 className="font-serif text-4xl md:text-6xl font-bold text-stone-900">Work in Action</h2>
-                        <div className="w-24 h-1 bg-red-600 mx-auto rounded-full" />
+                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+                        <div className="space-y-4">
+                            <h2 className="text-[10px] font-black uppercase tracking-[0.5em] text-stone-400">Impact Journey</h2>
+                            <h3 className="font-serif text-5xl font-bold text-stone-900">Work Portfolio</h3>
+                        </div>
+                        <div className="text-red-600 text-[10px] font-black uppercase tracking-[0.3em] pb-2">Verified Activism</div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                         {[
                             "Community Workshop",
                             "Rural Advocacy",
@@ -191,49 +150,48 @@ const HappyPeriodsPage: React.FC = () => {
                             "Panel Discussion",
                             "Digital Campaign"
                         ].map((title, idx) => (
-                            <div key={idx} className="group relative aspect-square bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-stone-100 hover:border-red-600/20">
-                                <div className="absolute inset-0 bg-stone-50 flex items-center justify-center opacity-50 group-hover:scale-110 transition-transform duration-1000">
-                                    <ImageIcon className="w-10 h-10 text-stone-200" />
+                            <div key={idx} className="group cursor-pointer">
+                                <div className="relative aspect-square bg-white rounded-xl overflow-hidden mb-6 shadow-sm group-hover:shadow-[0_40px_80px_-20px_rgba(220,38,38,0.1)] transition-all duration-700">
+                                    <div className="absolute inset-0 bg-stone-50 flex items-center justify-center opacity-40 group-hover:scale-110 transition-transform duration-1000">
+                                        <ImageIcon className="w-8 h-8 text-stone-200" />
+                                    </div>
+                                    <div className="absolute inset-0 bg-red-600/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                                 </div>
-                                <div className="absolute inset-0 bg-gradient-to-t from-red-600/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                                <div className="absolute bottom-0 left-0 p-8 translate-y-4 group-hover:translate-y-0 transition-all opacity-0 group-hover:opacity-100">
-                                    <p className="text-white/80 font-bold text-[10px] uppercase tracking-[0.2em] mb-1">Impact Session</p>
-                                    <h4 className="text-white font-serif text-2xl font-bold">{title}</h4>
-                                </div>
+                                <h4 className="font-serif text-2xl font-bold text-stone-900 mb-2">{title}</h4>
+                                <p className="text-xs uppercase tracking-widest text-stone-400 font-bold">2021 — Present</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Resources (Red Background) */}
-            <section className="py-24 bg-white">
+            {/* Resources: Ultra-Premium Aesthetic */}
+            <section className="py-32 bg-white">
                 <div className="max-w-4xl mx-auto px-6">
-                    <div className="bg-red-600 rounded-[3rem] p-12 md:p-16 text-white shadow-2xl relative overflow-hidden">
-                        <div className="absolute -top-24 -right-24 w-64 h-64 bg-red-500 rounded-full blur-3xl opacity-50" />
+                    <div className="bg-stone-900 rounded-3xl p-12 md:p-20 text-white relative overflow-hidden shadow-2xl">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-red-600/20 rounded-full blur-[100px]" />
 
-                        <div className="relative z-10 space-y-12">
+                        <div className="relative z-10 space-y-16">
                             <div className="flex items-center gap-6">
-                                <div className="p-4 bg-white/20 rounded-2xl backdrop-blur-md border border-white/20">
-                                    <BookOpen className="w-8 h-8 text-white" />
+                                <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+                                    <BookOpen className="w-8 h-8 text-red-500" />
                                 </div>
-                                <h3 className="font-serif text-3xl md:text-5xl font-bold">The Archive</h3>
+                                <h3 className="font-serif text-4xl md:text-5xl font-bold tracking-tight">The Archive</h3>
                             </div>
 
-                            <div className="grid gap-4">
+                            <div className="divide-y divide-white/5">
                                 {[
-                                    { title: "Menstrual Equity Report 2023", size: "1.2 MB" },
-                                    { title: "Safe Hygiene Practices Guide", size: "850 KB" }
-                                ].map((doc, i) => (
-                                    <a key={i} href="#" className="flex items-center justify-between p-6 rounded-2xl bg-white/10 hover:bg-white transition-all group border border-white/10 hover:border-transparent">
-                                        <div className="flex items-center gap-4">
-                                            <div className="w-10 h-10 rounded-full bg-white/20 group-hover:bg-red-50 flex items-center justify-center text-white group-hover:text-red-600 font-bold text-xs transition-colors">PDF</div>
-                                            <div>
-                                                <h4 className="font-bold text-lg group-hover:text-red-900 transition-colors">{doc.title}</h4>
-                                                <p className="text-xs text-white/50 group-hover:text-red-900/40 transition-colors uppercase tracking-widest">{doc.size}</p>
-                                            </div>
+                                    { title: "Menstrual Hygiene Research Paper", date: "June 2023" },
+                                    { title: "Grassroots Advocacy Guidelines", date: "Jan 2024" }
+                                ].map((link, i) => (
+                                    <a key={i} href="#" className="flex items-center justify-between py-8 group">
+                                        <div className="space-y-2">
+                                            <h4 className="font-serif text-2xl font-bold group-hover:text-red-500 transition-colors">{link.title}</h4>
+                                            <p className="text-[10px] uppercase tracking-[0.3em] text-stone-500">{link.date}</p>
                                         </div>
-                                        <ExternalLink className="w-5 h-5 opacity-40 group-hover:opacity-100 group-hover:text-red-600 transition-all" />
+                                        <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-red-600 group-hover:border-red-600 transition-all duration-500">
+                                            <ExternalLink className="w-4 h-4" />
+                                        </div>
                                     </a>
                                 ))}
                             </div>
@@ -242,22 +200,26 @@ const HappyPeriodsPage: React.FC = () => {
                 </div>
             </section>
 
-            {/* Final CTA (Pure Red & White) */}
-            <section className="py-32 bg-white text-center border-t border-red-50">
-                <div className="max-w-3xl mx-auto px-6 space-y-10">
-                    <div className="inline-flex p-4 bg-red-50 rounded-2xl border border-red-100">
+            {/* Final Section: Clean & Powerful */}
+            <section className="py-40 bg-white text-center">
+                <div className="max-w-3xl mx-auto px-6 space-y-12">
+                    <div className="inline-flex items-center justify-center p-5 rounded-full bg-red-50 mb-4">
                         <MessageCircle className="w-10 h-10 text-red-600" />
                     </div>
-                    <h2 className="font-serif text-5xl md:text-6xl font-bold text-stone-900 leading-tight tracking-tight">
-                        Spread the <span className="text-red-600">Awareness.</span>
+                    <h2 className="font-serif text-5xl md:text-7xl font-bold text-stone-900 leading-[0.9] tracking-tighter">
+                        Join the <br />
+                        <span className="text-red-600 italic">Movement.</span>
                     </h2>
-                    <p className="text-lg text-stone-500 font-light max-w-xl mx-auto">
-                        I travel to schools and rural hubs to conduct sessions.
-                        Let's collaborate to end the stigma using <span className="text-stone-900 font-medium">facts and empathy</span>.
+                    <p className="text-xl text-stone-500 font-light max-w-xl mx-auto leading-relaxed">
+                        I am available for speaking engagements, workshops, and school sessions.
+                        Let's collaborate on ending menstrual poverty.
                     </p>
-                    <div className="pt-6">
-                        <a href="/contact" className="px-16 py-6 bg-red-600 text-white font-bold rounded-full hover:bg-stone-900 transition-all shadow-xl shadow-red-200 hover:shadow-stone-200 hover:-translate-y-1 block sm:inline-block uppercase tracking-widest text-xs">
-                            Get In Touch
+                    <div className="pt-8 flex flex-col sm:flex-row items-center justify-center gap-6">
+                        <a href="/contact" className="px-12 py-5 bg-red-600 text-white font-bold rounded-full hover:bg-stone-900 transition-all shadow-xl shadow-red-200 hover:shadow-stone-200 hover:-translate-y-1 uppercase tracking-widest text-[10px]">
+                            Collaborate
+                        </a>
+                        <a href="mailto:sonakhirumi@gmail.com" className="text-[10px] font-black uppercase tracking-[0.3em] text-stone-400 hover:text-stone-900 transition-colors underline underline-offset-8">
+                            Email Me
                         </a>
                     </div>
                 </div>
