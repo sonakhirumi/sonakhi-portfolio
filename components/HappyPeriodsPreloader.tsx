@@ -29,9 +29,12 @@ const HappyPeriodsPreloader: React.FC = () => {
 
             </div>
 
-            {/* Loading Text - MATCHED EXACTLY with original Preloader styling & animation classes */}
+            {/* Loading Text */}
             <div className="mt-8 overflow-hidden h-6 w-full text-center flex justify-center px-4">
-                <p className="text-[10px] font-black uppercase tracking-[0.4em] text-[#880808] animate-fade-in-out whitespace-nowrap sm:whitespace-normal">
+                <p
+                    key={textIndex}
+                    className="text-[10px] font-black uppercase tracking-[0.4em] text-[#880808] animate-fade-in-out whitespace-nowrap sm:whitespace-normal"
+                >
                     {loadingTexts[textIndex]}
                 </p>
             </div>

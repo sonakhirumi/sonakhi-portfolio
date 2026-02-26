@@ -25,37 +25,37 @@ const Preloader: React.FC = () => {
         <div className="absolute inset-0 bg-white rounded-xl shadow-md border border-stone-100 scale-75"></div>
 
         {/* Writing Animation SVG */}
-        <svg 
-          viewBox="0 0 100 100" 
+        <svg
+          viewBox="0 0 100 100"
           className="w-32 h-32 relative z-10"
-          fill="none" 
+          fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
           {/* The "Line" being written */}
-          <path 
-            d="M20 65 Q 35 55 50 65 T 80 65" 
-            stroke="#1c1917" 
-            strokeWidth="1.5" 
+          <path
+            d="M20 65 Q 35 55 50 65 T 80 65"
+            stroke="#1c1917"
+            strokeWidth="1.5"
             strokeLinecap="round"
             className="animate-write-line"
           />
-          
+
           {/* The Quill/Pen */}
           <g className="animate-quill-move">
-            <path 
-              d="M48 62 L75 35 C78 32 82 32 85 35 C88 38 88 42 85 45 L58 72 L45 75 L48 62Z" 
+            <path
+              d="M48 62 L75 35 C78 32 82 32 85 35 C88 38 88 42 85 45 L58 72 L45 75 L48 62Z"
               fill="#1c1917"
             />
-            <path 
-              d="M72 38 L82 48" 
-              stroke="#faf9f6" 
-              strokeWidth="1" 
+            <path
+              d="M72 38 L82 48"
+              stroke="#faf9f6"
+              strokeWidth="1"
               strokeLinecap="round"
             />
             {/* Feather detail */}
-            <path 
-              d="M75 35 C70 25 60 20 50 25 C55 35 65 35 75 35" 
-              fill="#1c1917" 
+            <path
+              d="M75 35 C70 25 60 20 50 25 C55 35 65 35 75 35"
+              fill="#1c1917"
               className="opacity-40"
             />
           </g>
@@ -66,8 +66,11 @@ const Preloader: React.FC = () => {
       </div>
 
       {/* Loading Text */}
-      <div className="mt-8 overflow-hidden h-6">
-        <p className="text-[10px] font-black uppercase tracking-[0.4em] text-stone-400 animate-fade-in-out">
+      <div className="mt-8 overflow-hidden h-6 w-full text-center flex justify-center px-4">
+        <p
+          key={textIndex}
+          className="text-[10px] font-black uppercase tracking-[0.4em] text-stone-400 animate-fade-in-out whitespace-nowrap sm:whitespace-normal"
+        >
           {loadingTexts[textIndex]}
         </p>
       </div>
