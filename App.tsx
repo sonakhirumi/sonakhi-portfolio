@@ -9,6 +9,8 @@ import ArticlePage from './components/ArticlePage';
 import AllArticlesPage from './components/AllArticlesPage';
 import Preloader from './components/Preloader';
 import Contacts from './components/Contact';
+import HappyPeriodsPage from './components/HappyPeriodsPage';
+
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
 
@@ -63,8 +65,11 @@ const App: React.FC = () => {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/my-archive" element={<AllArticlesPage />} />
           <Route path="/my-archive/:category" element={<AllArticlesPage />} />
+          <Route path="/happy-periods" element={<HappyPeriodsPage />} />
           <Route path="/article/:id" element={<ArticlePage />} />
           <Route path="/contact" element={<Contacts />} />
+
+
         </Routes>
       </main>
       <Footer />

@@ -40,8 +40,10 @@ const Footer: React.FC = () => {
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'My Archive', href: '/my-archive' },
+    { name: 'Happy Periods', href: '/happy-periods' },
     { name: 'Contact', href: '/contact' },
   ];
+
 
   return (
     <footer className="bg-[#1a1a1a] text-stone-400 py-16">
@@ -56,12 +58,16 @@ const Footer: React.FC = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="hover:text-white transition-colors flex items-center gap-2 text-sm"
+                  className={`transition-colors flex items-center gap-2 text-sm ${link.name === 'Happy Periods'
+                      ? 'text-red-400 hover:text-red-300 font-bold'
+                      : 'hover:text-white'
+                    }`}
                   {...(link.isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 >
                   {link.name}
                   {link.isExternal && <ExternalLink className="w-3 h-3 opacity-40" />}
                 </a>
+
               ))}
             </nav>
           </div>

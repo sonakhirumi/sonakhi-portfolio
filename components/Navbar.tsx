@@ -18,8 +18,10 @@ const Navbar: React.FC = () => {
     { name: 'Home', href: '/' },
     { name: 'About', href: '/about' },
     { name: 'My Archive', href: '/my-archive' },
+    { name: 'Happy Periods', href: '/happy-periods' },
     { name: 'Contact', href: '/contact' },
   ];
+
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md py-3 md:py-4 shadow-md border-b border-stone-200' : 'bg-[#faf9f6]/80 backdrop-blur-sm py-4 md:py-6 shadow-sm border-b border-stone-200/50'
@@ -34,18 +36,21 @@ const Navbar: React.FC = () => {
           <span className="font-serif text-xl font-bold tracking-tight text-stone-900 uppercase">SONAKHI RUMI</span>
         </a>
 
-        {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               to={link.href}
-              className="text-sm font-medium text-stone-600 hover:text-stone-900 transition-colors"
+              className={`text-sm font-medium transition-colors ${link.name === 'Happy Periods'
+                ? 'text-red-500 hover:text-red-700 font-bold'
+                : 'text-stone-600 hover:text-stone-900'
+                }`}
             >
               {link.name}
             </Link>
           ))}
         </div>
+
 
         {/* Mobile Toggle */}
         <button
@@ -63,11 +68,15 @@ const Navbar: React.FC = () => {
             <Link
               key={link.name}
               to={link.href}
-              className="text-lg font-medium text-stone-700 hover:text-stone-900"
+              className={`text-lg font-medium ${link.name === 'Happy Periods'
+                ? 'text-red-600 hover:text-red-800'
+                : 'text-stone-700 hover:text-stone-900'
+                }`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               {link.name}
             </Link>
+
           ))}
         </div>
       )}
