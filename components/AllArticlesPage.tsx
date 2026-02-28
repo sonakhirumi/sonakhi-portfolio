@@ -49,7 +49,10 @@ const AllArticlesPage: React.FC = () => {
         let actualCategories = [];
         if (Array.isArray(catsData)) {
           const processedCats = catsData
-            .filter((c: any) => c.name.toLowerCase() !== 'hindi')
+            .filter((c: any) => {
+              const name = c.name.toLowerCase();
+              return name !== 'hindi' && name !== 'uncategorized';
+            })
             .map((c: any) => {
               if (c.name.toLowerCase() === 'odia') return { ...c, name: 'ଓଡ଼ିଆ' };
               if (c.name.toLowerCase() === 'english') return { ...c, name: 'English' };
@@ -231,12 +234,32 @@ const AllArticlesPage: React.FC = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
             {selectedCategory === 'English' && (
-              <div className="col-span-full py-20 text-center space-y-4">
-                <div className="font-serif text-4xl md:text-6xl text-stone-900 leading-tight">
-                  break my heart 💔 ⚠️
-                  <div className="text-stone-400 italic text-2xl md:text-3xl mt-4">open wounds</div>
+              <div className="col-span-full mb-16 flex flex-col md:flex-row gap-12 items-start border-b border-stone-100 pb-16 pt-8">
+                <div className="w-full md:w-64 shrink-0">
+                  <div className="group">
+                    <img
+                      src="https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/02/download.jpg"
+                      alt="The heart remains"
+                      className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-1000 rounded-sm shadow-2xl"
+                    />
+                    <a
+                      href="https://in.pinterest.com/pin/16888567424823914/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[9px] text-stone-400 mt-3 block hover:text-stone-900 transition-colors tracking-widest uppercase font-bold"
+                    >
+                      Source: Pinterest / Pin 16888567424823914
+                    </a>
+                  </div>
                 </div>
-                <div className="w-24 h-px bg-stone-200 mx-auto mt-12"></div>
+                <div className="space-y-4 pt-4">
+                  <h2 className="font-serif text-5xl md:text-7xl text-stone-900 leading-none">
+                    break my heart 💔
+                  </h2>
+                  <h3 className="font-serif text-2xl md:text-3xl text-stone-400 italic font-light">
+                    ⚠️ open wounds
+                  </h3>
+                </div>
               </div>
             )}
 
@@ -276,7 +299,7 @@ const AllArticlesPage: React.FC = () => {
                   </div>
                 </Link>
               ))
-            ) : (
+            ) : selectedCategory !== 'English' ? (
               <div className="col-span-full flex flex-col items-center justify-center py-16 gap-8">
                 <div className="p-8 bg-stone-100 rounded-full animate-bounce-slow">
                   <Hammer className="w-12 h-12 text-stone-400" />
@@ -286,7 +309,7 @@ const AllArticlesPage: React.FC = () => {
                   <p className="font-serif italic text-stone-500 text-lg">Check back soon.</p>
                 </div>
               </div>
-            )}
+            ) : null}
           </div>
         )}
       </div>
