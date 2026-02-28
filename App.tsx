@@ -12,6 +12,7 @@ import Preloader from './components/Preloader';
 import Contacts from './components/Contact';
 import HappyPeriodsPage from './components/HappyPeriodsPage';
 import HappyPeriodsPreloader from './components/HappyPeriodsPreloader';
+import CopyrightPage from './components/CopyrightPage';
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
@@ -99,6 +100,7 @@ const App: React.FC = () => {
           <Route path="/happy-periods" element={<HappyPeriodsRoute />} />
           <Route path="/article/:id" element={<ArticlePage />} />
           <Route path="/contact" element={<Contacts />} />
+          <Route path="/copyright" element={<CopyrightPage />} />
 
 
         </Routes>
