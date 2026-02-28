@@ -55,17 +55,24 @@ const Hero: React.FC = () => {
 
             {/* Mobile Floating Card */}
             <div className="absolute -bottom-4 -right-24 bg-white shadow-xl rounded-xl p-3 border border-stone-100 w-[180px] z-20 animate-bounce-slow">
-              <p className="font-serif italic text-xs text-stone-800 leading-snug mb-2">
-                5+ years of making words work harder.
-              </p>
+              <a
+                href="https://topmate.io/sonakhirumi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group/text"
+              >
+                <p className="font-serif italic text-xs text-stone-800 leading-snug mb-2 group-hover/text:text-stone-600 transition-colors">
+                  5+ years of making words work harder.
+                </p>
+              </a>
               <div className="h-px w-6 bg-stone-900 mb-1"></div>
               <a
                 href="https://topmate.io/sonakhirumi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-[8px] font-black uppercase tracking-wider text-stone-400 hover:text-stone-900 transition-colors"
+                className="flex items-center gap-1 text-[10px] font-black uppercase tracking-wider text-stone-400 hover:text-stone-900 transition-colors"
               >
-                LET'S CONNECT <ExternalLink className="w-2 h-2" />
+                LET'S CONNECT <ExternalLink className="w-3 h-3" />
               </a>
             </div>
           </div>
@@ -123,18 +130,25 @@ const Hero: React.FC = () => {
             {/* Floating Editorial Card - Improved Mobile Position */}
             <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 md:-bottom-10 md:-left-20 md:translate-x-0 p-6 md:p-8 bg-white shadow-2xl rounded-2xl w-[85%] max-w-[280px] md:w-auto border border-stone-100 block animate-bounce-slow z-20">
               <Quote className="w-6 h-6 md:w-8 md:h-8 text-stone-200 mb-3 md:mb-4" />
-              <p className="font-serif italic text-base md:text-lg text-stone-800 leading-snug mb-3 md:mb-4">
-                5+ years of making words work harder so you don't have to.
-              </p>
+              <a
+                href="https://topmate.io/sonakhirumi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group/text"
+              >
+                <p className="font-serif italic text-base md:text-lg text-stone-800 leading-snug mb-3 md:mb-4 group-hover/text:text-stone-600 transition-colors">
+                  5+ years of making words work harder so you don't have to.
+                </p>
+              </a>
               <div className="h-px w-12 bg-stone-900 mb-2"></div>
               <a
                 href="https://topmate.io/sonakhirumi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[8px] md:text-[9px] font-black uppercase tracking-[0.2em] text-stone-400 hover:text-stone-900 hover:underline transition-all duration-300 group/link"
+                className="flex items-center gap-2 text-[11px] md:text-[12px] font-black uppercase tracking-[0.2em] text-stone-400 hover:text-stone-900 hover:underline transition-all duration-300 group/link"
               >
                 LET'S CONNECT
-                <ExternalLink className="w-3 h-3 group-hover/link:text-stone-900 transition-colors" />
+                <ExternalLink className="w-3 h-3 md:w-4 md:h-4 group-hover/link:text-stone-900 transition-colors" />
               </a>
             </div>
 
