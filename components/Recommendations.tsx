@@ -6,19 +6,22 @@ const recommendations = [
         author: "Aditi Gupta",
         role: "Co-founder Menstrupedia, TruBuddy",
         text: "Sonakhi leads the writers’ team at Menstrupedia with focus and dedication. Her biggest strength is that she never loses sight of her goals. She is meticulous in her research and has a great ability to turn complex information into valuable learning points for our readers. She is an empathetic leader who not only maintains high-quality work but also helps her team grow and achieve their goals. Sonakhi is a problem solver, a keen listener, and always open to learning. She ensures clear communication, which makes working with her easy and efficient. Her leadership is nurturing, creating a space where writers can sharpen their skills and improve. At the same time, she keeps pushing herself by learning new skills and taking on new challenges. Balancing a full-time job, leading a team, and completing her master’s degree is a true testament to her dedication. Sonakhi is truly an asset, and I’m grateful to be working with her.",
-        link: "https://www.linkedin.com/in/aditiguptamenstrupedia/"
+        authorLink: "https://www.linkedin.com/in/aditiguptamenstrupedia/",
+        sourceLink: "https://www.linkedin.com/in/sonakhi-malla-rumi/details/recommendations/"
     },
     {
-        author: "Name Placeholder 2",
-        role: "Role Placeholder 2",
-        text: "This is a placeholder for your second recommendation. Please update this with the real text from your LinkedIn profile.",
-        link: "https://www.linkedin.com/in/sonakhi-malla-rumi/details/recommendations/"
+        author: "Soumyadeep Pramanik",
+        role: "★ 5/5 • Nov 2, 2025",
+        text: "What I really liked about her session was how she was breaking down the complex points to me in a simple manner. She basically clarified all my doubts regarding writing. Thank you so much",
+        authorLink: "https://topmate.io/sonakhirumi",
+        sourceLink: "https://topmate.io/sonakhirumi"
     },
     {
         author: "Name Placeholder 3",
         role: "Role Placeholder 3",
         text: "This is a placeholder for your third recommendation. Please update this with the real text from your LinkedIn profile.",
-        link: "https://www.linkedin.com/in/sonakhi-malla-rumi/details/recommendations/"
+        authorLink: "https://www.linkedin.com/in/sonakhi-malla-rumi/details/recommendations/",
+        sourceLink: "https://www.linkedin.com/in/sonakhi-malla-rumi/details/recommendations/"
     }
 ];
 
@@ -59,7 +62,7 @@ const Recommendations: React.FC = () => {
                                     "{rec.text}"
                                 </p>
                                 <a
-                                    href="https://www.linkedin.com/in/sonakhi-malla-rumi/details/recommendations/"
+                                    href={rec.sourceLink}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-stone-400 hover:text-stone-900 text-xs font-bold uppercase tracking-wider transition-colors inline-block mb-8"
@@ -70,7 +73,7 @@ const Recommendations: React.FC = () => {
 
                             <div>
                                 <a
-                                    href={rec.link}
+                                    href={rec.authorLink}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="font-serif font-medium text-stone-900 hover:text-stone-500 transition-colors inline-flex items-center gap-1 group"
