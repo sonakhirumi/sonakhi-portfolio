@@ -44,7 +44,7 @@ const Recommendations: React.FC = () => {
                         rel="noopener noreferrer"
                         className="group flex items-center gap-2 text-xs font-black uppercase tracking-widest text-stone-900 hover:text-stone-500 transition-colors"
                     >
-                        Read all on LinkedIn
+                        Read more on LinkedIn
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </a>
                 </div>
