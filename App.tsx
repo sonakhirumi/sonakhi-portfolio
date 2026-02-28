@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Recommendations from './components/Recommendations';
 import About from './components/About';
 import Articles from './components/Articles';
 import Footer from './components/Footer';
@@ -31,7 +32,10 @@ const ScrollToTop = () => {
 };
 
 const Home: React.FC = () => (
-  <Hero />
+  <>
+    <Hero />
+    <Recommendations />
+  </>
 );
 
 const AboutPage: React.FC = () => (
