@@ -48,27 +48,39 @@ const Recommendations: React.FC = () => {
 
                 <div className="grid md:grid-cols-3 gap-6">
                     {recommendations.map((rec, index) => (
-                        <a
+                        <div
                             key={index}
-                            href={rec.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group block bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100 relative overflow-hidden flex flex-col h-full"
+                            className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100 relative flex flex-col h-full"
                         >
-                            <div className="absolute top-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <ExternalLink className="w-5 h-5 text-stone-300 group-hover:text-stone-900 transition-colors" />
-                            </div>
-                            <Quote className="w-8 h-8 text-stone-200 mb-6 group-hover:text-stone-900 transition-colors" />
+                            <Quote className="w-8 h-8 text-stone-200 mb-6" />
 
-                            <p className="font-sans text-stone-600 text-sm md:text-base leading-relaxed mb-8 flex-grow">
-                                "{rec.text}"
-                            </p>
+                            <div className="flex-grow">
+                                <p className="font-sans text-stone-600 text-sm md:text-base leading-relaxed mb-2 line-clamp-4">
+                                    "{rec.text}"
+                                </p>
+                                <a
+                                    href="https://www.linkedin.com/in/sonakhi-malla-rumi/details/recommendations/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-stone-400 hover:text-stone-900 text-xs font-bold uppercase tracking-wider transition-colors inline-block mb-8"
+                                >
+                                    Read more
+                                </a>
+                            </div>
 
                             <div>
-                                <h4 className="font-serif font-medium text-stone-900">{rec.author}</h4>
+                                <a
+                                    href={rec.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="font-serif font-medium text-stone-900 hover:text-stone-500 transition-colors inline-flex items-center gap-1 group"
+                                >
+                                    {rec.author}
+                                    <ExternalLink className="w-3 h-3 text-stone-300 group-hover:text-stone-500 transition-colors opacity-0 group-hover:opacity-100" />
+                                </a>
                                 <p className="font-sans text-xs text-stone-500 mt-1">{rec.role}</p>
                             </div>
-                        </a>
+                        </div>
                     ))}
                 </div>
             </div>
