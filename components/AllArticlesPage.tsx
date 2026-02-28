@@ -234,28 +234,30 @@ const AllArticlesPage: React.FC = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
             {selectedCategory === 'English' && (
-              <div className="col-span-full mb-16 flex flex-col md:flex-row gap-12 items-start border-b border-stone-100 pb-16 pt-8">
-                <div className="w-full md:w-64 shrink-0">
-                  <div className="group">
-                    <img
-                      src="https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/02/download.jpg"
-                      alt="The heart remains"
-                      className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-1000 rounded-sm shadow-2xl"
-                    />
-                    <a
-                      href="https://in.pinterest.com/pin/16888567424823914/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[9px] text-stone-400 mt-3 block hover:text-stone-900 transition-colors tracking-widest uppercase font-bold"
-                    >
-                      Source: Pinterest / Pin 16888567424823914
-                    </a>
-                  </div>
-                </div>
-                <div className="space-y-4 pt-4">
+              <div className="col-span-full mb-16 border-b border-stone-100 pb-16 pt-8">
+                <div className="max-w-3xl space-y-8">
                   <h2 className="font-serif text-5xl md:text-7xl text-stone-900 leading-none">
                     break my heart 💔
                   </h2>
+
+                  <div className="w-full md:w-80">
+                    <div className="group">
+                      <img
+                        src="https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/02/download.jpg"
+                        alt="The heart remains"
+                        className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-1000 rounded-sm shadow-2xl mb-3"
+                      />
+                      <a
+                        href="https://in.pinterest.com/pin/16888567424823914/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[10px] text-stone-400 hover:text-stone-900 transition-colors tracking-widest uppercase font-black"
+                      >
+                        Source
+                      </a>
+                    </div>
+                  </div>
+
                   <h3 className="font-serif text-2xl md:text-3xl text-stone-400 italic font-light">
                     ⚠️ open wounds
                   </h3>
