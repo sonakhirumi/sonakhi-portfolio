@@ -11,7 +11,7 @@ const recommendations = [
     },
     {
         author: "Soumyadeep Pramanik",
-        role: "★ 5/5 • Nov 2, 2025",
+        role: "Aspiring Writer",
         text: "What I really liked about her session was how she was breaking down the complex points to me in a simple manner. She basically clarified all my doubts regarding writing. Thank you so much",
         authorLink: "https://topmate.io/sonakhirumi",
         sourceLink: "https://topmate.io/sonakhirumi"
