@@ -13,7 +13,7 @@ const CopyrightPage: React.FC = () => {
                     </p>
                 </div>
 
-                <div className="space-y-12">
+                <div className="space-y-8">
                     {/* Main Copyright Notice */}
                     <section className="space-y-4">
                         <div className="space-y-4 text-stone-700 leading-relaxed font-light text-lg text-justify">
@@ -51,7 +51,7 @@ const CopyrightPage: React.FC = () => {
                     </section>
 
                     {/* Prohibited */}
-                    <section className="bg-stone-100/40 p-8 md:p-10 rounded-2xl space-y-6">
+                    <section className="bg-stone-100/40 p-6 md:p-8 rounded-2xl space-y-4">
                         <h2 className="text-xs font-black uppercase tracking-[0.2em] text-stone-400">What Is Not Allowed</h2>
                         <ul className="grid sm:grid-cols-2 gap-x-12 gap-y-4 text-stone-600 font-medium text-justify">
                             <li className="flex gap-3 pb-3 border-b border-stone-200/50">
