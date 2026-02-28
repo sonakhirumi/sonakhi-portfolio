@@ -3,19 +3,22 @@ import { ExternalLink, ArrowRight, Quote } from 'lucide-react';
 
 const recommendations = [
     {
-        author: "Name Placeholder 1",
-        role: "Role Placeholder 1",
-        text: "This is a placeholder for your first recommendation. Since I couldn't access LinkedIn automatically, please update this text with the real recommendation! Sonakhi is an incredible writer...",
+        author: "Aditi Gupta",
+        role: "Co-founder Menstrupedia, TruBuddy",
+        text: "Sonakhi leads the writers’ team at Menstrupedia with focus and dedication. Her biggest strength is that she never loses sight of her goals. She is meticulous in her research and has a great ability to turn complex information into valuable learning points for our readers. She is an empathetic leader who not only maintains high-quality work but also helps her team grow and achieve their goals. Sonakhi is a problem solver, a keen listener, and always open to learning. She ensures clear communication, which makes working with her easy and efficient. Her leadership is nurturing, creating a space where writers can sharpen their skills and improve. At the same time, she keeps pushing herself by learning new skills and taking on new challenges. Balancing a full-time job, leading a team, and completing her master’s degree is a true testament to her dedication. Sonakhi is truly an asset, and I’m grateful to be working with her.",
+        link: "https://www.linkedin.com/in/aditiguptamenstrupedia/"
     },
     {
         author: "Name Placeholder 2",
         role: "Role Placeholder 2",
         text: "This is a placeholder for your second recommendation. Please update this with the real text from your LinkedIn profile.",
+        link: "https://www.linkedin.com/in/sonakhi-malla-rumi/details/recommendations/"
     },
     {
         author: "Name Placeholder 3",
         role: "Role Placeholder 3",
         text: "This is a placeholder for your third recommendation. Please update this with the real text from your LinkedIn profile.",
+        link: "https://www.linkedin.com/in/sonakhi-malla-rumi/details/recommendations/"
     }
 ];
 
@@ -47,7 +50,7 @@ const Recommendations: React.FC = () => {
                     {recommendations.map((rec, index) => (
                         <a
                             key={index}
-                            href="https://www.linkedin.com/in/sonakhi-malla-rumi/details/recommendations/"
+                            href={rec.link}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group block bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100 relative overflow-hidden flex flex-col h-full"
