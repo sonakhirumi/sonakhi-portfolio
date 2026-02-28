@@ -1,50 +1,7 @@
-
-import React, { useRef, useEffect } from 'react';
-import { Languages, PenTool, ExternalLink } from 'lucide-react';
-
-const HERO_IMAGE = 'https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2025/12/MoBuzz-Posting-Ideas-7.jpg';
+import React from 'react';
+import { ExternalLink } from 'lucide-react';
 
 const About: React.FC = () => {
-  const startYear = 2021;
-  const currentYear = new Date().getFullYear();
-  const yearsExperience = currentYear - startYear;
-
-  // Refs for the JS-driven fixed background effect (mobile only)
-  const mobileSectionRef = useRef<HTMLDivElement>(null);
-  const bgRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const section = mobileSectionRef.current;
-      const bg = bgRef.current;
-      if (!section || !bg) return;
-
-      const rect = section.getBoundingClientRect();
-
-      if (rect.bottom > 0 && rect.top < window.innerHeight) {
-        // Counteract the scroll: push image down by how much the section has scrolled up
-        bg.style.transform = `translateY(${-rect.top}px)`;
-        bg.style.opacity = '1';
-      } else {
-        bg.style.opacity = '0';
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // run once on mount
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const numberToWords = (num: number): string => {
-    const words = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
-    return words[num] || num.toString();
-  };
-
-  const yearsWords = numberToWords(yearsExperience);
-  const displayYears = `${yearsExperience}+`;
-
-  /* ─── Shared sub-components ─────────────────────────── */
-
   const AboutMeBlock = () => (
     <div className="space-y-6 md:space-y-10">
       <div className="flex items-center space-x-3 md:space-x-5">
@@ -82,25 +39,7 @@ const About: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto px-6">
       {/* ─── MOBILE LAYOUT ─────────────────────────────────────── */}
-      <div ref={mobileSectionRef} className="lg:hidden relative overflow-hidden -mx-6 px-6">
-        <div
-          ref={bgRef}
-          aria-hidden="true"
-          className="absolute top-0 left-0 w-full h-screen pointer-events-none select-none"
-          style={{ willChange: 'transform', transition: 'opacity 0.2s ease' }}
-        >
-          <img
-            src={HERO_IMAGE}
-            alt=""
-            className="w-full h-full object-cover object-top"
-            style={{ opacity: 0.22, filter: 'grayscale(8%)' }}
-          />
-          <div
-            className="absolute inset-0"
-            style={{ background: 'linear-gradient(to bottom, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.38) 55%, rgba(255,255,255,0.65) 100%)' }}
-          />
-        </div>
-
+      <div className="lg:hidden relative">
         <div className="relative z-10 space-y-6 pb-4 text-stone-800 [&_p]:text-justify [&_p]:leading-relaxed [&_h2]:text-stone-900">
           <AboutMeBlock />
         </div>
