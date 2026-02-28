@@ -37,7 +37,7 @@ const Navbar: React.FC = () => {
           <span className="font-serif text-xl font-bold tracking-tight text-stone-900 uppercase">SONAKHI RUMI</span>
         </a>
 
-        <div className="hidden md:flex space-x-8">
+        <div className="hidden md:flex space-x-6 lg:space-x-8">
           {navLinks.map((link) => (
             <Link
               key={link.name}
