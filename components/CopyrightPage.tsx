@@ -92,7 +92,7 @@ const CopyrightPage: React.FC = () => {
                             <ImageIcon className="w-5 h-5" />
                             <h2 className="text-xs font-black uppercase tracking-[0.2em]">Images & Visual Material</h2>
                         </div>
-                        <p className="text-stone-700 leading-relaxed font-light italic text-base">
+                        <p className="text-stone-700 leading-relaxed font-light text-lg">
                             Unless mentioned otherwise, all images and visual elements on this website are either owned by Sonakhi Malla (Rumi), used with permission, or shared with proper credit.
                             If you are the rightful owner of any image and would like it to be credited, edited, or removed, please reach out and the request will be addressed promptly and respectfully.
                         </p>
