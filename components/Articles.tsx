@@ -28,7 +28,7 @@ const Articles: React.FC = () => {
     const fetchContent = async () => {
       try {
         setIsLoading(true);
-        const catRes = await fetch(`${BASE_URL}/categories?hide_empty=true&_=${Date.now()}`);
+        const catRes = await fetch(`${BASE_URL}/categories?_=${Date.now()}`);
         const catsData = await catRes.json();
 
         if (!Array.isArray(catsData)) return;

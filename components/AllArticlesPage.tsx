@@ -44,7 +44,7 @@ const AllArticlesPage: React.FC = () => {
         setIsLoading(true);
 
         // Fetch categories first to help resolve casing
-        const catRes = await fetch(`${BASE_URL}/categories?hide_empty=true&_=${Date.now()}`);
+        const catRes = await fetch(`${BASE_URL}/categories?_=${Date.now()}`);
         const catsData = await catRes.json();
         let actualCategories = [];
         if (Array.isArray(catsData)) {
@@ -271,8 +271,14 @@ const AllArticlesPage: React.FC = () => {
                 </Link>
               ))
             ) : (
-              <div className="col-span-full py-24 text-center">
-                <p className="font-serif text-2xl text-stone-300 italic">No articles found in this category.</p>
+              <div className="col-span-full flex flex-col items-center justify-center py-16 gap-8">
+                <div className="p-8 bg-stone-100 rounded-full animate-bounce-slow">
+                  <Hammer className="w-12 h-12 text-stone-400" />
+                </div>
+                <div className="text-center space-y-4 max-w-lg">
+                  <h2 className="font-serif text-4xl md:text-5xl text-stone-900 leading-tight">Under Construction.</h2>
+                  <p className="font-serif italic text-stone-500 text-lg">Check back soon.</p>
+                </div>
               </div>
             )}
           </div>
