@@ -16,12 +16,8 @@ const CopyrightPage: React.FC = () => {
                 <div className="space-y-16">
                     {/* Main Copyright Notice */}
                     <section className="space-y-6">
-                        <div className="flex items-center gap-3 text-stone-900 mb-2">
-                            <Copyright className="w-5 h-5" />
-                            <h2 className="text-xs font-black uppercase tracking-[0.3em]">Owner Notice</h2>
-                        </div>
                         <div className="space-y-6 text-stone-700 leading-relaxed font-light text-lg">
-                            <p className="font-bold text-stone-900 italic">© Sonakhi Malla (Rumi) 2026. All rights reserved.</p>
+                            <p className="font-bold text-stone-900">© Sonakhi Malla (Rumi) 2026. All rights reserved.</p>
                             <p>
                                 Unless otherwise stated, every poem, essay, reflection, article, and piece of writing on this website is the original work of Sonakhi Malla, writing under the pen name <span className="text-stone-900 font-medium italic underline decoration-stone-200 underline-offset-4">Sonakhi Rumi</span>.
                                 These words are protected by copyright law and may not be copied, reproduced, distributed, published, translated, archived, or transmitted in any form or by any means, digital or physical, without prior written permission.
