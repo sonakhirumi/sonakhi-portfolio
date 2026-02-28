@@ -6,7 +6,7 @@ const About: React.FC = () => {
     <div className="space-y-6 md:space-y-10">
       <div className="flex items-center space-x-3 md:space-x-5">
         <div className="w-2 h-2 md:w-3 md:h-3 bg-stone-900 rounded-full"></div>
-        <h2 className="text-3xl md:text-5xl font-black uppercase tracking-widest text-stone-900">About Me</h2>
+        <h2 className="text-xl sm:text-2xl md:text-5xl font-black uppercase tracking-widest text-stone-900">About Me</h2>
       </div>
       <div className="prose prose-stone max-w-none space-y-5 md:space-y-8 text-stone-600 leading-relaxed text-base md:text-xl font-light">
         <p className="first-letter:text-6xl md:first-letter:text-7xl first-letter:font-serif first-letter:mr-4 first-letter:float-left first-letter:text-stone-900">
