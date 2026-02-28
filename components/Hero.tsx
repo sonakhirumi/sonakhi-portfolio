@@ -2,8 +2,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Languages, Quote, ExternalLink } from 'lucide-react';
-import heroImage from '@/hero-image.jpg';
 
+const heroImage = "https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/02/Sonakhi-Rumi.png";
 // Rebuild trigger after reverting torn cutout effect
 const Hero: React.FC = () => {
 
