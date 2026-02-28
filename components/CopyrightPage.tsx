@@ -104,7 +104,7 @@ const CopyrightPage: React.FC = () => {
                             <Heart className="w-5 h-5 text-stone-300" />
                         </div>
                         <p className="font-serif text-lg text-stone-500 italic max-w-md mx-auto">
-                            "Please honour the time, care, and truth that went into these words."
+                            "Please honour the time, care, and truth that went into weaving these words."
                         </p>
                     </div>
 
