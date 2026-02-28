@@ -81,7 +81,7 @@ const Hero: React.FC = () => {
 
           {/* Hero Text Content - Updated v3 */}
           <p className="font-sans text-base md:text-lg text-stone-600 font-light leading-relaxed max-w-xl mx-auto lg:mx-0 text-justify animate-in fade-in slide-in-from-left-12 duration-1000 delay-200">
-            Hi, I'm <a href="/about" className="text-stone-900 font-medium hover:text-stone-600 transition-colors">Sonakhi Malla (Rumi)</a>, your obsessive overthinking connoisseur who <span className="text-stone-900 font-medium">writes</span>, <span className="text-stone-900 font-medium">edits</span>, <span className="text-stone-900 font-medium">translates</span>, and <span className="text-stone-900 font-medium">guides</span> fellow budding word lovers discovering their voice.{' '}
+            Hi, I'm <a href="/about" className="text-stone-900 font-medium hover:text-stone-600 transition-colors">Sonakhi Malla (Rumi)</a>, an obsessive overthinking connoisseur who <span className="text-stone-900 font-medium">writes</span>, <span className="text-stone-900 font-medium">edits</span>, <span className="text-stone-900 font-medium">translates</span>, and <span className="text-stone-900 font-medium">guides</span> fellow budding word lovers discovering their voice.{' '}
             <Link to="/about" className="inline-flex items-center gap-1 text-sm text-stone-400 font-medium underline underline-offset-4 decoration-stone-200 hover:text-stone-900 hover:decoration-stone-900 transition-all">
               know more <ArrowRight className="w-3 h-3" />
             </Link>
