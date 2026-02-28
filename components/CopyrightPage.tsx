@@ -98,6 +98,16 @@ const CopyrightPage: React.FC = () => {
                         </p>
                     </section>
 
+                    {/* Final Note moved above CTA */}
+                    <div className="text-center pt-4">
+                        <div className="flex justify-center mb-3">
+                            <Heart className="w-5 h-5 text-stone-300" />
+                        </div>
+                        <p className="font-serif text-lg text-stone-500 italic max-w-md mx-auto">
+                            "Please honour the time, care, and truth that went into these words."
+                        </p>
+                    </div>
+
                     {/* Permissions CTA - Restored Standalone */}
                     <section className="pt-8 text-center md:text-left">
                         <div className="bg-stone-900 text-white p-8 md:p-10 rounded-2xl flex flex-col md:flex-row justify-between items-center gap-8">
@@ -115,15 +125,7 @@ const CopyrightPage: React.FC = () => {
                         </div>
                     </section>
 
-                    {/* Final Note */}
-                    <footer className="text-center pt-8">
-                        <div className="flex justify-center mb-3">
-                            <Heart className="w-5 h-5 text-stone-300" />
-                        </div>
-                        <p className="font-serif text-lg text-stone-500 italic max-w-md mx-auto">
-                            "Please honour the time, care, and truth that went into these words."
-                        </p>
-                    </footer>
+
                 </div>
             </div>
         </div>
