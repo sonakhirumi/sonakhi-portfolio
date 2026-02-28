@@ -225,14 +225,56 @@ const AllArticlesPage: React.FC = () => {
           </div>
         ) : (
 
-          <div className="flex flex-col items-center justify-center py-16 gap-8">
-            <div className="p-8 bg-stone-100 rounded-full animate-bounce-slow">
-              <Hammer className="w-12 h-12 text-stone-400" />
-            </div>
-            <div className="text-center space-y-4 max-w-lg">
-              <h2 className="font-serif text-4xl md:text-5xl text-stone-900 leading-tight">Under Construction.</h2>
-              <p className="font-serif italic text-stone-500 text-lg">Check back soon.</p>
-            </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+            {selectedCategory === 'English' && (
+              <div className="col-span-full mb-2 mt-4">
+                <div className="flex items-center gap-3 pb-4 border-b border-stone-200">
+                  <h3 className="font-serif text-3xl md:text-4xl text-stone-900">break my heart 💔 ⚠️ open wounds</h3>
+                </div>
+              </div>
+            )}
+
+            {filteredArticles.length > 0 ? (
+              filteredArticles.map((article) => (
+                <Link
+                  key={article.id}
+                  to={`/article/${article.id}`}
+                  className="group block space-y-4"
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-stone-100 shadow-md">
+                    <img
+                      src={article.imageUrl}
+                      alt={article.title}
+                      className="w-full h-full object-cover transition-transform group-hover:scale-105"
+                    />
+                    <div className="absolute top-3 left-3">
+                      <span className="px-3 py-1 bg-white/90 text-[8px] font-black uppercase tracking-widest text-stone-900 rounded-full">
+                        {article.category}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-4 text-[9px] font-bold tracking-widest text-stone-400 uppercase">
+                      <span className="flex items-center"><Calendar className="w-3 h-3 mr-1" /> {article.date}</span>
+                      <span className="flex items-center"><Clock className="w-3 h-3 mr-1" /> {article.readTime}</span>
+                    </div>
+
+                    <h4 className="font-serif text-2xl text-stone-900 group-hover:text-stone-600 transition-colors">
+                      {article.title}
+                    </h4>
+
+                    <p className="text-stone-500 text-sm leading-relaxed line-clamp-2">
+                      {article.excerpt}
+                    </p>
+                  </div>
+                </Link>
+              ))
+            ) : (
+              <div className="col-span-full py-24 text-center">
+                <p className="font-serif text-2xl text-stone-300 italic">No articles found in this category.</p>
+              </div>
+            )}
           </div>
         )}
       </div>
