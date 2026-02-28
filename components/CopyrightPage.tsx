@@ -16,7 +16,7 @@ const CopyrightPage: React.FC = () => {
                 <div className="space-y-12">
                     {/* Main Copyright Notice */}
                     <section className="space-y-4">
-                        <div className="space-y-4 text-stone-700 leading-relaxed font-light text-base md:text-lg">
+                        <div className="space-y-4 text-stone-700 leading-relaxed font-light text-lg">
                             <p className="font-bold text-stone-900">© Sonakhi Malla (Rumi) 2026. All rights reserved.</p>
                             <p>
                                 Unless otherwise stated, every poem, essay, reflection, article, and piece of writing on this website is the original work of Sonakhi Malla, writing under the pen name <span className="text-stone-900 font-medium italic underline decoration-stone-200 underline-offset-4">Sonakhi Rumi</span>.
@@ -28,55 +28,55 @@ const CopyrightPage: React.FC = () => {
                     {/* Personal Sharing */}
                     <section className="space-y-4">
                         <div className="flex items-center gap-3 text-stone-900 mb-1">
-                            <ShieldCheck className="w-4 h-4" />
-                            <h2 className="text-[10px] font-black uppercase tracking-[0.2em]">Personal Sharing</h2>
+                            <ShieldCheck className="w-5 h-5" />
+                            <h2 className="text-xs font-black uppercase tracking-[0.2em]">Personal Sharing</h2>
                         </div>
-                        <div className="space-y-4 text-stone-700 leading-relaxed font-light text-sm md:text-base">
+                        <div className="space-y-4 text-stone-700 leading-relaxed font-light text-lg">
                             <p>Short excerpts (up to 150 words) may be shared for non-commercial purposes only, provided that:</p>
-                            <ul className="grid sm:grid-cols-2 gap-4 ml-2">
+                            <ul className="space-y-3 ml-2">
                                 <li className="flex gap-3">
-                                    <span className="w-1.5 h-1.5 bg-stone-200 rounded-full mt-2 shrink-0"></span>
+                                    <span className="w-1.5 h-1.5 bg-stone-200 rounded-full mt-2.5 shrink-0"></span>
                                     <span>Full and clear credit to <span className="text-stone-900 font-medium">Sonakhi Malla (Rumi)</span></span>
                                 </li>
                                 <li className="flex gap-3">
-                                    <span className="w-1.5 h-1.5 bg-stone-200 rounded-full mt-2 shrink-0"></span>
-                                    <span>Direct link to the original page</span>
+                                    <span className="w-1.5 h-1.5 bg-stone-200 rounded-full mt-2.5 shrink-0"></span>
+                                    <span>Direct link to the original page included</span>
                                 </li>
                                 <li className="flex gap-3">
-                                    <span className="w-1.5 h-1.5 bg-stone-200 rounded-full mt-2 shrink-0"></span>
-                                    <span>Text remains unaltered and in context</span>
+                                    <span className="w-1.5 h-1.5 bg-stone-200 rounded-full mt-2.5 shrink-0"></span>
+                                    <span>Text remains unaltered, edited, or presented out of context</span>
                                 </li>
                             </ul>
                         </div>
                     </section>
 
-                    {/* Prohibited - More compact grid */}
-                    <section className="bg-stone-100/40 p-6 md:p-10 rounded-2xl space-y-5">
-                        <h2 className="text-[10px] font-black uppercase tracking-[0.2em] text-stone-400">Prohibited Uses</h2>
-                        <ul className="grid sm:grid-cols-2 gap-x-10 gap-y-4 text-xs md:text-sm text-stone-600 font-medium">
+                    {/* Prohibited */}
+                    <section className="bg-stone-100/40 p-8 md:p-10 rounded-2xl space-y-6">
+                        <h2 className="text-xs font-black uppercase tracking-[0.2em] text-stone-400">What Is Not Allowed</h2>
+                        <ul className="grid sm:grid-cols-2 gap-x-12 gap-y-4 text-stone-600 font-medium">
                             <li className="flex gap-3 pb-3 border-b border-stone-200/50">
                                 <span className="text-stone-300 font-serif italic">01</span>
-                                <span>Republishing full pieces</span>
+                                <span className="text-base">Republishing full pieces</span>
                             </li>
                             <li className="flex gap-3 pb-3 border-b border-stone-200/50">
                                 <span className="text-stone-300 font-serif italic">02</span>
-                                <span>Commercial or promotional use</span>
+                                <span className="text-base">Commercial or promotional use</span>
                             </li>
                             <li className="flex gap-3 pb-3 border-b border-stone-200/50">
                                 <span className="text-stone-300 font-serif italic">03</span>
-                                <span>Standalone material on other platforms</span>
+                                <span className="text-base">Standalone material on other platforms</span>
                             </li>
                             <li className="flex gap-3 pb-3 border-b border-stone-200/50">
                                 <span className="text-stone-300 font-serif italic">04</span>
-                                <span>Creating derivative works</span>
+                                <span className="text-base">Creating derivative works</span>
                             </li>
                         </ul>
                     </section>
 
                     {/* Subjective Reflections */}
                     <section className="space-y-4">
-                        <h2 className="text-[10px] font-black uppercase tracking-[0.2em] text-stone-900">Nature of Content</h2>
-                        <div className="text-stone-700 leading-relaxed font-light text-sm md:text-base space-y-4">
+                        <h2 className="text-xs font-black uppercase tracking-[0.2em] text-stone-900 uppercase">Personal Nature of the Content</h2>
+                        <div className="text-stone-700 leading-relaxed font-light text-lg space-y-4">
                             <p>
                                 Most pieces on this website are rooted in personal experience, memory, and emotional interpretation. They are subjective reflections, not statements of fact or an intent to harm or misrepresent.
                             </p>
@@ -86,34 +86,34 @@ const CopyrightPage: React.FC = () => {
                         </div>
                     </section>
 
-                    <div className="grid md:grid-cols-2 gap-12 pt-4">
-                        {/* Visuals */}
-                        <section className="space-y-4">
-                            <div className="flex items-center gap-3 text-stone-900 mb-1">
-                                <ImageIcon className="w-4 h-4" />
-                                <h2 className="text-[10px] font-black uppercase tracking-[0.2em]">Visuals</h2>
-                            </div>
-                            <p className="text-stone-600 leading-relaxed font-light italic text-xs md:text-sm">
-                                Images are either owned by Sonakhi Malla (Rumi), used with permission, or shared with proper credit.
-                                Rightful owners can reach out for prompt credit or removal.
-                            </p>
-                        </section>
+                    {/* Visuals */}
+                    <section className="space-y-4">
+                        <div className="flex items-center gap-3 text-stone-900 mb-1">
+                            <ImageIcon className="w-5 h-5" />
+                            <h2 className="text-xs font-black uppercase tracking-[0.2em]">Images & Visual Material</h2>
+                        </div>
+                        <p className="text-stone-700 leading-relaxed font-light italic text-base">
+                            Unless mentioned otherwise, all images and visual elements on this website are either owned by Sonakhi Malla (Rumi), used with permission, or shared with proper credit.
+                            If you are the rightful owner of any image and would like it to be credited, edited, or removed, please reach out and the request will be addressed promptly and respectfully.
+                        </p>
+                    </section>
 
-                        {/* Permissions CTA - Compact Version */}
-                        <section className="bg-stone-900 text-white p-6 rounded-2xl flex flex-col justify-center items-center text-center space-y-4">
-                            <div className="space-y-1">
-                                <h3 className="font-serif text-xl">Permissions & Collaborations</h3>
-                                <p className="text-stone-500 text-[10px] uppercase tracking-widest font-bold">sonakhirumi@gmail.com</p>
+                    {/* Permissions CTA - Restored Standalone */}
+                    <section className="pt-8">
+                        <div className="bg-stone-900 text-white p-8 md:p-10 rounded-2xl flex flex-col md:flex-row justify-between items-center gap-8">
+                            <div className="text-center md:text-left space-y-2">
+                                <h3 className="font-serif text-2xl md:text-3xl">Permissions & Collaborations</h3>
+                                <p className="text-stone-400 text-sm font-light">For republication requests, translations, or print use.</p>
                             </div>
                             <a
                                 href="mailto:sonakhirumi@gmail.com"
-                                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-stone-900 rounded-full font-black uppercase text-[9px] tracking-widest hover:bg-stone-100 transition-colors"
+                                className="flex items-center gap-3 px-8 py-4 bg-white text-stone-900 rounded-full font-black uppercase text-[10px] tracking-widest hover:bg-stone-100 transition-colors"
                             >
-                                <Mail className="w-3 h-3" />
-                                <span>Write to me</span>
+                                <Mail className="w-4 h-4" />
+                                <span>sonakhirumi@gmail.com</span>
                             </a>
-                        </section>
-                    </div>
+                        </div>
+                    </section>
 
                     {/* Final Note */}
                     <footer className="text-center pt-8">
