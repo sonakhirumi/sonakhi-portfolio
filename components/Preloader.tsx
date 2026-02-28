@@ -4,10 +4,9 @@ import React, { useState, useEffect } from 'react';
 const Preloader: React.FC = () => {
   const [textIndex, setTextIndex] = useState(0);
   const loadingTexts = [
-    "Gathering thoughts...",
-    "Inking the narrative...",
-    "Curating the archive...",
-    "Crafting clarity..."
+    "weaving words...",
+    "crafting clarity...",
+    "tracking reach..."
   ];
 
   useEffect(() => {
