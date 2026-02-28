@@ -32,7 +32,7 @@ const Recommendations: React.FC = () => {
                 <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
                     <div className="max-w-2xl">
                         <h2 className="font-serif text-3xl md:text-5xl text-stone-900 mb-4 animate-in fade-in slide-in-from-bottom-4 duration-1000">
-                            Words from <span className="italic font-light text-stone-500">kind humans</span>
+                            In Their <span className="italic font-light text-stone-500">Words</span>
                         </h2>
                         <p className="font-sans text-stone-600 text-lg md:text-xl font-light">
                             Don't just take my word for it. Here's what others have to say.
