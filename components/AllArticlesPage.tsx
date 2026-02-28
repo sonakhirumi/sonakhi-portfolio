@@ -99,7 +99,11 @@ const AllArticlesPage: React.FC = () => {
 
         const mapped: Article[] = postsData.map((post: any) => {
           const terms = post._embedded?.['wp:term']?.[0] || [];
-          const catName = terms.length > 0 ? terms[0].name : 'STORY';
+          let catName = terms.length > 0 ? terms[0].name : 'STORY';
+
+          // Normalize category name for filtering
+          if (catName.toLowerCase() === 'english') catName = 'English';
+          if (catName.toLowerCase() === 'odia') catName = 'ଓଡ଼ିଆ';
 
           return {
             id: post.id.toString(),
@@ -227,10 +231,12 @@ const AllArticlesPage: React.FC = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
             {selectedCategory === 'English' && (
-              <div className="col-span-full mb-2 mt-4">
-                <div className="flex items-center gap-3 pb-4 border-b border-stone-200">
-                  <h3 className="font-serif text-3xl md:text-4xl text-stone-900">break my heart 💔 ⚠️ open wounds</h3>
+              <div className="col-span-full py-20 text-center space-y-4">
+                <div className="font-serif text-4xl md:text-6xl text-stone-900 leading-tight">
+                  break my heart 💔 ⚠️
+                  <div className="text-stone-400 italic text-2xl md:text-3xl mt-4">open wounds</div>
                 </div>
+                <div className="w-24 h-px bg-stone-200 mx-auto mt-12"></div>
               </div>
             )}
 
