@@ -245,7 +245,7 @@ const AllArticlesPage: React.FC = () => {
                       <img
                         src="https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/02/download.jpg"
                         alt="The heart remains"
-                        className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-1000 rounded-sm shadow-xl mb-3"
+                        className="w-full h-auto grayscale rounded-sm shadow-xl mb-3"
                       />
                       <a
                         href="https://in.pinterest.com/pin/16888567424823914/"
