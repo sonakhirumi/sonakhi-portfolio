@@ -17,10 +17,10 @@ const recommendations = [
         sourceLink: "https://topmate.io/sonakhirumi"
     },
     {
-        author: "Name Placeholder 3",
-        role: "Role Placeholder 3",
-        text: "This is a placeholder for your third recommendation. Please update this with the real text from your LinkedIn profile.",
-        authorLink: "https://www.linkedin.com/in/sonakhi-malla-rumi/details/recommendations/",
+        author: "Anish Juwarkar",
+        role: "Gubblebums | XIM Bhubaneswar | GEC Goa",
+        text: "I am pleased to recommend Sonakhi as an outstanding professional who has showcased tremendous growth during her tenure with us. Starting as a Content Writer Intern, Sonakhi swiftly progressed to a part-time and later a full-time role as a Junior Content Writer. Throughout this journey, she demonstrated exceptional skills in handling diverse client projects and crafting both long and short-form content. Sonakhi also made valuable contributions to brand management, always maintaining a professional attitude and actively seeking growth through constructive feedback. A dedicated and insightful team member, I highly endorse Sonakhi.",
+        authorLink: "https://www.linkedin.com/in/anishjuwarkar/",
         sourceLink: "https://www.linkedin.com/in/sonakhi-malla-rumi/details/recommendations/"
     }
 ];
