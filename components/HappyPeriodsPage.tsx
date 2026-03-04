@@ -136,21 +136,35 @@ const HappyPeriodsPage: React.FC = () => {
                 `}</style>
 
                 {/* Main Hero Content */}
-                <section className="w-full max-w-4xl flex flex-col items-center justify-center pt-24 pb-20 md:pt-40 md:pb-32 px-6 text-center mx-auto min-h-[70vh]">
-                    <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full border border-red-100 bg-white shadow-sm mb-6 animate-slide-up max-w-[90vw]">
-                        <BloodDropSolid className="w-3 h-3.5" />
-                        <span className="text-[8px] md:text-[10px] font-black uppercase tracking-tight md:tracking-[0.2em] text-stone-800 text-center leading-tight">Reboot of Thoughts on Menstruation</span>
+                <section className="relative w-full max-w-4xl flex flex-col items-center justify-center pt-24 pb-20 md:pt-40 md:pb-32 px-6 text-center mx-auto min-h-[70vh]">
+                    {/* Background Texture */}
+                    <div
+                        className="absolute inset-0 z-0 pointer-events-none opacity-[0.12] grayscale transition-opacity duration-1000"
+                        style={{
+                            backgroundImage: `url('https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/IMG_20190226_200210.jpg')`,
+                            backgroundPosition: 'center',
+                            backgroundSize: 'cover',
+                            maskImage: 'radial-gradient(circle, black, transparent 80%)',
+                            WebkitMaskImage: 'radial-gradient(circle, black, transparent 80%)'
+                        }}
+                    />
+
+                    <div className="relative z-10 flex flex-col items-center">
+                        <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full border border-red-100 bg-white shadow-sm mb-6 animate-slide-up max-w-[90vw]">
+                            <BloodDropSolid className="w-3 h-3.5" />
+                            <span className="text-[8px] md:text-[10px] font-black uppercase tracking-tight md:tracking-[0.2em] text-stone-800 text-center leading-tight">Reboot of Thoughts on Menstruation</span>
+                        </div>
+
+                        <h1 className="font-serif text-[clamp(2.5rem,11vw,8rem)] font-bold tracking-tighter leading-none flex items-center gap-2 md:gap-6 justify-center animate-slide-up" style={{ animationDelay: '0.2s' }}>
+                            <span className="text-stroke-red">Happy</span>{' '}
+                            <span className="text-[#880808] italic">Periods</span>
+                            <div className="w-[0.8em] h-[1em]"><BloodDropSolid className="w-full h-full" /></div>
+                        </h1>
+
+                        <p className="text-xl md:text-2xl text-stone-500 font-light max-w-2xl mx-auto leading-relaxed mt-6 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+                            Let's make our world <span className="text-[#880808] font-bold tracking-tight">PERIOD FRIENDLY!</span>
+                        </p>
                     </div>
-
-                    <h1 className="font-serif text-[clamp(2.5rem,11vw,8rem)] font-bold tracking-tighter leading-none flex items-center gap-2 md:gap-6 justify-center animate-slide-up" style={{ animationDelay: '0.2s' }}>
-                        <span className="text-stroke-red">Happy</span>{' '}
-                        <span className="text-[#880808] italic">Periods</span>
-                        <div className="w-[0.8em] h-[1em]"><BloodDropSolid className="w-full h-full" /></div>
-                    </h1>
-
-                    <p className="text-xl md:text-2xl text-stone-500 font-light max-w-2xl mx-auto leading-relaxed mt-6 animate-slide-up" style={{ animationDelay: '0.4s' }}>
-                        Let's make our world <span className="text-[#880808] font-bold tracking-tight">PERIOD FRIENDLY!</span>
-                    </p>
                 </section>
 
                 {/* About Reboot Section */}
