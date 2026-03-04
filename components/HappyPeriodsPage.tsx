@@ -217,10 +217,13 @@ const HappyPeriodsPage: React.FC = () => {
                     </div>
                 </section>
 
-                {/* Impact Stories & Features Section */}
-                <section className="w-full py-20 lg:py-32 bg-stone-50 overflow-hidden">
-                    <div className="max-w-screen-xl mx-auto px-6 mb-16">
-                        <h2 className="font-serif text-2xl md:text-3xl text-[#880808] font-bold leading-tight tracking-tighter text-center">Features.</h2>
+                {/* Features Section */}
+                <section className="w-full py-20 lg:py-32 px-6 md:px-12 lg:px-20 bg-stone-50 border-t border-stone-100 overflow-hidden">
+                    <div className="max-w-screen-xl w-full mx-auto grid lg:grid-cols-12 gap-16 items-start mb-16">
+                        <div className="lg:col-span-1 border-l-2 border-[#880808] h-16 hidden lg:block" />
+                        <div className="lg:col-span-11">
+                            <h2 className="font-serif text-2xl md:text-3xl text-[#880808] font-bold leading-tight tracking-tighter">Features.</h2>
+                        </div>
                     </div>
 
                     <div
@@ -280,46 +283,39 @@ const HappyPeriodsPage: React.FC = () => {
                     </div>
                 </section>
 
+                {/* Collaborate Section */}
+                <section className="w-full py-20 md:py-28 bg-white border-t border-stone-100">
+                    <div className="max-w-screen-xl w-full mx-auto px-6 md:px-12 lg:px-20 grid lg:grid-cols-12 gap-10 md:gap-16 items-start">
+                        <div className="lg:col-span-1 border-l-2 border-[#880808] h-16 hidden lg:block" />
 
-                <section className="w-full py-24 md:py-40 bg-white border-t border-stone-100">
-                    <div className="max-w-5xl mx-auto px-6">
-                        <div className="flex flex-col items-center text-center space-y-10 md:space-y-16">
-                            <div className="w-px h-12 md:h-20 bg-[#880808]/30 mb-2" />
+                        <div className="lg:col-span-11 space-y-10">
+                            <h2 className="font-serif text-4xl md:text-5xl font-bold text-stone-900 tracking-tighter leading-none">
+                                Let's <span className="text-[#880808] italic">Collaborate.</span>
+                            </h2>
 
-                            <div className="space-y-8 md:space-y-12">
-                                <h1 className="font-serif text-5xl md:text-8xl font-bold text-stone-900 tracking-tighter leading-[0.85]">
-                                    Let's <span className="text-[#880808] italic">Collaborate.</span>
-                                </h1>
+                            <div className="space-y-6 md:space-y-8 max-w-3xl">
+                                <p className="text-stone-600 text-lg md:text-xl font-light leading-relaxed">
+                                    <span className="text-[#880808] font-medium italic">Happy Periods</span> welcomes collaborations with schools, colleges, organisations, and community groups interested in promoting menstrual awareness and creating period-friendly spaces.
+                                </p>
 
-                                <div className="max-w-3xl mx-auto space-y-8 md:space-y-12">
-                                    <p className="text-stone-600 text-lg md:text-2xl font-light leading-relaxed">
-                                        <span className="text-[#880808] font-medium italic">Happy Periods</span> welcomes collaborations with schools, colleges, organisations, and community groups interested in promoting menstrual awareness and creating period-friendly spaces.
-                                    </p>
-
-                                    <div className="relative inline-block">
-                                        <p className="font-serif text-xl md:text-3xl text-stone-400 italic font-light tracking-tight px-8">
-                                            "Together, small conversations can create meaningful change."
-                                        </p>
-                                        <div className="absolute top-0 left-0 w-4 h-px bg-stone-200" />
-                                        <div className="absolute bottom-0 right-0 w-4 h-px bg-stone-200" />
-                                    </div>
-                                </div>
+                                <p className="font-serif text-lg md:text-xl text-stone-400 italic font-light border-l border-stone-200 pl-6">
+                                    "Together, small conversations can create meaningful change."
+                                </p>
                             </div>
 
-                            <div className="pt-8">
+                            <div className="pt-4">
                                 <a
                                     href="/contact"
-                                    className="group relative inline-flex items-center justify-center px-12 md:px-20 py-5 md:py-7 bg-[#880808] text-white overflow-hidden rounded-full transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-red-900/10"
+                                    className="inline-flex items-center justify-center px-10 py-5 bg-[#880808] text-white rounded-full transition-all hover:bg-stone-900 shadow-xl"
                                 >
-                                    <span className="relative z-10 font-bold uppercase tracking-[0.3em] text-[9px] md:text-[11px]">Send a Message</span>
-                                    <div className="absolute inset-0 bg-stone-900 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+                                    <span className="font-bold uppercase tracking-widest text-[10px]">SEND A MESSAGE</span>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </section>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 
