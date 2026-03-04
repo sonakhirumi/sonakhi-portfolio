@@ -158,7 +158,7 @@ const HappyPeriodsPage: React.FC = () => {
                     <div className="max-w-screen-xl w-full mx-auto grid lg:grid-cols-12 gap-16 items-start">
                         <div className="lg:col-span-1 border-l-2 border-[#880808] h-32 hidden lg:block" />
                         <div className="lg:col-span-11 space-y-10">
-                            <h2 className="font-serif text-4xl md:text-6xl text-[#880808] font-bold leading-tight tracking-tighter">Our Story.</h2>
+                            <h2 className="font-serif text-3xl md:text-4xl text-[#880808] font-bold leading-tight tracking-tighter">Our Story.</h2>
 
                             <div className="prose prose-stone max-w-none text-base md:text-lg text-stone-500 leading-relaxed font-light space-y-6 [&_p]:text-justify">
                                 <img
@@ -220,7 +220,7 @@ const HappyPeriodsPage: React.FC = () => {
                 {/* Impact Stories & Features Section */}
                 <section className="w-full py-20 lg:py-32 bg-stone-50 overflow-hidden">
                     <div className="max-w-screen-xl mx-auto px-6 mb-16">
-                        <h2 className="font-serif text-4xl md:text-6xl text-[#880808] font-bold leading-tight tracking-tighter text-center">Impact Stories & Features.</h2>
+                        <h2 className="font-serif text-3xl md:text-4xl text-[#880808] font-bold leading-tight tracking-tighter text-center">Impact Stories & Features.</h2>
                     </div>
 
                     <div
@@ -282,10 +282,28 @@ const HappyPeriodsPage: React.FC = () => {
 
 
                 <section className="w-full py-32 bg-white text-center border-t border-stone-100">
-                    <div className="max-w-3xl mx-auto px-6 space-y-12">
-                        <div className="inline-flex p-5 rounded-3xl bg-red-50 mb-4 items-center justify-center animate-bounce"><MessageCircle className="w-10 h-10 text-[#880808]" /></div>
-                        <h2 className="font-serif text-5xl md:text-7xl font-bold text-stone-900 tracking-tighter leading-none">Let's <span className="text-[#880808] italic">Collaborate.</span></h2>
-                        <div className="pt-8"><a href="/contact" className="px-14 py-6 bg-[#880808] text-white font-bold rounded-full hover:bg-stone-900 transition-all shadow-xl uppercase tracking-widest text-[10px]">GET IN TOUCH</a></div>
+                    <div className="max-w-4xl mx-auto px-6 space-y-12">
+                        <div className="inline-flex p-5 rounded-3xl bg-red-50 mb-4 items-center justify-center animate-bounce">
+                            <MessageCircle className="w-10 h-10 text-[#880808]" />
+                        </div>
+
+                        <div className="space-y-6">
+                            <h2 className="font-serif text-5xl md:text-7xl font-bold text-stone-900 tracking-tighter leading-none">
+                                Let's <span className="text-[#880808] italic">Collaborate.</span>
+                            </h2>
+                            <p className="text-stone-500 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto">
+                                I am available for <span className="text-[#880808] font-medium">educational sessions</span>,
+                                <span className="text-[#880808] font-medium"> advocacy workshops</span>, and
+                                <span className="text-[#880808] font-medium"> menstrual health consultations</span>.
+                                Let's work together to create a period-friendly world.
+                            </p>
+                        </div>
+
+                        <div className="pt-8">
+                            <a href="/contact" className="px-14 py-6 bg-[#880808] text-white font-bold rounded-full hover:bg-stone-900 transition-all shadow-xl uppercase tracking-widest text-[10px]">
+                                GET IN TOUCH
+                            </a>
+                        </div>
                     </div>
                 </section>
             </div>
