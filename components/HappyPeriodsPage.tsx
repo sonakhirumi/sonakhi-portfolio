@@ -19,7 +19,7 @@ const impactStories: ImpactItem[] = [
         title: "My project on Rebooting thoughts on menstruation",
         platform: "WAGGGS Blog",
         link: "https://www.wagggs.org/en/blog/my-project-on-Rebooting-thoughts-on-menstruation/",
-        image: "https://s3.eu-west-2.amazonaws.com/wagggs.prod/images/Sonakhi.2e16d0ba.fill-800x550-c50.jpg"
+        image: "https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/IMG_20190920_181245-scaled.jpg"
     },
     {
         title: "Let's talk PERIODS! Ravenshaw Edition",
