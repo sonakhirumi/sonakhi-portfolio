@@ -281,29 +281,40 @@ const HappyPeriodsPage: React.FC = () => {
                 </section>
 
 
-                <section className="w-full py-32 bg-white text-center border-t border-stone-100">
-                    <div className="max-w-4xl mx-auto px-6 space-y-12">
-                        <div className="inline-flex p-5 rounded-3xl bg-red-50 mb-4 items-center justify-center animate-bounce">
-                            <MessageCircle className="w-10 h-10 text-[#880808]" />
-                        </div>
+                <section className="w-full py-24 md:py-40 bg-white border-t border-stone-100">
+                    <div className="max-w-5xl mx-auto px-6">
+                        <div className="flex flex-col items-center text-center space-y-10 md:space-y-16">
+                            <div className="w-px h-12 md:h-20 bg-[#880808]/30 mb-2" />
 
-                        <div className="space-y-6">
-                            <h2 className="font-serif text-4xl md:text-6xl font-bold text-stone-900 tracking-tighter leading-none">
-                                Let's <span className="text-[#880808] italic">Collaborate.</span>
-                            </h2>
-                            <p className="text-stone-600 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto">
-                                I am available for <span className="text-[#880808] font-medium italic">educational sessions</span>,
-                                <span className="text-[#880808] font-medium italic"> awareness workshops</span>, and
-                                <span className="text-[#880808] font-medium italic"> advocacy programs</span> for schools, colleges, and organizations.
-                                <br className="hidden md:block" />
-                                For session bookings, consultations, or writing features, please reach out!
-                            </p>
-                        </div>
+                            <div className="space-y-8 md:space-y-12">
+                                <h1 className="font-serif text-5xl md:text-8xl font-bold text-stone-900 tracking-tighter leading-[0.85]">
+                                    Let's <span className="text-[#880808] italic">Collaborate.</span>
+                                </h1>
 
-                        <div className="pt-8">
-                            <a href="/contact" className="px-14 py-6 bg-[#880808] text-white font-bold rounded-full hover:bg-stone-900 transition-all shadow-xl uppercase tracking-widest text-[10px]">
-                                GET IN TOUCH
-                            </a>
+                                <div className="max-w-3xl mx-auto space-y-8 md:space-y-12">
+                                    <p className="text-stone-600 text-lg md:text-2xl font-light leading-relaxed">
+                                        <span className="text-[#880808] font-medium italic">Happy Periods</span> welcomes collaborations with schools, colleges, organisations, and community groups interested in promoting menstrual awareness and creating period-friendly spaces.
+                                    </p>
+
+                                    <div className="relative inline-block">
+                                        <p className="font-serif text-xl md:text-3xl text-stone-400 italic font-light tracking-tight px-8">
+                                            "Together, small conversations can create meaningful change."
+                                        </p>
+                                        <div className="absolute top-0 left-0 w-4 h-px bg-stone-200" />
+                                        <div className="absolute bottom-0 right-0 w-4 h-px bg-stone-200" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="pt-8">
+                                <a
+                                    href="/contact"
+                                    className="group relative inline-flex items-center justify-center px-12 md:px-20 py-5 md:py-7 bg-[#880808] text-white overflow-hidden rounded-full transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-red-900/10"
+                                >
+                                    <span className="relative z-10 font-bold uppercase tracking-[0.3em] text-[9px] md:text-[11px]">Send a Message</span>
+                                    <div className="absolute inset-0 bg-stone-900 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out" />
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </section>
