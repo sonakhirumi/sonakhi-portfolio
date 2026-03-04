@@ -24,8 +24,8 @@ const impactStories: ImpactItem[] = [
     {
         title: "Periods & Pride - Awareness Reel",
         platform: "Instagram",
-        link: "https://www.instagram.com/reel/CbQAwL4p47e/",
-        image: "https://scontent-ams4-1.cdninstagram.com/v/t51.29350-15/275665427_1106127583568186_6098433068500561564_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=8ae7d6&_nc_ohc=pT6C65o3CP0Q7kNvwF00000&_nc_ht=scontent-ams4-1.cdninstagram.com&oh=00_AYBq27_jFp4_v&oe=69ADDB4D"
+        link: "https://www.instagram.com/reel/CbQAwL4p47e/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+        image: "https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/DSC_1645-scaled.jpg"
     },
     {
         title: "Reboot Branding & Journey",
