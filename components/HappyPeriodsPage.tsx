@@ -13,7 +13,7 @@ const HappyPeriodsPage: React.FC = () => {
     );
 
     return (
-        <div className="min-h-screen bg-white relative">
+        <div className="bg-white relative">
             <div className="relative z-10 w-full flex flex-col items-center">
                 <style>{`
                     .text-stroke-red { -webkit-text-stroke: 1.5px #880808; color: white; }
@@ -22,10 +22,10 @@ const HappyPeriodsPage: React.FC = () => {
                 `}</style>
 
                 {/* Main Hero Content */}
-                <section className="min-h-[85vh] w-full max-w-4xl flex flex-col items-center justify-center p-6 text-center mx-auto">
-                    <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-red-100 bg-white shadow-sm mb-12 animate-slide-up">
+                <section className="w-full max-w-4xl flex flex-col items-center justify-center pt-16 pb-12 md:pt-32 md:pb-24 px-6 text-center mx-auto min-h-[60vh] md:min-h-[auto]">
+                    <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-red-100 bg-white shadow-sm mb-8 animate-slide-up max-w-[90vw]">
                         <BloodDropSolid className="w-3.5 h-4" />
-                        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-stone-800">Reboot of Thoughts on Menstruation</span>
+                        <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest md:tracking-[0.2em] text-stone-800 text-center leading-tight">Reboot of Thoughts on Menstruation</span>
                     </div>
 
                     <h1 className="font-serif text-[clamp(2.5rem,11vw,8rem)] font-bold tracking-tighter leading-none flex items-center gap-2 md:gap-6 justify-center animate-slide-up" style={{ animationDelay: '0.2s' }}>
@@ -34,7 +34,7 @@ const HappyPeriodsPage: React.FC = () => {
                         <div className="w-[0.8em] h-[1em]"><BloodDropSolid className="w-full h-full" /></div>
                     </h1>
 
-                    <p className="text-xl md:text-2xl text-stone-500 font-light max-w-2xl mx-auto leading-relaxed mt-16 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+                    <p className="text-xl md:text-2xl text-stone-500 font-light max-w-2xl mx-auto leading-relaxed mt-10 animate-slide-up" style={{ animationDelay: '0.4s' }}>
                         Let's make our world <span className="text-[#880808] font-bold tracking-tight">PERIOD FRIENDLY!</span>
                     </p>
                 </section>
