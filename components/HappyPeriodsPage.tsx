@@ -24,7 +24,7 @@ const HappyPeriodsPage: React.FC = () => {
                 `}</style>
 
                 {/* Main Hero Content */}
-                <section className="w-full max-w-4xl flex flex-col items-center justify-center pt-8 pb-8 md:pt-16 md:pb-20 px-6 text-center mx-auto min-h-0">
+                <section className="w-full max-w-4xl flex flex-col items-center justify-center pt-24 pb-20 md:pt-40 md:pb-32 px-6 text-center mx-auto min-h-[70vh]">
                     <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full border border-red-100 bg-white shadow-sm mb-6 animate-slide-up max-w-[90vw]">
                         <BloodDropSolid className="w-3 h-3.5" />
                         <span className="text-[8px] md:text-[10px] font-black uppercase tracking-tight md:tracking-[0.2em] text-stone-800 text-center leading-tight">Reboot of Thoughts on Menstruation</span>
@@ -42,7 +42,7 @@ const HappyPeriodsPage: React.FC = () => {
                 </section>
 
                 {/* About Reboot Section */}
-                <section className="w-full py-14 lg:py-24 px-6 md:px-12 lg:px-20 bg-white border-t border-stone-100">
+                <section className="w-full py-20 lg:py-32 px-6 md:px-12 lg:px-20 bg-white border-t border-stone-100 relative shadow-[0_-20px_50px_-20px_rgba(0,0,0,0.05)]">
                     <div className="max-w-screen-xl w-full mx-auto grid lg:grid-cols-12 gap-16 items-start">
                         <div className="lg:col-span-1 border-l-2 border-[#880808] h-32 hidden lg:block" />
                         <div className="lg:col-span-11 space-y-10">
@@ -97,7 +97,7 @@ const HappyPeriodsPage: React.FC = () => {
                                     onClick={() => setIsExpanded(!isExpanded)}
                                     className="lg:hidden text-[#880808] font-bold text-sm uppercase tracking-widest border-b border-[#880808] hover:opacity-70 transition-opacity mt-4 block"
                                 >
-                                    {isExpanded ? 'Read Less' : 'Read Our Story'}
+                                    {isExpanded ? 'Read Less' : 'Read More'}
                                 </button>
                                 <div className="clear-both"></div>
                             </div>
