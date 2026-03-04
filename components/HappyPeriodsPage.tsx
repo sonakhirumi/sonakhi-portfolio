@@ -19,31 +19,31 @@ const impactStories: ImpactItem[] = [
         title: "My project on Rebooting thoughts on menstruation",
         platform: "WAGGGS Blog",
         link: "https://www.wagggs.org/en/blog/my-project-on-Rebooting-thoughts-on-menstruation/",
-        image: "https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/WAGGGS-Logo.jpg"
+        image: "https://s3.eu-west-2.amazonaws.com/wagggs.prod/images/Sonakhi.2e16d0ba.fill-800x550-c50.jpg"
     },
     {
         title: "Periods & Pride - Awareness Reel",
         platform: "Instagram",
-        link: "https://www.instagram.com/reel/CbQAwL4p47e/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-        image: "https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/Insta-Reel-1.jpg"
+        link: "https://www.instagram.com/reel/CbQAwL4p47e/",
+        image: "https://scontent-ams4-1.cdninstagram.com/v/t51.29350-15/275665427_1106127583568186_6098433068500561564_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=8ae7d6&_nc_ohc=pT6C65o3CP0Q7kNvwF00000&_nc_ht=scontent-ams4-1.cdninstagram.com&oh=00_AYBq27_jFp4_v&oe=69ADDB4D"
     },
     {
         title: "Reboot Branding & Journey",
         platform: "Adobe Spark",
         link: "https://spark.adobe.com/page/sYuOmjQfePBXF/",
-        image: "https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/Spark-Feature.jpg"
+        image: "https://express.adobe.com/page/sYuOmjQfePBXF/images/baf9946b-5da9-4e72-9b99-4276ce600a74"
     },
     {
         title: "Every Day Menstrual Hygiene Day",
         platform: "WAGGGS Blog",
         link: "https://www.wagggs.org/en/blog/every-day-menstrual-hygiene-day/",
-        image: "https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/WAGGGS-Blog-2.jpg"
+        image: "https://s3.eu-west-2.amazonaws.com/wagggs.prod/images/Sonakhi.width-500.jpg"
     },
     {
         title: "Breaking the Silence",
         platform: "Instagram",
-        link: "https://www.instagram.com/p/CbAjLVXJOW6/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
-        image: "https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/Insta-Post-1.jpg"
+        link: "https://www.instagram.com/p/CbAjLVXJOW6/",
+        image: "https://scontent-ams4-1.cdninstagram.com/v/t51.29350-15/275665427_1106127583568186_6098433068500561564_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=8ae7d6&_nc_ohc=pT6C65o3CP0Q7kNvwF00000&_nc_ht=scontent-ams4-1.cdninstagram.com&oh=00_AYBq27_jFp4_v&oe=69ADDB4D"
     }
 ];
 
@@ -162,15 +162,23 @@ const HappyPeriodsPage: React.FC = () => {
                         <h2 className="font-serif text-4xl md:text-6xl text-[#880808] font-bold leading-tight tracking-tighter text-center">Impact Stories & Features.</h2>
                     </div>
 
-                    <div className="relative max-w-5xl mx-auto px-6">
-                        <div className="flex transition-transform duration-1000 ease-in-out" style={{ transform: `translateX(-${impactIndex * 100}%)` }}>
+                    <div className="max-w-7xl mx-auto overflow-hidden px-4">
+                        <div
+                            className="flex transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]"
+                            style={{
+                                transform: `translateX(-${impactIndex * (100 / (typeof window !== 'undefined' && window.innerWidth < 1024 ? 1 : 3))}%)`,
+                            }}
+                        >
                             {impactStories.map((item, index) => (
-                                <div key={index} className="w-full flex-shrink-0 px-2 lg:px-4">
+                                <div
+                                    key={index}
+                                    className="flex-shrink-0 w-full lg:w-1/3 px-2 md:px-4"
+                                >
                                     <a
                                         href={item.link}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="group block relative aspect-video rounded-3xl overflow-hidden bg-stone-200 shadow-2xl"
+                                        className="group block relative aspect-[4/3] md:aspect-video rounded-2xl overflow-hidden bg-stone-100 shadow-xl border border-stone-100"
                                     >
                                         <img
                                             src={item.image}
@@ -180,28 +188,25 @@ const HappyPeriodsPage: React.FC = () => {
                                                 (e.target as HTMLImageElement).src = 'https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/placeholder.jpg';
                                             }}
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8 md:p-12">
-                                            <p className="text-white/80 text-xs md:text-sm font-black uppercase tracking-[0.3em] mb-3">{item.platform}</p>
-                                            <h4 className="text-white font-serif text-2xl md:text-4xl leading-tight max-w-2xl">{item.title}</h4>
-                                        </div>
-                                        <div className="absolute top-8 right-8 p-4 bg-white/20 backdrop-blur-xl rounded-full text-white border border-white/30 transform group-hover:rotate-12 transition-transform">
-                                            <ExternalLink className="w-6 h-6 md:w-8 md:h-8" />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6 md:p-8 opacity-90 group-hover:opacity-100 transition-opacity">
+                                            <p className="text-white/70 text-[8px] md:text-[10px] font-bold uppercase tracking-[0.2em] mb-2">{item.platform}</p>
+                                            <h4 className="text-white font-serif text-base md:text-lg leading-tight line-clamp-2">{item.title}</h4>
                                         </div>
                                     </a>
                                 </div>
                             ))}
                         </div>
+                    </div>
 
-                        {/* Dots Navigation */}
-                        <div className="flex justify-center gap-3 mt-12">
-                            {impactStories.map((_, i) => (
-                                <button
-                                    key={i}
-                                    onClick={() => setImpactIndex(i)}
-                                    className={`h-1.5 transition-all duration-500 rounded-full ${impactIndex === i ? 'w-12 bg-[#880808]' : 'w-3 bg-stone-300'}`}
-                                />
-                            ))}
-                        </div>
+                    {/* Navigation Dots */}
+                    <div className="flex justify-center gap-2 mt-10">
+                        {impactStories.map((_, i) => (
+                            <button
+                                key={i}
+                                onClick={() => setImpactIndex(i)}
+                                className={`h-1 rounded-full transition-all duration-300 ${impactIndex === i ? 'w-8 bg-[#880808]' : 'w-2 bg-stone-300 hover:bg-stone-500'}`}
+                            />
+                        ))}
                     </div>
                 </section>
 
