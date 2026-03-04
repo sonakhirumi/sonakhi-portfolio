@@ -37,7 +37,7 @@ const Contact: React.FC = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-[#faf9f6] pt-16 pb-12 px-6 flex flex-col items-center justify-center">
+        <div className="min-h-[60vh] bg-[#faf9f6] pt-10 pb-8 px-6 flex flex-col items-center justify-center">
             <div className="max-w-3xl w-full space-y-8 text-center">
 
                 <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-700">

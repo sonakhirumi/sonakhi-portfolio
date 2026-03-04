@@ -257,9 +257,9 @@ const ArticlePage: React.FC = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-white flex flex-col">
+      <div className="min-h-[80vh] bg-white flex flex-col">
         <div className="h-[60vh] bg-stone-100 animate-pulse"></div>
-        <div className="max-w-3xl mx-auto w-full pt-16 px-6 space-y-8">
+        <div className="max-w-3xl mx-auto w-full pt-10 px-6 space-y-8">
           <div className="h-4 bg-stone-100 w-24 rounded animate-pulse"></div>
           <div className="h-16 bg-stone-100 w-full rounded animate-pulse"></div>
         </div>
@@ -277,7 +277,7 @@ const ArticlePage: React.FC = () => {
   }
 
   return (
-    <article className="bg-white min-h-screen pb-24 relative">
+    <article className="bg-white min-h-[80vh] pb-12 relative">
       {showToast && (
         <div className="fixed bottom-10 left-1/2 -translate-x-1/2 z-[100] animate-in fade-in slide-in-from-bottom-4">
           <div className="bg-stone-900 text-white px-6 py-3 rounded-full shadow-2xl flex items-center space-x-3 text-sm font-medium">
@@ -291,7 +291,7 @@ const ArticlePage: React.FC = () => {
         <img src={article.imageUrl} alt={stripHtml(article.title)} className="w-full h-full object-cover opacity-80" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         <div className="absolute inset-0 flex flex-col justify-end">
-          <div className="max-w-5xl mx-auto w-full px-6 pb-20 space-y-8">
+          <div className="max-w-5xl mx-auto w-full px-6 pb-12 space-y-8">
             <button onClick={() => navigate(-1)} className="group inline-flex items-center space-x-2 text-white/70 hover:text-white">
               <div className="p-2 rounded-full border border-white/20 group-hover:border-white/50"><ArrowLeft className="w-5 h-5" /></div>
               <span className="text-xs font-bold uppercase tracking-widest">Back to Library</span>
@@ -325,13 +325,13 @@ const ArticlePage: React.FC = () => {
         />
 
         {/* Comment Section */}
-        <div className="mt-32 pt-20 border-t border-stone-100">
+        <div className="mt-16 pt-12 border-t border-stone-100">
           <div className="flex items-center space-x-4 mb-12">
             <div className="w-12 h-px bg-stone-300"></div>
             <h3 className="font-serif text-3xl text-stone-900 italic">Reflections & Dialogue</h3>
           </div>
 
-          <form onSubmit={handleSubmitComment} className="space-y-10 group mb-20">
+          <form onSubmit={handleSubmitComment} className="space-y-10 group mb-12">
             <div className="grid md:grid-cols-2 gap-10">
               <div className="space-y-4 relative">
                 <label className="text-[10px] font-black uppercase tracking-widest text-stone-400 flex items-center">
@@ -451,7 +451,7 @@ const ArticlePage: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-32 py-12 border-t border-stone-100 flex flex-col md:flex-row justify-between items-center gap-8">
+        <div className="mt-16 py-8 border-t border-stone-100 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center space-x-6">
             <img src="https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2025/12/MoBuzz-Posting-Ideas-7.jpg" alt="Sonakhi" className="w-16 h-16 rounded-full object-cover shadow-lg" />
             <div>
@@ -467,7 +467,7 @@ const ArticlePage: React.FC = () => {
         </div>
 
         {!isLoadingSuggestions && suggestedArticles.length > 0 && (
-          <div className="pt-24 border-t border-stone-100">
+          <div className="pt-12 border-t border-stone-100">
             <h4 className="font-serif text-3xl mb-12">Further Reading</h4>
             <div className="grid sm:grid-cols-3 gap-8">
               {suggestedArticles.map((sug) => (

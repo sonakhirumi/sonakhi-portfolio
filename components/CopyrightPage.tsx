@@ -3,7 +3,7 @@ import { Mail, Copyright, ShieldCheck, Image as ImageIcon, Heart } from 'lucide-
 
 const CopyrightPage: React.FC = () => {
     return (
-        <div className="bg-[#faf9f6] min-h-screen pt-24 pb-20">
+        <div className="bg-[#faf9f6] min-h-[60vh] pt-12 pb-10">
             <div className="max-w-4xl mx-auto px-6">
                 {/* Header Section */}
                 <div className="border-b border-stone-200 pb-8 mb-12 text-center">
