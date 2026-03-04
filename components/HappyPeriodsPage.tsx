@@ -16,6 +16,12 @@ const impactStories: ImpactItem[] = [
         image: "https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/IMG-20200714-WA0024.jpg"
     },
     {
+        title: "Our Journey",
+        platform: "YouTube",
+        link: "https://youtu.be/cZ5WN0zWHAY",
+        image: "https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/FB_IMG_1587142993873.jpg"
+    },
+    {
         title: "My project on Rebooting thoughts on menstruation",
         platform: "WAGGGS Blog",
         link: "https://www.wagggs.org/en/blog/my-project-on-Rebooting-thoughts-on-menstruation/",
