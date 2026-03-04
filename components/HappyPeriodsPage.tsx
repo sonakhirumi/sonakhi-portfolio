@@ -158,7 +158,7 @@ const HappyPeriodsPage: React.FC = () => {
                     <div className="max-w-screen-xl w-full mx-auto grid lg:grid-cols-12 gap-16 items-start">
                         <div className="lg:col-span-1 border-l-2 border-[#880808] h-32 hidden lg:block" />
                         <div className="lg:col-span-11 space-y-10">
-                            <h2 className="font-serif text-3xl md:text-4xl text-[#880808] font-bold leading-tight tracking-tighter">Our Story.</h2>
+                            <h2 className="font-serif text-2xl md:text-3xl text-[#880808] font-bold leading-tight tracking-tighter">Our Story.</h2>
 
                             <div className="prose prose-stone max-w-none text-base md:text-lg text-stone-500 leading-relaxed font-light space-y-6 [&_p]:text-justify">
                                 <img
@@ -220,7 +220,7 @@ const HappyPeriodsPage: React.FC = () => {
                 {/* Impact Stories & Features Section */}
                 <section className="w-full py-20 lg:py-32 bg-stone-50 overflow-hidden">
                     <div className="max-w-screen-xl mx-auto px-6 mb-16">
-                        <h2 className="font-serif text-3xl md:text-4xl text-[#880808] font-bold leading-tight tracking-tighter text-center">Impact Stories & Features.</h2>
+                        <h2 className="font-serif text-2xl md:text-3xl text-[#880808] font-bold leading-tight tracking-tighter text-center">Impact Stories & Features.</h2>
                     </div>
 
                     <div
@@ -288,14 +288,15 @@ const HappyPeriodsPage: React.FC = () => {
                         </div>
 
                         <div className="space-y-6">
-                            <h2 className="font-serif text-5xl md:text-7xl font-bold text-stone-900 tracking-tighter leading-none">
+                            <h2 className="font-serif text-4xl md:text-6xl font-bold text-stone-900 tracking-tighter leading-none">
                                 Let's <span className="text-[#880808] italic">Collaborate.</span>
                             </h2>
-                            <p className="text-stone-500 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto">
-                                I am available for <span className="text-[#880808] font-medium">educational sessions</span>,
-                                <span className="text-[#880808] font-medium"> advocacy workshops</span>, and
-                                <span className="text-[#880808] font-medium"> menstrual health consultations</span>.
-                                Let's work together to create a period-friendly world.
+                            <p className="text-stone-600 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto">
+                                I am available for <span className="text-[#880808] font-medium italic">educational sessions</span>,
+                                <span className="text-[#880808] font-medium italic"> awareness workshops</span>, and
+                                <span className="text-[#880808] font-medium italic"> advocacy programs</span> for schools, colleges, and organizations.
+                                <br className="hidden md:block" />
+                                For session bookings, consultations, or writing features, please reach out!
                             </p>
                         </div>
 
