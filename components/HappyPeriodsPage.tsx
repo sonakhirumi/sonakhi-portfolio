@@ -28,7 +28,7 @@ const impactStories: ImpactItem[] = [
         image: "https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/DSC_1645-scaled.jpg"
     },
     {
-        title: "Reboot Branding & Journey",
+        title: "YWAF and Women Deliver 2019",
         platform: "Adobe Spark",
         link: "https://spark.adobe.com/page/sYuOmjQfePBXF/",
         image: "https://express.adobe.com/page/sYuOmjQfePBXF/images/baf9946b-5da9-4e72-9b99-4276ce600a74"
