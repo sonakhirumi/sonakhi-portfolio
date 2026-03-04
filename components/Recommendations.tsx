@@ -42,7 +42,7 @@ const Recommendations: React.FC = () => {
                         href="https://www.linkedin.com/in/sonakhi-malla-rumi/details/recommendations/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group flex items-center gap-2 text-xs font-black uppercase tracking-widest text-stone-900 hover:text-stone-500 transition-colors"
+                        className="hidden md:flex group items-center gap-2 text-xs font-black uppercase tracking-widest text-stone-900 hover:text-stone-500 transition-colors"
                     >
                         Read more on LinkedIn
                         <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -85,6 +85,18 @@ const Recommendations: React.FC = () => {
                             </div>
                         </div>
                     ))}
+                </div>
+
+                <div className="mt-8 flex justify-start md:hidden">
+                    <a
+                        href="https://www.linkedin.com/in/sonakhi-malla-rumi/details/recommendations/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex items-center gap-2 text-xs font-black uppercase tracking-widest text-stone-900 hover:text-stone-500 transition-colors"
+                    >
+                        Read more on LinkedIn
+                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </a>
                 </div>
             </div>
         </section>
