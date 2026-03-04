@@ -220,7 +220,7 @@ const HappyPeriodsPage: React.FC = () => {
                 {/* Impact Stories & Features Section */}
                 <section className="w-full py-20 lg:py-32 bg-stone-50 overflow-hidden">
                     <div className="max-w-screen-xl mx-auto px-6 mb-16">
-                        <h2 className="font-serif text-2xl md:text-3xl text-[#880808] font-bold leading-tight tracking-tighter text-center">Impact Stories & Features.</h2>
+                        <h2 className="font-serif text-2xl md:text-3xl text-[#880808] font-bold leading-tight tracking-tighter text-center">Features.</h2>
                     </div>
 
                     <div
