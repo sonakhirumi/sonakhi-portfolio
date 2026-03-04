@@ -22,7 +22,7 @@ const impactStories: ImpactItem[] = [
         image: "https://s3.eu-west-2.amazonaws.com/wagggs.prod/images/Sonakhi.2e16d0ba.fill-800x550-c50.jpg"
     },
     {
-        title: "Periods & Pride - Awareness Reel",
+        title: "Let's talk PERIODS! Ravenshaw Edition",
         platform: "Instagram",
         link: "https://www.instagram.com/reel/CbQAwL4p47e/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
         image: "https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/DSC_1645-scaled.jpg"
