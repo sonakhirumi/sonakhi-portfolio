@@ -39,19 +39,61 @@ const HappyPeriodsPage: React.FC = () => {
                     </p>
                 </section>
 
-                <section className="w-full py-32 px-6 bg-white border-t border-stone-100">
-                    <div className="max-w-4xl mx-auto grid lg:grid-cols-12 gap-16 items-start">
+                {/* About Reboot Section */}
+                <section className="w-full py-14 lg:py-24 px-6 md:px-12 lg:px-20 bg-white border-t border-stone-100">
+                    <div className="max-w-screen-xl w-full mx-auto grid lg:grid-cols-12 gap-16 items-start">
                         <div className="lg:col-span-1 border-l-2 border-[#880808] h-32 hidden lg:block" />
                         <div className="lg:col-span-11 space-y-10">
-                            <h2 className="text-[10px] font-black uppercase tracking-[0.5em] text-[#880808]">The Impact</h2>
-                            <h3 className="font-serif text-4xl md:text-6xl text-stone-900 font-bold leading-tight tracking-tighter">Breaking the Silence Barrier.</h3>
-                            <div className="prose prose-stone text-lg text-stone-500 leading-relaxed font-light space-y-6">
-                                <p>Since 2021, I have been actively involved in conducting workshops and awareness sessions across various communities to educate young girls and women about menstrual hygiene.</p>
-                                <p>My work focuses on replacing myths with medical facts and shame with a sense of natural pride. Through <span className="text-stone-900 font-medium italic">'Happy Periods'</span>, I've reached hundreds of individuals.</p>
+                            <h2 className="text-[10px] font-black uppercase tracking-[0.5em] text-[#880808]">Our Story</h2>
+                            <h3 className="font-serif text-4xl md:text-6xl text-stone-900 font-bold leading-tight tracking-tighter">About Us.</h3>
+
+                            <div className="prose prose-stone max-w-none text-lg text-stone-500 leading-relaxed font-light space-y-6 [&_p]:text-justify">
+                                <img
+                                    src="https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/PicsArt_07-14-10.52.26.png"
+                                    alt="Reboot Journey"
+                                    className="w-56 h-56 lg:w-72 lg:h-72 rounded-full object-cover float-none md:float-left mx-auto md:mx-0 md:mr-10 mb-8 md:mb-6 shadow-xl"
+                                />
+                                <p>
+                                    <span className="text-[#880808] font-medium italic">Reboot of Thoughts on Menstruation</span>, also known as <span className="text-[#880808] font-medium italic">Happy Periods</span>, began on <span className="text-[#880808] font-medium italic">15 July 2018</span> by me (Sonakhi) with the aim of starting open conversations about menstruation and challenging the silence that surrounds it.
+                                </p>
+                                <p>
+                                    The idea grew from a very personal experience. My first period itself was not frightening because there had already been some conversations about menstruation at home. However, what followed reflected the reality many menstruators face—restrictions, silence, and hesitation around a completely natural process. The moment that made all this unfathomable was getting my periods while writing one of my papers for 10th board examinations. The panic, the discomfort, and the hesitation to talk about it made an already stressful situation even harder. That experience raised a simple but powerful question: <span className="text-[#880808] font-medium italic">why should something so natural cause so much fear and silence?</span> That question eventually led to the beginning of Reboot.
+                                </p>
+                                <p>
+                                    What started as a small initiative gradually grew with the support of the Odisha State Bharat Scout and Guides, the Bharat Scouts and Guides, the World Association of Girl Guides and Girl Scouts, and many volunteers and organisations who believed in the need for menstrual awareness.
+                                </p>
+                                <p>
+                                    One of the first activities under the initiative was <span className="text-[#880808] font-medium italic">"Reboot 100 Takes,"</span> a project that recorded interviews with people from different age groups, genders, and social backgrounds about their thoughts and experiences related to menstruation. These conversations helped initiate discussions that many people had never had before. Alongside these interviews, we also received <span className="text-[#880808] font-medium italic">more than 100 support videos</span> from people around the world, amplifying the message of period positivity.
+                                </p>
+                                <p>
+                                    Over time, the initiative expanded through <span className="text-[#880808] font-medium italic">educational sessions</span>, <span className="text-[#880808] font-medium italic">street plays</span>, and <span className="text-[#880808] font-medium italic">awareness programmes in schools</span>, colleges, camps, and communities, along with continuous <span className="text-[#880808] font-medium italic">engagement through social media</span> platforms.
+                                </p>
+                                <p>
+                                    Over time, Reboot evolved into a more structured initiative focused on creating a period-friendly environment for menstruators. Our work centres on addressing <span className="text-[#880808] font-medium italic">period poverty</span>, which we divide into four key areas:
+                                </p>
+
+                                <ul className="list-disc pl-5 my-6 space-y-2 text-stone-500">
+                                    <li><span className="text-[#880808] font-medium italic">Poverty of information</span></li>
+                                    <li><span className="text-[#880808] font-medium italic">Poverty of emotional support</span></li>
+                                    <li><span className="text-[#880808] font-medium italic">Poverty of sanitary products</span></li>
+                                    <li><span className="text-[#880808] font-medium italic">Poverty of healthcare</span></li>
+                                </ul>
+
+                                <p>
+                                    At present, the main focus remains on <span className="text-[#880808] font-medium italic">poverty of information</span>, because access to accurate menstrual education is often the first step toward addressing the other challenges related to menstrual health.
+                                </p>
+                                <p>
+                                    In recognition of this work, Reboot of Thoughts on Menstruation was chosen <span className="text-[#880808] font-medium italic">as one of the three Olave Award winners</span> by the World Association of Girl Guides and Girl Scouts (WAGGGS) under the <span className="text-[#880808] font-medium italic">“Be the Difference” theme</span> of the <span className="text-[#880808] font-medium italic">2018–2020 triennium</span>. It remains the only project from India to have received this award to date, highlighting the global impact of the initiative.
+                                </p>
+                                <p className="text-xl mt-4">
+                                    Through conversations, education, and community engagement, Reboot continues to work towards a future where menstruation is understood, respected, and spoken about without hesitation.
+                                </p>
+                                <div className="clear-both"></div>
                             </div>
                         </div>
                     </div>
                 </section>
+
 
                 <section className="w-full py-32 bg-white text-center border-t border-stone-50">
                     <div className="max-w-3xl mx-auto px-6 space-y-12">
