@@ -55,15 +55,70 @@ const impactStories: ImpactItem[] = [
 
 const HappyPeriodsPage: React.FC = () => {
     const [isExpanded, setIsExpanded] = useState(false);
-    const [impactIndex, setImpactIndex] = useState(0);
+    const [impactIndex, setImpactIndex] = useState(impactStories.length);
+    const [isPaused, setIsPaused] = useState(false);
+    const [touchStart, setTouchStart] = useState<number | null>(null);
+    const [touchEnd, setTouchEnd] = useState<number | null>(null);
+    const [isTransitioning, setIsTransitioning] = useState(true);
+
+    // Create a loopable list: [clones] + [real] + [clones]
+    const loopableStories = [...impactStories, ...impactStories, ...impactStories];
+    const realLength = impactStories.length;
 
     useEffect(() => {
-        window.scrollTo(0, 0);
+        if (isPaused) return;
         const timer = setInterval(() => {
-            setImpactIndex((prev) => (prev + 1) % impactStories.length);
+            handleNext();
         }, 4000);
         return () => clearInterval(timer);
-    }, []);
+    }, [isPaused, impactIndex]);
+
+    const handleNext = () => {
+        setIsTransitioning(true);
+        setImpactIndex((prev) => prev + 1);
+    };
+
+    const handlePrev = () => {
+        setIsTransitioning(true);
+        setImpactIndex((prev) => prev - 1);
+    };
+
+    const handleTransitionEnd = () => {
+        // When we hit the start of the third set, jump back to the start of the second set
+        if (impactIndex >= realLength * 2) {
+            setIsTransitioning(false);
+            setImpactIndex(realLength);
+        }
+        // When we hit the end of the first set, jump to the end of the second set
+        if (impactIndex < realLength) {
+            setIsTransitioning(false);
+            setImpactIndex(realLength * 2 - 1);
+        }
+    };
+
+    const minSwipeDistance = 50;
+
+    const onTouchStart = (e: React.TouchEvent) => {
+        setTouchEnd(null);
+        setTouchStart(e.targetTouches[0].clientX);
+        setIsPaused(true);
+    };
+
+    const onTouchMove = (e: React.TouchEvent) => {
+        setTouchEnd(e.targetTouches[0].clientX);
+    };
+
+    const onTouchEnd = () => {
+        if (!touchStart || !touchEnd) return;
+        const distance = touchStart - touchEnd;
+        const isLeftSwipe = distance > minSwipeDistance;
+        const isRightSwipe = distance < -minSwipeDistance;
+
+        if (isLeftSwipe) handleNext();
+        if (isRightSwipe) handlePrev();
+
+        setTimeout(() => setIsPaused(false), 5000);
+    };
 
     const BloodDropSolid = ({ className }: { className?: string }) => (
         <svg viewBox="0 0 24 24" fill="#880808" className={className} xmlns="http://www.w3.org/2000/svg">
@@ -168,14 +223,20 @@ const HappyPeriodsPage: React.FC = () => {
                         <h2 className="font-serif text-4xl md:text-6xl text-[#880808] font-bold leading-tight tracking-tighter text-center">Impact Stories & Features.</h2>
                     </div>
 
-                    <div className="max-w-7xl mx-auto overflow-hidden px-4">
+                    <div
+                        className="max-w-7xl mx-auto overflow-hidden px-4"
+                        onTouchStart={onTouchStart}
+                        onTouchMove={onTouchMove}
+                        onTouchEnd={onTouchEnd}
+                    >
                         <div
-                            className="flex transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]"
+                            className={`flex ${isTransitioning ? 'transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]' : ''}`}
                             style={{
                                 transform: `translateX(-${impactIndex * (100 / (typeof window !== 'undefined' && window.innerWidth < 1024 ? 1 : 3))}%)`,
                             }}
+                            onTransitionEnd={handleTransitionEnd}
                         >
-                            {impactStories.map((item, index) => (
+                            {loopableStories.map((item, index) => (
                                 <div
                                     key={index}
                                     className="flex-shrink-0 w-full lg:w-1/3 px-2 md:px-4"
@@ -209,12 +270,16 @@ const HappyPeriodsPage: React.FC = () => {
                         {impactStories.map((_, i) => (
                             <button
                                 key={i}
-                                onClick={() => setImpactIndex(i)}
-                                className={`h-1 rounded-full transition-all duration-300 ${impactIndex === i ? 'w-8 bg-[#880808]' : 'w-2 bg-stone-300 hover:bg-stone-500'}`}
+                                onClick={() => {
+                                    setIsTransitioning(true);
+                                    setImpactIndex(realLength + i);
+                                }}
+                                className={`h-1 rounded-full transition-all duration-300 ${(impactIndex % realLength) === i ? 'w-8 bg-[#880808]' : 'w-2 bg-stone-300 hover:bg-stone-500'}`}
                             />
                         ))}
                     </div>
                 </section>
+
 
                 <section className="w-full py-32 bg-white text-center border-t border-stone-100">
                     <div className="max-w-3xl mx-auto px-6 space-y-12">
