@@ -40,10 +40,10 @@ const impactStories: ImpactItem[] = [
         image: "https://s3.eu-west-2.amazonaws.com/wagggs.prod/images/Sonakhi.width-500.jpg"
     },
     {
-        title: "Breaking the Silence",
+        title: "Radio Interview",
         platform: "Instagram",
         link: "https://www.instagram.com/p/CbAjLVXJOW6/",
-        image: "https://scontent-ams4-1.cdninstagram.com/v/t51.29350-15/275665427_1106127583568186_6098433068500561564_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=8ae7d6&_nc_ohc=pT6C65o3CP0Q7kNvwF00000&_nc_ht=scontent-ams4-1.cdninstagram.com&oh=00_AYBq27_jFp4_v&oe=69ADDB4D"
+        image: "https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/DSC09357-scaled.jpg"
     }
 ];
 
