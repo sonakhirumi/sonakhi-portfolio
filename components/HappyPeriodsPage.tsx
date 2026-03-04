@@ -1,5 +1,51 @@
 import React, { useEffect } from 'react';
-import { ExternalLink, Image as ImageIcon, MessageCircle } from 'lucide-react';
+import { ExternalLink, Image as ImageIcon, MessageCircle, Calendar, Clock, Hammer } from 'lucide-react';
+
+interface ImpactItem {
+    title: string;
+    platform: string;
+    link: string;
+    image: string;
+}
+
+const impactStories: ImpactItem[] = [
+    {
+        title: "Reboot of Thoughts on Menstruation - Olave Award",
+        platform: "YouTube",
+        link: "https://youtu.be/cZ5WN0zWHAY",
+        image: "https://img.youtube.com/vi/cZ5WN0zWHAY/maxresdefault.jpg"
+    },
+    {
+        title: "My project on Rebooting thoughts on menstruation",
+        platform: "WAGGGS Blog",
+        link: "https://www.wagggs.org/en/blog/my-project-on-Rebooting-thoughts-on-menstruation/",
+        image: "https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/WAGGGS-Logo.jpg"
+    },
+    {
+        title: "Periods & Pride - Awareness Reel",
+        platform: "Instagram",
+        link: "https://www.instagram.com/reel/CbQAwL4p47e/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+        image: "https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/Insta-Reel-1.jpg"
+    },
+    {
+        title: "Reboot Branding & Journey",
+        platform: "Adobe Spark",
+        link: "https://spark.adobe.com/page/sYuOmjQfePBXF/",
+        image: "https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/Spark-Feature.jpg"
+    },
+    {
+        title: "Every Day Menstrual Hygiene Day",
+        platform: "WAGGGS Blog",
+        link: "https://www.wagggs.org/en/blog/every-day-menstrual-hygiene-day/",
+        image: "https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/WAGGGS-Blog-2.jpg"
+    },
+    {
+        title: "Breaking the Silence",
+        platform: "Instagram",
+        link: "https://www.instagram.com/p/CbAjLVXJOW6/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+        image: "https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/Insta-Post-1.jpg"
+    }
+];
 
 const HappyPeriodsPage: React.FC = () => {
     const [isExpanded, setIsExpanded] = React.useState(false);
@@ -106,7 +152,56 @@ const HappyPeriodsPage: React.FC = () => {
                 </section>
 
 
-                <section className="w-full py-32 bg-white text-center border-t border-stone-50">
+                {/* Impact Stories & Features Section */}
+                <section className="w-full py-20 lg:py-32 bg-stone-50 overflow-hidden">
+                    <div className="max-w-screen-xl mx-auto px-6 mb-16">
+                        <h2 className="font-serif text-4xl md:text-6xl text-[#880808] font-bold leading-tight tracking-tighter text-center">Impact Stories & Features.</h2>
+                    </div>
+
+                    <div className="relative flex overflow-x-hidden">
+                        <div className="animate-marquee whitespace-nowrap flex items-center gap-8 py-4">
+                            {[...impactStories, ...impactStories].map((item, index) => (
+                                <a
+                                    key={`impact-${index}`}
+                                    href={item.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group relative flex-shrink-0 w-72 md:w-96 aspect-video rounded-2xl overflow-hidden bg-stone-200 shadow-lg block"
+                                >
+                                    <img
+                                        src={item.image}
+                                        alt={item.title}
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                                    />
+                                    <div className="absolute inset-0 bg-stone-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+                                        <p className="text-white text-xs font-black uppercase tracking-widest mb-1">{item.platform}</p>
+                                        <h4 className="text-white font-serif text-lg leading-tight">{item.title}</h4>
+                                    </div>
+                                    <div className="absolute top-4 right-4 p-2 bg-white/10 backdrop-blur-md rounded-full text-white border border-white/20">
+                                        <ExternalLink className="w-4 h-4" />
+                                    </div>
+                                </a>
+                            ))}
+                        </div>
+                    </div>
+
+                    <style>{`
+                        @keyframes marquee {
+                            0% { transform: translateX(0); }
+                            100% { transform: translateX(-50%); }
+                        }
+                        .animate-marquee {
+                            animation: marquee 40s linear infinite;
+                        }
+                        @media (max-width: 768px) {
+                            .animate-marquee {
+                                animation: marquee 20s linear infinite;
+                            }
+                        }
+                    `}</style>
+                </section>
+
+                <section className="w-full py-32 bg-white text-center border-t border-stone-100">
                     <div className="max-w-3xl mx-auto px-6 space-y-12">
                         <div className="inline-flex p-5 rounded-3xl bg-red-50 mb-4 items-center justify-center animate-bounce"><MessageCircle className="w-10 h-10 text-[#880808]" /></div>
                         <h2 className="font-serif text-5xl md:text-7xl font-bold text-stone-900 tracking-tighter leading-none">Let's <span className="text-[#880808] italic">Collaborate.</span></h2>
