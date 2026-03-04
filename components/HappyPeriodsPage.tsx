@@ -139,7 +139,7 @@ const HappyPeriodsPage: React.FC = () => {
                 <section className="relative w-full max-w-4xl flex flex-col items-center justify-center pt-24 pb-20 md:pt-40 md:pb-32 px-6 text-center mx-auto min-h-[70vh]">
                     {/* Background Texture */}
                     <div
-                        className="absolute inset-0 z-0 pointer-events-none opacity-[0.12] grayscale transition-opacity duration-1000"
+                        className="absolute inset-0 z-0 pointer-events-none opacity-[0.22] grayscale transition-opacity duration-1000"
                         style={{
                             backgroundImage: `url('https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/IMG_20190226_200210.jpg')`,
                             backgroundPosition: 'center',
