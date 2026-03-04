@@ -233,34 +233,6 @@ const AllArticlesPage: React.FC = () => {
         ) : (
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
-            {selectedCategory === 'English' && (
-              <div className="col-span-full mb-8 border-b border-stone-100 pb-8 pt-4">
-                <div className="max-w-3xl space-y-6">
-                  <h2 className="font-serif text-3xl md:text-4xl text-stone-900 leading-tight">
-                    break my heart 💔
-                  </h2>
-
-                  <div className="w-full md:w-72">
-                    <div className="group">
-                      <img
-                        src="https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/02/download.jpg"
-                        alt="The heart remains"
-                        className="w-full h-auto grayscale rounded-sm shadow-xl mb-3"
-                      />
-                      <a
-                        href="https://in.pinterest.com/pin/16888567424823914/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[9px] text-stone-400 hover:text-stone-900 transition-colors tracking-widest uppercase font-bold"
-                      >
-                        Image Credits
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
-
             {filteredArticles.length > 0 ? (
               filteredArticles.map((article) => (
                 <Link
@@ -297,7 +269,7 @@ const AllArticlesPage: React.FC = () => {
                   </div>
                 </Link>
               ))
-            ) : selectedCategory !== 'English' ? (
+            ) : (
               <div className="col-span-full flex flex-col items-center justify-center py-8 gap-8">
                 <div className="p-8 bg-stone-100 rounded-full animate-bounce-slow">
                   <Hammer className="w-12 h-12 text-stone-400" />
@@ -307,7 +279,7 @@ const AllArticlesPage: React.FC = () => {
                   <p className="font-serif italic text-stone-500 text-lg">Check back soon.</p>
                 </div>
               </div>
-            ) : null}
+            )}
           </div>
         )}
       </div>
