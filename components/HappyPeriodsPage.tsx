@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { ExternalLink, Image as ImageIcon, MessageCircle, Calendar, Clock, Hammer } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { ExternalLink, MessageCircle } from 'lucide-react';
 
 interface ImpactItem {
     title: string;
@@ -48,10 +48,15 @@ const impactStories: ImpactItem[] = [
 ];
 
 const HappyPeriodsPage: React.FC = () => {
-    const [isExpanded, setIsExpanded] = React.useState(false);
+    const [isExpanded, setIsExpanded] = useState(false);
+    const [impactIndex, setImpactIndex] = useState(0);
 
     useEffect(() => {
         window.scrollTo(0, 0);
+        const timer = setInterval(() => {
+            setImpactIndex((prev) => (prev + 1) % impactStories.length);
+        }, 4000);
+        return () => clearInterval(timer);
     }, []);
 
     const BloodDropSolid = ({ className }: { className?: string }) => (
@@ -62,7 +67,7 @@ const HappyPeriodsPage: React.FC = () => {
 
     return (
         <div className="bg-white relative">
-            <div className="relative z-10 w-full flex flex-col items-center">
+            <div className="relative z-10 w-full flex flex-col items-center overflow-hidden">
                 <style>{`
                     .text-stroke-red { -webkit-text-stroke: 1.5px #880808; color: white; }
                     @keyframes slide-up { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
@@ -151,54 +156,53 @@ const HappyPeriodsPage: React.FC = () => {
                     </div>
                 </section>
 
-
                 {/* Impact Stories & Features Section */}
                 <section className="w-full py-20 lg:py-32 bg-stone-50 overflow-hidden">
                     <div className="max-w-screen-xl mx-auto px-6 mb-16">
                         <h2 className="font-serif text-4xl md:text-6xl text-[#880808] font-bold leading-tight tracking-tighter text-center">Impact Stories & Features.</h2>
                     </div>
 
-                    <div className="relative flex overflow-x-hidden">
-                        <div className="animate-marquee whitespace-nowrap flex items-center gap-8 py-4">
-                            {[...impactStories, ...impactStories].map((item, index) => (
-                                <a
-                                    key={`impact-${index}`}
-                                    href={item.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="group relative flex-shrink-0 w-72 md:w-96 aspect-video rounded-2xl overflow-hidden bg-stone-200 shadow-lg block"
-                                >
-                                    <img
-                                        src={item.image}
-                                        alt={item.title}
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
-                                    />
-                                    <div className="absolute inset-0 bg-stone-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
-                                        <p className="text-white text-xs font-black uppercase tracking-widest mb-1">{item.platform}</p>
-                                        <h4 className="text-white font-serif text-lg leading-tight">{item.title}</h4>
-                                    </div>
-                                    <div className="absolute top-4 right-4 p-2 bg-white/10 backdrop-blur-md rounded-full text-white border border-white/20">
-                                        <ExternalLink className="w-4 h-4" />
-                                    </div>
-                                </a>
+                    <div className="relative max-w-5xl mx-auto px-6">
+                        <div className="flex transition-transform duration-1000 ease-in-out" style={{ transform: `translateX(-${impactIndex * 100}%)` }}>
+                            {impactStories.map((item, index) => (
+                                <div key={index} className="w-full flex-shrink-0 px-2 lg:px-4">
+                                    <a
+                                        href={item.link}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="group block relative aspect-video rounded-3xl overflow-hidden bg-stone-200 shadow-2xl"
+                                    >
+                                        <img
+                                            src={item.image}
+                                            alt={item.title}
+                                            className="w-full h-full object-cover grayscale-0 group-hover:scale-105 transition-transform duration-700"
+                                            onError={(e) => {
+                                                (e.target as HTMLImageElement).src = 'https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/placeholder.jpg';
+                                            }}
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8 md:p-12">
+                                            <p className="text-white/80 text-xs md:text-sm font-black uppercase tracking-[0.3em] mb-3">{item.platform}</p>
+                                            <h4 className="text-white font-serif text-2xl md:text-4xl leading-tight max-w-2xl">{item.title}</h4>
+                                        </div>
+                                        <div className="absolute top-8 right-8 p-4 bg-white/20 backdrop-blur-xl rounded-full text-white border border-white/30 transform group-hover:rotate-12 transition-transform">
+                                            <ExternalLink className="w-6 h-6 md:w-8 md:h-8" />
+                                        </div>
+                                    </a>
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Dots Navigation */}
+                        <div className="flex justify-center gap-3 mt-12">
+                            {impactStories.map((_, i) => (
+                                <button
+                                    key={i}
+                                    onClick={() => setImpactIndex(i)}
+                                    className={`h-1.5 transition-all duration-500 rounded-full ${impactIndex === i ? 'w-12 bg-[#880808]' : 'w-3 bg-stone-300'}`}
+                                />
                             ))}
                         </div>
                     </div>
-
-                    <style>{`
-                        @keyframes marquee {
-                            0% { transform: translateX(0); }
-                            100% { transform: translateX(-50%); }
-                        }
-                        .animate-marquee {
-                            animation: marquee 40s linear infinite;
-                        }
-                        @media (max-width: 768px) {
-                            .animate-marquee {
-                                animation: marquee 20s linear infinite;
-                            }
-                        }
-                    `}</style>
                 </section>
 
                 <section className="w-full py-32 bg-white text-center border-t border-stone-100">
