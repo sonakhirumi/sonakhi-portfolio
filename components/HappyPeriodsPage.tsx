@@ -44,8 +44,7 @@ const HappyPeriodsPage: React.FC = () => {
                     <div className="max-w-screen-xl w-full mx-auto grid lg:grid-cols-12 gap-16 items-start">
                         <div className="lg:col-span-1 border-l-2 border-[#880808] h-32 hidden lg:block" />
                         <div className="lg:col-span-11 space-y-10">
-                            <h2 className="text-[10px] font-black uppercase tracking-[0.5em] text-[#880808]">Our Story</h2>
-                            <h3 className="font-serif text-4xl md:text-6xl text-stone-900 font-bold leading-tight tracking-tighter">About Us.</h3>
+                            <h2 className="font-serif text-5xl md:text-7xl text-stone-900 font-bold leading-tight tracking-tighter">Our Story.</h2>
 
                             <div className="prose prose-stone max-w-none text-lg text-stone-500 leading-relaxed font-light space-y-6 [&_p]:text-justify">
                                 <img
