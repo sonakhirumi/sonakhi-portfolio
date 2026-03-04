@@ -10,7 +10,7 @@ interface ImpactItem {
 
 const impactStories: ImpactItem[] = [
     {
-        title: "Reboot of Thoughts on Menstruation - Olave Award",
+        title: "Olave Award",
         platform: "YouTube",
         link: "https://www.youtube.com/watch?v=8DOMHyps4N0",
         image: "https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/IMG-20200714-WA0024.jpg"
