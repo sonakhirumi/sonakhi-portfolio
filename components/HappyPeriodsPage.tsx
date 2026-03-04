@@ -13,7 +13,7 @@ const impactStories: ImpactItem[] = [
         title: "Reboot of Thoughts on Menstruation - Olave Award",
         platform: "YouTube",
         link: "https://youtu.be/cZ5WN0zWHAY",
-        image: "https://img.youtube.com/vi/cZ5WN0zWHAY/maxresdefault.jpg"
+        image: "https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/IMG-20200714-WA0024.jpg"
     },
     {
         title: "My project on Rebooting thoughts on menstruation",
