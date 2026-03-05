@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { ExternalLink, ArrowRight, Quote } from 'lucide-react';
 
 const recommendations = [
@@ -26,6 +26,68 @@ const recommendations = [
 ];
 
 const Recommendations: React.FC = () => {
+    const realLength = recommendations.length;
+    const [recIndex, setRecIndex] = useState(realLength);
+    const [isPaused, setIsPaused] = useState(false);
+    const [touchStart, setTouchStart] = useState<number | null>(null);
+    const [touchEnd, setTouchEnd] = useState<number | null>(null);
+    const [isTransitioning, setIsTransitioning] = useState(true);
+
+    const loopableRecs = [...recommendations, ...recommendations, ...recommendations];
+
+    useEffect(() => {
+        if (isPaused) return;
+        const timer = setInterval(() => {
+            handleNext();
+        }, 3000);
+        return () => clearInterval(timer);
+    }, [isPaused, recIndex]);
+
+    const handleNext = () => {
+        setIsTransitioning(true);
+        setRecIndex((prev) => prev + 1);
+    };
+
+    const handlePrev = () => {
+        setIsTransitioning(true);
+        setRecIndex((prev) => prev - 1);
+    };
+
+    const handleTransitionEnd = () => {
+        if (recIndex >= realLength * 2) {
+            setIsTransitioning(false);
+            setRecIndex(realLength);
+        }
+        if (recIndex < realLength) {
+            setIsTransitioning(false);
+            setRecIndex(realLength * 2 - 1);
+        }
+    };
+
+    const minSwipeDistance = 50;
+
+    const onTouchStart = (e: React.TouchEvent) => {
+        setTouchEnd(null);
+        setTouchStart(e.targetTouches[0].clientX);
+        setIsPaused(true);
+    };
+
+    const onTouchMove = (e: React.TouchEvent) => {
+        setTouchEnd(e.targetTouches[0].clientX);
+    };
+
+    const onTouchEnd = () => {
+        if (!touchStart || !touchEnd) return;
+        const distance = touchStart - touchEnd;
+        const isLeftSwipe = distance > minSwipeDistance;
+        const isRightSwipe = distance < -minSwipeDistance;
+
+        if (isLeftSwipe) handleNext();
+        if (isRightSwipe) handlePrev();
+
+        setTimeout(() => setIsPaused(false), 5000);
+    };
+
     return (
         <section className="py-12 bg-[#f3f2ee]">
             <div className="max-w-7xl mx-auto px-6">
@@ -49,11 +111,12 @@ const Recommendations: React.FC = () => {
                     </a>
                 </div>
 
-                <div className="flex overflow-x-auto md:grid md:grid-cols-3 gap-6 pb-4 snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+                {/* DESKTOP GRID */}
+                <div className="hidden md:grid md:grid-cols-3 gap-6">
                     {recommendations.map((rec, index) => (
                         <div
                             key={index}
-                            className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100 relative flex flex-col h-full shrink-0 w-[85vw] md:w-auto snap-center"
+                            className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100 relative flex flex-col h-full"
                         >
                             <Quote className="w-8 h-8 text-stone-200 mb-6" />
 
@@ -85,6 +148,67 @@ const Recommendations: React.FC = () => {
                             </div>
                         </div>
                     ))}
+                </div>
+
+                {/* MOBILE CAROUSEL */}
+                <div
+                    className="block md:hidden overflow-hidden -mx-4 px-4"
+                    onTouchStart={onTouchStart}
+                    onTouchMove={onTouchMove}
+                    onTouchEnd={onTouchEnd}
+                >
+                    <div
+                        className={`flex ${isTransitioning ? 'transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)]' : ''}`}
+                        style={{ transform: `translateX(-${recIndex * 100}%)` }}
+                        onTransitionEnd={handleTransitionEnd}
+                    >
+                        {loopableRecs.map((rec, index) => (
+                            <div key={index} className="w-full flex-shrink-0 px-2 box-border">
+                                <div className="bg-white p-8 rounded-2xl shadow-sm border border-stone-100 relative flex flex-col h-full mx-auto">
+                                    <Quote className="w-8 h-8 text-stone-200 mb-6" />
+
+                                    <div className="flex-grow">
+                                        <p className="font-sans text-stone-600 text-sm md:text-base leading-relaxed mb-2 line-clamp-4">
+                                            "{rec.text}"
+                                        </p>
+                                        <a
+                                            href={rec.sourceLink}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-stone-400 hover:text-stone-900 text-xs font-bold uppercase tracking-wider transition-colors inline-block mb-8"
+                                        >
+                                            Read more
+                                        </a>
+                                    </div>
+
+                                    <div>
+                                        <a
+                                            href={rec.authorLink}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="font-serif font-medium text-stone-900 hover:text-stone-500 transition-colors inline-flex items-center gap-1 group"
+                                        >
+                                            {rec.author}
+                                        </a>
+                                        <p className="font-sans text-xs text-stone-500 mt-1">{rec.role}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="flex justify-center gap-2 mt-8">
+                        {recommendations.map((_, i) => (
+                            <button
+                                key={i}
+                                onClick={() => {
+                                    setIsTransitioning(true);
+                                    setRecIndex(realLength + i);
+                                }}
+                                className={`h-1 rounded-full transition-all duration-300 ${(recIndex % realLength) === i ? 'w-8 bg-stone-900' : 'w-2 bg-stone-300 hover:bg-stone-500'}`}
+                            />
+                        ))}
+                    </div>
                 </div>
 
                 <div className="mt-8 flex justify-start md:hidden">
