@@ -13,6 +13,7 @@ import Contacts from './components/Contact';
 import HappyPeriodsPage from './components/HappyPeriodsPage';
 import HappyPeriodsPreloader from './components/HappyPeriodsPreloader';
 import CopyrightPage from './components/CopyrightPage';
+import ScrollIndicator from './components/ScrollIndicator';
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
@@ -105,6 +106,7 @@ const App: React.FC = () => {
 
         </Routes>
       </main>
+      <ScrollIndicator />
       <Footer />
     </div>
   );
