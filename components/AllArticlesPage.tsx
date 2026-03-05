@@ -91,10 +91,27 @@ const BookCard: React.FC<{ book: BookItem }> = ({ book }) => (
 );
 
 // ── Portfolio Category Block (collapsible) ──
+const DISCLAIMER_SHORT = `The books and visual materials displayed here are copyrighted works belonging to TruBuddy, a brand of Menstrupedia Technologies Private Limited. Included for portfolio purposes only.`;
+const DISCLAIMER_FULL = `The books and visual materials displayed in this section are copyrighted works belonging to TruBuddy, a brand of Menstrupedia Technologies Private Limited.
+
+These materials are included here solely for portfolio and presentation purposes to highlight my contributions as part of the creative team. I currently work with the organization as a Senior Content Developer, and have been involved in the development of these books as part of my professional responsibilities. My contributions appear in the credit sections under my pen name Sonakhi Rumi.
+
+All intellectual property rights, including copyrights and distribution rights, remain with TruBuddy / Menstrupedia Technologies Private Limited.
+
+TruBuddy books are thoughtfully designed self-development comics for children, combining storytelling, relatable characters, and engaging visuals to support emotional learning, confidence building, and life skills in young readers. If these books resonate with you, I strongly encourage supporting the work by purchasing the original titles through TruBuddy's website.`;
+
 const PortfolioCategoryBlock: React.FC<{ category: PortfolioCategory; language: string; defaultOpen?: boolean }> = ({ category, language, defaultOpen = true }) => {
   const [open, setOpen] = useState(defaultOpen);
+  const [showAllBooks, setShowAllBooks] = useState(false);
+  const [disclaimerExpanded, setDisclaimerExpanded] = useState(false);
+
   const filtered = language === 'All' ? category.books : category.books.filter(b => b.language === language);
   if (filtered.length === 0) return null;
+
+  // First row = 6 books on xl, 5 on lg, 4 on md, 3 on sm, 2 on mobile
+  // We'll show 6 as the conservative "first row" max
+  const FIRST_ROW = 6;
+  const visibleBooks = showAllBooks ? filtered : filtered.slice(0, FIRST_ROW);
 
   return (
     <div className="border border-stone-100 rounded-2xl overflow-hidden shadow-sm">
@@ -127,12 +144,41 @@ const PortfolioCategoryBlock: React.FC<{ category: PortfolioCategory; language: 
         </span>
       </button>
 
-      {/* Book Grid */}
       {open && (
-        <div className="p-6 pt-5">
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5">
-            {filtered.map(book => <BookCard key={book.slug} book={book} />)}
+        <div className="p-6 pt-4 space-y-5">
+          {/* Disclaimer */}
+          <div className="bg-amber-50 border border-amber-100 rounded-xl px-5 py-4 text-xs text-stone-600 leading-relaxed space-y-2">
+            <p className="font-bold text-[10px] uppercase tracking-widest text-amber-700">Disclaimer</p>
+            <p className="whitespace-pre-line">
+              {disclaimerExpanded ? DISCLAIMER_FULL : DISCLAIMER_SHORT}
+            </p>
+            <button
+              onClick={() => setDisclaimerExpanded(d => !d)}
+              className="text-[10px] font-bold uppercase tracking-widest text-amber-600 hover:text-amber-800 transition-colors underline underline-offset-4"
+            >
+              {disclaimerExpanded ? 'Show less ↑' : 'Read more ↓'}
+            </button>
           </div>
+
+          {/* Book Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5">
+            {visibleBooks.map(book => <BookCard key={book.slug} book={book} />)}
+          </div>
+
+          {/* See more / less */}
+          {filtered.length > FIRST_ROW && (
+            <div className="flex justify-center pt-2">
+              <button
+                onClick={() => setShowAllBooks(s => !s)}
+                className="flex items-center gap-2 px-6 py-2.5 rounded-full border border-stone-200 bg-white text-[10px] font-bold uppercase tracking-widest text-stone-500 hover:border-stone-900 hover:text-stone-900 transition-all"
+              >
+                {showAllBooks
+                  ? <><ChevronUp className="w-3.5 h-3.5" /> Show less</>
+                  : <><ChevronDown className="w-3.5 h-3.5" /> See all {filtered.length} books</>
+                }
+              </button>
+            </div>
+          )}
         </div>
       )}
     </div>
