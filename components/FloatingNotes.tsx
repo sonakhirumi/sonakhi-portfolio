@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import NoteInteractions from './NoteInteractions';
 
 export interface NoteSnippet {
     id: string;
@@ -114,6 +115,8 @@ const NoteBubble: React.FC<{ note: NoteSnippet; index: number }> = ({ note, inde
                     </button>
                 )}
             </div>
+
+            <NoteInteractions noteId={note.id} content={note.content} />
         </div>
     )
 }
