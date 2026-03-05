@@ -1,15 +1,12 @@
-// Check what other image folders exist on trubuddy for book covers
-async function checkQuality() {
-    const res = await fetch('https://trubuddy.me/c/art-make-friends', {
-        headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36' }
+async function findLogo() {
+    const res = await fetch('https://trubuddy.me/', {
+        headers: { 'User-Agent': 'Mozilla/5.0' }
     });
     const html = await res.text();
-
-    // Find all unique trubuddy image paths
-    const allImgs = [...html.matchAll(/https:\/\/trubuddy\.me\/assets\/([^"'\s]+\.(?:jpg|png|webp))/gi)];
-    const unique = [...new Set(allImgs.map(m => m[0]))];
-
-    console.log("All TruBuddy image URLs found:");
-    unique.forEach(u => console.log(u));
+    // Look for any image with 'logo' or 'brand' in the src
+    const allImgs = [...html.matchAll(/src="(https?:\/\/trubuddy\.me[^"]+)"/g)].map(m => m[1]);
+    const logos = allImgs.filter(u => u.toLowerCase().includes('logo') || u.toLowerCase().includes('brand') || u.toLowerCase().includes('trubuddy'));
+    console.log("All trubuddy imgs:", allImgs.slice(0, 15));
+    console.log("Logo candidates:", logos);
 }
-checkQuality();
+findLogo();

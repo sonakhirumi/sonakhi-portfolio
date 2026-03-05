@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams, useNavigate, useParams } from 'react-router-dom';
-import { Calendar, Clock, Hammer, ExternalLink } from 'lucide-react';
+import { Calendar, Clock, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
 import { Article } from '../types';
-import FloatingNotes, { notesData } from './FloatingNotes';
+import FloatingNotes from './FloatingNotes';
 
 const BASE_URL = 'https://live-sonakhi-rumi.pantheonsite.io/wp-json/wp/v2';
+const TRUBUDDY_LOGO = 'https://trubuddy.me/assets/comic-subscription/trubuddy-logo.svg';
 
 const CHARACTERS = [
   'A', 'a', 'B', 'b', 'C', 'c', 'D', 'd', 'E', 'e', 'F', 'f', 'G', 'g', 'H', 'h', 'I', 'i', 'J', 'j', 'K', 'k', 'L', 'l', 'M', 'm', 'N', 'n', 'O', 'o', 'P', 'p', 'Q', 'q', 'R', 'r', 'S', 's', 'T', 't', 'U', 'u', 'V', 'v', 'W', 'w', 'X', 'x', 'Y', 'y', 'Z', 'z',
@@ -18,6 +19,17 @@ interface BookItem {
   image: string;
   url: string;
   language: string;
+}
+
+// ── Portfolio Categories ──
+// Add new categories here in future. Each has a label, logo, and books array.
+interface PortfolioCategory {
+  id: string;
+  label: string;
+  logo: string;
+  logoAlt: string;
+  siteUrl: string;
+  books: BookItem[];
 }
 
 const TRUBUDDY_BOOKS: BookItem[] = [
@@ -43,6 +55,91 @@ const TRUBUDDY_BOOKS: BookItem[] = [
   { slug: 'how-build-willpower', title: 'How to Build Willpower', image: 'https://trubuddy.me/assets/Covers/17.webp', url: 'https://trubuddy.me/c/how-build-willpower', language: 'English' },
 ];
 
+const PORTFOLIO_CATEGORIES: PortfolioCategory[] = [
+  {
+    id: 'trubuddy',
+    label: 'TruBuddy',
+    logo: TRUBUDDY_LOGO,
+    logoAlt: 'TruBuddy',
+    siteUrl: 'https://trubuddy.me',
+    books: TRUBUDDY_BOOKS,
+  },
+  // ← Add future categories here, e.g. { id: 'hindi-press', label: 'Hindi Press', logo: '...', books: [...] }
+];
+
+// ── Book Card ──
+const BookCard: React.FC<{ book: BookItem }> = ({ book }) => (
+  <a href={book.url} target="_blank" rel="noopener noreferrer" className="group block">
+    <div className="relative overflow-hidden rounded-xl shadow-md group-hover:shadow-xl transition-all duration-500 bg-[#f5f5f0]">
+      <img
+        src={book.image}
+        alt={book.title}
+        className="w-full h-auto object-contain block transition-transform duration-500 group-hover:scale-[1.03]"
+      />
+      <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/50 transition-all duration-300 flex items-center justify-center">
+        <span className="text-white text-[10px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1.5 bg-white/20 px-3 py-1.5 rounded-full backdrop-blur-sm">
+          Read <ExternalLink className="w-3 h-3" />
+        </span>
+      </div>
+    </div>
+    <div className="mt-2.5 space-y-0.5 px-0.5">
+      <p className="text-xs font-semibold text-stone-700 leading-snug line-clamp-2 group-hover:text-stone-900 transition-colors">
+        {book.title}
+      </p>
+    </div>
+  </a>
+);
+
+// ── Portfolio Category Block (collapsible) ──
+const PortfolioCategoryBlock: React.FC<{ category: PortfolioCategory; language: string; defaultOpen?: boolean }> = ({ category, language, defaultOpen = true }) => {
+  const [open, setOpen] = useState(defaultOpen);
+  const filtered = language === 'All' ? category.books : category.books.filter(b => b.language === language);
+  if (filtered.length === 0) return null;
+
+  return (
+    <div className="border border-stone-100 rounded-2xl overflow-hidden shadow-sm">
+      {/* Header / Toggle */}
+      <button
+        onClick={() => setOpen(o => !o)}
+        className="w-full flex items-center justify-between px-6 py-4 bg-stone-50 hover:bg-stone-100 transition-colors"
+      >
+        <div className="flex items-center gap-3">
+          <a
+            href={category.siteUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={e => e.stopPropagation()}
+            className="shrink-0"
+          >
+            <img
+              src={category.logo}
+              alt={category.logoAlt}
+              className="h-7 object-contain hover:opacity-75 transition-opacity"
+              onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }}
+            />
+          </a>
+          <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">
+            {filtered.length} {filtered.length === 1 ? 'book' : 'books'}
+          </span>
+        </div>
+        <span className="text-stone-400">
+          {open ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+        </span>
+      </button>
+
+      {/* Book Grid */}
+      {open && (
+        <div className="p-6 pt-5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-5">
+            {filtered.map(book => <BookCard key={book.slug} book={book} />)}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+// ── Main Page ──
 const AllArticlesPage: React.FC = () => {
   const [searchParams] = useSearchParams();
   const { category: routeCategory } = useParams();
@@ -63,71 +160,57 @@ const AllArticlesPage: React.FC = () => {
   const calculateReadTime = (content: string) => {
     const wordsPerMinute = 200;
     const text = stripHtml(content);
-    const wordCount = text.split(/\s+/).filter(word => word.length > 0).length;
-    const minutes = Math.ceil(wordCount / wordsPerMinute);
-    return `${minutes} min read`;
+    const wordCount = text.split(/\s+/).filter(w => w.length > 0).length;
+    return `${Math.ceil(wordCount / wordsPerMinute)} min read`;
   };
 
   useEffect(() => {
     const fetchAllData = async () => {
       try {
         setIsLoading(true);
-
         const catRes = await fetch(`${BASE_URL}/categories?_=${Date.now()}`);
         const catsData = await catRes.json();
         let actualCategories: { id: number, name: string }[] = [];
         if (Array.isArray(catsData)) {
-          const processedCats = catsData
-            .filter((c: any) => {
-              const name = c.name.toLowerCase();
-              return name !== 'hindi' && name !== 'uncategorized';
-            })
+          const processed = catsData
+            .filter((c: any) => !['hindi', 'uncategorized'].includes(c.name.toLowerCase()))
             .map((c: any) => {
               if (c.name.toLowerCase() === 'odia') return { ...c, name: 'ଓଡ଼ିଆ' };
               if (c.name.toLowerCase() === 'english') return { ...c, name: 'English' };
               return c;
             })
             .sort((a: any, b: any) => {
-              const nameA = a.name.toLowerCase();
-              const nameB = b.name.toLowerCase();
               const isDevanagari = (s: string) => /[\u0900-\u097F]/.test(s);
-              if (nameA === 'english' && nameB !== 'english') return -1;
-              if (nameA !== 'english' && nameB === 'english') return 1;
-              if (isDevanagari(nameA) && !isDevanagari(nameB)) return -1;
-              if (!isDevanagari(nameA) && isDevanagari(nameB)) return 1;
+              if (a.name.toLowerCase() === 'english') return -1;
+              if (b.name.toLowerCase() === 'english') return 1;
+              if (isDevanagari(a.name) && !isDevanagari(b.name)) return -1;
+              if (!isDevanagari(a.name) && isDevanagari(b.name)) return 1;
               return 0;
             });
-
-          setCategories(processedCats);
-          actualCategories = processedCats;
+          setCategories(processed);
+          actualCategories = processed;
         }
 
         const paramCategory = routeCategory || searchParams.get('category');
         if (paramCategory) {
-          const lowerParam = paramCategory.toLowerCase();
-          if (lowerParam === 'portfolio' || lowerParam === 'musings' || lowerParam === 'professional' || lowerParam === 'personal') {
-            const mappedMode: 'portfolio' | 'musings' = (lowerParam === 'professional' || lowerParam === 'portfolio') ? 'portfolio' : 'musings';
-            setViewMode(mappedMode);
+          const lp = paramCategory.toLowerCase();
+          if (['portfolio', 'musings', 'professional', 'personal'].includes(lp)) {
+            setViewMode(lp === 'professional' || lp === 'portfolio' ? 'portfolio' : 'musings');
             setSelectedLanguage('All');
           } else {
-            const match = actualCategories.find(c => c.name.toLowerCase() === paramCategory.toLowerCase());
-            if (match) {
-              setSelectedLanguage(match.name);
-            } else if (paramCategory.toLowerCase() === 'all') {
-              setSelectedLanguage('All');
-            }
+            const match = actualCategories.find(c => c.name.toLowerCase() === lp);
+            if (match) setSelectedLanguage(match.name);
+            else if (lp === 'all') setSelectedLanguage('All');
           }
         }
 
         const postRes = await fetch(`${BASE_URL}/posts?_embed&per_page=100&_=${Date.now()}`);
         const postsData = await postRes.json();
-
         const mapped: Article[] = postsData.map((post: any) => {
           const terms = post._embedded?.['wp:term']?.[0] || [];
           let catName = terms.length > 0 ? terms[0].name : 'STORY';
           if (catName.toLowerCase() === 'english') catName = 'English';
           if (catName.toLowerCase() === 'odia') catName = 'ଓଡ଼ିଆ';
-
           return {
             id: post.id.toString(),
             title: stripHtml(post.title.rendered),
@@ -138,7 +221,6 @@ const AllArticlesPage: React.FC = () => {
             imageUrl: post._embedded?.['wp:featuredmedia']?.[0]?.source_url || `https://picsum.photos/800/600?random=${post.id}`,
           };
         });
-
         setArticles(mapped);
       } catch (err) {
         console.error("Archive fetch error:", err);
@@ -146,109 +228,66 @@ const AllArticlesPage: React.FC = () => {
         setIsLoading(false);
       }
     };
-
     fetchAllData();
   }, [searchParams, routeCategory]);
-
-  // Filter books for portfolio
-  const filteredBooks = selectedLanguage === 'All'
-    ? TRUBUDDY_BOOKS
-    : TRUBUDDY_BOOKS.filter(b => b.language === selectedLanguage);
 
   const updateFilter = (mode: 'all' | 'portfolio' | 'musings', lang: string) => {
     setViewMode(mode);
     setSelectedLanguage(lang);
-    if (mode === 'all') {
-      navigate('/my-archive');
-    } else {
-      const path = lang === 'All' ? mode : `${mode}/${lang.toLowerCase()}`;
-      navigate(`/my-archive/${path}`);
-    }
+    if (mode === 'all') navigate('/archive');
+    else navigate(`/archive/${mode}${lang !== 'All' ? `/${lang.toLowerCase()}` : ''}`);
   };
 
   return (
     <div className="bg-white min-h-[80vh]">
+      {/* ── Header ── */}
       <div className="bg-[#f8f7f4] border-b border-stone-100 pt-10 pb-12 relative overflow-hidden">
-        {/* Falling Letters Animation */}
         <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
           {Array.from({ length: 50 }).map((_, i) => {
             const char = CHARACTERS[Math.floor(Math.random() * CHARACTERS.length)];
-            const left = Math.random() * 100;
-            const duration = 3 + Math.random() * 4;
-            const delay = Math.random() * 5;
-            const size = 10 + Math.random() * 14;
-            const opacity = 0.1 + Math.random() * 0.2;
             return (
-              <span
-                key={i}
-                className="absolute text-stone-400 font-serif"
-                style={{ left: `${left}%`, top: -30, fontSize: `${size}px`, opacity, animation: `fall ${duration}s linear ${delay}s infinite` }}
-              >
+              <span key={i} className="absolute text-stone-400 font-serif"
+                style={{ left: `${Math.random() * 100}%`, top: -30, fontSize: `${10 + Math.random() * 14}px`, opacity: 0.1 + Math.random() * 0.2, animation: `fall ${3 + Math.random() * 4}s linear ${Math.random() * 5}s infinite` }}>
                 {char}
               </span>
             );
           })}
         </div>
         <style>{`
-          @keyframes fall {
-            0% { transform: translateY(-20px) rotate(0deg); }
-            100% { transform: translateY(600px) rotate(10deg); }
-          }
-          .animate-fadeIn { animation: fadeIn 0.4s ease-out forwards; }
-          @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
+          @keyframes fall { 0%{transform:translateY(-20px) rotate(0deg);} 100%{transform:translateY(600px) rotate(10deg);} }
+          .animate-fadeIn { animation: fadeIn 0.35s ease-out forwards; }
+          @keyframes fadeIn { from{opacity:0;transform:translateY(6px);} to{opacity:1;transform:translateY(0);} }
         `}</style>
 
-        <div className="max-w-7xl mx-auto px-6 space-y-8">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
             <div className="space-y-3">
               <h1 className="font-serif text-6xl md:text-8xl text-stone-900 leading-none">My Archive.</h1>
               <p className="text-stone-500 text-lg max-w-xl font-light italic">Words and a lot of me.</p>
             </div>
 
-            <div className="flex flex-col gap-6 lg:items-end">
+            <div className="flex flex-col gap-5 lg:items-end">
               {/* Primary Tabs */}
               <div className="flex bg-stone-100 p-1.5 rounded-full border border-stone-200 shadow-inner">
-                <button
-                  onClick={() => updateFilter('all', 'All')}
-                  className={`px-8 py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] transition-all ${viewMode === 'all' ? 'bg-white text-stone-900 shadow-md scale-105' : 'text-stone-400 hover:text-stone-900'}`}
-                >
-                  All Archives
-                </button>
-                <button
-                  onClick={() => updateFilter('portfolio', 'All')}
-                  className={`px-8 py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] transition-all ${viewMode === 'portfolio' ? 'bg-white text-stone-900 shadow-md scale-105' : 'text-stone-400 hover:text-stone-900'}`}
-                >
-                  portfolio
-                </button>
-                <button
-                  onClick={() => updateFilter('musings', 'All')}
-                  className={`px-8 py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] transition-all ${viewMode === 'musings' ? 'bg-white text-stone-900 shadow-md scale-105' : 'text-stone-400 hover:text-stone-900'}`}
-                >
-                  musings
-                </button>
+                {(['all', 'portfolio', 'musings'] as const).map(mode => (
+                  <button key={mode}
+                    onClick={() => updateFilter(mode, 'All')}
+                    className={`px-7 py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.18em] transition-all ${viewMode === mode ? 'bg-white text-stone-900 shadow-md' : 'text-stone-400 hover:text-stone-900'}`}>
+                    {mode === 'all' ? 'All Archives' : mode}
+                  </button>
+                ))}
               </div>
 
               {/* Language sub-filters */}
               {viewMode !== 'all' && (
-                <div className="flex items-center gap-4 animate-fadeIn">
+                <div className="flex items-center gap-3 animate-fadeIn">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Language:</span>
                   <div className="flex gap-2">
-                    <button
-                      onClick={() => setSelectedLanguage('All')}
-                      className={`px-4 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-widest transition-all ${selectedLanguage === 'All' ? 'bg-stone-900 text-white shadow-md' : 'bg-white text-stone-400 border border-stone-200 hover:border-stone-900'}`}
-                    >
-                      All
-                    </button>
-                    {categories.map(cat => (
-                      <button
-                        key={cat.id}
-                        onClick={() => setSelectedLanguage(cat.name)}
-                        className={`px-4 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-widest transition-all ${selectedLanguage === cat.name ? 'bg-stone-900 text-white shadow-md' : 'bg-white text-stone-400 border border-stone-200 hover:border-stone-900'}`}
-                      >
-                        {cat.name}
+                    {['All', ...categories.map(c => c.name)].map(lang => (
+                      <button key={lang}
+                        onClick={() => setSelectedLanguage(lang)}
+                        className={`px-4 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-widest transition-all ${selectedLanguage === lang ? 'bg-stone-900 text-white shadow-md' : 'bg-white text-stone-400 border border-stone-200 hover:border-stone-900'}`}>
+                        {lang}
                       </button>
                     ))}
                   </div>
@@ -259,78 +298,59 @@ const AllArticlesPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-12">
+      {/* ── Content ── */}
+      <div className="max-w-7xl mx-auto px-6 py-12 space-y-16">
         {isLoading ? (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map(i => (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[...Array(8)].map((_, i) => (
               <div key={i} className="animate-pulse space-y-3">
-                <div className="aspect-[3/4] bg-stone-100 rounded-xl"></div>
-                <div className="h-4 bg-stone-100 w-3/4 rounded"></div>
+                <div className="aspect-[3/4] bg-stone-100 rounded-xl" />
+                <div className="h-4 bg-stone-100 w-3/4 rounded" />
               </div>
             ))}
           </div>
         ) : (
           <>
-            {/* ── PORTFOLIO BOOKS ── */}
+            {/* ── PORTFOLIO ── */}
             {(viewMode === 'all' || viewMode === 'portfolio') && (
-              <div className="space-y-8">
+              <section className="space-y-5">
                 {viewMode === 'all' && (
                   <div className="flex items-center gap-4">
                     <h2 className="font-serif text-3xl text-stone-900">Portfolio</h2>
-                    <div className="flex-1 h-px bg-stone-100"></div>
-                    <button onClick={() => updateFilter('portfolio', 'All')} className="text-[9px] font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 transition-colors">
+                    <div className="flex-1 h-px bg-stone-100" />
+                    <button onClick={() => updateFilter('portfolio', 'All')}
+                      className="text-[9px] font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 transition-colors">
                       View all →
                     </button>
                   </div>
                 )}
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                  {filteredBooks.map((book) => (
-                    <a
-                      key={book.slug}
-                      href={book.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group block"
-                    >
-                      <div className="relative overflow-hidden rounded-xl shadow-md group-hover:shadow-xl transition-all duration-500 bg-[#f5f5f0]">
-                        <img
-                          src={book.image}
-                          alt={book.title}
-                          className="w-full h-auto object-contain block transition-transform duration-500 group-hover:scale-[1.03]"
-                        />
-                        {/* Hover overlay */}
-                        <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/50 transition-all duration-300 flex items-center justify-center">
-                          <span className="text-white text-[10px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1.5 bg-white/20 px-3 py-1.5 rounded-full backdrop-blur-sm">
-                            Read <ExternalLink className="w-3 h-3" />
-                          </span>
-                        </div>
-                      </div>
-                      <div className="mt-3 space-y-0.5 px-0.5">
-                        <p className="text-xs font-semibold text-stone-700 leading-snug line-clamp-2 group-hover:text-stone-900 transition-colors">
-                          {book.title}
-                        </p>
-                        <p className="text-[9px] uppercase tracking-widest text-stone-400 font-bold">TruBuddy</p>
-                      </div>
-                    </a>
-                  ))}
-                </div>
-              </div>
+                {/* Category blocks — add more PORTFOLIO_CATEGORIES entries for future categories */}
+                {PORTFOLIO_CATEGORIES.map(cat => (
+                  <PortfolioCategoryBlock
+                    key={cat.id}
+                    category={cat}
+                    language={selectedLanguage}
+                    defaultOpen={true}
+                  />
+                ))}
+              </section>
             )}
 
             {/* ── MUSINGS ── */}
             {(viewMode === 'all' || viewMode === 'musings') && (
-              <div className={`space-y-8 ${viewMode === 'all' ? 'mt-16 pt-16 border-t border-stone-100' : ''}`}>
+              <section className="space-y-5">
                 {viewMode === 'all' && (
                   <div className="flex items-center gap-4">
                     <h2 className="font-serif text-3xl text-stone-900">Musings</h2>
-                    <div className="flex-1 h-px bg-stone-100"></div>
-                    <button onClick={() => updateFilter('musings', 'All')} className="text-[9px] font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 transition-colors">
+                    <div className="flex-1 h-px bg-stone-100" />
+                    <button onClick={() => updateFilter('musings', 'All')}
+                      className="text-[9px] font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 transition-colors">
                       View all →
                     </button>
                   </div>
                 )}
                 <FloatingNotes category={selectedLanguage} />
-              </div>
+              </section>
             )}
           </>
         )}
