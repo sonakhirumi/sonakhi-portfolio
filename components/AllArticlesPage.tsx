@@ -397,7 +397,7 @@ const AllArticlesPage: React.FC = () => {
                 ))}
                 {/* Show Under Construction for languages that have no portfolio content yet */}
                 {selectedLanguage !== 'All' && selectedLanguage !== 'English' && (
-                  <UnderConstruction message={`${selectedLanguage} portfolio content is being put together. Check back soon.`} />
+                  <UnderConstruction message={`${selectedLanguage} portfolio content is being curated. It'll be here when ready.`} />
                 )}
               </section>
             )}
