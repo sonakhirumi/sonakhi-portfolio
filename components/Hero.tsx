@@ -98,19 +98,6 @@ const Hero: React.FC = () => {
               </span>
               <div className="absolute inset-0 bg-stone-800 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
             </Link>
-
-            <div className="flex items-center space-x-3 text-stone-400 sm:self-center">
-              <div className="p-2 border border-stone-200 rounded-full transition-colors">
-                <Languages className="w-4 h-4" />
-              </div>
-              <div className="text-[10px] font-bold uppercase tracking-widest flex items-center gap-2">
-                <Link to="/my-archive/english" className="hover:text-stone-900 transition-colors p-2">ENG</Link>
-                <span>•</span>
-                <Link to="/my-archive/hindi" className="hover:text-stone-900 transition-colors p-2">HIN</Link>
-                <span>•</span>
-                <Link to="/my-archive/odia" className="hover:text-stone-900 transition-colors p-2">ODI</Link>
-              </div>
-            </div>
           </div>
         </div>
 
