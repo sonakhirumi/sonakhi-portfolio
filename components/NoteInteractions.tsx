@@ -58,6 +58,15 @@ export const NoteInteractions: React.FC<NoteInteractionsProps> = ({ noteId, cont
     const [comments, setComments] = useState<CommentType[]>([]);
     const [isCommentsOpen, setIsCommentsOpen] = useState(false);
 
+    // Reset Likes for Note #1 if it's the "crippled by love" local note
+    useEffect(() => {
+        if (noteId === '1') {
+            localStorage.setItem(`likes_note_1`, '0');
+            localStorage.setItem(`user_liked_1`, 'false');
+            setLikes(0);
+        }
+    }, [noteId]);
+
     // Storage keys
     const likesKey = `likes_note_${noteId}`;
     const commentsKey = `comments_note_${noteId}`;
