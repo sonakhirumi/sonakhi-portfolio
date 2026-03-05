@@ -16,13 +16,13 @@ const CHARACTERS = [
 ];
 
 const AllArticlesPage: React.FC = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const { category: routeCategory } = useParams();
   const navigate = useNavigate();
 
   const [articles, setArticles] = useState<Article[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [viewMode, setViewMode] = useState<'all' | 'professional' | 'personal'>('all');
+  const [viewMode, setViewMode] = useState<'all' | 'portfolio' | 'musings'>('all');
   const [selectedLanguage, setSelectedLanguage] = useState<string>('All');
   const [categories, setCategories] = useState<{ id: number, name: string }[]>([]);
 
@@ -45,7 +45,7 @@ const AllArticlesPage: React.FC = () => {
       try {
         setIsLoading(true);
 
-        // Fetch categories first to help resolve casing
+        // Fetch categories first
         const catRes = await fetch(`${BASE_URL}/categories?_=${Date.now()}`);
         const catsData = await catRes.json();
         let actualCategories = [];
@@ -63,21 +63,11 @@ const AllArticlesPage: React.FC = () => {
             .sort((a: any, b: any) => {
               const nameA = a.name.toLowerCase();
               const nameB = b.name.toLowerCase();
-
-              // Helper to check for Devanagari script
               const isDevanagari = (s: string) => /[\u0900-\u097F]/.test(s);
-
-              // 1. English first
               if (nameA === 'english' && nameB !== 'english') return -1;
               if (nameA !== 'english' && nameB === 'english') return 1;
-
-              // 2. Hindi (Devanagari) second
               if (isDevanagari(nameA) && !isDevanagari(nameB)) return -1;
               if (!isDevanagari(nameA) && isDevanagari(nameB)) return 1;
-
-              // 3. Odia third
-              if (nameA === 'ଓଡ଼ିଆ' && nameB !== 'ଓଡ଼ିଆ') return 1; // Actually logic below handles remaining order if needed, but let's stick to simple priority
-
               return 0;
             });
 
@@ -85,12 +75,12 @@ const AllArticlesPage: React.FC = () => {
           actualCategories = processedCats;
         }
 
-        let initialCategory = 'All';
         const paramCategory = routeCategory || searchParams.get('category');
         if (paramCategory) {
-          // Check if it's a view mode first
-          if (paramCategory.toLowerCase() === 'professional' || paramCategory.toLowerCase() === 'personal') {
-            setViewMode(paramCategory.toLowerCase() as any);
+          const lowerParam = paramCategory.toLowerCase();
+          if (lowerParam === 'portfolio' || lowerParam === 'musings' || lowerParam === 'professional' || lowerParam === 'personal') {
+            const mappedMode: 'portfolio' | 'musings' = (lowerParam === 'professional' || lowerParam === 'portfolio') ? 'portfolio' : 'musings';
+            setViewMode(mappedMode);
             setSelectedLanguage('All');
           } else {
             const match = actualCategories.find(c => c.name.toLowerCase() === paramCategory.toLowerCase());
@@ -108,8 +98,6 @@ const AllArticlesPage: React.FC = () => {
         const mapped: Article[] = postsData.map((post: any) => {
           const terms = post._embedded?.['wp:term']?.[0] || [];
           let catName = terms.length > 0 ? terms[0].name : 'STORY';
-
-          // Normalize category name for filtering
           if (catName.toLowerCase() === 'english') catName = 'English';
           if (catName.toLowerCase() === 'odia') catName = 'ଓଡ଼ିଆ';
 
@@ -132,7 +120,6 @@ const AllArticlesPage: React.FC = () => {
       }
     };
 
-
     fetchAllData();
   }, [searchParams, routeCategory]);
 
@@ -140,16 +127,13 @@ const AllArticlesPage: React.FC = () => {
     ? articles
     : articles.filter(a => a.category === selectedLanguage);
 
-  const hasNotes = true; // Always assume notes exist to avoid under construction flicker during fetch
-
-  const updateFilter = (mode: 'all' | 'professional' | 'personal', lang: string) => {
+  const updateFilter = (mode: 'all' | 'portfolio' | 'musings', lang: string) => {
     setViewMode(mode);
     setSelectedLanguage(lang);
-
-    if (mode === 'all' && lang === 'All') {
+    if (mode === 'all') {
       navigate('/my-archive');
     } else {
-      const path = mode === 'all' ? lang.toLowerCase() : `${mode}/${lang.toLowerCase()}`;
+      const path = lang === 'All' ? mode : `${mode}/${lang.toLowerCase()}`;
       navigate(`/my-archive/${path}`);
     }
   };
@@ -162,11 +146,10 @@ const AllArticlesPage: React.FC = () => {
           {Array.from({ length: 50 }).map((_, i) => {
             const char = CHARACTERS[Math.floor(Math.random() * CHARACTERS.length)];
             const left = Math.random() * 100;
-            const duration = 3 + Math.random() * 4; // 3-7s duration
+            const duration = 3 + Math.random() * 4;
             const delay = Math.random() * 5;
-            const size = 10 + Math.random() * 14; // 10-24px
-            const opacity = 0.1 + Math.random() * 0.2; // 0.1-0.3 opacity (subtle)
-
+            const size = 10 + Math.random() * 14;
+            const opacity = 0.1 + Math.random() * 0.2;
             return (
               <span
                 key={i}
@@ -189,11 +172,15 @@ const AllArticlesPage: React.FC = () => {
             0% { transform: translateY(-20px) rotate(0deg); }
             100% { transform: translateY(600px) rotate(10deg); }
           }
+          .animate-fadeIn { animation: fadeIn 0.4s ease-out forwards; }
+          @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
         `}</style>
 
         <div className="max-w-7xl mx-auto px-6 space-y-8">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-            {/* Left: Title */}
             <div className="space-y-3">
               <h1 className="font-serif text-6xl md:text-8xl text-stone-900 leading-none">My Archive.</h1>
               <p className="text-stone-500 text-lg max-w-xl font-light italic">
@@ -201,55 +188,65 @@ const AllArticlesPage: React.FC = () => {
               </p>
             </div>
 
-            {/* Right: Filters grouped by type */}
-            <div className="flex flex-wrap gap-6 lg:justify-end items-center">
-              <button
-                onClick={() => updateFilter('all', 'All')}
-                className={`px-6 py-2 rounded-full text-[9px] font-black uppercase tracking-widest transition-all shrink-0 ${viewMode === 'all' && selectedLanguage === 'All'
-                  ? 'bg-stone-900 text-white shadow-lg'
-                  : 'bg-white text-stone-400 hover:text-stone-900 border border-stone-200'
-                  }`}
-              >
-                All Archives
-              </button>
-
-              <div className="h-8 w-px bg-stone-200 hidden lg:block"></div>
-
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Professional Work:</span>
-                <div className="flex flex-wrap gap-2">
-                  {categories.map(cat => (
-                    <button
-                      key={cat.id}
-                      onClick={() => updateFilter('professional', cat.name)}
-                      className={`px-4 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-widest transition-all ${viewMode === 'professional' && selectedLanguage === cat.name
-                        ? 'bg-red-500 text-white shadow-md'
-                        : 'bg-white text-stone-500 hover:border-red-200 border border-stone-200'
-                        }`}
-                    >
-                      {cat.name}
-                    </button>
-                  ))}
-                </div>
+            <div className="flex flex-col gap-6 lg:items-end">
+              <div className="flex bg-stone-100 p-1.5 rounded-full border border-stone-200 shadow-inner">
+                <button
+                  onClick={() => updateFilter('all', 'All')}
+                  className={`px-8 py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] transition-all ${viewMode === 'all'
+                    ? 'bg-white text-stone-900 shadow-md scale-105'
+                    : 'text-stone-400 hover:text-stone-900'
+                    }`}
+                >
+                  All Archives
+                </button>
+                <button
+                  onClick={() => updateFilter('portfolio', 'All')}
+                  className={`px-8 py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] transition-all ${viewMode === 'portfolio'
+                    ? 'bg-white text-stone-900 shadow-md scale-105'
+                    : 'text-stone-400 hover:text-stone-900'
+                    }`}
+                >
+                  portfolio
+                </button>
+                <button
+                  onClick={() => updateFilter('musings', 'All')}
+                  className={`px-8 py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] transition-all ${viewMode === 'musings'
+                    ? 'bg-white text-stone-900 shadow-md scale-105'
+                    : 'text-stone-400 hover:text-stone-900'
+                    }`}
+                >
+                  musings
+                </button>
               </div>
 
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Personal Musings:</span>
-                <div className="flex flex-wrap gap-2">
-                  {categories.map(cat => (
+              {viewMode !== 'all' && (
+                <div className="flex items-center gap-4 animate-fadeIn">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Select Language:</span>
+                  <div className="flex gap-2">
                     <button
-                      key={`musing-${cat.id}`}
-                      onClick={() => updateFilter('personal', cat.name)}
-                      className={`px-4 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-widest transition-all ${viewMode === 'personal' && selectedLanguage === cat.name
+                      onClick={() => setSelectedLanguage('All')}
+                      className={`px-4 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-widest transition-all ${selectedLanguage === 'All'
                         ? 'bg-stone-900 text-white shadow-md'
-                        : 'bg-white text-stone-500 hover:border-stone-400 border border-stone-200'
+                        : 'bg-white text-stone-400 border border-stone-200 hover:border-stone-900'
                         }`}
                     >
-                      {cat.name}
+                      All
                     </button>
-                  ))}
+                    {categories.map(cat => (
+                      <button
+                        key={cat.id}
+                        onClick={() => setSelectedLanguage(cat.name)}
+                        className={`px-4 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-widest transition-all ${selectedLanguage === cat.name
+                          ? 'bg-stone-900 text-white shadow-md'
+                          : 'bg-white text-stone-400 border border-stone-200 hover:border-stone-900'
+                          }`}
+                      >
+                        {cat.name}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
@@ -262,13 +259,12 @@ const AllArticlesPage: React.FC = () => {
               <div key={i} className="animate-pulse space-y-6">
                 <div className="aspect-[16/10] bg-stone-100 rounded-2xl"></div>
                 <div className="h-6 bg-stone-100 w-3/4 rounded"></div>
-                <div className="h-16 bg-stone-100 w-full rounded"></div>
               </div>
             ))}
           </div>
         ) : (
           <>
-            {(viewMode === 'all' || viewMode === 'professional') && (
+            {(viewMode === 'all' || viewMode === 'portfolio') && (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 transition-all duration-500">
                 {filteredArticles.length > 0 ? (
                   filteredArticles.map((article) => (
@@ -289,49 +285,42 @@ const AllArticlesPage: React.FC = () => {
                           </span>
                         </div>
                       </div>
-
                       <div className="space-y-3">
                         <div className="flex items-center space-x-4 text-[9px] font-bold tracking-widest text-stone-400 uppercase">
                           <span className="flex items-center"><Calendar className="w-3 h-3 mr-1" /> {article.date}</span>
                           <span className="flex items-center"><Clock className="w-3 h-3 mr-1" /> {article.readTime}</span>
                         </div>
-
                         <h4 className="font-serif text-2xl text-stone-900 group-hover:text-stone-600 transition-colors">
                           {article.title}
                         </h4>
-
                         <p className="text-stone-500 text-sm leading-relaxed line-clamp-2">
                           {article.excerpt}
                         </p>
                       </div>
                     </Link>
                   ))
-                ) : viewMode === 'professional' ? (
-                  <div className="col-span-full flex flex-col items-center justify-center py-8 gap-8">
+                ) : viewMode === 'portfolio' ? (
+                  <div className="col-span-full flex flex-col items-center justify-center py-16 gap-8">
                     <div className="p-8 bg-stone-100 rounded-full animate-bounce-slow">
                       <Hammer className="w-12 h-12 text-stone-400" />
                     </div>
                     <div className="text-center space-y-4 max-w-lg">
-                      <h2 className="font-serif text-4xl md:text-5xl text-stone-900 leading-tight">Under Construction.</h2>
-                      <p className="font-serif italic text-stone-500 text-lg">Check back soon.</p>
+                      <h2 className="font-serif text-4xl text-stone-900">Under Construction.</h2>
                     </div>
                   </div>
                 ) : null}
               </div>
             )}
 
-            {(viewMode === 'all' || viewMode === 'personal') && (
+            {(viewMode === 'all' || viewMode === 'musings') && (
               <div className={`mt-16 ${viewMode === 'all' ? 'border-t border-stone-200 pt-8' : ''}`}>
-                {viewMode === 'personal' && (
-                  <h3 className="font-serif text-3xl text-stone-900 mb-8 border-b border-stone-100 pb-4">Personal Musings</h3>
-                )}
                 <FloatingNotes category={selectedLanguage} />
               </div>
             )}
           </>
         )}
       </div>
-    </div >
+    </div>
   );
 };
 
