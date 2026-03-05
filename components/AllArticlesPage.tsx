@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams, useNavigate, useParams } from 'react-router-dom';
 import { ArrowLeft, Calendar, ArrowRight, Clock, Hammer } from 'lucide-react';
 import { Article } from '../types';
+import FloatingNotes, { notesData } from './FloatingNotes';
 
 const BASE_URL = 'https://live-sonakhi-rumi.pantheonsite.io/wp-json/wp/v2';
 
@@ -135,6 +136,10 @@ const AllArticlesPage: React.FC = () => {
     ? articles
     : articles.filter(a => a.category === selectedCategory);
 
+  const hasNotes = selectedCategory === 'All'
+    ? notesData.length > 0
+    : notesData.some(n => n.category.toLowerCase() === selectedCategory.toLowerCase());
+
   const updateCategory = (catName: string) => {
     setSelectedCategory(catName);
     if (catName === 'All') {
@@ -231,56 +236,61 @@ const AllArticlesPage: React.FC = () => {
             ))}
           </div>
         ) : (
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
-            {filteredArticles.length > 0 ? (
-              filteredArticles.map((article) => (
-                <Link
-                  key={article.id}
-                  to={`/article/${article.id}`}
-                  className="group block space-y-4"
-                >
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-stone-100 shadow-md">
-                    <img
-                      src={article.imageUrl}
-                      alt={article.title}
-                      className="w-full h-full object-cover transition-transform group-hover:scale-105"
-                    />
-                    <div className="absolute top-3 left-3">
-                      <span className="px-3 py-1 bg-white/90 text-[8px] font-black uppercase tracking-widest text-stone-900 rounded-full">
-                        {article.category}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="space-y-3">
-                    <div className="flex items-center space-x-4 text-[9px] font-bold tracking-widest text-stone-400 uppercase">
-                      <span className="flex items-center"><Calendar className="w-3 h-3 mr-1" /> {article.date}</span>
-                      <span className="flex items-center"><Clock className="w-3 h-3 mr-1" /> {article.readTime}</span>
+          <>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+              {filteredArticles.length > 0 ? (
+                filteredArticles.map((article) => (
+                  <Link
+                    key={article.id}
+                    to={`/article/${article.id}`}
+                    className="group block space-y-4"
+                  >
+                    <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-stone-100 shadow-md">
+                      <img
+                        src={article.imageUrl}
+                        alt={article.title}
+                        className="w-full h-full object-cover transition-transform group-hover:scale-105"
+                      />
+                      <div className="absolute top-3 left-3">
+                        <span className="px-3 py-1 bg-white/90 text-[8px] font-black uppercase tracking-widest text-stone-900 rounded-full">
+                          {article.category}
+                        </span>
+                      </div>
                     </div>
 
-                    <h4 className="font-serif text-2xl text-stone-900 group-hover:text-stone-600 transition-colors">
-                      {article.title}
-                    </h4>
+                    <div className="space-y-3">
+                      <div className="flex items-center space-x-4 text-[9px] font-bold tracking-widest text-stone-400 uppercase">
+                        <span className="flex items-center"><Calendar className="w-3 h-3 mr-1" /> {article.date}</span>
+                        <span className="flex items-center"><Clock className="w-3 h-3 mr-1" /> {article.readTime}</span>
+                      </div>
 
-                    <p className="text-stone-500 text-sm leading-relaxed line-clamp-2">
-                      {article.excerpt}
-                    </p>
+                      <h4 className="font-serif text-2xl text-stone-900 group-hover:text-stone-600 transition-colors">
+                        {article.title}
+                      </h4>
+
+                      <p className="text-stone-500 text-sm leading-relaxed line-clamp-2">
+                        {article.excerpt}
+                      </p>
+                    </div>
+                  </Link>
+                ))
+              ) : !hasNotes ? (
+                <div className="col-span-full flex flex-col items-center justify-center py-8 gap-8">
+                  <div className="p-8 bg-stone-100 rounded-full animate-bounce-slow">
+                    <Hammer className="w-12 h-12 text-stone-400" />
                   </div>
-                </Link>
-              ))
-            ) : (
-              <div className="col-span-full flex flex-col items-center justify-center py-8 gap-8">
-                <div className="p-8 bg-stone-100 rounded-full animate-bounce-slow">
-                  <Hammer className="w-12 h-12 text-stone-400" />
+                  <div className="text-center space-y-4 max-w-lg">
+                    <h2 className="font-serif text-4xl md:text-5xl text-stone-900 leading-tight">Under Construction.</h2>
+                    <p className="font-serif italic text-stone-500 text-lg">Check back soon.</p>
+                  </div>
                 </div>
-                <div className="text-center space-y-4 max-w-lg">
-                  <h2 className="font-serif text-4xl md:text-5xl text-stone-900 leading-tight">Under Construction.</h2>
-                  <p className="font-serif italic text-stone-500 text-lg">Check back soon.</p>
-                </div>
-              </div>
-            )}
-          </div>
+              ) : null}
+            </div>
+
+            <div className="mt-16 border-t border-stone-200 pt-8">
+              <FloatingNotes category={selectedCategory} />
+            </div>
+          </>
         )}
       </div>
     </div >

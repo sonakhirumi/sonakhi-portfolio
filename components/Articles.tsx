@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Clock, Calendar, ChevronRight } from 'lucide-react';
 import { Article } from '../types';
+import FloatingNotes from './FloatingNotes';
 
 const BASE_URL = 'https://live-sonakhi-rumi.pantheonsite.io/wp-json/wp/v2';
 
@@ -161,6 +162,8 @@ const Articles: React.FC = () => {
                 </Link>
               ))}
             </div>
+
+            <FloatingNotes category={cat.name} />
           </div>
         );
       })}
