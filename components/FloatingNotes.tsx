@@ -88,7 +88,7 @@ const NoteBubble: React.FC<{ note: NoteSnippet; index: number }> = ({ note, inde
       ${note.size === 'medium' ? 'md:w-[380px] md:h-auto' : ''}
       ${note.size === 'large' ? 'md:w-[460px] md:h-auto' : ''}
       w-[85vw] sm:w-[60vw] shrink-0 md:shrink-0
-      snap-center md:snap-none aspect-square md:aspect-auto
+      snap-center md:snap-none ${isExpanded ? 'h-auto' : 'aspect-square'} md:aspect-auto
       ${floatClass}
     `}>
             <div className="space-y-4 flex-1 flex flex-col min-h-0">
@@ -97,7 +97,7 @@ const NoteBubble: React.FC<{ note: NoteSnippet; index: number }> = ({ note, inde
                     <span className="hidden sm:inline">&middot;</span>
                     <span>{note.time}</span>
                 </div>
-                <div className="flex-1 overflow-y-auto custom-thin-scroll pr-2 min-h-0 relative">
+                <div className={`flex-1 ${isExpanded ? '' : 'overflow-y-auto'} custom-thin-scroll pr-2 min-h-0 relative`}>
                     <p className={`font-serif text-stone-700 leading-relaxed ${note.size === 'small' ? 'text-base' : note.size === 'medium' ? 'text-lg' : 'text-xl'} whitespace-pre-wrap`}>
                         <span className="md:hidden">{isExpanded ? note.content : displayContent}</span>
                         <span className="hidden md:inline">{note.content}</span>

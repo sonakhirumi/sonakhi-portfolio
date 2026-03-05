@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Heart, MessageCircle, Share2, X, Smile, Reply } from 'lucide-react';
-import EmojiPicker from 'emoji-picker-react';
+import { Heart, MessageCircle, Share2, X, Reply } from 'lucide-react';
 
 export interface CommentType {
     id: string;
@@ -26,9 +25,8 @@ const extractNameFromEmail = (email: string) => {
 };
 
 export const NoteInteractions: React.FC<NoteInteractionsProps> = ({ noteId, content }) => {
-    const [likes, setLikes] = useState<string[]>([]);
+    const [likes, setLikes] = useState<number>(0);
     const [comments, setComments] = useState<CommentType[]>([]);
-    const [isEmojiPickerOpen, setIsEmojiPickerOpen] = useState(false);
     const [isCommentsOpen, setIsCommentsOpen] = useState(false);
 
     // Storage keys
@@ -36,47 +34,40 @@ export const NoteInteractions: React.FC<NoteInteractionsProps> = ({ noteId, cont
     const commentsKey = `comments_note_${noteId}`;
 
     useEffect(() => {
-        // Load likes and comments from local storage
         const savedLikes = localStorage.getItem(likesKey);
-        if (savedLikes) setLikes(JSON.parse(savedLikes));
+        if (savedLikes) setLikes(parseInt(savedLikes));
 
         const savedComments = localStorage.getItem(commentsKey);
         if (savedComments) setComments(JSON.parse(savedComments));
     }, [noteId]);
-
-    const saveLikes = (newLikes: string[]) => {
-        setLikes(newLikes);
-        localStorage.setItem(likesKey, JSON.stringify(newLikes));
-    };
 
     const saveComments = (newComments: CommentType[]) => {
         setComments(newComments);
         localStorage.setItem(commentsKey, JSON.stringify(newComments));
     };
 
-    const handleEmojiClick = (emojiObj: any) => {
-        saveLikes([...likes, emojiObj.emoji]);
-        setIsEmojiPickerOpen(false);
+    const toggleLike = () => {
+        const newLikes = (parseInt(localStorage.getItem(likesKey) || '0')) + 1;
+        setLikes(newLikes);
+        localStorage.setItem(likesKey, newLikes.toString());
     };
 
     const handleShare = async () => {
         const url = `${window.location.origin}${window.location.pathname}#note-${noteId}`;
-        const desc = `"${content.substring(0, 100)}..."\n\nRead more at ${url}`;
+        const desc = `Musing by Sonakhi Rumi: "${content.substring(0, 50)}..."\nRead more at: ${url}`;
 
         if (navigator.share) {
             try {
                 await navigator.share({
                     title: 'A musing by Sonakhi Rumi',
-                    text: desc,
-                    url: url
+                    text: desc
                 });
             } catch (err) {
                 console.log('Share error:', err);
             }
         } else {
-            // Fallback: Copy to clipboard
             navigator.clipboard.writeText(desc);
-            alert('Link and preview copied to clipboard!');
+            alert('Preview copied to clipboard!');
         }
     };
 
@@ -84,21 +75,13 @@ export const NoteInteractions: React.FC<NoteInteractionsProps> = ({ noteId, cont
         <>
             <div className="flex items-center gap-4 mt-4 pt-4 border-t border-stone-100 text-stone-400 shrink-0 relative z-10">
                 {/* Like */}
-                <div className="relative">
-                    <button
-                        onClick={() => setIsEmojiPickerOpen(!isEmojiPickerOpen)}
-                        className="flex items-center gap-1.5 hover:text-stone-900 transition-colors"
-                    >
-                        <Smile className="w-4 h-4" />
-                        <span className="text-xs font-medium">{likes.length > 0 ? likes.length : 'React'}</span>
-                    </button>
-
-                    {isEmojiPickerOpen && (
-                        <div className="absolute bottom-full left-[-20px] mb-2 shadow-2xl z-50 rounded-xl overflow-hidden">
-                            <EmojiPicker onEmojiClick={handleEmojiClick} lazyLoadEmojis={true} height={350} width={300} />
-                        </div>
-                    )}
-                </div>
+                <button
+                    onClick={toggleLike}
+                    className="flex items-center gap-1.5 hover:text-red-500 transition-colors"
+                >
+                    <Heart className={`w-4 h-4 ${likes > 0 ? 'fill-red-500 text-red-500' : ''}`} />
+                    <span className="text-xs font-medium">{likes > 0 ? likes : 'Like'}</span>
+                </button>
 
                 {/* Comment */}
                 <button
@@ -239,13 +222,6 @@ const CommentsModal = ({ comments, onSave, onClose }: { comments: CommentType[],
                                 required
                                 value={email}
                                 onChange={e => setEmail(e.target.value)}
-                                className="w-full text-sm px-4 py-2 bg-white border border-stone-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-stone-400"
-                            />
-                            <input
-                                type="text"
-                                placeholder="Name (Optional)"
-                                value={name}
-                                onChange={e => setName(e.target.value)}
                                 className="w-full text-sm px-4 py-2 bg-white border border-stone-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-stone-400"
                             />
                         </div>
