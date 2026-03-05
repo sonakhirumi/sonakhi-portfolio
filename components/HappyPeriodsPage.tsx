@@ -133,20 +133,54 @@ const HappyPeriodsPage: React.FC = () => {
                     .text-stroke-red { -webkit-text-stroke: 1.5px #880808; color: white; }
                     @keyframes slide-up { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
                     .animate-slide-up { animation: slide-up 1s cubic-bezier(0.2, 1, 0.2, 1) forwards; }
+                    @keyframes float-icon {
+                        0%, 100% { transform: translateY(0) rotate(var(--rot)); }
+                        50% { transform: translateY(-15px) rotate(calc(var(--rot) + 5deg)); }
+                    }
+                    .animate-float-icon {
+                        animation: float-icon 6s ease-in-out infinite;
+                    }
                 `}</style>
 
                 {/* Main Hero Content */}
-                <section className="w-full relative flex flex-col items-center justify-center pt-24 pb-20 md:pt-40 md:pb-32 px-6 text-center min-h-[70vh]">
-                    <div
-                        className="absolute inset-0 z-0 pointer-events-none"
-                        style={{
-                            backgroundImage: 'url(https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/shutterstock_1374453893.webp)',
-                            backgroundSize: 'cover',
-                            backgroundPosition: 'center',
-                            backgroundRepeat: 'no-repeat',
-                            opacity: 0.12
-                        }}
-                    />
+                <section className="w-full relative flex flex-col items-center justify-center pt-24 pb-20 md:pt-40 md:pb-32 px-6 text-center min-h-[70vh] overflow-hidden">
+
+                    {/* Scattered Product Icons Backdrop */}
+                    <div className="absolute inset-0 z-0 pointer-events-none">
+                        {[
+                            { size: 160, top: '5%', left: '5%', bgX: '10%', bgY: '10%', rotate: -15, delay: '0s' },
+                            { size: 180, top: '10%', right: '5%', bgX: '85%', bgY: '15%', rotate: 12, delay: '1s' },
+                            { size: 150, bottom: '15%', left: '8%', bgX: '15%', bgY: '85%', rotate: 20, delay: '2s' },
+                            { size: 190, bottom: '5%', right: '8%', bgX: '85%', bgY: '85%', rotate: -10, delay: '0.5s' },
+                            { size: 170, top: '45%', left: '-2%', bgX: '50%', bgY: '50%', rotate: 5, delay: '1.5s' },
+                            { size: 140, bottom: '40%', right: '2%', bgX: '30%', bgY: '60%', rotate: -25, delay: '2.5s' },
+                            { size: 120, top: '5%', right: '35%', bgX: '60%', bgY: '20%', rotate: 30, delay: '0.8s' },
+                            { size: 150, bottom: '5%', left: '30%', bgX: '70%', bgY: '80%', rotate: -5, delay: '1.2s' },
+                            { size: 110, top: '55%', right: '15%', bgX: '40%', bgY: '30%', rotate: 15, delay: '2.2s' },
+                        ].map((icon, idx) => (
+                            <div
+                                key={idx}
+                                className="absolute animate-float-icon mix-blend-multiply"
+                                style={{
+                                    width: icon.size,
+                                    height: icon.size,
+                                    top: icon.top,
+                                    left: icon.left,
+                                    right: icon.right,
+                                    bottom: icon.bottom,
+                                    backgroundImage: 'url(https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/shutterstock_1374453893.webp)',
+                                    backgroundSize: '1000px',
+                                    backgroundPosition: `${icon.bgX} ${icon.bgY}`,
+                                    backgroundRepeat: 'no-repeat',
+                                    '--rot': `${icon.rotate}deg`,
+                                    animationDelay: icon.delay,
+                                    opacity: 0.25,
+                                    WebkitMaskImage: 'radial-gradient(circle, black 35%, transparent 65%)',
+                                    maskImage: 'radial-gradient(circle, black 35%, transparent 65%)',
+                                } as React.CSSProperties}
+                            />
+                        ))}
+                    </div>
 
                     <div className="relative z-10 w-full max-w-4xl flex flex-col items-center mx-auto">
                         <div className="inline-flex items-center gap-3 px-3 py-1.5 rounded-full border border-red-100 bg-white/90 shadow-sm mb-6 animate-slide-up max-w-[90vw] backdrop-blur-sm">
