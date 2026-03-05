@@ -305,7 +305,7 @@ const HappyPeriodsPage: React.FC = () => {
 
                             <div className="pt-4">
                                 <a
-                                    href="/contact"
+                                    href="mailto:sonakhirumi@gmail.com"
                                     className="inline-flex items-center justify-center px-10 py-5 bg-[#880808] text-white rounded-full transition-all hover:bg-stone-900 shadow-xl"
                                 >
                                     <span className="font-bold uppercase tracking-widest text-[10px]">SEND A MESSAGE</span>
