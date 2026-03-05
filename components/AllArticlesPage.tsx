@@ -94,7 +94,7 @@ const BookCard: React.FC<{ book: BookItem }> = ({ book }) => (
 const DISCLAIMER_SHORT = `The books and visual materials displayed here are copyrighted works belonging to TruBuddy, a brand of Menstrupedia Technologies Private Limited. Included for portfolio purposes only.`;
 const DISCLAIMER_FULL = `The books and visual materials displayed in this section are copyrighted works belonging to TruBuddy, a brand of Menstrupedia Technologies Private Limited.
 
-These materials are included here solely for portfolio and presentation purposes to highlight my contributions as part of the creative team. I currently work with the organization as a Senior Content Developer, and have been involved in the development of these books as part of my professional responsibilities. My contributions appear in the credit sections under my pen name Sonakhi Rumi.
+These materials are included here solely for portfolio and presentation purposes to highlight my contributions as part of the creative team. I currently work with the organisation as a Senior Content Developer, and have been involved in the development of these books as part of my professional responsibilities. My contributions appear in the credit sections under my pen name Sonakhi Rumi.
 
 All intellectual property rights, including copyrights and distribution rights, remain with TruBuddy / Menstrupedia Technologies Private Limited.
 
