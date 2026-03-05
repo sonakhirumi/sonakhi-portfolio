@@ -141,7 +141,8 @@ export const NoteInteractions: React.FC<NoteInteractionsProps> = ({ noteId, cont
 
     const handleShare = async () => {
         const langCode = content.toLowerCase().includes('odia') ? 'odia' : (content.toLowerCase().includes('hindi') ? 'hindi' : 'eng');
-        const url = `${window.location.origin}${window.location.pathname}#${langCode}-${noteId}`;
+        // Simple link format: domain.com/#eng-1
+        const url = `${window.location.origin}/#${langCode}-${noteId}`;
         const desc = `Musing by Sonakhi Rumi: "${content.substring(0, 50)}..."\nRead more at: ${url}`;
 
         if (navigator.share) {

@@ -56,7 +56,7 @@ export const FloatingNotes: React.FC<{ category: string }> = ({ category }) => {
                 const postRes = await fetch(`${BASE_URL}/posts?categories=${matchedCat.id}&_embed&per_page=20&_=${Date.now()}`);
                 const posts = await postRes.json();
 
-                if (Array.isArray(posts)) {
+                if (Array.isArray(posts) && posts.length > 0) {
                     const wpNotes: NoteSnippet[] = posts.map(post => ({
                         id: post.id.toString(),
                         category: category,
@@ -68,7 +68,8 @@ export const FloatingNotes: React.FC<{ category: string }> = ({ category }) => {
                     }));
                     setNotes(wpNotes);
                 } else {
-                    setNotes([]);
+                    // Fallback to local data if no posts found in WP category
+                    setNotes(notesData.filter(n => category.toLowerCase() === 'all' || n.category.toLowerCase() === category.toLowerCase()));
                 }
             } catch (err) {
                 console.error("Musing fetch error:", err);
@@ -80,6 +81,24 @@ export const FloatingNotes: React.FC<{ category: string }> = ({ category }) => {
 
         fetchNotes();
     }, [category]);
+
+    // Handle scrolling to anchor link (e.g. #eng-123)
+    useEffect(() => {
+        if (!isLoading && notes.length > 0) {
+            const hash = window.location.hash;
+            if (hash) {
+                const targetId = hash.split('-')[1];
+                if (targetId) {
+                    const element = document.getElementById(`musing-${targetId}`);
+                    if (element) {
+                        setTimeout(() => {
+                            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }, 500);
+                    }
+                }
+            }
+        }
+    }, [isLoading, notes]);
 
     if (isLoading) return <div className="py-8 animate-pulse flex gap-6 overflow-x-auto"><div className="w-80 h-80 bg-stone-100 rounded-2xl shrink-0"></div><div className="w-80 h-80 bg-stone-100 rounded-2xl shrink-0"></div></div>;
 
@@ -135,8 +154,18 @@ const NoteBubble: React.FC<{ note: NoteSnippet; index: number }> = ({ note, inde
 
     const floatClass = `animate-custom-float-${index % 3}`;
 
+    // Auto-expand if this is the target of the anchor link
+    useEffect(() => {
+        const hash = window.location.hash;
+        if (hash && hash.includes(`-${note.id}`)) {
+            setIsExpanded(true);
+        }
+    }, [note.id]);
+
     return (
-        <div className={`
+        <div
+            id={`musing-${note.id}`}
+            className={`
       relative bg-white border border-stone-200 shadow-sm rounded-2xl p-6 lg:p-8 flex flex-col justify-between
       transition-all duration-500 hover:shadow-lg hover:-translate-y-2 group
       ${note.size === 'small' ? 'md:w-[300px] md:h-auto' : ''}
@@ -145,6 +174,7 @@ const NoteBubble: React.FC<{ note: NoteSnippet; index: number }> = ({ note, inde
       w-[85vw] sm:w-[60vw] shrink-0 md:shrink-0
       snap-center md:snap-none ${isExpanded ? 'h-auto' : 'aspect-square'} md:aspect-auto
       ${floatClass}
+      ${isExpanded ? 'ring-2 ring-stone-900 ring-offset-4' : ''}
     `}>
             <div className="space-y-4 flex-1 flex flex-col min-h-0">
                 <div className="text-[9px] uppercase font-bold tracking-widest text-stone-400 flex flex-col sm:flex-row sm:items-center sm:gap-2">
