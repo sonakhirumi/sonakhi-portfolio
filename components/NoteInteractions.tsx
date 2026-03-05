@@ -47,13 +47,30 @@ export const NoteInteractions: React.FC<NoteInteractionsProps> = ({ noteId, cont
     };
 
     const toggleLike = () => {
-        const newLikes = (parseInt(localStorage.getItem(likesKey) || '0')) + 1;
+        const currentLikesCount = parseInt(localStorage.getItem(likesKey) || '0');
+        const userLikedKey = `user_liked_${noteId}`;
+        const hasLiked = localStorage.getItem(userLikedKey) === 'true';
+
+        let newLikes;
+        if (hasLiked) {
+            newLikes = Math.max(0, currentLikesCount - 1);
+            localStorage.setItem(userLikedKey, 'false');
+        } else {
+            newLikes = currentLikesCount + 1;
+            localStorage.setItem(userLikedKey, 'true');
+        }
+
         setLikes(newLikes);
         localStorage.setItem(likesKey, newLikes.toString());
     };
 
+    const isLiked = () => {
+        return localStorage.getItem(`user_liked_${noteId}`) === 'true';
+    };
+
     const handleShare = async () => {
-        const url = `${window.location.origin}${window.location.pathname}#note-${noteId}`;
+        const langCode = content.toLowerCase().includes('odia') ? 'odia' : (content.toLowerCase().includes('hindi') ? 'hindi' : 'eng');
+        const url = `${window.location.origin}${window.location.pathname}#${langCode}-${noteId}`;
         const desc = `Musing by Sonakhi Rumi: "${content.substring(0, 50)}..."\nRead more at: ${url}`;
 
         if (navigator.share) {
@@ -77,9 +94,9 @@ export const NoteInteractions: React.FC<NoteInteractionsProps> = ({ noteId, cont
                 {/* Like */}
                 <button
                     onClick={toggleLike}
-                    className="flex items-center gap-1.5 hover:text-red-500 transition-colors"
+                    className={`flex items-center gap-1.5 transition-colors ${isLiked() ? 'text-red-500' : 'hover:text-stone-900'}`}
                 >
-                    <Heart className={`w-4 h-4 ${likes > 0 ? 'fill-red-500 text-red-500' : ''}`} />
+                    <Heart className={`w-4 h-4 ${isLiked() ? 'fill-red-500 text-red-500' : ''}`} />
                     <span className="text-xs font-medium">{likes > 0 ? likes : 'Like'}</span>
                 </button>
 
@@ -107,6 +124,7 @@ export const NoteInteractions: React.FC<NoteInteractionsProps> = ({ noteId, cont
                     comments={comments}
                     onSave={saveComments}
                     onClose={() => setIsCommentsOpen(false)}
+                    currentAuthorEmail={AUTHOR_EMAIL}
                 />
             )}
         </>
@@ -114,28 +132,25 @@ export const NoteInteractions: React.FC<NoteInteractionsProps> = ({ noteId, cont
 };
 
 // Sub-component for Comments Modal to keep the layout clean
-const CommentsModal = ({ comments, onSave, onClose }: { comments: CommentType[], onSave: (c: CommentType[]) => void, onClose: () => void }) => {
-    const [email, setEmail] = useState('');
-    const [name, setName] = useState('');
+const CommentsModal = ({ comments, onSave, onClose, currentAuthorEmail }: { comments: CommentType[], onSave: (c: CommentType[]) => void, onClose: () => void, currentAuthorEmail: string }) => {
+    const [userEmail, setUserEmail] = useState('');
     const [text, setText] = useState('');
+
+    // Check if user is the official author from their email input
+    const isUserAuthor = userEmail.toLowerCase() === currentAuthorEmail;
 
     // If replyTo is null, adding a top level comment. Otherwise, replying to parent ID.
     const [replyTo, setReplyTo] = useState<string | null>(null);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        if (!email || !text.trim()) return;
+        if (!userEmail || !text.trim()) return;
 
-        let finalName = name.trim();
-        if (email.toLowerCase() === AUTHOR_EMAIL) {
-            finalName = AUTHOR_NAME;
-        } else if (!finalName) {
-            finalName = extractNameFromEmail(email);
-        }
+        let finalName = extractNameFromEmail(userEmail);
 
         const newComment: CommentType = {
             id: Date.now().toString(),
-            email: email.trim(),
+            email: userEmail.trim(),
             name: finalName,
             text: text.trim(),
             timestamp: new Date().toLocaleString(),
@@ -154,7 +169,7 @@ const CommentsModal = ({ comments, onSave, onClose }: { comments: CommentType[],
         // Intentionally keeping email/name filled for ease of consecutive replies
     };
 
-    // Recursively find and push the reply to the right parent comment
+    // Recursive helper to add replies
     const updateReplies = (list: CommentType[], targetId: string, reply: CommentType): CommentType[] => {
         return list.map(c => {
             if (c.id === targetId) {
@@ -165,6 +180,16 @@ const CommentsModal = ({ comments, onSave, onClose }: { comments: CommentType[],
             }
             return c;
         });
+    };
+
+    // Recursive helper to delete comments
+    const deleteComment = (list: CommentType[], targetId: string): CommentType[] => {
+        return list
+            .filter(c => c.id !== targetId)
+            .map(c => ({
+                ...c,
+                replies: deleteComment(c.replies, targetId)
+            }));
     };
 
     // Click outside to close helper
@@ -187,7 +212,7 @@ const CommentsModal = ({ comments, onSave, onClose }: { comments: CommentType[],
                 style={{ animation: 'slideIn 0.3s ease-out forwards' }}
             >
                 <div className="flex items-center justify-between px-6 py-4 border-b border-stone-100 bg-stone-50">
-                    <h3 className="font-serif text-xl text-stone-900">Musings & Comments</h3>
+                    <h3 className="font-serif text-xl text-stone-900">Comments</h3>
                     <button onClick={onClose} className="text-stone-400 hover:text-stone-900 p-2 rounded-full hover:bg-stone-200 transition-colors">
                         <X className="w-5 h-5" />
                     </button>
@@ -201,7 +226,13 @@ const CommentsModal = ({ comments, onSave, onClose }: { comments: CommentType[],
                     ) : (
                         <div className="space-y-6">
                             {comments.map((comment) => (
-                                <CommentThread key={comment.id} comment={comment} onReply={(id) => setReplyTo(id)} />
+                                <CommentThread
+                                    key={comment.id}
+                                    comment={comment}
+                                    onReply={(id) => setReplyTo(id)}
+                                    onDelete={(id) => onSave(deleteComment(comments, id))}
+                                    canDelete={isUserAuthor}
+                                />
                             ))}
                         </div>
                     )}
@@ -220,8 +251,8 @@ const CommentsModal = ({ comments, onSave, onClose }: { comments: CommentType[],
                                 type="email"
                                 placeholder="Email *"
                                 required
-                                value={email}
-                                onChange={e => setEmail(e.target.value)}
+                                value={userEmail}
+                                onChange={e => setUserEmail(e.target.value)}
                                 className="w-full text-sm px-4 py-2 bg-white border border-stone-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-stone-400"
                             />
                         </div>
@@ -237,7 +268,7 @@ const CommentsModal = ({ comments, onSave, onClose }: { comments: CommentType[],
                         <div className="flex justify-end">
                             <button
                                 type="submit"
-                                disabled={!text.trim() || !email.trim()}
+                                disabled={!text.trim() || !userEmail.trim()}
                                 className="bg-stone-900 text-white px-5 py-2 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-stone-800 disabled:opacity-50 transition-colors"
                             >
                                 Post
@@ -257,7 +288,13 @@ const CommentsModal = ({ comments, onSave, onClose }: { comments: CommentType[],
 };
 
 // Recursive Component for nested comments
-const CommentThread: React.FC<{ comment: CommentType; onReply: (id: string) => void; isReply?: boolean }> = ({ comment, onReply, isReply = false }) => {
+const CommentThread: React.FC<{
+    comment: CommentType;
+    onReply: (id: string) => void;
+    onDelete: (id: string) => void;
+    canDelete: boolean;
+    isReply?: boolean;
+}> = ({ comment, onReply, onDelete, canDelete, isReply = false }) => {
     const isAuthor = comment.email.toLowerCase() === AUTHOR_EMAIL;
 
     return (
@@ -279,13 +316,21 @@ const CommentThread: React.FC<{ comment: CommentType; onReply: (id: string) => v
                         <span className="text-[10px] text-stone-400 hidden sm:inline">{comment.timestamp}</span>
                     </div>
                     <p className="text-sm text-stone-600 whitespace-pre-wrap">{comment.text}</p>
-                    <div className="pt-1">
+                    <div className="flex items-center gap-3 pt-1">
                         <button
                             onClick={() => onReply(comment.id)}
                             className="text-[10px] uppercase font-bold tracking-widest text-stone-400 hover:text-stone-800 transition-colors"
                         >
                             Reply
                         </button>
+                        {canDelete && (
+                            <button
+                                onClick={() => onDelete(comment.id)}
+                                className="text-[10px] uppercase font-bold tracking-widest text-red-400 hover:text-red-600 transition-colors"
+                            >
+                                Delete
+                            </button>
+                        )}
                     </div>
                 </div>
             </div>
@@ -294,7 +339,14 @@ const CommentThread: React.FC<{ comment: CommentType; onReply: (id: string) => v
             {comment.replies && comment.replies.length > 0 && (
                 <div className="space-y-4">
                     {comment.replies.map(reply => (
-                        <CommentThread key={reply.id} comment={reply} onReply={onReply} isReply={true} />
+                        <CommentThread
+                            key={reply.id}
+                            comment={reply}
+                            onReply={onReply}
+                            onDelete={onDelete}
+                            canDelete={canDelete}
+                            isReply={true}
+                        />
                     ))}
                 </div>
             )}
