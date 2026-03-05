@@ -292,20 +292,20 @@ const AllArticlesPage: React.FC = () => {
                       rel="noopener noreferrer"
                       className="group block"
                     >
-                      <div className="relative aspect-[3/4] overflow-hidden rounded-xl shadow-md group-hover:shadow-xl transition-all duration-500 bg-stone-100">
+                      <div className="relative overflow-hidden rounded-xl shadow-md group-hover:shadow-xl transition-all duration-500 bg-[#f5f5f0]">
                         <img
                           src={book.image}
                           alt={book.title}
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          className="w-full h-auto object-contain block transition-transform duration-500 group-hover:scale-[1.03]"
                         />
                         {/* Hover overlay */}
-                        <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/60 transition-all duration-300 flex items-end p-3">
-                          <span className="text-white text-[10px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1">
+                        <div className="absolute inset-0 bg-stone-900/0 group-hover:bg-stone-900/50 transition-all duration-300 flex items-center justify-center">
+                          <span className="text-white text-[10px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-1.5 bg-white/20 px-3 py-1.5 rounded-full backdrop-blur-sm">
                             Read <ExternalLink className="w-3 h-3" />
                           </span>
                         </div>
                       </div>
-                      <div className="mt-3 space-y-1">
+                      <div className="mt-3 space-y-0.5 px-0.5">
                         <p className="text-xs font-semibold text-stone-700 leading-snug line-clamp-2 group-hover:text-stone-900 transition-colors">
                           {book.title}
                         </p>
