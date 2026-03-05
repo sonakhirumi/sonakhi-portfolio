@@ -49,11 +49,11 @@ const Recommendations: React.FC = () => {
                     </a>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="flex overflow-x-auto md:grid md:grid-cols-3 gap-6 pb-4 snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
                     {recommendations.map((rec, index) => (
                         <div
                             key={index}
-                            className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100 relative flex flex-col h-full"
+                            className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border border-stone-100 relative flex flex-col h-full shrink-0 w-[85vw] md:w-auto snap-center"
                         >
                             <Quote className="w-8 h-8 text-stone-200 mb-6" />
 
