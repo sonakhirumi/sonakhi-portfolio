@@ -216,7 +216,7 @@ const AllArticlesPage: React.FC = () => {
               <div className="h-8 w-px bg-stone-200 hidden lg:block"></div>
 
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Professional:</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Professional Work:</span>
                 <div className="flex flex-wrap gap-2">
                   {categories.map(cat => (
                     <button
@@ -234,7 +234,7 @@ const AllArticlesPage: React.FC = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Personal:</span>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Personal Musings:</span>
                 <div className="flex flex-wrap gap-2">
                   {categories.map(cat => (
                     <button
