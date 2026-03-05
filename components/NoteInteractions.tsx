@@ -15,6 +15,7 @@ export interface NoteInteractionsProps {
     content: string;
 }
 
+const BASE_URL = 'https://live-sonakhi-rumi.pantheonsite.io/wp-json/wp/v2';
 const AUTHOR_EMAIL = 'sonakhirumi@gmail.com';
 const AUTHOR_NAME = 'Sonakhi Rumi (Author)';
 
@@ -22,6 +23,34 @@ const AUTHOR_NAME = 'Sonakhi Rumi (Author)';
 const extractNameFromEmail = (email: string) => {
     if (email.toLowerCase() === AUTHOR_EMAIL) return AUTHOR_NAME;
     return email.split('@')[0];
+};
+
+// Helper to convert WP comments to our recursive format
+const formatWPComments = (wpComments: any[]): CommentType[] => {
+    const map = new Map();
+    const result: CommentType[] = [];
+
+    wpComments.forEach(c => {
+        map.set(c.id.toString(), {
+            id: c.id.toString(),
+            email: c.author_email || '',
+            name: c.author_name || extractNameFromEmail(c.author_email || 'anonymous@user.com'),
+            text: c.content.rendered.replace(/<[^>]*>/g, '').trim(),
+            timestamp: new Date(c.date).toLocaleString(),
+            replies: []
+        });
+    });
+
+    wpComments.forEach(c => {
+        const mapped = map.get(c.id.toString());
+        if (c.parent && map.has(c.parent.toString())) {
+            map.get(c.parent.toString()).replies.push(mapped);
+        } else {
+            result.push(mapped);
+        }
+    });
+
+    return result;
 };
 
 export const NoteInteractions: React.FC<NoteInteractionsProps> = ({ noteId, content }) => {
@@ -34,14 +63,47 @@ export const NoteInteractions: React.FC<NoteInteractionsProps> = ({ noteId, cont
     const commentsKey = `comments_note_${noteId}`;
 
     useEffect(() => {
+        const fetchComments = async () => {
+            try {
+                const res = await fetch(`${BASE_URL}/comments?post=${noteId}&per_page=100&_=${Date.now()}`);
+                const wpComments = await res.json();
+                if (Array.isArray(wpComments)) {
+                    setComments(formatWPComments(wpComments));
+                }
+            } catch (err) {
+                console.error("Comment fetch error:", err);
+                // Fallback to local storage if API fails
+                const savedComments = localStorage.getItem(commentsKey);
+                if (savedComments) setComments(JSON.parse(savedComments));
+            }
+        };
+
         const savedLikes = localStorage.getItem(likesKey);
         if (savedLikes) setLikes(parseInt(savedLikes));
 
-        const savedComments = localStorage.getItem(commentsKey);
-        if (savedComments) setComments(JSON.parse(savedComments));
+        fetchComments();
     }, [noteId]);
 
-    const saveComments = (newComments: CommentType[]) => {
+    const saveComments = async (newComments: CommentType[], justPosted?: { email: string, text: string, parent?: string }) => {
+        if (justPosted) {
+            try {
+                // Post to WordPress
+                await fetch(`${BASE_URL}/comments`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        post: parseInt(noteId),
+                        author_email: justPosted.email,
+                        author_name: extractNameFromEmail(justPosted.email),
+                        content: justPosted.text,
+                        parent: justPosted.parent ? parseInt(justPosted.parent) : 0
+                    })
+                });
+            } catch (err) {
+                console.error("WP Comment post error:", err);
+            }
+        }
+
         setComments(newComments);
         localStorage.setItem(commentsKey, JSON.stringify(newComments));
     };
@@ -132,7 +194,7 @@ export const NoteInteractions: React.FC<NoteInteractionsProps> = ({ noteId, cont
 };
 
 // Sub-component for Comments Modal to keep the layout clean
-const CommentsModal = ({ comments, onSave, onClose, currentAuthorEmail }: { comments: CommentType[], onSave: (c: CommentType[]) => void, onClose: () => void, currentAuthorEmail: string }) => {
+const CommentsModal = ({ comments, onSave, onClose, currentAuthorEmail }: { comments: CommentType[], onSave: (c: CommentType[], p?: any) => void, onClose: () => void, currentAuthorEmail: string }) => {
     const [userEmail, setUserEmail] = useState('');
     const [text, setText] = useState('');
 
@@ -159,10 +221,10 @@ const CommentsModal = ({ comments, onSave, onClose, currentAuthorEmail }: { comm
 
         if (replyTo) {
             const newComments = updateReplies(comments, replyTo, newComment);
-            onSave(newComments);
+            onSave(newComments, { email: userEmail, text: text.trim(), parent: replyTo });
             setReplyTo(null);
         } else {
-            onSave([...comments, newComment]);
+            onSave([...comments, newComment], { email: userEmail, text: text.trim() });
         }
 
         setText('');

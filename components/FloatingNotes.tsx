@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NoteInteractions from './NoteInteractions';
+
+const BASE_URL = 'https://live-sonakhi-rumi.pantheonsite.io/wp-json/wp/v2';
 
 export interface NoteSnippet {
     id: string;
@@ -24,11 +26,64 @@ export const notesData: NoteSnippet[] = [
 ];
 
 export const FloatingNotes: React.FC<{ category: string }> = ({ category }) => {
-    const filteredNotes = category.toLowerCase() === 'all'
-        ? notesData
-        : notesData.filter(n => n.category.toLowerCase() === category.toLowerCase());
+    const [notes, setNotes] = useState<NoteSnippet[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
 
-    if (filteredNotes.length === 0) return null;
+    useEffect(() => {
+        const fetchNotes = async () => {
+            try {
+                setIsLoading(true);
+                // 1. Fetch categories to find the "Musing" one for this language
+                const catRes = await fetch(`${BASE_URL}/categories?per_page=100&_=${Date.now()}`);
+                const cats = await catRes.json();
+
+                if (!Array.isArray(cats)) {
+                    setNotes(notesData.filter(n => category.toLowerCase() === 'all' || n.category.toLowerCase() === category.toLowerCase()));
+                    return;
+                }
+
+                // Search for "Musing English", "Musing Hindi", etc.
+                const targetName = `Musing ${category}`.toLowerCase();
+                const matchedCat = cats.find(c => c.name.toLowerCase() === targetName || c.name.toLowerCase() === category.toLowerCase());
+
+                if (!matchedCat) {
+                    // Fallback to local data if no WP category found yet
+                    setNotes(notesData.filter(n => category.toLowerCase() === 'all' || n.category.toLowerCase() === category.toLowerCase()));
+                    return;
+                }
+
+                // 2. Fetch posts from this category
+                const postRes = await fetch(`${BASE_URL}/posts?categories=${matchedCat.id}&_embed&per_page=20&_=${Date.now()}`);
+                const posts = await postRes.json();
+
+                if (Array.isArray(posts)) {
+                    const wpNotes: NoteSnippet[] = posts.map(post => ({
+                        id: post.id.toString(),
+                        category: category,
+                        date: new Date(post.date).toLocaleDateString('en-US', { day: 'numeric', month: 'short', year: 'numeric' }),
+                        time: new Date(post.date).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }),
+                        content: post.content.rendered.replace(/<[^>]*>/g, '').trim(), // Strip HTML
+                        author: '-Sonakhi Rumi',
+                        size: post.content.rendered.length > 300 ? 'large' : post.content.rendered.length > 150 ? 'medium' : 'small'
+                    }));
+                    setNotes(wpNotes);
+                } else {
+                    setNotes([]);
+                }
+            } catch (err) {
+                console.error("Musing fetch error:", err);
+                setNotes(notesData.filter(n => category.toLowerCase() === 'all' || n.category.toLowerCase() === category.toLowerCase()));
+            } finally {
+                setIsLoading(false);
+            }
+        };
+
+        fetchNotes();
+    }, [category]);
+
+    if (isLoading) return <div className="py-8 animate-pulse flex gap-6 overflow-x-auto"><div className="w-80 h-80 bg-stone-100 rounded-2xl shrink-0"></div><div className="w-80 h-80 bg-stone-100 rounded-2xl shrink-0"></div></div>;
+
+    if (notes.length === 0) return null;
 
     return (
         <div className="py-8">
@@ -62,7 +117,7 @@ export const FloatingNotes: React.FC<{ category: string }> = ({ category }) => {
         }
       `}</style>
             <div className="flex md:flex-wrap gap-6 overflow-x-auto md:overflow-visible pb-8 md:pb-0 snap-x snap-mandatory hide-scrollbar items-start">
-                {filteredNotes.map((note, idx) => (
+                {notes.map((note, idx) => (
                     <NoteBubble key={note.id} note={note} index={idx} />
                 ))}
             </div>
