@@ -98,6 +98,7 @@ const App: React.FC = () => {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/my-archive" element={<AllArticlesPage />} />
           <Route path="/my-archive/:category" element={<AllArticlesPage />} />
+          <Route path="/my-archive/:category/:subcategory" element={<AllArticlesPage />} />
           <Route path="/happy-periods" element={<HappyPeriodsRoute />} />
           <Route path="/article/:id" element={<ArticlePage />} />
           <Route path="/contact" element={<Contacts />} />

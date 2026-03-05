@@ -188,7 +188,7 @@ const PortfolioCategoryBlock: React.FC<{ category: PortfolioCategory; language: 
 // ── Main Page ──
 const AllArticlesPage: React.FC = () => {
   const [searchParams] = useSearchParams();
-  const { category: routeCategory } = useParams();
+  const { category: routeCategory, subcategory: routeSubcategory } = useParams();
   const navigate = useNavigate();
 
   const [articles, setArticles] = useState<Article[]>([]);
@@ -242,7 +242,13 @@ const AllArticlesPage: React.FC = () => {
           const lp = paramCategory.toLowerCase();
           if (['portfolio', 'musings', 'professional', 'personal'].includes(lp)) {
             setViewMode(lp === 'professional' || lp === 'portfolio' ? 'portfolio' : 'musings');
-            setSelectedLanguage('All');
+            // Check subcategory for language
+            if (routeSubcategory) {
+              const sub = actualCategories.find(c => c.name.toLowerCase() === routeSubcategory.toLowerCase());
+              if (sub) setSelectedLanguage(sub.name);
+            } else {
+              setSelectedLanguage('All');
+            }
           } else {
             const match = actualCategories.find(c => c.name.toLowerCase() === lp);
             if (match) setSelectedLanguage(match.name);
@@ -280,8 +286,8 @@ const AllArticlesPage: React.FC = () => {
   const updateFilter = (mode: 'all' | 'portfolio' | 'musings', lang: string) => {
     setViewMode(mode);
     setSelectedLanguage(lang);
-    if (mode === 'all') navigate('/archive');
-    else navigate(`/archive/${mode}${lang !== 'All' ? `/${lang.toLowerCase()}` : ''}`);
+    if (mode === 'all') navigate('/my-archive');
+    else navigate(`/my-archive/${mode}${lang !== 'All' ? `/${lang.toLowerCase()}` : ''}`);
   };
 
   return (
@@ -314,11 +320,11 @@ const AllArticlesPage: React.FC = () => {
 
             <div className="flex flex-col gap-5 lg:items-end">
               {/* Primary Tabs */}
-              <div className="flex bg-stone-100 p-1.5 rounded-full border border-stone-200 shadow-inner">
+              <div className="flex flex-wrap gap-2 bg-stone-100 p-1.5 rounded-2xl border border-stone-200 shadow-inner">
                 {(['all', 'portfolio', 'musings'] as const).map(mode => (
                   <button key={mode}
                     onClick={() => updateFilter(mode, 'All')}
-                    className={`px-7 py-2.5 rounded-full text-[10px] font-black uppercase tracking-[0.18em] transition-all ${viewMode === mode ? 'bg-white text-stone-900 shadow-md' : 'text-stone-400 hover:text-stone-900'}`}>
+                    className={`px-5 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-[0.18em] transition-all ${viewMode === mode ? 'bg-white text-stone-900 shadow-md' : 'text-stone-400 hover:text-stone-900'}`}>
                     {mode === 'all' ? 'All Archives' : mode}
                   </button>
                 ))}
@@ -326,9 +332,9 @@ const AllArticlesPage: React.FC = () => {
 
               {/* Language sub-filters */}
               {viewMode !== 'all' && (
-                <div className="flex items-center gap-3 animate-fadeIn">
+                <div className="flex flex-wrap items-center gap-3 animate-fadeIn">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Language:</span>
-                  <div className="flex gap-2">
+                  <div className="flex flex-wrap gap-2">
                     {['All', ...categories.map(c => c.name)].map(lang => (
                       <button key={lang}
                         onClick={() => setSelectedLanguage(lang)}
@@ -347,7 +353,7 @@ const AllArticlesPage: React.FC = () => {
       {/* ── Content ── */}
       <div className="max-w-7xl mx-auto px-6 py-12 space-y-16">
         {isLoading ? (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[...Array(8)].map((_, i) => (
               <div key={i} className="animate-pulse space-y-3">
                 <div className="aspect-[3/4] bg-stone-100 rounded-xl" />
