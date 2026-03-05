@@ -22,7 +22,8 @@ const AllArticlesPage: React.FC = () => {
 
   const [articles, setArticles] = useState<Article[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [viewMode, setViewMode] = useState<'all' | 'professional' | 'personal'>('all');
+  const [selectedLanguage, setSelectedLanguage] = useState<string>('All');
   const [categories, setCategories] = useState<{ id: number, name: string }[]>([]);
 
   const stripHtml = (html: string) => {
@@ -86,17 +87,20 @@ const AllArticlesPage: React.FC = () => {
 
         let initialCategory = 'All';
         const paramCategory = routeCategory || searchParams.get('category');
-
         if (paramCategory) {
-          // Find the correctly-cased category name from the list
-          const match = actualCategories.find(c => c.name.toLowerCase() === paramCategory.toLowerCase());
-          if (match) {
-            initialCategory = match.name;
-          } else if (paramCategory.toLowerCase() === 'all') {
-            initialCategory = 'All';
+          // Check if it's a view mode first
+          if (paramCategory.toLowerCase() === 'professional' || paramCategory.toLowerCase() === 'personal') {
+            setViewMode(paramCategory.toLowerCase() as any);
+            setSelectedLanguage('All');
+          } else {
+            const match = actualCategories.find(c => c.name.toLowerCase() === paramCategory.toLowerCase());
+            if (match) {
+              setSelectedLanguage(match.name);
+            } else if (paramCategory.toLowerCase() === 'all') {
+              setSelectedLanguage('All');
+            }
           }
         }
-        setSelectedCategory(initialCategory);
 
         const postRes = await fetch(`${BASE_URL}/posts?_embed&per_page=100&_=${Date.now()}`);
         const postsData = await postRes.json();
@@ -132,20 +136,21 @@ const AllArticlesPage: React.FC = () => {
     fetchAllData();
   }, [searchParams, routeCategory]);
 
-  const filteredArticles = selectedCategory === 'All'
+  const filteredArticles = selectedLanguage === 'All'
     ? articles
-    : articles.filter(a => a.category === selectedCategory);
+    : articles.filter(a => a.category === selectedLanguage);
 
-  const hasNotes = selectedCategory === 'All'
-    ? notesData.length > 0
-    : notesData.some(n => n.category.toLowerCase() === selectedCategory.toLowerCase());
+  const hasNotes = true; // Always assume notes exist to avoid under construction flicker during fetch
 
-  const updateCategory = (catName: string) => {
-    setSelectedCategory(catName);
-    if (catName === 'All') {
+  const updateFilter = (mode: 'all' | 'professional' | 'personal', lang: string) => {
+    setViewMode(mode);
+    setSelectedLanguage(lang);
+
+    if (mode === 'all' && lang === 'All') {
       navigate('/my-archive');
     } else {
-      navigate(`/my-archive/${catName.toLowerCase()}`);
+      const path = mode === 'all' ? lang.toLowerCase() : `${mode}/${lang.toLowerCase()}`;
+      navigate(`/my-archive/${path}`);
     }
   };
 
@@ -196,29 +201,55 @@ const AllArticlesPage: React.FC = () => {
               </p>
             </div>
 
-            {/* Right: Filters — aligned to bottom */}
-            <div className="flex flex-wrap gap-2 lg:justify-end lg:pb-2">
+            {/* Right: Filters grouped by type */}
+            <div className="flex flex-wrap gap-6 lg:justify-end items-center">
               <button
-                onClick={() => updateCategory('All')}
-                className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${selectedCategory === 'All'
-                  ? 'bg-stone-900 text-white shadow-xl scale-105'
+                onClick={() => updateFilter('all', 'All')}
+                className={`px-6 py-2 rounded-full text-[9px] font-black uppercase tracking-widest transition-all shrink-0 ${viewMode === 'all' && selectedLanguage === 'All'
+                  ? 'bg-stone-900 text-white shadow-lg'
                   : 'bg-white text-stone-400 hover:text-stone-900 border border-stone-200'
                   }`}
               >
                 All Archives
               </button>
-              {categories.map(cat => (
-                <button
-                  key={cat.id}
-                  onClick={() => updateCategory(cat.name)}
-                  className={`px-6 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all ${selectedCategory === cat.name
-                    ? 'bg-stone-900 text-white shadow-xl scale-105'
-                    : 'bg-white text-stone-400 hover:text-stone-900 border border-stone-200'
-                    }`}
-                >
-                  {cat.name}
-                </button>
-              ))}
+
+              <div className="h-8 w-px bg-stone-200 hidden lg:block"></div>
+
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Professional:</span>
+                <div className="flex flex-wrap gap-2">
+                  {categories.map(cat => (
+                    <button
+                      key={cat.id}
+                      onClick={() => updateFilter('professional', cat.name)}
+                      className={`px-4 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-widest transition-all ${viewMode === 'professional' && selectedLanguage === cat.name
+                        ? 'bg-red-500 text-white shadow-md'
+                        : 'bg-white text-stone-500 hover:border-red-200 border border-stone-200'
+                        }`}
+                    >
+                      {cat.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Personal:</span>
+                <div className="flex flex-wrap gap-2">
+                  {categories.map(cat => (
+                    <button
+                      key={`musing-${cat.id}`}
+                      onClick={() => updateFilter('personal', cat.name)}
+                      className={`px-4 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-widest transition-all ${viewMode === 'personal' && selectedLanguage === cat.name
+                        ? 'bg-stone-900 text-white shadow-md'
+                        : 'bg-white text-stone-500 hover:border-stone-400 border border-stone-200'
+                        }`}
+                    >
+                      {cat.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -237,59 +268,66 @@ const AllArticlesPage: React.FC = () => {
           </div>
         ) : (
           <>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
-              {filteredArticles.length > 0 ? (
-                filteredArticles.map((article) => (
-                  <Link
-                    key={article.id}
-                    to={`/article/${article.id}`}
-                    className="group block space-y-4"
-                  >
-                    <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-stone-100 shadow-md">
-                      <img
-                        src={article.imageUrl}
-                        alt={article.title}
-                        className="w-full h-full object-cover transition-transform group-hover:scale-105"
-                      />
-                      <div className="absolute top-3 left-3">
-                        <span className="px-3 py-1 bg-white/90 text-[8px] font-black uppercase tracking-widest text-stone-900 rounded-full">
-                          {article.category}
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="space-y-3">
-                      <div className="flex items-center space-x-4 text-[9px] font-bold tracking-widest text-stone-400 uppercase">
-                        <span className="flex items-center"><Calendar className="w-3 h-3 mr-1" /> {article.date}</span>
-                        <span className="flex items-center"><Clock className="w-3 h-3 mr-1" /> {article.readTime}</span>
+            {(viewMode === 'all' || viewMode === 'professional') && (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 transition-all duration-500">
+                {filteredArticles.length > 0 ? (
+                  filteredArticles.map((article) => (
+                    <Link
+                      key={article.id}
+                      to={`/article/${article.id}`}
+                      className="group block space-y-4"
+                    >
+                      <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-stone-100 shadow-md">
+                        <img
+                          src={article.imageUrl}
+                          alt={article.title}
+                          className="w-full h-full object-cover transition-transform group-hover:scale-105"
+                        />
+                        <div className="absolute top-3 left-3">
+                          <span className="px-3 py-1 bg-white/90 text-[8px] font-black uppercase tracking-widest text-stone-900 rounded-full">
+                            {article.category}
+                          </span>
+                        </div>
                       </div>
 
-                      <h4 className="font-serif text-2xl text-stone-900 group-hover:text-stone-600 transition-colors">
-                        {article.title}
-                      </h4>
+                      <div className="space-y-3">
+                        <div className="flex items-center space-x-4 text-[9px] font-bold tracking-widest text-stone-400 uppercase">
+                          <span className="flex items-center"><Calendar className="w-3 h-3 mr-1" /> {article.date}</span>
+                          <span className="flex items-center"><Clock className="w-3 h-3 mr-1" /> {article.readTime}</span>
+                        </div>
 
-                      <p className="text-stone-500 text-sm leading-relaxed line-clamp-2">
-                        {article.excerpt}
-                      </p>
+                        <h4 className="font-serif text-2xl text-stone-900 group-hover:text-stone-600 transition-colors">
+                          {article.title}
+                        </h4>
+
+                        <p className="text-stone-500 text-sm leading-relaxed line-clamp-2">
+                          {article.excerpt}
+                        </p>
+                      </div>
+                    </Link>
+                  ))
+                ) : viewMode === 'professional' ? (
+                  <div className="col-span-full flex flex-col items-center justify-center py-8 gap-8">
+                    <div className="p-8 bg-stone-100 rounded-full animate-bounce-slow">
+                      <Hammer className="w-12 h-12 text-stone-400" />
                     </div>
-                  </Link>
-                ))
-              ) : !hasNotes ? (
-                <div className="col-span-full flex flex-col items-center justify-center py-8 gap-8">
-                  <div className="p-8 bg-stone-100 rounded-full animate-bounce-slow">
-                    <Hammer className="w-12 h-12 text-stone-400" />
+                    <div className="text-center space-y-4 max-w-lg">
+                      <h2 className="font-serif text-4xl md:text-5xl text-stone-900 leading-tight">Under Construction.</h2>
+                      <p className="font-serif italic text-stone-500 text-lg">Check back soon.</p>
+                    </div>
                   </div>
-                  <div className="text-center space-y-4 max-w-lg">
-                    <h2 className="font-serif text-4xl md:text-5xl text-stone-900 leading-tight">Under Construction.</h2>
-                    <p className="font-serif italic text-stone-500 text-lg">Check back soon.</p>
-                  </div>
-                </div>
-              ) : null}
-            </div>
+                ) : null}
+              </div>
+            )}
 
-            <div className="mt-16 border-t border-stone-200 pt-8">
-              <FloatingNotes category={selectedCategory} />
-            </div>
+            {(viewMode === 'all' || viewMode === 'personal') && (
+              <div className={`mt-16 ${viewMode === 'all' ? 'border-t border-stone-200 pt-8' : ''}`}>
+                {viewMode === 'personal' && (
+                  <h3 className="font-serif text-3xl text-stone-900 mb-8 border-b border-stone-100 pb-4">Personal Musings</h3>
+                )}
+                <FloatingNotes category={selectedLanguage} />
+              </div>
+            )}
           </>
         )}
       </div>
