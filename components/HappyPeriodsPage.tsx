@@ -294,7 +294,7 @@ const HappyPeriodsPage: React.FC = () => {
                             </h2>
 
                             <div className="space-y-6 md:space-y-8 max-w-3xl">
-                                <p className="text-stone-600 text-lg md:text-xl font-light leading-relaxed">
+                                <p className="text-stone-600 text-lg md:text-xl font-light leading-relaxed text-justify">
                                     <span className="text-[#880808] font-medium italic">Happy Periods</span> welcomes collaborations with schools, colleges, organisations, and community groups interested in promoting menstrual awareness and creating period-friendly spaces.
                                 </p>
 

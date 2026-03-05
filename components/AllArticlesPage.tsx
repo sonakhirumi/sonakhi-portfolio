@@ -159,7 +159,7 @@ const PortfolioCategoryBlock: React.FC<{ category: PortfolioCategory; language: 
           {/* Disclaimer */}
           <div className="bg-amber-50 border border-amber-100 rounded-xl px-5 py-4 text-xs text-stone-600 leading-relaxed space-y-2">
             <p className="font-bold text-[10px] uppercase tracking-widest text-amber-700">Disclaimer</p>
-            <p className="whitespace-pre-line">
+            <p className="whitespace-pre-line text-justify">
               {disclaimerExpanded ? DISCLAIMER_FULL : DISCLAIMER_SHORT}
             </p>
             <button
