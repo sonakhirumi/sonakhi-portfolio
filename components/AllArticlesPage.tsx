@@ -90,6 +90,16 @@ const BookCard: React.FC<{ book: BookItem }> = ({ book }) => (
   </a>
 );
 
+// ── Under Construction Banner ──
+const UnderConstruction: React.FC<{ message?: string }> = ({ message }) => (
+  <div className="flex flex-col items-center justify-center py-20 px-6 text-center space-y-4 border border-dashed border-stone-200 rounded-2xl bg-stone-50">
+    <span className="text-4xl">🚧</span>
+    <p className="font-serif text-xl text-stone-500 italic">Under Construction</p>
+    {message && <p className="text-xs text-stone-400 max-w-xs leading-relaxed">{message}</p>}
+    <p className="text-[10px] font-bold uppercase tracking-widest text-stone-300">Coming soon</p>
+  </div>
+);
+
 // ── Portfolio Category Block (collapsible) ──
 const DISCLAIMER_SHORT = `The books and visual materials displayed here are copyrighted works belonging to TruBuddy, a brand of Menstrupedia Technologies Private Limited. Included for portfolio purposes only.`;
 const DISCLAIMER_FULL = `The books and visual materials displayed in this section are copyrighted works belonging to TruBuddy, a brand of Menstrupedia Technologies Private Limited.
@@ -385,6 +395,10 @@ const AllArticlesPage: React.FC = () => {
                     defaultOpen={true}
                   />
                 ))}
+                {/* Show Under Construction for languages that have no portfolio content yet */}
+                {selectedLanguage !== 'All' && selectedLanguage !== 'English' && (
+                  <UnderConstruction message={`${selectedLanguage} portfolio content is being put together. Check back soon.`} />
+                )}
               </section>
             )}
 
@@ -401,7 +415,15 @@ const AllArticlesPage: React.FC = () => {
                     </button>
                   </div>
                 )}
-                <FloatingNotes category={selectedLanguage} />
+
+                {/*
+                  TODO [HIDDEN — UNHIDE WHEN READY]:
+                  The English musing "Crippled by Love" exists in local data (notesData in FloatingNotes.tsx)
+                  and is intentionally hidden here until the user asks to make it public.
+                  To restore: replace the <UnderConstruction /> below with <FloatingNotes category={selectedLanguage} />
+                */}
+                <UnderConstruction message="Musings are being curated. They'll be here when ready." />
+
               </section>
             )}
           </>
