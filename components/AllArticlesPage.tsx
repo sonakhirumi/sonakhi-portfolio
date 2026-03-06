@@ -340,7 +340,8 @@ const AllArticlesPage: React.FC = () => {
                 ))}
               </div>
 
-              {/* Language sub-filters */}
+              {/* Language sub-filters (Hidden for now until we upload more languages) */}
+              {/*
               {viewMode !== 'all' && (
                 <div className="flex flex-wrap items-center gap-3 animate-fadeIn">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Language:</span>
@@ -355,6 +356,7 @@ const AllArticlesPage: React.FC = () => {
                   </div>
                 </div>
               )}
+              */}
             </div>
           </div>
         </div>
