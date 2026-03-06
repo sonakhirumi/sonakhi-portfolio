@@ -108,7 +108,7 @@ These materials are included here solely for portfolio and presentation purposes
 
 All intellectual property rights, including copyrights and distribution rights, remain with TruBuddy / Menstrupedia Technologies Private Limited.
 
-TruBuddy books are thoughtfully designed self-development comics for children, combining storytelling, relatable characters, and engaging visuals to support emotional learning, confidence building, and life skills in young readers. If these books resonate with you, I strongly encourage supporting the work by purchasing the original titles through TruBuddy's website.`;
+TruBuddy books are self-development comics for children that combine engaging stories and relatable characters to nurture important life skills. They make thoughtful and meaningful gifts for young readers. If these books resonate with you, please consider purchasing the original titles through TruBuddy or Menstrupedia.`;
 
 const PortfolioCategoryBlock: React.FC<{ category: PortfolioCategory; language: string; defaultOpen?: boolean }> = ({ category, language, defaultOpen = true }) => {
   const [open, setOpen] = useState(defaultOpen);
