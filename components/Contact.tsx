@@ -1,18 +1,6 @@
 
 import React from 'react';
-import { Linkedin, Instagram, Facebook, ExternalLink, Mail } from 'lucide-react';
-
-const LinktreeIcon = (props: React.SVGProps<SVGSVGElement>) => (
-    <svg
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        role="img"
-        xmlns="http://www.w3.org/2000/svg"
-        {...props}
-    >
-        <path d="m13.73635 5.85251 4.00467-4.11665 2.3248 2.3808-4.20064 4.00466h5.9085v3.30473h-5.9365l4.22865 4.10766-2.3248 2.3338L12.0005 12.099l-5.74052 5.76852-2.3248-2.3248 4.22864-4.10766h-5.9375V8.12132h5.9085L3.93417 4.11666l2.3248-2.3808 4.00468 4.11665V0h3.4727zm-3.4727 10.30614h3.4727V24h-3.4727z" />
-    </svg>
-);
+import { Linkedin, Instagram, Facebook, ExternalLink, Mail, Coffee } from 'lucide-react';
 
 const TopmateIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
@@ -32,7 +20,6 @@ const Contact: React.FC = () => {
         { icon: Linkedin, href: 'https://www.linkedin.com/in/sonakhi-malla-rumi', label: 'LinkedIn' },
         { icon: Instagram, href: 'https://www.instagram.com/sonakhi_rumi', label: 'Instagram' },
         { icon: Facebook, href: 'https://www.facebook.com/sonakhi.rumi', label: 'Facebook' },
-        { icon: LinktreeIcon, href: 'https://linktr.ee/sonakhirumi', label: 'Linktree' },
         { icon: Mail, href: 'mailto:sonakhirumi@gmail.com', label: 'Email' },
     ];
 
@@ -66,7 +53,7 @@ const Contact: React.FC = () => {
                     ))}
                 </div>
 
-                <div className="pt-8 animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-300">
+                <div className="pt-8 flex flex-col gap-6 items-center animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-300">
                     <a
                         href="https://topmate.io/sonakhirumi"
                         target="_blank"
@@ -77,7 +64,18 @@ const Contact: React.FC = () => {
                         <ExternalLink className="w-4 h-4" />
                     </a>
 
-
+                    <a
+                        href="https://buymeacoffee.com/sonakhirumi"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-center space-x-2 sm:space-x-3 px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-white border border-stone-200 text-stone-900 hover:border-stone-400 hover:shadow-xl transition-all duration-300 shadow-sm group"
+                    >
+                        <Coffee className="w-4 h-4 sm:w-5 sm:h-5 text-stone-500 group-hover:text-stone-900 transition-colors flex-shrink-0" />
+                        <span className="flex flex-col sm:flex-row items-center sm:gap-2 text-xs">
+                            <span className="font-bold uppercase tracking-widest">Buy me a drink!</span>
+                            <span className="opacity-70 normal-case tracking-normal">Your love keeps my words brewing.</span>
+                        </span>
+                    </a>
                 </div>
 
             </div>
