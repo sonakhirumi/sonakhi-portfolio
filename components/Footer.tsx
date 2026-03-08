@@ -18,9 +18,9 @@ const TopmateIcon = (props: React.SVGProps<SVGSVGElement>) => (
 const Footer: React.FC = () => {
   const socialLinks = [
     { icon: Linkedin, href: 'https://www.linkedin.com/in/sonakhi-malla-rumi', label: 'LinkedIn' },
+    { icon: Mail, href: 'mailto:sonakhirumi@gmail.com', label: 'Email' },
     { icon: Instagram, href: 'https://www.instagram.com/sonakhi_rumi', label: 'Instagram' },
     { icon: Facebook, href: 'https://www.facebook.com/sonakhi.rumi', label: 'Facebook' },
-    { icon: Mail, href: 'mailto:sonakhirumi@gmail.com', label: 'Email' },
   ];
 
   const navigationLinks: { name: string; href: string; isExternal?: boolean }[] = [
