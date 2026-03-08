@@ -9,7 +9,7 @@ const About: React.FC = () => {
         <h2 className="text-xl sm:text-2xl md:text-5xl font-black uppercase tracking-widest text-stone-900">About Me</h2>
       </div>
       <div className="prose prose-stone max-w-none space-y-5 md:space-y-8 text-stone-600 leading-relaxed text-base md:text-xl font-light">
-        <p className="first-letter:text-6xl md:first-letter:text-7xl first-letter:font-serif first-letter:mr-4 first-letter:float-left first-letter:text-stone-900">
+        <p>
           Hi, I'm Sonakhi Malla (Rumi), an obsessive overthinking connoisseur who writes, edits, translates, and guides fellow budding word lovers discovering their voice.
         </p>
         <p>
