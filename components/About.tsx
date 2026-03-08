@@ -10,7 +10,7 @@ const About: React.FC = () => {
       </div>
       <div className="prose prose-stone max-w-none space-y-5 md:space-y-8 text-stone-600 leading-relaxed text-base md:text-xl font-light">
         <p>
-          Hi, I'm Sonakhi Malla (Rumi), an obsessive overthinking connoisseur who writes, edits, translates, and guides fellow budding word lovers discovering their voice.
+          Hi, I'm <span className="font-semibold text-stone-900">Sonakhi Malla (Rumi)</span>, an obsessive overthinking connoisseur who <span className="font-semibold text-stone-900">writes</span>, <span className="font-semibold text-stone-900">edits</span>, <span className="font-semibold text-stone-900">translates</span>, and <span className="font-semibold text-stone-900">guides</span> fellow budding word lovers discovering their voice.
         </p>
         <p>
           I have spent the last <span className="font-semibold text-stone-900">five years</span> working with words across <span className="font-semibold text-stone-900">content, copy, scripts, UX writing, visual storytelling, game content, and educational material development</span>. I have learnt to move between forms and languages—<span className="font-semibold text-stone-900">English, Hindi, and Odia</span>—without losing what matters.
