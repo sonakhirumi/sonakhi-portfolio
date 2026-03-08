@@ -10,7 +10,10 @@ const About: React.FC = () => {
       </div>
       <div className="prose prose-stone max-w-none space-y-5 md:space-y-8 text-stone-600 leading-relaxed text-base md:text-xl font-light">
         <p className="first-letter:text-6xl md:first-letter:text-7xl first-letter:font-serif first-letter:mr-4 first-letter:float-left first-letter:text-stone-900">
-          I have spent the last <span className="font-semibold text-stone-900">five years</span> working with words across <span className="font-semibold text-stone-900">content, copy, scripts, UX, editing, visual storytelling, and translation</span>. I have learnt to move between forms and languages—<span className="font-semibold text-stone-900">English, Hindi, and Odia</span>—without losing what matters.
+          Hi, I'm Sonakhi Malla (Rumi), an obsessive overthinking connoisseur who writes, edits, translates, and guides fellow budding word lovers discovering their voice.
+        </p>
+        <p>
+          I have spent the last <span className="font-semibold text-stone-900">five years</span> working with words across <span className="font-semibold text-stone-900">content, copy, scripts, UX writing, visual storytelling, game content, and educational material development</span>. I have learnt to move between forms and languages—<span className="font-semibold text-stone-900">English, Hindi, and Odia</span>—without losing what matters.
         </p>
         <p>
           Writing was manifested for me long before I developed my sense of self. I continue to choose it with intention because words help me breathe. They let me place the weight on my chest onto paper. When I began writing for others, my goal was simple: to help people find the right words!
