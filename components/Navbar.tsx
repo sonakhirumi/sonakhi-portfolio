@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Feather, Menu, X } from 'lucide-react';
+import { Feather, Menu, X, Coffee } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,7 +37,7 @@ const Navbar: React.FC = () => {
           <span className="font-serif text-xl font-bold tracking-tight text-stone-900 uppercase">SONAKHI RUMI</span>
         </a>
 
-        <div className="hidden md:flex space-x-6 lg:space-x-8">
+        <div className="hidden md:flex space-x-6 lg:space-x-8 items-center">
           {navLinks.map((link) => (
             <Link
               key={link.name}
@@ -50,6 +50,16 @@ const Navbar: React.FC = () => {
               {link.name}
             </Link>
           ))}
+
+          <a
+            href="https://buymeacoffee.com/sonakhirumi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center space-x-2 text-sm font-bold text-stone-800 bg-[#faf9f6] border border-stone-200 px-3 py-1.5 rounded-full hover:shadow-sm hover:border-stone-400 transition-all duration-300"
+          >
+            <Coffee className="w-4 h-4 text-stone-500 group-hover:text-stone-800 transition-colors" />
+            <span>Buy me a drink!</span>
+          </a>
         </div>
 
 
@@ -79,6 +89,17 @@ const Navbar: React.FC = () => {
             </Link>
 
           ))}
+
+          <a
+            href="https://buymeacoffee.com/sonakhirumi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-3 text-lg font-bold text-stone-800 pt-4 mt-2 border-t border-stone-100"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <Coffee className="w-5 h-5 text-stone-500" />
+            <span>Buy me a drink!</span>
+          </a>
         </div>
       )}
     </nav>
