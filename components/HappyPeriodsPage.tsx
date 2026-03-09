@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ExternalLink, MessageCircle } from 'lucide-react';
+import { ExternalLink, MessageCircle, Play } from 'lucide-react';
 
 interface ImpactItem {
     title: string;
@@ -258,8 +258,22 @@ const HappyPeriodsPage: React.FC = () => {
                                                 (e.target as HTMLImageElement).src = 'https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/placeholder.jpg';
                                             }}
                                         />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6 md:p-8 opacity-90 group-hover:opacity-100 transition-opacity">
-                                            <p className="text-white/70 text-[8px] md:text-[10px] font-bold uppercase tracking-[0.2em] mb-2">{item.platform}</p>
+
+                                        {/* Click Indicator Icon */}
+                                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                                            {(item.platform === 'YouTube' || item.link.includes('instagram.com')) ? (
+                                                <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center border border-white/30 shadow-xl transform group-hover:scale-110 group-hover:bg-[#880808]/90 transition-all duration-500">
+                                                    <Play className="w-6 h-6 md:w-8 md:h-8 text-white ml-1 fill-white" />
+                                                </div>
+                                            ) : (
+                                                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center border border-white/30 shadow-xl transform group-hover:scale-110 group-hover:bg-[#880808]/90 transition-all duration-500">
+                                                    <ExternalLink className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                                                </div>
+                                            )}
+                                        </div>
+
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-6 md:p-8 opacity-90 group-hover:opacity-100 transition-opacity z-20">
+                                            <p className="text-white/80 text-[8px] md:text-[10px] font-bold uppercase tracking-[0.2em] mb-2">{item.platform}</p>
                                             <h4 className="text-white font-serif text-base md:text-lg leading-tight line-clamp-2">{item.title}</h4>
                                         </div>
                                     </a>
