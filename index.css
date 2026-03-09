@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@layer base {
+    body {
+        font-family: 'Inter', sans-serif;
+        scroll-behavior: smooth;
+        @apply bg-[#faf9f6] text-[#1a1a1a];
+    }
+}
+
+@layer utilities {
+    .font-serif {
+        font-family: 'Playfair Display', serif;
+    }
+}

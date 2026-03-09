@@ -288,7 +288,7 @@ const ArticlePage: React.FC = () => {
       )}
 
       <header className="relative h-[50vh] lg:h-[80vh] w-full overflow-hidden bg-stone-900">
-        <img src={article.imageUrl} alt={stripHtml(article.title)} className="w-full h-full object-cover opacity-80" />
+        <img loading="lazy" decoding="async" src={article.imageUrl} alt={stripHtml(article.title)} className="w-full h-full object-cover opacity-80" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         <div className="absolute inset-0 flex flex-col justify-end">
           <div className="max-w-5xl mx-auto w-full px-6 pb-12 space-y-8">
@@ -415,7 +415,7 @@ const ArticlePage: React.FC = () => {
                     <div className="flex flex-col md:flex-row md:items-start gap-6">
                       <div className="flex-shrink-0">
                         {comment.author_avatar_urls?.['96'] ? (
-                          <img
+                          <img loading="lazy" decoding="async"
                             src={comment.author_avatar_urls['96']}
                             alt={comment.author_name}
                             className="w-12 h-12 rounded-full grayscale group-hover:grayscale-0 transition-all shadow-sm"
@@ -453,7 +453,7 @@ const ArticlePage: React.FC = () => {
 
         <div className="mt-16 py-8 border-t border-stone-100 flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex items-center space-x-6">
-            <img src="https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2025/12/MoBuzz-Posting-Ideas-7.jpg" alt="Sonakhi" className="w-16 h-16 rounded-full object-cover shadow-lg" />
+            <img loading="lazy" decoding="async" src="https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2025/12/MoBuzz-Posting-Ideas-7.jpg" alt="Sonakhi" className="w-16 h-16 rounded-full object-cover shadow-lg" />
             <div>
               <h5 className="font-bold text-stone-900 uppercase text-xs tracking-widest">About the Author</h5>
               <h6 className="font-serif text-lg">Sonakhi Malla (Rumi)</h6>
@@ -473,7 +473,7 @@ const ArticlePage: React.FC = () => {
               {suggestedArticles.map((sug) => (
                 <Link key={sug.id} to={`/article/${sug.id}`} className="group space-y-4">
                   <div className="aspect-[4/3] overflow-hidden rounded-xl bg-stone-100">
-                    <img src={sug.imageUrl} alt={sug.title} className="w-full h-full object-cover transition-transform group-hover:scale-105" />
+                    <img loading="lazy" decoding="async" src={sug.imageUrl} alt={sug.title} className="w-full h-full object-cover transition-transform group-hover:scale-105" />
                   </div>
                   <h5 className="font-serif text-xl group-hover:text-stone-600 transition-colors leading-tight">{sug.title}</h5>
                 </Link>

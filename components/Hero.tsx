@@ -109,6 +109,8 @@ const Hero: React.FC = () => {
               <img
                 src={heroImage}
                 alt="Sonakhi Malla"
+                fetchPriority="high"
+                decoding="async"
                 className="w-full h-full object-cover transition-transform duration-[2000ms] ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-stone-900/40 to-transparent opacity-60"></div>

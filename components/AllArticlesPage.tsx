@@ -71,7 +71,7 @@ const PORTFOLIO_CATEGORIES: PortfolioCategory[] = [
 const BookCard: React.FC<{ book: BookItem }> = ({ book }) => (
   <a href={book.url} target="_blank" rel="noopener noreferrer" className="group block">
     <div className="relative overflow-hidden rounded-xl shadow-md group-hover:shadow-xl transition-all duration-500 bg-[#f5f5f0]">
-      <img
+      <img loading="lazy" decoding="async"
         src={book.image}
         alt={book.title}
         className="w-full h-auto object-contain block transition-transform duration-500 group-hover:scale-[1.03]"
@@ -138,7 +138,7 @@ const PortfolioCategoryBlock: React.FC<{ category: PortfolioCategory; language: 
             onClick={e => e.stopPropagation()}
             className="shrink-0"
           >
-            <img
+            <img loading="lazy" decoding="async"
               src={category.logo}
               alt={category.logoAlt}
               className="h-7 object-contain hover:opacity-75 transition-opacity"

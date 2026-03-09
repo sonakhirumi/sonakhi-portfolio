@@ -133,7 +133,7 @@ const Articles: React.FC = () => {
                   className="group block space-y-4"
                 >
                   <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-stone-100 shadow-md">
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={article.imageUrl}
                       alt={article.title}
                       className="w-full h-full object-cover transition-transform group-hover:scale-105"

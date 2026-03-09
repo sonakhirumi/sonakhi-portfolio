@@ -89,7 +89,7 @@ const App: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#faf9f6] animate-in fade-in duration-1000">
+    <div className="min-h-[100dvh] flex flex-col bg-[#faf9f6] animate-in fade-in duration-1000">
       <Navbar />
       <ScrollToTop />
       <main className="flex-grow pt-20">
