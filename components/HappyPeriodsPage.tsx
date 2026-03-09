@@ -22,7 +22,7 @@ const impactStories: ImpactItem[] = [
         image: "https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/FB_IMG_1587142993873.jpg"
     },
     {
-        title: "My project on Rebooting thoughts on menstruation",
+        title: "How I am breaking the silence on periods",
         platform: "WAGGGS Blog",
         link: "https://www.wagggs.org/en/blog/my-project-on-Rebooting-thoughts-on-menstruation/",
         image: "https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/IMG_20190920_181245-scaled.jpg"
