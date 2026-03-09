@@ -161,11 +161,16 @@ const HappyPeriodsPage: React.FC = () => {
                             <h2 className="font-serif text-2xl md:text-3xl text-[#880808] font-bold leading-tight tracking-tighter">Our Story.</h2>
 
                             <div className="prose prose-stone max-w-none text-base md:text-lg text-stone-500 leading-relaxed font-light space-y-6 [&_p]:text-justify">
-                                <img
-                                    src="https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/PicsArt_07-14-10.52.26.png"
-                                    alt="Reboot Journey"
-                                    className="w-32 h-32 md:w-48 lg:w-72 lg:h-72 rounded-full object-cover float-left mr-5 md:mr-10 mb-2 md:mb-6 shadow-xl"
-                                />
+                                <div className="float-left mr-5 md:mr-10 mb-2 md:mb-6 flex flex-col items-center">
+                                    <img
+                                        src="https://live-sonakhi-rumi.pantheonsite.io/wp-content/uploads/2026/03/PicsArt_07-14-10.52.26.png"
+                                        alt="Reboot Journey"
+                                        className="w-32 h-32 md:w-48 lg:w-72 lg:h-72 rounded-full object-cover shadow-xl"
+                                    />
+                                    <span className="text-[10px] md:text-xs text-stone-400 mt-3 text-center block font-medium">
+                                        Credits: <a href="https://www.instagram.com/ft.teeno?igsh=MW5pazU5a2lhejIxMQ==" target="_blank" rel="noopener noreferrer" className="hover:text-[#880808] underline decoration-stone-300 hover:decoration-[#880808] underline-offset-2 transition-all">Preksha Pandya</a>
+                                    </span>
+                                </div>
                                 <p>
                                     <span className="text-[#880808] font-medium italic">Reboot of Thoughts on Menstruation</span>, also known as <span className="text-[#880808] font-medium italic">Happy Periods</span>, began on <span className="text-[#880808] font-medium italic">15 July 2018</span> by me (Sonakhi) with the aim of starting open conversations about menstruation and challenging the silence that surrounds it.
                                 </p>
