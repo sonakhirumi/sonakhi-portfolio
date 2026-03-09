@@ -260,14 +260,14 @@ const HappyPeriodsPage: React.FC = () => {
                                         />
 
                                         {/* Click Indicator Icon */}
-                                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 transition-opacity duration-500 opacity-0 group-hover:opacity-100">
                                             {(item.platform === 'YouTube' || item.link.includes('instagram.com')) ? (
-                                                <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center border border-white/30 shadow-xl transform group-hover:scale-110 group-hover:bg-[#880808]/90 transition-all duration-500">
-                                                    <Play className="w-6 h-6 md:w-8 md:h-8 text-white ml-1 fill-white" />
+                                                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center border border-white/30 shadow-xl transform scale-95 group-hover:scale-100 group-hover:bg-[#880808]/90 transition-all duration-500">
+                                                    <Play className="w-4 h-4 md:w-5 md:h-5 text-white ml-0.5 fill-white" />
                                                 </div>
                                             ) : (
-                                                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center border border-white/30 shadow-xl transform group-hover:scale-110 group-hover:bg-[#880808]/90 transition-all duration-500">
-                                                    <ExternalLink className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                                                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center border border-white/30 shadow-xl transform scale-95 group-hover:scale-100 group-hover:bg-[#880808]/90 transition-all duration-500">
+                                                    <ExternalLink className="w-4 h-4 md:w-5 md:h-5 text-white" />
                                                 </div>
                                             )}
                                         </div>
