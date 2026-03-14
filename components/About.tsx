@@ -58,7 +58,15 @@ const About: React.FC = () => {
               <span className="font-bold">Senior Content Developer</span>
             </h3>
             <div className="flex flex-col sm:flex-row sm:items-center text-sm md:text-base text-stone-500 font-medium tracking-wide mt-1 gap-1 sm:gap-3">
-              <span className="uppercase font-bold text-stone-800">Menstrupedia</span>
+              <a
+                href="https://www.linkedin.com/company/menstrupedia/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="uppercase font-bold text-stone-800 hover:text-stone-500 hover:underline underline-offset-4 decoration-stone-400 transition-all flex items-center gap-1.5"
+              >
+                Menstrupedia
+                <ExternalLink className="w-3 h-3 text-stone-300" />
+              </a>
               <span className="hidden sm:inline text-stone-300">•</span>
               <span>2023 - Present</span>
               <span className="hidden sm:inline text-stone-300">•</span>
@@ -108,7 +116,15 @@ const About: React.FC = () => {
               <span className="font-bold">Junior Content Writer</span>
             </h3>
             <div className="flex flex-col sm:flex-row sm:items-center text-sm md:text-base text-stone-500 font-medium tracking-wide mt-1 gap-1 sm:gap-3">
-              <span className="uppercase font-bold text-stone-800">Gubblebums</span>
+              <a
+                href="https://www.linkedin.com/company/gubblebumsgoa/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="uppercase font-bold text-stone-800 hover:text-stone-500 hover:underline underline-offset-4 decoration-stone-400 transition-all flex items-center gap-1.5"
+              >
+                Gubblebums
+                <ExternalLink className="w-3 h-3 text-stone-300" />
+              </a>
               <span className="hidden sm:inline text-stone-300">•</span>
               <span>Feb 2022 - May 2023</span>
               <span className="hidden sm:inline text-stone-300">•</span>
