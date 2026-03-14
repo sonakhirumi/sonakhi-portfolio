@@ -102,13 +102,26 @@ const UnderConstruction: React.FC<{ message?: string }> = ({ message }) => (
 
 // ── Portfolio Category Block (collapsible) ──
 const DISCLAIMER_SHORT = `The books and visual materials displayed here are copyrighted works belonging to TruBuddy, a brand of Menstrupedia Technologies Private Limited. Included for portfolio purposes only.`;
-const DISCLAIMER_FULL = `The books and visual materials displayed in this section are copyrighted works belonging to TruBuddy, a brand of Menstrupedia Technologies Private Limited.
 
-These materials are included here solely for portfolio and presentation purposes to highlight my contributions as part of the creative team. I currently work with the organisation as a Senior Content Developer, and have been involved in the development of these books as part of my professional responsibilities. My contributions appear in the credit sections under my pen name Sonakhi Rumi.
-
-All intellectual property rights, including copyrights and distribution rights, remain with TruBuddy / Menstrupedia Technologies Private Limited.
-
-TruBuddy books are self-development comics for children that combine engaging stories and relatable characters to nurture important life skills. They make thoughtful and meaningful gifts for young readers. If these books resonate with you, please consider purchasing the original titles through TruBuddy or Menstrupedia.`;
+const DisclaimerFull: React.FC = () => (
+  <div className="space-y-4">
+    <p>
+      All books and visual materials displayed here are copyrighted works of{' '}
+      <a href="https://trubuddy.me" target="_blank" rel="noopener noreferrer" className="text-amber-700 font-bold hover:underline cursor-pointer">TruBuddy</a>,
+      a brand of <a href="https://menstrupedia.com/" target="_blank" rel="noopener noreferrer" className="text-amber-700 font-bold hover:underline cursor-pointer">Menstrupedia Technologies Private Limited</a>,
+      which retains all intellectual property and distribution rights.
+    </p>
+    <p>
+      They are presented solely for portfolio purposes to highlight my contributions as part of the production team.
+      I currently work with the organisation as a Senior Content Developer, and my work appears in the credits under my pen name, Sonakhi Rumi.
+    </p>
+    <p>
+      TruBuddy books are self-development comics for children that use engaging stories and relatable characters to nurture essential life skills.
+      If these books resonate with you, please consider purchasing the original titles through{' '}
+      <a href="https://trubuddy.me" target="_blank" rel="noopener noreferrer" className="text-amber-700 font-bold hover:underline cursor-pointer">TruBuddy</a>.
+    </p>
+  </div>
+);
 
 const PortfolioCategoryBlock: React.FC<{ category: PortfolioCategory; language: string; defaultOpen?: boolean }> = ({ category, language, defaultOpen = true }) => {
   const [open, setOpen] = useState(defaultOpen);
@@ -159,9 +172,9 @@ const PortfolioCategoryBlock: React.FC<{ category: PortfolioCategory; language: 
           {/* Disclaimer */}
           <div className="bg-amber-50 border border-amber-100 rounded-xl px-5 py-4 text-xs text-stone-600 leading-relaxed space-y-2">
             <p className="font-bold text-[10px] uppercase tracking-widest text-amber-700">Disclaimer</p>
-            <p className="whitespace-pre-line text-justify">
-              {disclaimerExpanded ? DISCLAIMER_FULL : DISCLAIMER_SHORT}
-            </p>
+            <div className="whitespace-pre-line text-justify">
+              {disclaimerExpanded ? <DisclaimerFull /> : DISCLAIMER_SHORT}
+            </div>
             <button
               onClick={() => setDisclaimerExpanded(d => !d)}
               className="text-[10px] font-bold uppercase tracking-widest text-amber-600 hover:text-amber-800 transition-colors underline underline-offset-4"
