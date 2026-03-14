@@ -52,7 +52,11 @@ const About: React.FC = () => {
         <div className="relative pl-6 md:pl-8 border-l border-stone-200 space-y-4">
           <div className="absolute w-3 h-3 bg-stone-900 rounded-full -left-[6.5px] top-1.5 md:top-2 border-4 border-[#faf9f6]"></div>
           <div>
-            <h3 className="text-xl md:text-2xl font-bold text-stone-900">Content Developer, Senior Content Developer</h3>
+            <h3 className="text-xl md:text-2xl font-bold text-stone-900 leading-tight">
+              <span className="font-light text-stone-400">Content Developer</span>
+              <span className="mx-2 text-stone-300 font-normal">→</span>
+              <span className="font-bold">Senior Content Developer</span>
+            </h3>
             <div className="flex flex-col sm:flex-row sm:items-center text-sm md:text-base text-stone-500 font-medium tracking-wide mt-1 gap-1 sm:gap-3">
               <span className="uppercase font-bold text-stone-800">Menstrupedia</span>
               <span className="hidden sm:inline text-stone-300">•</span>
@@ -62,15 +66,16 @@ const About: React.FC = () => {
             </div>
           </div>
           <ul className="space-y-2 md:space-y-3 text-stone-600 font-light text-base md:text-lg list-disc pl-4 marker:text-stone-300">
-            <li>Co-created 20+ TruBuddy Comic books over 2.5 years. These books are self-development reads designed for children aged 7–12.</li>
-            <li>Leading and mentoring a team of 5 writers. This includes providing editorial feedback on manuscripts to strengthen story structure, tone, and consistency across titles.</li>
-            <li>Coordinating the drafting, editing, and revision process for multiple titles. This ensures that manuscripts move smoothly toward publication.</li>
-            <li>Handling website content and UX writing. This work focuses on improving clarity, structure, and reader engagement across digital platforms.</li>
-            <li>Building and maintaining the writer onboarding handbook. It helps new writers understand the publishing workflow and maintain consistent quality.</li>
-            <li>Ghostwriting founder bios and brand narratives. These pieces are used across company communication and brand platforms.</li>
-            <li>Overseeing English to Hindi translation projects and line editing 5 Hindi editions of TruBuddy books.</li>
-            <li>Currently developing new stories for a younger reader segment (ages 4–6) to support the expansion of the TruBuddy publishing list.</li>
-            <li>Creating curriculum-aligned educational game content. Current work focuses on material based on CBSE Class 10 Mathematics concepts.</li>
+            <li>Co-created 20+ TruBuddy comic books over the past 2.5 years. These self-development comics are designed for children aged 7–12 and focus on their holistic personal growth.</li>
+            <li>Leading and mentoring a team of five writers, while providing editorial feedback on manuscripts to strengthen story structure, tone, and narrative consistency across titles.</li>
+            <li>Coordinating the drafting, editing, and revision process for multiple comic titles, ensuring that manuscripts move smoothly toward publication while also providing visual direction for storyboarding to align storytelling with illustrations.</li>
+            <li>Handling website content and UX writing, with a focus on improving clarity, structure, and reader engagement across digital platforms.</li>
+            <li>Building and maintaining the writer onboarding handbook, helping new writers understand the publishing workflow and maintain consistent editorial quality.</li>
+            <li>Ghostwriting founder bios and brand narratives, which are used across company communication channels and brand platforms.</li>
+            <li>Overseeing English–Hindi translation projects and conducting line editing for five Hindi editions of TruBuddy books, ensuring linguistic accuracy and cultural nuance.</li>
+            <li>Developing new story concepts for a younger reader segment (ages 4–6) to support the expansion of the TruBuddy publishing list.</li>
+            <li>Creating curriculum-aligned educational game content (Not yet live), currently focusing on CBSE Class 10 Mathematics concepts, including scriptwriting and providing illustrative video direction for interactive learning modules.</li>
+            <li>Generating voice-based learning content using ElevenLabs and editing audio using Audacity for integration into the educational game (Not yet live).</li>
           </ul>
         </div>
 
@@ -97,7 +102,11 @@ const About: React.FC = () => {
         <div className="relative pl-6 md:pl-8 border-l border-stone-200 space-y-4">
           <div className="absolute w-3 h-3 bg-stone-300 rounded-full -left-[6.5px] top-1.5 md:top-2 border-4 border-[#faf9f6]"></div>
           <div>
-            <h3 className="text-xl md:text-2xl font-bold text-stone-900">Intern - Junior Content Writer</h3>
+            <h3 className="text-xl md:text-2xl font-bold text-stone-900 leading-tight">
+              <span className="font-light text-stone-400">Intern</span>
+              <span className="mx-2 text-stone-300 font-normal">→</span>
+              <span className="font-bold">Junior Content Writer</span>
+            </h3>
             <div className="flex flex-col sm:flex-row sm:items-center text-sm md:text-base text-stone-500 font-medium tracking-wide mt-1 gap-1 sm:gap-3">
               <span className="uppercase font-bold text-stone-800">Gubblebums</span>
               <span className="hidden sm:inline text-stone-300">•</span>
