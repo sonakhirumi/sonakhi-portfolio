@@ -25,17 +25,45 @@ const Articles: React.FC = () => {
     return `${minutes} min read`;
   };
 
+  const getCachedData = (key: string) => {
+    const cached = sessionStorage.getItem(key);
+    if (cached) {
+      const { data, timestamp } = JSON.parse(cached);
+      // Cache valid for 30 minutes
+      if (Date.now() - timestamp < 30 * 60 * 1000) {
+        return data;
+      }
+    }
+    return null;
+  };
+
+  const setCachedData = (key: string, data: any) => {
+    sessionStorage.setItem(key, JSON.stringify({ data, timestamp: Date.now() }));
+  };
+
   useEffect(() => {
     const fetchContent = async () => {
       try {
         setIsLoading(true);
-        const catRes = await fetch(`${BASE_URL}/categories?_=${Date.now()}`);
+
+        // Try to get from cache first
+        const cachedCats = getCachedData('wp_categories');
+        const cachedPostsMap = getCachedData('wp_posts_map');
+
+        if (cachedCats && cachedPostsMap) {
+          setCategories(cachedCats);
+          setCategoryPosts(cachedPostsMap);
+          setIsLoading(false);
+          return;
+        }
+
+        const catRes = await fetch(`${BASE_URL}/categories`);
         const catsData = await catRes.json();
 
         if (!Array.isArray(catsData)) return;
 
         const processedCats = catsData
-          .filter((c: any) => c.name.toLowerCase() !== 'hindi')
+          .filter((c: any) => !['hindi', 'uncategorized'].includes(c.name.toLowerCase()))
           .map((c: any) => {
             if (c.name.toLowerCase() === 'odia') return { ...c, name: 'ଓଡ଼ିଆ' };
             if (c.name.toLowerCase() === 'english') return { ...c, name: 'English' };
@@ -45,15 +73,10 @@ const Articles: React.FC = () => {
             const nameA = a.name.toLowerCase();
             const nameB = b.name.toLowerCase();
             const isDevanagari = (s: string) => /[\u0900-\u097F]/.test(s);
-
             if (nameA === 'english' && nameB !== 'english') return -1;
             if (nameA !== 'english' && nameB === 'english') return 1;
-
             if (isDevanagari(nameA) && !isDevanagari(nameB)) return -1;
             if (!isDevanagari(nameA) && isDevanagari(nameB)) return 1;
-
-            if (nameA === 'ଓଡ଼ିଆ' && nameB !== 'ଓଡ଼ିଆ') return 1;
-
             return 0;
           });
 
@@ -61,24 +84,35 @@ const Articles: React.FC = () => {
 
         const postsMap: Record<number, Article[]> = {};
 
-        await Promise.all(catsData.map(async (cat: any) => {
-          const postRes = await fetch(`${BASE_URL}/posts?categories=${cat.id}&per_page=3&_embed&_=${Date.now()}`);
+        await Promise.all(processedCats.map(async (cat: any) => {
+          const postRes = await fetch(`${BASE_URL}/posts?categories=${cat.id}&per_page=3&_embed`);
           const postsData = await postRes.json();
 
           if (Array.isArray(postsData)) {
-            postsMap[cat.id] = postsData.map((post: any) => ({
-              id: post.id.toString(),
-              title: stripHtml(post.title.rendered),
-              excerpt: stripHtml(post.excerpt.rendered).substring(0, 120) + '...',
-              category: cat.name.toUpperCase(),
-              date: new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-              readTime: calculateReadTime(post.content.rendered),
-              imageUrl: post._embedded?.['wp:featuredmedia']?.[0]?.source_url || `https://picsum.photos/800/600?random=${post.id}`,
-            }));
+            postsMap[cat.id] = postsData.map((post: any) => {
+              const media = post._embedded?.['wp:featuredmedia']?.[0];
+              // Use medium size for thumbnails to save bandwidth (falling back to full source_url)
+              const imageUrl = media?.media_details?.sizes?.medium_large?.source_url ||
+                media?.media_details?.sizes?.medium?.source_url ||
+                media?.source_url ||
+                `https://picsum.photos/800/600?random=${post.id}`;
+
+              return {
+                id: post.id.toString(),
+                title: stripHtml(post.title.rendered),
+                excerpt: stripHtml(post.excerpt.rendered).substring(0, 120) + '...',
+                category: cat.name.toUpperCase(),
+                date: new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+                readTime: calculateReadTime(post.content.rendered),
+                imageUrl: imageUrl,
+              };
+            });
           }
         }));
 
         setCategoryPosts(postsMap);
+        setCachedData('wp_categories', processedCats);
+        setCachedData('wp_posts_map', postsMap);
       } catch (err) {
         console.error("Content fetch error:", err);
       } finally {

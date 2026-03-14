@@ -233,11 +233,52 @@ const AllArticlesPage: React.FC = () => {
     return `${Math.ceil(wordCount / wordsPerMinute)} min read`;
   };
 
+  const getCachedData = (key: string) => {
+    const cached = sessionStorage.getItem(key);
+    if (cached) {
+      const { data, timestamp } = JSON.parse(cached);
+      // Cache valid for 30 minutes
+      if (Date.now() - timestamp < 30 * 60 * 1000) {
+        return data;
+      }
+    }
+    return null;
+  };
+
+  const setCachedData = (key: string, data: any) => {
+    sessionStorage.setItem(key, JSON.stringify({ data, timestamp: Date.now() }));
+  };
+
   useEffect(() => {
     const fetchAllData = async () => {
       try {
         setIsLoading(true);
-        const catRes = await fetch(`${BASE_URL}/categories?_=${Date.now()}`);
+
+        // Try cache first
+        const cachedCats = getCachedData('archive_categories');
+        const cachedArticles = getCachedData('archive_articles');
+
+        if (cachedCats && cachedArticles) {
+          setCategories(cachedCats);
+          setArticles(cachedArticles);
+
+          // Still need to handle URL params even if cached
+          const paramCategory = routeCategory || searchParams.get('category');
+          if (paramCategory) {
+            const lp = paramCategory.toLowerCase();
+            if (['portfolio', 'musings', 'professional', 'personal'].includes(lp)) {
+              setViewMode(lp === 'professional' || lp === 'portfolio' ? 'portfolio' : 'musings');
+            } else {
+              const match = cachedCats.find((c: any) => c.name.toLowerCase() === lp);
+              if (match) setSelectedLanguage(match.name);
+            }
+          }
+
+          setIsLoading(false);
+          return;
+        }
+
+        const catRes = await fetch(`${BASE_URL}/categories`);
         const catsData = await catRes.json();
         let actualCategories: { id: number, name: string }[] = [];
         if (Array.isArray(catsData)) {
@@ -265,7 +306,6 @@ const AllArticlesPage: React.FC = () => {
           const lp = paramCategory.toLowerCase();
           if (['portfolio', 'musings', 'professional', 'personal'].includes(lp)) {
             setViewMode(lp === 'professional' || lp === 'portfolio' ? 'portfolio' : 'musings');
-            // Check subcategory for language
             if (routeSubcategory) {
               const sub = actualCategories.find(c => c.name.toLowerCase() === routeSubcategory.toLowerCase());
               if (sub) setSelectedLanguage(sub.name);
@@ -279,13 +319,20 @@ const AllArticlesPage: React.FC = () => {
           }
         }
 
-        const postRes = await fetch(`${BASE_URL}/posts?_embed&per_page=100&_=${Date.now()}`);
+        const postRes = await fetch(`${BASE_URL}/posts?_embed&per_page=100`);
         const postsData = await postRes.json();
         const mapped: Article[] = postsData.map((post: any) => {
           const terms = post._embedded?.['wp:term']?.[0] || [];
           let catName = terms.length > 0 ? terms[0].name : 'STORY';
           if (catName.toLowerCase() === 'english') catName = 'English';
           if (catName.toLowerCase() === 'odia') catName = 'ଓଡ଼ିଆ';
+
+          const media = post._embedded?.['wp:featuredmedia']?.[0];
+          const imageUrl = media?.media_details?.sizes?.medium_large?.source_url ||
+            media?.media_details?.sizes?.medium?.source_url ||
+            media?.source_url ||
+            `https://picsum.photos/800/600?random=${post.id}`;
+
           return {
             id: post.id.toString(),
             title: stripHtml(post.title.rendered),
@@ -293,10 +340,13 @@ const AllArticlesPage: React.FC = () => {
             category: catName,
             date: new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
             readTime: calculateReadTime(post.content.rendered),
-            imageUrl: post._embedded?.['wp:featuredmedia']?.[0]?.source_url || `https://picsum.photos/800/600?random=${post.id}`,
+            imageUrl: imageUrl,
           };
         });
+
         setArticles(mapped);
+        setCachedData('archive_categories', actualCategories);
+        setCachedData('archive_articles', mapped);
       } catch (err) {
         console.error("Archive fetch error:", err);
       } finally {

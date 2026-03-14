@@ -1,19 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Recommendations from './components/Recommendations';
-import About from './components/About';
-import Articles from './components/Articles';
 import Footer from './components/Footer';
-import ArticlePage from './components/ArticlePage';
-import AllArticlesPage from './components/AllArticlesPage';
 import Preloader from './components/Preloader';
-import Contacts from './components/Contact';
-import HappyPeriodsPage from './components/HappyPeriodsPage';
 import HappyPeriodsPreloader from './components/HappyPeriodsPreloader';
-import CopyrightPage from './components/CopyrightPage';
 import ScrollIndicator from './components/ScrollIndicator';
+
+// Code splitting for better initial load time
+const Hero = lazy(() => import('./components/Hero'));
+const Recommendations = lazy(() => import('./components/Recommendations'));
+const About = lazy(() => import('./components/About'));
+const ArticlePage = lazy(() => import('./components/ArticlePage'));
+const AllArticlesPage = lazy(() => import('./components/AllArticlesPage'));
+const Contacts = lazy(() => import('./components/Contact'));
+const HappyPeriodsPage = lazy(() => import('./components/HappyPeriodsPage'));
+const CopyrightPage = lazy(() => import('./components/CopyrightPage'));
 
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
@@ -51,10 +52,10 @@ const HappyPeriodsRoute: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // 3600ms gives exactly enough time for 3 phrases at 1200ms each
+    // Reduced from 3600ms to 2400ms for snappier feel while maintaining impact
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3600);
+    }, 2400);
     return () => clearTimeout(timer);
   }, []);
 
@@ -76,10 +77,10 @@ const App: React.FC = () => {
       return;
     }
 
-    // Initial loading delay for brand impact (global)
+    // Reduced from 2400ms to 1200ms for faster initial entry
     const timer = setTimeout(() => {
       setIsAppLoading(false);
-    }, 2400);
+    }, 1200);
 
     return () => clearTimeout(timer);
   }, [location.pathname]);
@@ -93,19 +94,19 @@ const App: React.FC = () => {
       <Navbar />
       <ScrollToTop />
       <main className="flex-grow pt-20">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/my-archive" element={<AllArticlesPage />} />
-          <Route path="/my-archive/:category" element={<AllArticlesPage />} />
-          <Route path="/my-archive/:category/:subcategory" element={<AllArticlesPage />} />
-          <Route path="/happy-periods" element={<HappyPeriodsRoute />} />
-          <Route path="/article/:id" element={<ArticlePage />} />
-          <Route path="/contact" element={<Contacts />} />
-          <Route path="/copyright" element={<CopyrightPage />} />
-
-
-        </Routes>
+        <Suspense fallback={<div className="min-h-screen bg-[#faf9f6]" />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/my-archive" element={<AllArticlesPage />} />
+            <Route path="/my-archive/:category" element={<AllArticlesPage />} />
+            <Route path="/my-archive/:category/:subcategory" element={<AllArticlesPage />} />
+            <Route path="/happy-periods" element={<HappyPeriodsRoute />} />
+            <Route path="/article/:id" element={<ArticlePage />} />
+            <Route path="/contact" element={<Contacts />} />
+            <Route path="/copyright" element={<CopyrightPage />} />
+          </Routes>
+        </Suspense>
       </main>
       <ScrollIndicator />
       <Footer />
