@@ -13,7 +13,7 @@ const About: React.FC = () => {
           Hi, I'm <span className="font-semibold text-stone-900">Sonakhi Malla (Rumi)</span>, an obsessive overthinking connoisseur who <span className="font-semibold text-stone-900">writes</span>, <span className="font-semibold text-stone-900">edits</span>, <span className="font-semibold text-stone-900">translates</span>, and <span className="font-semibold text-stone-900">guides</span> fellow budding word lovers discovering their voice.
         </p>
         <p>
-          I have spent the last <span className="font-semibold text-stone-900">five years</span> working with words across <span className="font-semibold text-stone-900">content, copy, scripts, UX writing, visual storytelling, game content, and educational material development</span>. I have learnt to move between forms and languages—<span className="font-semibold text-stone-900">English, Hindi, and Odia</span>—without losing what matters.
+          I have spent the last <span className="font-semibold text-stone-900">five years</span> working with words across <span className="font-semibold text-stone-900">content, copy, scripts, UI/UX writing, visual storytelling, game content, and educational material development</span>. I have learnt to move between forms and languages—<span className="font-semibold text-stone-900">English, Hindi, and Odia</span>—without losing what matters.
         </p>
         <p>
           Writing was manifested for me long before I developed my sense of self. I continue to choose it with intention because words help me breathe. They let me place the weight on my chest onto paper. When I began writing for others, my goal was simple: to help people find the right words!
@@ -77,7 +77,7 @@ const About: React.FC = () => {
             <li>Co-created 20+ TruBuddy comic books over the past 2.5 years. These self-development comics are designed for children aged 7–12 and focus on their holistic personal growth.</li>
             <li>Leading and mentoring a team of five writers, while providing editorial feedback on manuscripts to strengthen story structure, tone, and narrative consistency across titles.</li>
             <li>Coordinating the drafting, editing, and revision process for multiple comic titles, ensuring that manuscripts move smoothly toward publication while also providing visual direction for storyboarding to align storytelling with illustrations.</li>
-            <li>Handling website content and UX writing, with a focus on improving clarity, structure, and reader engagement across digital platforms.</li>
+            <li>Handling website content and UI/UX writing (Not yet live), with a focus on improving clarity, structure, and reader engagement across digital platforms.</li>
             <li>Building and maintaining the writer onboarding handbook, helping new writers understand the publishing workflow and maintain consistent editorial quality.</li>
             <li>Ghostwriting founder bios and brand narratives, which are used across company communication channels and brand platforms.</li>
             <li>Overseeing English–Hindi translation projects and conducting line editing for five Hindi editions of TruBuddy books, ensuring linguistic accuracy and cultural nuance.</li>
