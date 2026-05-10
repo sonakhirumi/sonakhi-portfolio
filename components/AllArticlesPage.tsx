@@ -53,6 +53,9 @@ const TRUBUDDY_BOOKS: BookItem[] = [
   { slug: 'handle-cash-safely', title: 'Mira Learns to Handle Cash Safely', image: 'https://trubuddy.me/assets/Covers/19.webp', url: 'https://trubuddy.me/c/handle-cash-safely', language: 'English' },
   { slug: 'how-to-read', title: 'How to Read for Better Learning', image: 'https://trubuddy.me/assets/Covers/2.webp', url: 'https://trubuddy.me/c/how-to-read', language: 'English' },
   { slug: 'how-build-willpower', title: 'How to Build Willpower', image: 'https://trubuddy.me/assets/Covers/17.webp', url: 'https://trubuddy.me/c/how-build-willpower', language: 'English' },
+  { slug: 'messy-to-organised-hindi', title: 'From Messy to Organised', image: 'https://trubuddy.me/assets/Covers/23.webp', url: 'https://trubuddy.me/c/messy-to-organised/hindi', language: 'Hindi' },
+  { slug: 'needs-vs-wants-hindi', title: 'Needs vs Wants: Gulu Values Money', image: 'https://trubuddy.me/assets/Covers/5.webp', url: 'https://trubuddy.me/c/needs-vs-wants/hindi', language: 'Hindi' },
+  { slug: 'using-time-smart-hindi', title: 'Using Time the Smart Way', image: 'https://trubuddy.me/assets/Covers/18.webp', url: 'https://trubuddy.me/c/using-time-smart/hindi', language: 'Hindi' },
 ];
 
 const PORTFOLIO_CATEGORIES: PortfolioCategory[] = [
@@ -149,7 +152,7 @@ const PortfolioCategoryBlock: React.FC<{ category: PortfolioCategory; language: 
             target="_blank"
             rel="noopener noreferrer"
             onClick={e => e.stopPropagation()}
-            className="shrink-0"
+            className="shrink-0 flex items-center gap-3"
           >
             <img loading="lazy" decoding="async"
               src={category.logo}
@@ -283,7 +286,7 @@ const AllArticlesPage: React.FC = () => {
         let actualCategories: { id: number, name: string }[] = [];
         if (Array.isArray(catsData)) {
           const processed = catsData
-            .filter((c: any) => !['hindi', 'uncategorized'].includes(c.name.toLowerCase()))
+            .filter((c: any) => !['uncategorized'].includes(c.name.toLowerCase()))
             .map((c: any) => {
               if (c.name.toLowerCase() === 'odia') return { ...c, name: 'ଓଡ଼ିଆ' };
               if (c.name.toLowerCase() === 'english') return { ...c, name: 'English' };
@@ -403,13 +406,12 @@ const AllArticlesPage: React.FC = () => {
                 ))}
               </div>
 
-              {/* Language sub-filters (Hidden for now until we upload more languages) */}
-              {/*
-              {viewMode !== 'all' && (
+              {/* Language sub-filters */}
+              {viewMode !== 'musings' && (
                 <div className="flex flex-wrap items-center gap-3 animate-fadeIn">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Language:</span>
                   <div className="flex flex-wrap gap-2">
-                    {['All', ...categories.map(c => c.name)].map(lang => (
+                    {['All', 'English', 'Hindi', ...categories.filter(c => !['english', 'hindi'].includes(c.name.toLowerCase())).map(c => c.name)].map(lang => (
                       <button key={lang}
                         onClick={() => setSelectedLanguage(lang)}
                         className={`px-4 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-widest transition-all ${selectedLanguage === lang ? 'bg-stone-900 text-white shadow-md' : 'bg-white text-stone-400 border border-stone-200 hover:border-stone-900'}`}>
@@ -419,7 +421,6 @@ const AllArticlesPage: React.FC = () => {
                   </div>
                 </div>
               )}
-              */}
             </div>
           </div>
         </div>
@@ -461,7 +462,7 @@ const AllArticlesPage: React.FC = () => {
                   />
                 ))}
                 {/* Show Under Construction for languages that have no portfolio content yet */}
-                {selectedLanguage !== 'All' && selectedLanguage !== 'English' && (
+                {selectedLanguage !== 'All' && selectedLanguage !== 'English' && selectedLanguage !== 'Hindi' && (
                   <UnderConstruction message={`${selectedLanguage} portfolio content is being curated. It'll be here when ready.`} />
                 )}
               </section>
