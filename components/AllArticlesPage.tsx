@@ -53,9 +53,9 @@ const TRUBUDDY_BOOKS: BookItem[] = [
   { slug: 'handle-cash-safely', title: 'Mira Learns to Handle Cash Safely', image: 'https://trubuddy.me/assets/Covers/19.webp', url: 'https://trubuddy.me/c/handle-cash-safely', language: 'English' },
   { slug: 'how-to-read', title: 'How to Read for Better Learning', image: 'https://trubuddy.me/assets/Covers/2.webp', url: 'https://trubuddy.me/c/how-to-read', language: 'English' },
   { slug: 'how-build-willpower', title: 'How to Build Willpower', image: 'https://trubuddy.me/assets/Covers/17.webp', url: 'https://trubuddy.me/c/how-build-willpower', language: 'English' },
-  { slug: 'messy-to-organised-hindi', title: 'From Messy to Organised', image: 'https://trubuddy.me/assets/Covers/23.webp', url: 'https://trubuddy.me/c/messy-to-organised/hindi', language: 'Hindi' },
-  { slug: 'needs-vs-wants-hindi', title: 'Needs vs Wants: Gulu Values Money', image: 'https://trubuddy.me/assets/Covers/5.webp', url: 'https://trubuddy.me/c/needs-vs-wants/hindi', language: 'Hindi' },
-  { slug: 'using-time-smart-hindi', title: 'Using Time the Smart Way', image: 'https://trubuddy.me/assets/Covers/18.webp', url: 'https://trubuddy.me/c/using-time-smart/hindi', language: 'Hindi' },
+  { slug: 'messy-to-organised-hindi', title: 'From Messy to Organised', image: 'https://trubuddy.me/assets/Covers/29.webp', url: 'https://trubuddy.me/c/messy-to-organised/hindi', language: 'Hindi' },
+  { slug: 'needs-vs-wants-hindi', title: 'Needs vs Wants: Gulu Values Money', image: 'https://trubuddy.me/assets/Covers/27.webp', url: 'https://trubuddy.me/c/needs-vs-wants/hindi', language: 'Hindi' },
+  { slug: 'using-time-smart-hindi', title: 'Using Time the Smart Way', image: 'https://trubuddy.me/assets/Covers/28.webp', url: 'https://trubuddy.me/c/using-time-smart/hindi', language: 'Hindi' },
 ];
 
 const PORTFOLIO_CATEGORIES: PortfolioCategory[] = [
