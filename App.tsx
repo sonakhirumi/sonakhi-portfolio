@@ -52,10 +52,10 @@ const HappyPeriodsRoute: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Reduced from 3600ms to 2400ms for snappier feel while maintaining impact
+    // Aligned to 800ms for instant feel matching the live site
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 2400);
+    }, 800);
     return () => clearTimeout(timer);
   }, []);
 
@@ -77,10 +77,10 @@ const App: React.FC = () => {
       return;
     }
 
-    // Reduced from 2400ms to 1200ms for faster initial entry
+    // Reduced to 600ms for faster initial entry
     const timer = setTimeout(() => {
       setIsAppLoading(false);
-    }, 1200);
+    }, 600);
 
     return () => clearTimeout(timer);
   }, [location.pathname]);

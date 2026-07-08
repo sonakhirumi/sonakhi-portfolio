@@ -237,11 +237,11 @@ const AllArticlesPage: React.FC = () => {
   };
 
   const getCachedData = (key: string) => {
-    const cached = sessionStorage.getItem(key);
+    const cached = localStorage.getItem(key);
     if (cached) {
       const { data, timestamp } = JSON.parse(cached);
-      // Cache valid for 30 minutes
-      if (Date.now() - timestamp < 30 * 60 * 1000) {
+      // Cache valid for 2 hours (120 minutes)
+      if (Date.now() - timestamp < 120 * 60 * 1000) {
         return data;
       }
     }
@@ -249,7 +249,7 @@ const AllArticlesPage: React.FC = () => {
   };
 
   const setCachedData = (key: string, data: any) => {
-    sessionStorage.setItem(key, JSON.stringify({ data, timestamp: Date.now() }));
+    localStorage.setItem(key, JSON.stringify({ data, timestamp: Date.now() }));
   };
 
   useEffect(() => {
@@ -352,6 +352,16 @@ const AllArticlesPage: React.FC = () => {
         setCachedData('archive_articles', mapped);
       } catch (err) {
         console.error("Archive fetch error:", err);
+        try {
+          const rawCats = localStorage.getItem('archive_categories');
+          const rawArticles = localStorage.getItem('archive_articles');
+          if (rawCats && rawArticles) {
+            setCategories(JSON.parse(rawCats).data);
+            setArticles(JSON.parse(rawArticles).data);
+          }
+        } catch (fallbackErr) {
+          console.error("Cache fallback error:", fallbackErr);
+        }
       } finally {
         setIsLoading(false);
       }
