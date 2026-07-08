@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Languages, Quote, ExternalLink } from 'lucide-react';
 
-import heroImageLocal from '../hero-image.jpg';
+import heroImageLocal from '../hero-image.png';
 const heroImage = heroImageLocal;
 // Rebuild trigger after reverting torn cutout effect
 const Hero: React.FC = () => {
