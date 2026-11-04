@@ -34,11 +34,15 @@ interface PortfolioCategory {
 
 const TRUBUDDY_BOOKS: BookItem[] = [
   { slug: 'needs-vs-wants', title: 'Needs vs Wants: Gulu Values Money', image: 'https://trubuddy.me/assets/Covers/5.webp', url: 'https://trubuddy.me/show-full-preview?comicId=5', language: 'English' },
+  { slug: 'needs-vs-wants-hindi', title: 'Needs vs Wants: Gulu Values Money', image: 'https://trubuddy.me/assets/Covers/27.webp', url: 'https://trubuddy.me/show-full-preview?comicId=27', language: 'Hindi' },
   { slug: 'use-internet-safely', title: 'How to Use the Internet Safely', image: 'https://trubuddy.me/assets/Covers/25.webp', url: 'https://trubuddy.me/show-full-preview?comicId=25', language: 'English' },
   { slug: 'using-time-smart', title: 'Using Time the Smart Way', image: 'https://trubuddy.me/assets/Covers/18.webp', url: 'https://trubuddy.me/show-full-preview?comicId=18', language: 'English' },
+  { slug: 'using-time-smart-hindi', title: 'Using Time the Smart Way', image: 'https://trubuddy.me/assets/Covers/28.webp', url: 'https://trubuddy.me/show-full-preview?comicId=28', language: 'Hindi' },
   { slug: 'friends-shape-us', title: 'How Friends Shape Us', image: 'https://trubuddy.me/assets/Covers/12.webp', url: 'https://trubuddy.me/show-full-preview?comicId=12', language: 'English' },
   { slug: 'talk-confidently', title: 'How to Talk Confidently', image: 'https://trubuddy.me/assets/Covers/6.webp', url: 'https://trubuddy.me/show-full-preview?comicId=6', language: 'English' },
+  { slug: 'talk-confidently-hindi', title: 'How to Talk Confidently', image: 'https://trubuddy.me/assets/Covers/32.webp', url: 'https://trubuddy.me/show-full-preview?comicId=32', language: 'Hindi' },
   { slug: 'messy-to-organised', title: 'From Messy to Organised', image: 'https://trubuddy.me/assets/Covers/23.webp', url: 'https://trubuddy.me/show-full-preview?comicId=23', language: 'English' },
+  { slug: 'messy-to-organised-hindi', title: 'From Messy to Organised', image: 'https://trubuddy.me/assets/Covers/29.webp', url: 'https://trubuddy.me/show-full-preview?comicId=29', language: 'Hindi' },
   { slug: 'bounce-from-failure', title: 'Bounce Back from Failure', image: 'https://trubuddy.me/assets/Covers/11.webp', url: 'https://trubuddy.me/show-full-preview?comicId=11', language: 'English' },
   { slug: 'deal-with-challenges', title: 'How to Deal with Challenges', image: 'https://trubuddy.me/assets/Covers/26.webp', url: 'https://trubuddy.me/show-full-preview?comicId=26', language: 'English' },
   { slug: 'good-eating-habits', title: 'Eating Habits for Good Health', image: 'https://trubuddy.me/assets/Covers/24.webp', url: 'https://trubuddy.me/show-full-preview?comicId=24', language: 'English' },
@@ -54,10 +58,6 @@ const TRUBUDDY_BOOKS: BookItem[] = [
   { slug: 'how-to-read', title: 'How to Read for Better Learning', image: 'https://trubuddy.me/assets/Covers/2.webp', url: 'https://trubuddy.me/show-full-preview?comicId=2', language: 'English' },
   { slug: 'how-build-willpower', title: 'How to Build Willpower', image: 'https://trubuddy.me/assets/Covers/17.webp', url: 'https://trubuddy.me/show-full-preview?comicId=17', language: 'English' },
   { slug: 'understanding-emotions', title: 'Understanding Emotions', image: 'https://trubuddy.me/assets/Covers/31.webp', url: 'https://trubuddy.me/show-full-preview?comicId=31', language: 'English' },
-  { slug: 'messy-to-organised-hindi', title: 'From Messy to Organised', image: 'https://trubuddy.me/assets/Covers/29.webp', url: 'https://trubuddy.me/show-full-preview?comicId=29', language: 'Hindi' },
-  { slug: 'needs-vs-wants-hindi', title: 'Needs vs Wants: Gulu Values Money', image: 'https://trubuddy.me/assets/Covers/27.webp', url: 'https://trubuddy.me/show-full-preview?comicId=27', language: 'Hindi' },
-  { slug: 'using-time-smart-hindi', title: 'Using Time the Smart Way', image: 'https://trubuddy.me/assets/Covers/28.webp', url: 'https://trubuddy.me/show-full-preview?comicId=28', language: 'Hindi' },
-  { slug: 'talk-confidently-hindi', title: 'How to Talk Confidently', image: 'https://trubuddy.me/assets/Covers/32.webp', url: 'https://trubuddy.me/show-full-preview?comicId=32', language: 'Hindi' },
 ];
 
 const PORTFOLIO_CATEGORIES: PortfolioCategory[] = [
