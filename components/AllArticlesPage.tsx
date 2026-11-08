@@ -134,7 +134,7 @@ const PortfolioCategoryBlock: React.FC<{ category: PortfolioCategory; language: 
   const [showAllBooks, setShowAllBooks] = useState(false);
   const [disclaimerExpanded, setDisclaimerExpanded] = useState(false);
 
-  const filtered = language === 'All' ? category.books : category.books.filter(b => b.language === language);
+  const filtered = language === 'All' ? category.books : category.books.filter(b => b.language === language || (language === 'हिन्दी' && b.language === 'Hindi'));
   if (filtered.length === 0) return null;
 
   // First row = 6 books on xl, 5 on lg, 4 on md, 3 on sm, 2 on mobile
@@ -424,7 +424,7 @@ const AllArticlesPage: React.FC = () => {
                 <div className="flex flex-wrap items-center gap-3 animate-fadeIn">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Language:</span>
                   <div className="flex flex-wrap gap-2">
-                    {['All', 'English', 'Hindi', 'ଓଡ଼ିଆ', ...categories.filter(c => !['english', 'hindi', 'odia', 'ଓଡ଼ିଆ'].includes(c.name.toLowerCase())).map(c => c.name)].map(lang => (
+                    {['All', 'English', 'हिन्दी', 'ଓଡ଼ିଆ', ...categories.filter(c => !['english', 'hindi', 'हिन्दी', 'odia', 'ଓଡ଼ିଆ'].includes(c.name.toLowerCase())).map(c => c.name)].map(lang => (
                       <button key={lang}
                         onClick={() => setSelectedLanguage(lang)}
                         className={`px-4 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-widest transition-all ${selectedLanguage === lang ? 'bg-stone-900 text-white shadow-md' : 'bg-white text-stone-400 border border-stone-200 hover:border-stone-900'}`}>
@@ -475,7 +475,7 @@ const AllArticlesPage: React.FC = () => {
                   />
                 ))}
                 {/* Show Under Construction for languages that have no portfolio content yet */}
-                {selectedLanguage !== 'All' && selectedLanguage !== 'English' && selectedLanguage !== 'Hindi' && (
+                {selectedLanguage !== 'All' && selectedLanguage !== 'English' && selectedLanguage !== 'Hindi' && selectedLanguage !== 'हिन्दी' && (
                   <UnderConstruction message={`${selectedLanguage} portfolio content is being curated. It'll be here when ready.`} />
                 )}
               </section>
