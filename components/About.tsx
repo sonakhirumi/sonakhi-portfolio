@@ -179,11 +179,11 @@ const About: React.FC = () => {
             </div>
           </div>
           <ul className="space-y-2 md:space-y-3 text-stone-600 font-light text-base md:text-lg list-disc pl-4 marker:text-stone-300">
-            <li>Wrote content for brands across varied niches, including brand books, blogs, captions, website content, ad copy, review responses, YouTube descriptions, and product listings.</li>
-            <li>Applied SEO strategies such as keyword research, Quora publishing, backlinking, guest posting, Pinterest pin creation, and directory/product listings.</li>
-            <li>Collaborated with clients and creative teams for brand management, including scheduling photoshoots, coordinating feedback, and managing deliverables.</li>
-            <li>Handled social media content and scheduling for platforms like Facebook and Instagram.</li>
-            <li>Compiled regular performance reports on keyword rankings, Google Ads performance, and social media insights.</li>
+            <li>Created content for brands across diverse industries, including lifestyle, hospitality, food and beverage, fashion, construction and building materials, and event management. Worked across multiple formats, including brand books, blogs, SEO copywriting, website content, social media captions, UI/UX copy, ad copy, customer review responses, YouTube descriptions, and product listings.</li>
+            <li>Implemented SEO and content optimisation strategies through keyword research, on-page SEO, Quora publishing, backlink building, guest posting, Pinterest board creation, and directory and product listings to improve organic visibility, search rankings, and website traffic.</li>
+            <li>Collaborated with clients and creative teams on brand management, content strategy, and digital marketing execution, coordinating photoshoots, consolidating feedback, and managing creative workflows and project deliverables.</li>
+            <li>Developed, curated, and scheduled social media content across platforms, including Facebook and Instagram, supporting brand communication, digital presence, audience engagement, and promotional campaigns.</li>
+            <li>Prepared regular digital marketing and performance reports, tracking Google Ads performance and social media analytics to evaluate campaign effectiveness and content performance.</li>
           </ul>
         </div>
 
