@@ -1,3 +1,4 @@
+import { TikTakGoCategoryBlock } from './TikTakGoCategoryBlock';
 import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams, useNavigate, useParams } from 'react-router-dom';
 import { Calendar, Clock, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
@@ -474,6 +475,11 @@ const AllArticlesPage: React.FC = () => {
                     defaultOpen={true}
                   />
                 ))}
+
+                {/* TikTakGo Curriculum & Video Lessons Block (shown when All or English is selected) */}
+                {(selectedLanguage === 'All' || selectedLanguage === 'English') && (
+                  <TikTakGoCategoryBlock defaultOpen={true} />
+                )}
                 {/* Show Under Construction for languages that have no portfolio content yet */}
                 {selectedLanguage !== 'All' && selectedLanguage !== 'English' && selectedLanguage !== 'Hindi' && selectedLanguage !== 'हिन्दी' && (
                   <UnderConstruction message={`${selectedLanguage} portfolio content is being curated. It'll be here when ready.`} />
