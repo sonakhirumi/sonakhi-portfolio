@@ -424,7 +424,7 @@ const AllArticlesPage: React.FC = () => {
                 <div className="flex flex-wrap items-center gap-3 animate-fadeIn">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Language:</span>
                   <div className="flex flex-wrap gap-2">
-                    {['All', 'English', 'Hindi', ...categories.filter(c => !['english', 'hindi'].includes(c.name.toLowerCase())).map(c => c.name)].map(lang => (
+                    {['All', 'English', 'Hindi', 'ଓଡ଼ିଆ', ...categories.filter(c => !['english', 'hindi', 'odia', 'ଓଡ଼ିଆ'].includes(c.name.toLowerCase())).map(c => c.name)].map(lang => (
                       <button key={lang}
                         onClick={() => setSelectedLanguage(lang)}
                         className={`px-4 py-1.5 rounded-full text-[9px] font-bold uppercase tracking-widest transition-all ${selectedLanguage === lang ? 'bg-stone-900 text-white shadow-md' : 'bg-white text-stone-400 border border-stone-200 hover:border-stone-900'}`}>
