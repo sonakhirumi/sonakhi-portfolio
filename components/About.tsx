@@ -103,7 +103,7 @@ const About: React.FC = () => {
           </div>
           <ul className="space-y-2 md:space-y-3 text-stone-600 font-light text-base md:text-lg list-disc pl-4 marker:text-stone-300">
             <li>Translating TruBuddy comic books from English to Hindi as part of an ongoing project.</li>
-            <li>Translated a Menstrupedia mini comic from English to Odia, maintaining tone, flow, and accessibility for regional readers.</li>
+            <li>Translated Menstrupedia Mini comic from English to Odia.</li>
           </ul>
         </div>
 
