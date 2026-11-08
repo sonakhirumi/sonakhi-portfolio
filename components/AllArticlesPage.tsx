@@ -33,31 +33,32 @@ interface PortfolioCategory {
 }
 
 const TRUBUDDY_BOOKS: BookItem[] = [
-  { slug: 'needs-vs-wants', title: 'Needs vs Wants: Gulu Values Money', image: 'https://trubuddy.me/assets/Covers/5.webp', url: 'https://trubuddy.me/show-full-preview?comicId=5', language: 'English' },
-  { slug: 'needs-vs-wants-hindi', title: 'Needs vs Wants: Gulu Values Money', image: 'https://trubuddy.me/assets/Covers/27.webp', url: 'https://trubuddy.me/show-full-preview?comicId=27', language: 'Hindi' },
-  { slug: 'use-internet-safely', title: 'How to Use the Internet Safely', image: 'https://trubuddy.me/assets/Covers/25.webp', url: 'https://trubuddy.me/show-full-preview?comicId=25', language: 'English' },
-  { slug: 'using-time-smart', title: 'Using Time the Smart Way', image: 'https://trubuddy.me/assets/Covers/18.webp', url: 'https://trubuddy.me/show-full-preview?comicId=18', language: 'English' },
-  { slug: 'using-time-smart-hindi', title: 'Using Time the Smart Way', image: 'https://trubuddy.me/assets/Covers/28.webp', url: 'https://trubuddy.me/show-full-preview?comicId=28', language: 'Hindi' },
-  { slug: 'friends-shape-us', title: 'How Friends Shape Us', image: 'https://trubuddy.me/assets/Covers/12.webp', url: 'https://trubuddy.me/show-full-preview?comicId=12', language: 'English' },
-  { slug: 'talk-confidently', title: 'How to Talk Confidently', image: 'https://trubuddy.me/assets/Covers/6.webp', url: 'https://trubuddy.me/show-full-preview?comicId=6', language: 'English' },
-  { slug: 'talk-confidently-hindi', title: 'How to Talk Confidently', image: 'https://trubuddy.me/assets/Covers/32.webp', url: 'https://trubuddy.me/show-full-preview?comicId=32', language: 'Hindi' },
-  { slug: 'messy-to-organised', title: 'From Messy to Organised', image: 'https://trubuddy.me/assets/Covers/23.webp', url: 'https://trubuddy.me/show-full-preview?comicId=23', language: 'English' },
-  { slug: 'messy-to-organised-hindi', title: 'From Messy to Organised', image: 'https://trubuddy.me/assets/Covers/29.webp', url: 'https://trubuddy.me/show-full-preview?comicId=29', language: 'Hindi' },
+  // ── Alphabetically sorted by English title; Hindi translation immediately follows ──
   { slug: 'bounce-from-failure', title: 'Bounce Back from Failure', image: 'https://trubuddy.me/assets/Covers/11.webp', url: 'https://trubuddy.me/show-full-preview?comicId=11', language: 'English' },
-  { slug: 'deal-with-challenges', title: 'How to Deal with Challenges', image: 'https://trubuddy.me/assets/Covers/26.webp', url: 'https://trubuddy.me/show-full-preview?comicId=26', language: 'English' },
   { slug: 'good-eating-habits', title: 'Eating Habits for Good Health', image: 'https://trubuddy.me/assets/Covers/24.webp', url: 'https://trubuddy.me/show-full-preview?comicId=24', language: 'English' },
-  { slug: 'overcome-screen-addiction', title: 'Mira Overcomes Screen Addiction', image: 'https://trubuddy.me/assets/Covers/30.webp', url: 'https://trubuddy.me/show-full-preview?comicId=30', language: 'English' },
-  { slug: 'art-make-friends', title: 'The Art of Making Friends', image: 'https://trubuddy.me/assets/Covers/20.webp', url: 'https://trubuddy.me/show-full-preview?comicId=20', language: 'English' },
-  { slug: 'talk-about-mistake', title: 'Made a Mistake? How to Talk About It', image: 'https://trubuddy.me/assets/Covers/15.webp', url: 'https://trubuddy.me/show-full-preview?comicId=15', language: 'English' },
-  { slug: 'learn-about-money', title: 'Learn about Money with Gulu', image: 'https://trubuddy.me/assets/Covers/21.webp', url: 'https://trubuddy.me/show-full-preview?comicId=21', language: 'English' },
+  { slug: 'messy-to-organised', title: 'From Messy to Organised', image: 'https://trubuddy.me/assets/Covers/23.webp', url: 'https://trubuddy.me/show-full-preview?comicId=23', language: 'English' },
+  { slug: 'messy-to-organised-hindi', title: 'कैसे व्यवस्थित रहें', image: 'https://trubuddy.me/assets/Covers/29.webp', url: 'https://trubuddy.me/show-full-preview?comicId=29', language: 'Hindi' },
   { slug: 'junk-food-truth', title: 'Gulu Finds the Truth about Junk Food', image: 'https://trubuddy.me/assets/Covers/16.webp', url: 'https://trubuddy.me/show-full-preview?comicId=16', language: 'English' },
+  { slug: 'deal-with-challenges', title: 'How to Deal with Challenges', image: 'https://trubuddy.me/assets/Covers/26.webp', url: 'https://trubuddy.me/show-full-preview?comicId=26', language: 'English' },
+  { slug: 'how-build-willpower', title: 'How to Build Willpower', image: 'https://trubuddy.me/assets/Covers/17.webp', url: 'https://trubuddy.me/show-full-preview?comicId=17', language: 'English' },
+  { slug: 'friends-shape-us', title: 'How Friends Shape Us', image: 'https://trubuddy.me/assets/Covers/12.webp', url: 'https://trubuddy.me/show-full-preview?comicId=12', language: 'English' },
+  { slug: 'how-to-read', title: 'How to Read for Better Learning', image: 'https://trubuddy.me/assets/Covers/2.webp', url: 'https://trubuddy.me/show-full-preview?comicId=2', language: 'English' },
+  { slug: 'good-habits', title: 'How to Stick to Good Habits', image: 'https://trubuddy.me/assets/Covers/8.webp', url: 'https://trubuddy.me/show-full-preview?comicId=8', language: 'English' },
+  { slug: 'talk-confidently', title: 'How to Talk Confidently', image: 'https://trubuddy.me/assets/Covers/6.webp', url: 'https://trubuddy.me/show-full-preview?comicId=6', language: 'English' },
+  { slug: 'talk-confidently-hindi', title: 'बातचीत करने की कला', image: 'https://trubuddy.me/assets/Covers/32.webp', url: 'https://trubuddy.me/show-full-preview?comicId=32', language: 'Hindi' },
+  { slug: 'use-internet-safely', title: 'How to Use the Internet Safely', image: 'https://trubuddy.me/assets/Covers/25.webp', url: 'https://trubuddy.me/show-full-preview?comicId=25', language: 'English' },
+  { slug: 'learn-about-money', title: 'Learn about Money with Gulu', image: 'https://trubuddy.me/assets/Covers/21.webp', url: 'https://trubuddy.me/show-full-preview?comicId=21', language: 'English' },
+  { slug: 'talk-about-mistake', title: 'Made a Mistake? How to Talk About It', image: 'https://trubuddy.me/assets/Covers/15.webp', url: 'https://trubuddy.me/show-full-preview?comicId=15', language: 'English' },
   { slug: 'memorisation-made-easy', title: 'Memorisation Made Easy', image: 'https://trubuddy.me/assets/Covers/14.webp', url: 'https://trubuddy.me/show-full-preview?comicId=14', language: 'English' },
   { slug: 'learns-healthy-food', title: 'Mira Learns about Healthy Food', image: 'https://trubuddy.me/assets/Covers/22.webp', url: 'https://trubuddy.me/show-full-preview?comicId=22', language: 'English' },
-  { slug: 'good-habits', title: 'How to Stick to Good Habits', image: 'https://trubuddy.me/assets/Covers/8.webp', url: 'https://trubuddy.me/show-full-preview?comicId=8', language: 'English' },
   { slug: 'handle-cash-safely', title: 'Mira Learns to Handle Cash Safely', image: 'https://trubuddy.me/assets/Covers/19.webp', url: 'https://trubuddy.me/show-full-preview?comicId=19', language: 'English' },
-  { slug: 'how-to-read', title: 'How to Read for Better Learning', image: 'https://trubuddy.me/assets/Covers/2.webp', url: 'https://trubuddy.me/show-full-preview?comicId=2', language: 'English' },
-  { slug: 'how-build-willpower', title: 'How to Build Willpower', image: 'https://trubuddy.me/assets/Covers/17.webp', url: 'https://trubuddy.me/show-full-preview?comicId=17', language: 'English' },
+  { slug: 'overcome-screen-addiction', title: 'Mira Overcomes Screen Addiction', image: 'https://trubuddy.me/assets/Covers/30.webp', url: 'https://trubuddy.me/show-full-preview?comicId=30', language: 'English' },
+  { slug: 'needs-vs-wants', title: 'Needs vs Wants: Gulu Values Money', image: 'https://trubuddy.me/assets/Covers/5.webp', url: 'https://trubuddy.me/show-full-preview?comicId=5', language: 'English' },
+  { slug: 'needs-vs-wants-hindi', title: 'ज़रूरतें या इच्छाएँ: गुलू ने समझा पैसों का मोल', image: 'https://trubuddy.me/assets/Covers/27.webp', url: 'https://trubuddy.me/show-full-preview?comicId=27', language: 'Hindi' },
+  { slug: 'art-make-friends', title: 'The Art of Making Friends', image: 'https://trubuddy.me/assets/Covers/20.webp', url: 'https://trubuddy.me/show-full-preview?comicId=20', language: 'English' },
   { slug: 'understanding-emotions', title: 'Understanding Emotions', image: 'https://trubuddy.me/assets/Covers/31.webp', url: 'https://trubuddy.me/show-full-preview?comicId=31', language: 'English' },
+  { slug: 'using-time-smart', title: 'Using Time the Smart Way', image: 'https://trubuddy.me/assets/Covers/18.webp', url: 'https://trubuddy.me/show-full-preview?comicId=18', language: 'English' },
+  { slug: 'using-time-smart-hindi', title: 'समय का सही उपयोग', image: 'https://trubuddy.me/assets/Covers/28.webp', url: 'https://trubuddy.me/show-full-preview?comicId=28', language: 'Hindi' },
 ];
 
 const PORTFOLIO_CATEGORIES: PortfolioCategory[] = [
@@ -87,8 +88,8 @@ const BookCard: React.FC<{ book: BookItem }> = ({ book }) => (
         </span>
       </div>
     </div>
-    <div className="mt-2.5 space-y-0.5 px-0.5">
-      <p className="text-xs font-semibold text-stone-700 leading-snug line-clamp-2 group-hover:text-stone-900 transition-colors">
+    <div className="mt-2.5 space-y-0.5 px-0.5 text-center">
+      <p className="text-xs font-semibold text-stone-700 leading-snug line-clamp-2 group-hover:text-stone-900 transition-colors text-center text-balance">
         {book.title}
       </p>
     </div>
