@@ -8,7 +8,7 @@ const TikTakGoDisclaimerFull: React.FC = () => (
   <div className="space-y-4">
     <p>
       TikTakGo is an educational gaming platform that is designed to be your bite-sized learning companion to help CBSE Class 10 students master Mathematics through intuitive visual storytelling, problem-solving techniques, and gamified challenges. You can watch the complete series and support the platform on{' '}
-      <a href="https://www.youtube.com/@tiktakgo" target="_blank" rel="noopener noreferrer" className="text-red-600 font-bold hover:underline cursor-pointer">YouTube</a>{' '}
+      <a href="https://www.youtube.com/@tiktakgo" target="_blank" rel="noopener noreferrer" className="text-[#0056D2] font-bold hover:underline cursor-pointer">YouTube</a>{' '}
       or visit <a href="https://tiktakgo.com/" target="_blank" rel="noopener noreferrer" className="text-[#0056D2] font-bold hover:underline cursor-pointer">tiktakgo.com</a>.
     </p>
     <p>
@@ -20,106 +20,13 @@ const TikTakGoDisclaimerFull: React.FC = () => (
   </div>
 );
 
-const ChapterFolderItem: React.FC<{ chapter: TikTakGoChapter }> = ({ chapter }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div className="border border-stone-200/80 rounded-xl overflow-hidden bg-white shadow-xs transition-all hover:border-stone-300">
-      {/* Compact Folder Header */}
-      <button
-        onClick={() => setIsOpen(o => !o)}
-        className="w-full flex items-center justify-between px-3.5 py-2.5 bg-stone-50/70 hover:bg-stone-100/80 transition-colors text-left gap-2.5 cursor-pointer"
-      >
-        <div className="flex items-center gap-2.5 min-w-0">
-          <div className="p-1.5 rounded-lg bg-blue-50 text-[#0056D2] shrink-0">
-            {isOpen ? <FolderOpen className="w-3.5 h-3.5" /> : <Folder className="w-3.5 h-3.5" />}
-          </div>
-          <div className="min-w-0 flex items-center gap-2 flex-wrap">
-            <span className="text-[10px] font-bold uppercase tracking-wider px-1.5 py-0.5 rounded bg-[#0056D2]/10 text-[#0056D2] shrink-0">
-              Ch {chapter.chapterNumber}
-            </span>
-            <span className="text-xs font-semibold text-stone-800 truncate">
-              {chapter.chapterTitle}
-            </span>
-            <span className="text-[10px] text-stone-400">
-              ({chapter.videos.length})
-            </span>
-          </div>
-        </div>
-
-        <div className="flex items-center gap-1.5 shrink-0">
-          <a
-            href={chapter.playlistUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={e => e.stopPropagation()}
-            title="Open playlist on YouTube"
-            className="p-1 text-stone-400 hover:text-red-600 rounded-md hover:bg-red-50 transition-colors"
-          >
-            <Youtube className="w-3.5 h-3.5" />
-          </a>
-          <span className="text-stone-400">
-            {isOpen ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
-          </span>
-        </div>
-      </button>
-
-      {/* Videos List */}
-      {isOpen && (
-        <div className="p-3 bg-stone-50/30 border-t border-stone-100">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
-            {chapter.videos.map((vid, idx) => (
-              <a
-                key={vid.id}
-                href={vid.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex flex-col rounded-lg border border-stone-200/70 overflow-hidden bg-white hover:border-blue-300 transition-all shadow-2xs hover:shadow-sm"
-              >
-                {/* Thumbnail */}
-                <div className="relative aspect-video w-full overflow-hidden bg-stone-900/10">
-                  <img
-                    src={vid.thumbnail}
-                    alt={vid.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-stone-950/20 group-hover:bg-stone-950/40 transition-colors flex items-center justify-center">
-                    <div className="w-7 h-7 rounded-full bg-red-600 text-white flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
-                      <Play className="w-3 h-3 fill-current ml-0.5" />
-                    </div>
-                  </div>
-                  <span className="absolute bottom-1 right-1 bg-black/75 text-[9px] text-white px-1.5 py-0.2 rounded font-mono">
-                    #{idx + 1}
-                  </span>
-                </div>
-                {/* Title */}
-                <div className="p-2 flex-1 flex flex-col justify-between">
-                  <p className="text-[11px] font-medium text-stone-800 line-clamp-2 group-hover:text-[#0056D2] transition-colors leading-snug">
-                    {vid.title}
-                  </p>
-                  <div className="mt-1.5 flex items-center justify-between text-[9px] text-stone-400">
-                    <span className="flex items-center gap-1 text-red-600 font-semibold">
-                      <Youtube className="w-2.5 h-2.5" /> YouTube
-                    </span>
-                    <span className="flex items-center gap-0.5 group-hover:text-stone-700">
-                      Watch <ExternalLink className="w-2 h-2" />
-                    </span>
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
-
 export const TikTakGoCategoryBlock: React.FC<{ defaultOpen?: boolean }> = ({ defaultOpen = true }) => {
   const [open, setOpen] = useState(defaultOpen);
   const [disclaimerExpanded, setDisclaimerExpanded] = useState(false);
+  const [activeChapterNum, setActiveChapterNum] = useState<number>(1);
   const totalVideos = TIKTAKGO_CHAPTERS.reduce((sum, ch) => sum + ch.videos.length, 0);
+
+  const activeChapter = TIKTAKGO_CHAPTERS.find(c => c.chapterNumber === activeChapterNum) || TIKTAKGO_CHAPTERS[0];
 
   return (
     <div className="border border-stone-100 rounded-2xl overflow-hidden shadow-sm">
@@ -150,7 +57,7 @@ export const TikTakGoCategoryBlock: React.FC<{ defaultOpen?: boolean }> = ({ def
             target="_blank"
             rel="noopener noreferrer"
             onClick={e => e.stopPropagation()}
-            className="hidden sm:flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-red-600 hover:text-red-700 bg-red-50 hover:bg-red-100 px-3 py-1 rounded-full transition-colors"
+            className="hidden sm:flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#0056D2] hover:text-blue-800 bg-blue-50/80 hover:bg-blue-100 px-3 py-1 rounded-full transition-colors"
           >
             <Youtube className="w-3.5 h-3.5" /> @tiktakgo
           </a>
@@ -181,7 +88,7 @@ export const TikTakGoCategoryBlock: React.FC<{ defaultOpen?: boolean }> = ({ def
             <div>
               <h3 className="font-serif text-lg text-stone-900">Class X CBSE Maths</h3>
               <p className="text-xs text-stone-500">
-                Chapter-wise interactive learning concept videos created for the TikTakGo curriculum. Click on any chapter folder to browse the lessons.
+                Chapter-wise interactive learning concept videos created for the TikTakGo curriculum. Select any chapter to browse its lessons.
               </p>
             </div>
             <a
@@ -194,13 +101,124 @@ export const TikTakGoCategoryBlock: React.FC<{ defaultOpen?: boolean }> = ({ def
             </a>
           </div>
 
-          {/* Chapter Folders in 2-column grid to cut negative space in half */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5">
-            {TIKTAKGO_CHAPTERS.map(ch => (
-              <div key={ch.chapterNumber} className="col-span-1">
-                <ChapterFolderItem chapter={ch} />
+          {/* Master-Detail / Side-by-Side Two-Panel Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-5 items-start">
+            {/* Left: Chapter Selector Sidebar (5 cols) */}
+            <div className="md:col-span-5 lg:col-span-4 space-y-1.5 border border-stone-200/80 rounded-2xl p-2.5 bg-stone-50/50 max-h-[620px] overflow-y-auto">
+              <div className="px-2 py-1 flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-stone-400">
+                <span>All Chapters (14)</span>
+                <span>Select to view</span>
               </div>
-            ))}
+              {TIKTAKGO_CHAPTERS.map(ch => {
+                const isSelected = ch.chapterNumber === activeChapterNum;
+                return (
+                  <button
+                    key={ch.chapterNumber}
+                    onClick={() => setActiveChapterNum(ch.chapterNumber)}
+                    className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl transition-all text-left gap-2 cursor-pointer ${
+                      isSelected
+                        ? 'bg-[#0056D2] text-white shadow-sm font-semibold'
+                        : 'bg-white hover:bg-stone-100 text-stone-700 hover:text-stone-900 border border-stone-100'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <div className={`p-1.5 rounded-lg shrink-0 ${isSelected ? 'bg-white/20 text-white' : 'bg-blue-50 text-[#0056D2]'}`}>
+                        {isSelected ? <FolderOpen className="w-3.5 h-3.5" /> : <Folder className="w-3.5 h-3.5" />}
+                      </div>
+                      <div className="min-w-0">
+                        <div className="flex items-center gap-1.5">
+                          <span className={`text-[10px] font-mono font-bold ${isSelected ? 'text-blue-100' : 'text-stone-400'}`}>
+                            #{ch.chapterNumber}
+                          </span>
+                          <span className="text-xs truncate block">
+                            {ch.chapterTitle}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded shrink-0 ${
+                      isSelected ? 'bg-white/20 text-white' : 'bg-stone-100 text-stone-500'
+                    }`}>
+                      {ch.videos.length}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Right: Active Chapter Video Lessons (7 cols) */}
+            <div className="md:col-span-7 lg:col-span-8 border border-stone-200/80 rounded-2xl p-5 bg-white shadow-2xs">
+              {/* Active Chapter Header */}
+              <div className="flex items-start justify-between pb-4 border-b border-stone-100 gap-4">
+                <div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-[#0056D2]/10 text-[#0056D2]">
+                      Chapter {activeChapter.chapterNumber} of 14
+                    </span>
+                    <span className="text-xs text-stone-400">
+                      {activeChapter.videos.length} {activeChapter.videos.length === 1 ? 'lesson video' : 'lesson videos'}
+                    </span>
+                  </div>
+                  <h4 className="font-serif text-xl text-stone-900 font-semibold mt-1">
+                    {activeChapter.chapterTitle}
+                  </h4>
+                </div>
+                <a
+                  href={activeChapter.playlistUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-[11px] font-bold text-[#0056D2] hover:text-blue-800 bg-blue-50 hover:bg-blue-100 px-3.5 py-1.5 rounded-full transition-colors shrink-0 cursor-pointer"
+                >
+                  <Youtube className="w-3.5 h-3.5 text-red-600" /> Open Playlist <ExternalLink className="w-3 h-3" />
+                </a>
+              </div>
+
+              {/* Video Grid for Active Chapter */}
+              <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 max-h-[520px] overflow-y-auto pr-1">
+                {activeChapter.videos.map((vid, idx) => (
+                  <a
+                    key={vid.id}
+                    href={vid.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex flex-col rounded-xl border border-stone-100 overflow-hidden bg-stone-50/40 hover:bg-white hover:border-blue-300 hover:shadow-md transition-all duration-300"
+                  >
+                    {/* Thumbnail */}
+                    <div className="relative aspect-video w-full overflow-hidden bg-stone-900/10">
+                      <img
+                        src={vid.thumbnail}
+                        alt={vid.title}
+                        loading="lazy"
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-stone-950/20 group-hover:bg-stone-950/40 transition-colors flex items-center justify-center">
+                        <div className="w-8 h-8 rounded-full bg-red-600 text-white flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
+                          <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
+                        </div>
+                      </div>
+                      <span className="absolute bottom-1.5 right-1.5 bg-black/80 text-[10px] text-white px-1.5 py-0.5 rounded font-mono">
+                        Lesson {idx + 1}
+                      </span>
+                    </div>
+
+                    {/* Title */}
+                    <div className="p-3 flex-1 flex flex-col justify-between">
+                      <p className="text-xs font-semibold text-stone-800 line-clamp-2 group-hover:text-[#0056D2] transition-colors leading-snug">
+                        {vid.title}
+                      </p>
+                      <div className="mt-2.5 flex items-center justify-between text-[10px] text-stone-400 pt-2 border-t border-stone-100/60">
+                        <span className="flex items-center gap-1 text-red-600 font-semibold">
+                          <Youtube className="w-3 h-3" /> YouTube
+                        </span>
+                        <span className="flex items-center gap-0.5 text-[#0056D2] font-semibold group-hover:underline">
+                          Watch <ExternalLink className="w-2.5 h-2.5" />
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       )}
