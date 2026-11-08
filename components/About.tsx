@@ -133,7 +133,7 @@ const About: React.FC = () => {
             </div>
           </div>
           <ul className="space-y-2 md:space-y-3 text-stone-600 font-light text-base md:text-lg list-disc pl-4 marker:text-stone-300">
-            <li>Wrote content for brands across varied niches, including brand books, blogs, captions, website content, ad copies, review responses, YouTube descriptions, and product listings.</li>
+            <li>Wrote content for brands across varied niches, including brand books, blogs, captions, website content, ad copy, review responses, YouTube descriptions, and product listings.</li>
             <li>Applied SEO strategies such as keyword research, Quora publishing, backlinking, guest posting, Pinterest pin creation, and directory/product listings.</li>
             <li>Collaborated with clients and creative teams for brand management, including scheduling photoshoots, coordinating feedback, and managing deliverables.</li>
             <li>Handled social media content and scheduling for platforms like Facebook and Instagram.</li>
