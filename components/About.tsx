@@ -74,16 +74,17 @@ const About: React.FC = () => {
             </div>
           </div>
           <ul className="space-y-2 md:space-y-3 text-stone-600 font-light text-base md:text-lg list-disc pl-4 marker:text-stone-300">
-            <li>Co-created 20+ TruBuddy comic books over the past 2.5 years. These self-development comics are designed for children aged 7–12 and focus on their holistic personal growth.</li>
-            <li>Leading and mentoring a team of five writers, while providing editorial feedback on manuscripts to strengthen story structure, tone, and narrative consistency across titles.</li>
-            <li>Coordinating the drafting, editing, and revision process for multiple comic titles, ensuring that manuscripts move smoothly toward publication while also providing visual direction for storyboarding to align storytelling with illustrations.</li>
-            <li>Handling website content and UI/UX writing (Not yet live), with a focus on improving clarity, structure, and reader engagement across digital platforms.</li>
+            <li>Scripted and visualised 20+ TruBuddy comic books over the past 3 years. These self-development comics are designed for children aged 7–12 and focus on their holistic personal growth.</li>
+            <li>Leading and mentoring a team of 4 writers, having led teams of up to 7 writers, while overseeing their performance and providing editorial feedback across titles and other writing projects.</li>
+            <li>Coordinating drafting, editing, and revision across multiple comic titles, ensuring manuscripts move smoothly toward publication while also providing visual direction for storyboarding to align storytelling with illustrations.</li>
+            <li>Handling website content and UI/UX writing, with a focus on improving clarity, structure, and reader engagement across digital platforms.</li>
             <li>Building and maintaining the writer onboarding handbook, helping new writers understand the publishing workflow and maintain consistent editorial quality.</li>
-            <li>Ghostwriting founder bios and brand narratives, which are used across company communication channels and brand platforms.</li>
-            <li>Overseeing English–Hindi translation projects and conducting line editing for five Hindi editions of TruBuddy books, ensuring linguistic accuracy and cultural nuance.</li>
+            <li>Ghostwriting founder bios and brand narratives for use across company communication channels and brand platforms.</li>
+            <li>Overseeing English–Hindi translation projects and conducting line editing for 8+ Hindi editions of TruBuddy books, ensuring linguistic accuracy and cultural nuance.</li>
             <li>Developing new story concepts for a younger reader segment (ages 4–6) to support the expansion of the TruBuddy publishing list.</li>
-            <li>Creating curriculum-aligned educational game content (Not yet live), currently focusing on CBSE Class 10 Mathematics concepts, including scriptwriting and providing illustrative video direction for interactive learning modules.</li>
-            <li>Generating voice-based learning content using ElevenLabs and editing audio using Audacity for integration into the educational game (Not yet live).</li>
+            <li>Creating curriculum-aligned educational game content for TikTakGo, currently focusing on CBSE Class 10 Mathematics concepts. This includes scriptwriting and illustrative video direction for interactive learning modules.</li>
+            <li>Generating voice-based learning content using ElevenLabs and editing audio using Audacity for integration into the educational game.</li>
+            <li>Integrating AI into the content production pipeline through prompt engineering and AI-assisted workflows to increase content output, maintain quality, and reduce production time.</li>
           </ul>
         </div>
 
