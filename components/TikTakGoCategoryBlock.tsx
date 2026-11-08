@@ -41,9 +41,17 @@ export const TikTakGoCategoryBlock: React.FC<{ defaultOpen?: boolean }> = ({ def
             target="_blank"
             rel="noopener noreferrer"
             onClick={e => e.stopPropagation()}
-            className="shrink-0 flex items-center gap-2 group"
+            className="shrink-0 flex items-center gap-2 group transition-transform duration-200 hover:scale-105"
           >
-            <span className="font-extrabold text-xl tracking-tight text-stone-900 group-hover:text-[#0056D2] transition-colors">
+            <span
+              className="text-2xl tracking-tight font-extrabold transition-opacity hover:opacity-85"
+              style={{
+                fontFamily: "'Lexend', sans-serif",
+                color: '#0056D2',
+                fontWeight: 800,
+                letterSpacing: '-0.02em',
+              }}
+            >
               TikTakGo
             </span>
           </a>
@@ -79,7 +87,7 @@ export const TikTakGoCategoryBlock: React.FC<{ defaultOpen?: boolean }> = ({ def
               onClick={() => setDisclaimerExpanded(d => !d)}
               className="text-[10px] font-bold uppercase tracking-widest text-[#0056D2] hover:text-blue-900 transition-colors underline underline-offset-4 cursor-pointer"
             >
-              {disclaimerExpanded ? 'Show less ?' : 'Read more ?'}
+              {disclaimerExpanded ? 'Show less ↑' : 'Read more ↓'}
             </button>
           </div>
 
