@@ -75,7 +75,7 @@ const About: React.FC = () => {
           </div>
           <ul className="space-y-2 md:space-y-3 text-stone-600 font-light text-base md:text-lg list-disc pl-4 marker:text-stone-300">
             <li>
-              Scripted and visualised 20+{' '}
+              Leading the end-to-end scriptwriting, story development, and visualisation of 20+{' '}
               <a
                 href="https://trubuddy.me"
                 target="_blank"
@@ -84,17 +84,16 @@ const About: React.FC = () => {
               >
                 TruBuddy
               </a>{' '}
-              comics over the past 3 years. These self-development comics are designed for children aged 7–12 and focus on their holistic personal growth.
+              Comics over the past 3 years for children aged 7–12, focusing on holistic development, social-emotional learning, and life skills.
             </li>
-            <li>Leading and mentoring a team of 4 writers, having led teams of up to 7 writers, while overseeing their performance and providing editorial feedback across titles and other writing projects.</li>
-            <li>Coordinating drafting, editing, and revision across multiple comic titles, ensuring manuscripts move smoothly toward publication while also providing visual direction for storyboarding to align storytelling with illustrations.</li>
-            <li>Handling website content and UI/UX writing, with a focus on improving clarity, structure, and reader engagement across digital platforms.</li>
-            <li>Building and maintaining the writer onboarding handbook, helping new writers understand the publishing workflow and maintain consistent editorial quality.</li>
-            <li>Ghostwriting founder bios and brand narratives for use across company communication channels and brand platforms.</li>
-            <li>Overseeing English–Hindi translation projects and conducting line editing for 8+ Hindi editions of TruBuddy books, ensuring linguistic accuracy and cultural nuance.</li>
-            <li>Developing new story concepts for a younger reader segment (ages 4–6) to support the expansion of the TruBuddy publishing list.</li>
+            <li>Coordinating drafting, editing, proofreading, and revisions across comics in the publishing list while providing visual direction for storyboarding and ensuring alignment between narratives and illustrations.</li>
+            <li>Mentoring a team of 4 writers, having managed teams of up to 7, while overseeing performance, content deliverables, and editorial quality across multiple titles and writing projects.</li>
+            <li>Integrating AI into content production through prompt engineering, AI-assisted research, writing, ideation, and workflow optimisation to improve output, maintain quality, and reduce production time.</li>
+            <li>Developing AI-assisted advertising creatives and promotional videos using Claude and Hermes, managing the creative process from ideation and scriptwriting to image generation, video production, and audio integration.</li>
+            <li>Handling website content, strategy, and UX writing, focusing on information architecture, navigation, content clarity, and user engagement across digital platforms.</li>
+            <li>Developing copy and social media content for digital marketing and brand communication, including promotional campaigns, product descriptions, marketing creatives, and audience engagement.</li>
             <li>
-              Creating curriculum-aligned educational game content for{' '}
+              Creating curriculum-aligned educational game content and interactive learning modules for{' '}
               <a
                 href="https://tiktakgo.com"
                 target="_blank"
@@ -102,10 +101,14 @@ const About: React.FC = () => {
                 className="font-medium text-stone-900 no-underline hover:font-bold hover:text-[#0056D2] transition-all cursor-pointer"
               >
                 TikTakGo
-              </a>, currently focusing on CBSE Class 10 Mathematics concepts. This includes scriptwriting and illustrative video direction for interactive learning modules.
+              </a>, currently focusing on CBSE Class 10 Mathematics.
             </li>
-            <li>Generating voice-based learning content using ElevenLabs and editing audio using Audacity for integration into the educational game.</li>
-            <li>Integrating AI into the content production pipeline through prompt engineering and AI-assisted workflows to increase content output, maintain quality, and reduce production time.</li>
+            <li>Handling audio production and sound editing for AI-powered voice content using ElevenLabs and Audacity for integration into digital learning experiences and video creatives.</li>
+            <li>Overseeing English–Hindi translation projects and line editing 10+ Hindi editions of TruBuddy Comics, ensuring linguistic accuracy, cultural adaptation, and consistency in storytelling.</li>
+            <li>Developing story concepts, characters, and age-appropriate narratives for a younger reader segment (ages 4–6), supporting the expansion of the publishing list.</li>
+            <li>Building and maintaining writer onboarding handbooks and editorial guidelines to streamline onboarding, standardise workflows, and ensure consistent editorial quality.</li>
+            <li>Ghostwriting founder bios, brand narratives, and corporate communications for company platforms and external communication channels.</li>
+            <li>Collaborating cross-functionally with different teams to understand content requirements, coordinate deliverables, and support content development across projects.</li>
           </ul>
         </div>
 
