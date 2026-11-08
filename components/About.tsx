@@ -10,19 +10,22 @@ const About: React.FC = () => {
       </div>
       <div className="prose prose-stone max-w-none space-y-5 md:space-y-8 text-stone-600 leading-relaxed text-base md:text-xl font-light">
         <p>
-          Hi, I'm <span className="font-semibold text-stone-900">Sonakhi Malla (Rumi)</span>, an obsessive overthinking connoisseur who <span className="font-semibold text-stone-900">writes</span>, <span className="font-semibold text-stone-900">edits</span>, <span className="font-semibold text-stone-900">translates</span>, and <span className="font-semibold text-stone-900">guides</span> fellow budding word lovers discovering their voice.
+          Hi, I am <span className="font-semibold text-stone-900">Sonakhi Malla (Rumi)</span>, a lover of words. While my professional tryst with words spans nearly five years, my affair with them has been a defining part of my life for as long as I can remember.
         </p>
         <p>
-          I have spent the last <span className="font-semibold text-stone-900">five years</span> working with words across <span className="font-semibold text-stone-900">content, copy, scripts, UI/UX writing, visual storytelling, game content, and educational material development</span>. I have learnt to move between forms and languages—<span className="font-semibold text-stone-900">English, Hindi, and Odia</span>—without losing what matters.
+          I enjoy spending time with words, trying to sew them together to create meaning. They challenge me in the best possible ways, and perhaps that is one of the reasons I have found myself exploring so many formats, always curious to experiment and learn more. Having grown up in a trilingual setup, I have always been drawn to expanding my vocabulary and honing my language skills. At the heart of this pursuit is a deep respect for cultural nuances and the little things that make each language unique.
         </p>
         <p>
-          Writing was manifested for me long before I developed my sense of self. I continue to choose it with intention because words help me breathe. They let me place the weight on my chest onto paper. When I began writing for others, my goal was simple: to help people find the right words!
+          Of course, words give me a hard time sometimes, too. On days when I struggle to produce them, I have learnt to let them consume me instead. I read, watch, listen, talk, observe, and absorb. And, eventually, I find my way back to them.
         </p>
         <p>
-          Now I am at a place where I want to challenge myself and take up projects that broaden my horizons. I also want to mentor writers who are still figuring out if they are allowed to call themselves writers. Because I was that person too. Some days, I still am.
+          While my experience section will tell you about the things I know and the work I have done, this little introduction is an attempt to help you understand my relationship with words as a writer. I believe this understanding to be foundational to any meaningful creative collaboration.
         </p>
         <p>
-          If you are looking for someone who not only knows how to write but ensures that your words move people, not just fill space, whether you need content, editing, translation, or just someone to tell you your writing does not suck—I am here.
+          As I continue to deepen my bond with words, I am looking for opportunities that will allow me to explore, experiment, contribute, and grow. More than anything, I hope to find spaces where curiosity is encouraged, ideas are valued, and there is always room to learn something new.
+        </p>
+        <p>
+          And somewhere along the way, help you find the right words.
         </p>
         <div className="font-medium text-stone-900 mt-8 md:mt-12">
           <a
