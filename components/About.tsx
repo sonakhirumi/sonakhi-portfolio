@@ -126,7 +126,18 @@ const About: React.FC = () => {
             </div>
           </div>
           <ul className="space-y-2 md:space-y-3 text-stone-600 font-light text-base md:text-lg list-disc pl-4 marker:text-stone-300">
-            <li>Translating TruBuddy Comics from English to Hindi as part of an ongoing project.</li>
+            <li>
+              Translating{' '}
+              <a
+                href="https://trubuddy.me/all-comics?sort=bestSelling&category=All&language=hindi&type=all"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-stone-900 no-underline hover:font-bold hover:text-amber-700 transition-all cursor-pointer"
+              >
+                TruBuddy
+              </a>{' '}
+              Comics from English to Hindi as part of an ongoing project.
+            </li>
             <li>
               Translated{' '}
               <a
