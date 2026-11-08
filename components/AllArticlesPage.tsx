@@ -222,7 +222,7 @@ const AllArticlesPage: React.FC = () => {
 
   const [articles, setArticles] = useState<Article[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [viewMode, setViewMode] = useState<'all' | 'portfolio' | 'odia' | 'musings'>('all');
+  const [viewMode, setViewMode] = useState<'all' | 'portfolio' | 'musings'>('all');
   const [selectedLanguage, setSelectedLanguage] = useState<string>('All');
   const [categories, setCategories] = useState<{ id: number, name: string }[]>([]);
 
@@ -272,8 +272,8 @@ const AllArticlesPage: React.FC = () => {
           const paramCategory = routeCategory || searchParams.get('category');
           if (paramCategory) {
             const lp = paramCategory.toLowerCase();
-            if (['portfolio', 'musings', 'odia', 'professional', 'personal'].includes(lp)) {
-              setViewMode(lp === 'professional' || lp === 'portfolio' ? 'portfolio' : lp === 'odia' ? 'odia' : 'musings');
+            if (['portfolio', 'musings', 'professional', 'personal'].includes(lp)) {
+              setViewMode(lp === 'professional' || lp === 'portfolio' ? 'portfolio' : 'musings');
             } else {
               const match = cachedCats.find((c: any) => c.name.toLowerCase() === lp);
               if (match) setSelectedLanguage(match.name);
@@ -310,8 +310,8 @@ const AllArticlesPage: React.FC = () => {
         const paramCategory = routeCategory || searchParams.get('category');
         if (paramCategory) {
           const lp = paramCategory.toLowerCase();
-          if (['portfolio', 'musings', 'odia', 'professional', 'personal'].includes(lp)) {
-            setViewMode(lp === 'professional' || lp === 'portfolio' ? 'portfolio' : lp === 'odia' ? 'odia' : 'musings');
+          if (['portfolio', 'musings', 'professional', 'personal'].includes(lp)) {
+            setViewMode(lp === 'professional' || lp === 'portfolio' ? 'portfolio' : 'musings');
             if (routeSubcategory) {
               const sub = actualCategories.find(c => c.name.toLowerCase() === routeSubcategory.toLowerCase());
               if (sub) setSelectedLanguage(sub.name);
@@ -372,7 +372,7 @@ const AllArticlesPage: React.FC = () => {
     fetchAllData();
   }, [searchParams, routeCategory]);
 
-  const updateFilter = (mode: 'all' | 'portfolio' | 'odia' | 'musings', lang: string) => {
+  const updateFilter = (mode: 'all' | 'portfolio' | 'musings', lang: string) => {
     setViewMode(mode);
     setSelectedLanguage(lang);
     if (mode === 'all') navigate('/my-archive');
@@ -410,17 +410,17 @@ const AllArticlesPage: React.FC = () => {
             <div className="flex flex-col gap-5 lg:items-end">
               {/* Primary Tabs */}
               <div className="flex flex-wrap gap-2 bg-stone-100 p-1.5 rounded-2xl border border-stone-200 shadow-inner">
-                {(['all', 'portfolio', 'odia', 'musings'] as const).map(mode => (
+                {(['all', 'portfolio', 'musings'] as const).map(mode => (
                   <button key={mode}
                     onClick={() => updateFilter(mode, 'All')}
                     className={`px-5 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-[0.18em] transition-all ${viewMode === mode ? 'bg-white text-stone-900 shadow-md' : 'text-stone-400 hover:text-stone-900'}`}>
-                    {mode === 'all' ? 'All Archives' : mode === 'odia' ? 'ଓଡ଼ିଆ' : mode}
+                    {mode === 'all' ? 'All Archives' : mode}
                   </button>
                 ))}
               </div>
 
               {/* Language sub-filters */}
-              {viewMode !== 'musings' && viewMode !== 'odia' && (
+              {viewMode !== 'musings' && (
                 <div className="flex flex-wrap items-center gap-3 animate-fadeIn">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">Language:</span>
                   <div className="flex flex-wrap gap-2">
@@ -478,24 +478,6 @@ const AllArticlesPage: React.FC = () => {
                 {selectedLanguage !== 'All' && selectedLanguage !== 'English' && selectedLanguage !== 'Hindi' && (
                   <UnderConstruction message={`${selectedLanguage} portfolio content is being curated. It'll be here when ready.`} />
                 )}
-              </section>
-            )}
-
-
-            {/* ── ODIA ── */}
-            {(viewMode === 'all' || viewMode === 'odia') && (
-              <section className="space-y-5">
-                {viewMode === 'all' && (
-                  <div className="flex items-center gap-4">
-                    <h2 className="font-serif text-3xl text-stone-900">ଓଡ଼ିଆ</h2>
-                    <div className="flex-1 h-px bg-stone-100" />
-                    <button onClick={() => updateFilter('odia', 'All')}
-                      className="text-[9px] font-bold uppercase tracking-widest text-stone-400 hover:text-stone-900 transition-colors">
-                      View all →
-                    </button>
-                  </div>
-                )}
-                <UnderConstruction message="ଓଡ଼ିଆ content is being curated. It'll be here when ready." />
               </section>
             )}
             {/* ── MUSINGS ── */}
