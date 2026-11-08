@@ -99,7 +99,7 @@ const About: React.FC = () => {
                 href="https://tiktakgo.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-medium text-stone-900 no-underline hover:font-bold hover:text-amber-700 transition-all cursor-pointer"
+                className="font-medium text-stone-900 no-underline hover:font-bold hover:text-[#0056D2] transition-all cursor-pointer"
               >
                 TikTakGo
               </a>, currently focusing on CBSE Class 10 Mathematics concepts. This includes scriptwriting and illustrative video direction for interactive learning modules.
