@@ -93,7 +93,17 @@ const About: React.FC = () => {
             <li>Ghostwriting founder bios and brand narratives for use across company communication channels and brand platforms.</li>
             <li>Overseeing English–Hindi translation projects and conducting line editing for 8+ Hindi editions of TruBuddy books, ensuring linguistic accuracy and cultural nuance.</li>
             <li>Developing new story concepts for a younger reader segment (ages 4–6) to support the expansion of the TruBuddy publishing list.</li>
-            <li>Creating curriculum-aligned educational game content for TikTakGo, currently focusing on CBSE Class 10 Mathematics concepts. This includes scriptwriting and illustrative video direction for interactive learning modules.</li>
+            <li>
+              Creating curriculum-aligned educational game content for{' '}
+              <a
+                href="https://tiktakgo.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-stone-900 no-underline hover:font-bold hover:text-amber-700 transition-all cursor-pointer"
+              >
+                TikTakGo
+              </a>, currently focusing on CBSE Class 10 Mathematics concepts. This includes scriptwriting and illustrative video direction for interactive learning modules.
+            </li>
             <li>Generating voice-based learning content using ElevenLabs and editing audio using Audacity for integration into the educational game.</li>
             <li>Integrating AI into the content production pipeline through prompt engineering and AI-assisted workflows to increase content output, maintain quality, and reduce production time.</li>
           </ul>
