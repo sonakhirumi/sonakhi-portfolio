@@ -1,5 +1,5 @@
 ﻿import React, { useState } from 'react';
-import { ExternalLink, ChevronDown, ChevronUp, Folder, FolderOpen, Play, Youtube } from 'lucide-react';
+import { ExternalLink, ChevronDown, ChevronUp, Play, Youtube } from 'lucide-react';
 import { TIKTAKGO_CHAPTERS, TikTakGoChapter } from '../data/tiktakgoData';
 
 const TIKTAKGO_DISCLAIMER_SHORT = `The educational videos and curriculum materials displayed here are copyrighted works belonging to TikTakGo, a brand of Menstrupedia Technologies Private Limited. Included for portfolio purposes only.`;
@@ -53,26 +53,15 @@ export const TikTakGoCategoryBlock: React.FC<{ defaultOpen?: boolean }> = ({ def
               }}
             >
               TikTakGo
-            </span>
+          </span>
           </a>
           <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">
             {totalVideos} videos
-          </span>
+        </span>
         </div>
-        <div className="flex items-center gap-3">
-          <a
-            href="https://www.youtube.com/@tiktakgo"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={e => e.stopPropagation()}
-            className="hidden sm:flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#0056D2] hover:text-blue-800 bg-blue-50/80 hover:bg-blue-100 px-3 py-1 rounded-full transition-colors"
-          >
-            <Youtube className="w-3.5 h-3.5" /> @tiktakgo
-          </a>
-          <span className="text-stone-400">
-            {open ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-          </span>
-        </div>
+        <span className="text-stone-400">
+          {open ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+        </span>
       </button>
 
       {open && (
@@ -109,7 +98,7 @@ export const TikTakGoCategoryBlock: React.FC<{ defaultOpen?: boolean }> = ({ def
             {/* Left: Chapter Selector Sidebar (5 cols) */}
             <div className="md:col-span-5 lg:col-span-4 space-y-1.5 border border-stone-200/80 rounded-2xl p-2.5 bg-stone-50/50 max-h-[620px] overflow-y-auto">
               <div className="px-2 py-1 flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-stone-400">
-                <span>All Chapters (14)</span>
+                <span>All Chapters</span>
                 <span>Select to view</span>
               </div>
               {TIKTAKGO_CHAPTERS.map(ch => {
@@ -118,32 +107,18 @@ export const TikTakGoCategoryBlock: React.FC<{ defaultOpen?: boolean }> = ({ def
                   <button
                     key={ch.chapterNumber}
                     onClick={() => setActiveChapterNum(ch.chapterNumber)}
-                    className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl transition-all text-left gap-2 cursor-pointer ${
+                    className={`w-full flex items-center px-3.5 py-2.5 rounded-xl transition-all text-left gap-2.5 cursor-pointer ${
                       isSelected
                         ? 'bg-[#0056D2] text-white shadow-sm font-semibold'
                         : 'bg-white hover:bg-stone-100 text-stone-700 hover:text-stone-900 border border-stone-100'
                     }`}
                   >
-                    <div className="flex items-center gap-2.5 min-w-0">
-                      <div className={`p-1.5 rounded-lg shrink-0 ${isSelected ? 'bg-white/20 text-white' : 'bg-blue-50 text-[#0056D2]'}`}>
-                        {isSelected ? <FolderOpen className="w-3.5 h-3.5" /> : <Folder className="w-3.5 h-3.5" />}
-                      </div>
-                      <div className="min-w-0">
-                        <div className="flex items-center gap-1.5">
-                          <span className={`text-[10px] font-mono font-bold ${isSelected ? 'text-blue-100' : 'text-stone-400'}`}>
-                            #{ch.chapterNumber}
-                          </span>
-                          <span className="text-xs truncate block">
-                            {ch.chapterTitle}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                    <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded shrink-0 ${
-                      isSelected ? 'bg-white/20 text-white' : 'bg-stone-100 text-stone-500'
-                    }`}>
-                      {ch.videos.length}
-                    </span>
+                    <span className={`text-xs font-mono font-bold shrink-0 ${isSelected ? 'text-blue-100' : 'text-stone-400'}`}>
+                      {ch.chapterNumber}.
+                  </span>
+                    <span className="text-xs truncate block font-medium">
+                      {ch.chapterTitle}
+                  </span>
                   </button>
                 );
               })}
@@ -157,10 +132,10 @@ export const TikTakGoCategoryBlock: React.FC<{ defaultOpen?: boolean }> = ({ def
                   <div className="flex items-center gap-2">
                     <span className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-[#0056D2]/10 text-[#0056D2]">
                       Chapter {activeChapter.chapterNumber} of 14
-                    </span>
+                  </span>
                     <span className="text-xs text-stone-400">
                       {activeChapter.videos.length} {activeChapter.videos.length === 1 ? 'lesson video' : 'lesson videos'}
-                    </span>
+                  </span>
                   </div>
                   <h4 className="font-serif text-xl text-stone-900 font-semibold mt-1">
                     {activeChapter.chapterTitle}
@@ -201,7 +176,7 @@ export const TikTakGoCategoryBlock: React.FC<{ defaultOpen?: boolean }> = ({ def
                       </div>
                       <span className="absolute bottom-1.5 right-1.5 bg-black/80 text-[10px] text-white px-1.5 py-0.5 rounded font-mono">
                         Lesson {idx + 1}
-                      </span>
+                    </span>
                     </div>
 
                     {/* Title */}
@@ -209,14 +184,6 @@ export const TikTakGoCategoryBlock: React.FC<{ defaultOpen?: boolean }> = ({ def
                       <p className="text-xs font-semibold text-stone-800 line-clamp-2 group-hover:text-[#0056D2] transition-colors leading-snug">
                         {vid.title}
                       </p>
-                      <div className="mt-2.5 flex items-center justify-between text-[10px] text-stone-400 pt-2 border-t border-stone-100/60">
-                        <span className="flex items-center gap-1 text-red-600 font-semibold">
-                          <Youtube className="w-3 h-3" /> YouTube
-                        </span>
-                        <span className="flex items-center gap-0.5 text-[#0056D2] font-semibold group-hover:underline">
-                          Watch <ExternalLink className="w-2.5 h-2.5" />
-                        </span>
-                      </div>
                     </div>
                   </a>
                 ))}
