@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { ExternalLink, ChevronDown, ChevronUp, Folder, FolderOpen, Play, Youtube } from 'lucide-react';
 import { TIKTAKGO_CHAPTERS, TikTakGoChapter } from '../data/tiktakgoData';
 
@@ -85,12 +85,7 @@ export const TikTakGoCategoryBlock: React.FC<{ defaultOpen?: boolean }> = ({ def
 
           {/* Section description */}
           <div className="flex items-center justify-between pb-1 border-b border-stone-100">
-            <div>
-              <h3 className="font-serif text-lg text-stone-900">Class X CBSE Maths</h3>
-              <p className="text-xs text-stone-500">
-                Chapter-wise interactive learning concept videos created for the TikTakGo curriculum. Select any chapter to browse its lessons.
-              </p>
-            </div>
+            <h3 className="font-serif text-lg text-stone-900">Class X CBSE Maths</h3>
             <a
               href="https://www.youtube.com/@tiktakgo"
               target="_blank"
