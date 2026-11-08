@@ -80,7 +80,7 @@ const About: React.FC = () => {
                 href="https://trubuddy.me"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-medium text-stone-900 underline underline-offset-4 decoration-stone-300 hover:text-stone-600 transition-colors"
+                className="font-medium text-stone-900 no-underline hover:font-bold hover:text-amber-700 transition-all cursor-pointer"
               >
                 TruBuddy
               </a>{' '}
