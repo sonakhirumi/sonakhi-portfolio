@@ -113,19 +113,14 @@ const DISCLAIMER_SHORT = `The books and visual materials displayed here are copy
 const DisclaimerFull: React.FC = () => (
   <div className="space-y-4">
     <p>
+      TruBuddy books are self-development comics for children that use engaging stories and relatable characters to nurture essential life skills. If these books resonate with you, please consider purchasing the original titles through{' '}
+      <a href="https://trubuddy.me/" target="_blank" rel="noopener noreferrer" className="text-amber-700 font-bold hover:underline cursor-pointer">TruBuddy</a>.
+    </p>
+    <p>
       All books and visual materials displayed here are copyrighted works of{' '}
-      <a href="https://trubuddy.me" target="_blank" rel="noopener noreferrer" className="text-amber-700 font-bold hover:underline cursor-pointer">TruBuddy</a>,
-      a brand of <a href="https://menstrupedia.com/" target="_blank" rel="noopener noreferrer" className="text-amber-700 font-bold hover:underline cursor-pointer">Menstrupedia Technologies Private Limited</a>,
-      which retains all intellectual property and distribution rights.
-    </p>
-    <p>
-      They are presented solely for portfolio purposes to highlight my contributions as part of the production team.
-      I currently work with the organisation as a Senior Content Developer, and my work appears in the credits under my pen name, Sonakhi Rumi.
-    </p>
-    <p>
-      TruBuddy books are self-development comics for children that use engaging stories and relatable characters to nurture essential life skills.
-      If these books resonate with you, please consider purchasing the original titles through{' '}
-      <a href="https://trubuddy.me" target="_blank" rel="noopener noreferrer" className="text-amber-700 font-bold hover:underline cursor-pointer">TruBuddy</a>.
+      <a href="https://trubuddy.me/" target="_blank" rel="noopener noreferrer" className="text-amber-700 font-bold hover:underline cursor-pointer">TruBuddy</a>,{' '}
+      a brand of <a href="https://menstrupedia.com/" target="_blank" rel="noopener noreferrer" className="text-amber-700 font-bold hover:underline cursor-pointer">Menstrupedia Technologies Private Limited</a>,{' '}
+      which retains all intellectual property and distribution rights. They are presented solely for portfolio purposes to highlight my contributions as part of the production team. I currently work with the organisation as a Senior Content Developer, and my work appears in the credits under my pen name, Sonakhi Rumi.
     </p>
   </div>
 );
