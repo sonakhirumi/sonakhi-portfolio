@@ -144,7 +144,7 @@ const About: React.FC = () => {
                 href="https://menstrupedia.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-medium text-stone-900 no-underline hover:font-bold hover:text-amber-700 transition-all cursor-pointer"
+                className="font-medium text-stone-900 no-underline hover:font-bold hover:text-[#E14262] transition-all cursor-pointer"
               >
                 Menstrupedia
               </a>{' '}
