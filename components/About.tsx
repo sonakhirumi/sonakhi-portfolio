@@ -74,7 +74,18 @@ const About: React.FC = () => {
             </div>
           </div>
           <ul className="space-y-2 md:space-y-3 text-stone-600 font-light text-base md:text-lg list-disc pl-4 marker:text-stone-300">
-            <li>Scripted and visualised 20+ TruBuddy comic books over the past 3 years. These self-development comics are designed for children aged 7–12 and focus on their holistic personal growth.</li>
+            <li>
+              Scripted and visualised 20+{' '}
+              <a
+                href="https://trubuddy.me"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-stone-900 underline underline-offset-4 decoration-stone-300 hover:text-stone-600 transition-colors"
+              >
+                TruBuddy
+              </a>{' '}
+              comics over the past 3 years. These self-development comics are designed for children aged 7–12 and focus on their holistic personal growth.
+            </li>
             <li>Leading and mentoring a team of 4 writers, having led teams of up to 7 writers, while overseeing their performance and providing editorial feedback across titles and other writing projects.</li>
             <li>Coordinating drafting, editing, and revision across multiple comic titles, ensuring manuscripts move smoothly toward publication while also providing visual direction for storyboarding to align storytelling with illustrations.</li>
             <li>Handling website content and UI/UX writing, with a focus on improving clarity, structure, and reader engagement across digital platforms.</li>
