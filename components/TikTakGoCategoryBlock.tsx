@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+ï»¿import React, { useState } from 'react';
 import { ExternalLink, ChevronDown, ChevronUp, Folder, FolderOpen, Play, Youtube } from 'lucide-react';
 import { TIKTAKGO_CHAPTERS, TikTakGoChapter } from '../data/tiktakgoData';
 
@@ -7,19 +7,15 @@ const TIKTAKGO_DISCLAIMER_SHORT = `The educational videos and curriculum materia
 const TikTakGoDisclaimerFull: React.FC = () => (
   <div className="space-y-4">
     <p>
-      All video lessons, curriculum structures, and visual learning materials displayed here are copyrighted works of{' '}
-      <a href="https://tiktakgo.com" target="_blank" rel="noopener noreferrer" className="text-[#0056D2] font-bold hover:underline cursor-pointer">TikTakGo</a>,
+      TikTakGo is an educational gaming platform that is designed to be your bite-sized learning companion to help CBSE Class 10 students master Mathematics through intuitive visual storytelling, problem-solving techniques, and gamified challenges. You can watch the complete series and support the platform on{' '}
+      <a href="https://www.youtube.com/@tiktakgo" target="_blank" rel="noopener noreferrer" className="text-red-600 font-bold hover:underline cursor-pointer">YouTube</a>{' '}
+      or visit <a href="https://tiktakgo.com/" target="_blank" rel="noopener noreferrer" className="text-[#0056D2] font-bold hover:underline cursor-pointer">tiktakgo.com</a>. All video lessons, curriculum structures, and visual learning materials displayed here are copyrighted works of{' '}
+      <a href="https://tiktakgo.com/" target="_blank" rel="noopener noreferrer" className="text-[#0056D2] font-bold hover:underline cursor-pointer">TikTakGo</a>,
       a brand of <a href="https://menstrupedia.com/" target="_blank" rel="noopener noreferrer" className="text-[#E14262] font-bold hover:underline cursor-pointer">Menstrupedia Technologies Private Limited</a>,
       which retains all intellectual property and distribution rights.
     </p>
     <p>
-      They are presented solely for portfolio purposes to highlight my contributions as a Content Developer and scriptwriter for educational game-based learning modules and interactive video lessons.
-    </p>
-    <p>
-      TikTakGo is an educational gaming platform and bite-sized learning companion designed to help CBSE Class 10 students master Mathematics through intuitive visual storytelling, problem-solving techniques, and gamified challenges.
-      You can watch the complete series and support the platform on{' '}
-      <a href="https://www.youtube.com/@tiktakgo" target="_blank" rel="noopener noreferrer" className="text-red-600 font-bold hover:underline cursor-pointer">YouTube (@tiktakgo)</a>{' '}
-      or visit <a href="https://tiktakgo.com" target="_blank" rel="noopener noreferrer" className="text-[#0056D2] font-bold hover:underline cursor-pointer">tiktakgo.com</a>.
+      They are presented solely for portfolio purposes to highlight my contributions as a Content Developer for educational game-based learning modules.
     </p>
   </div>
 );
@@ -147,7 +143,7 @@ export const TikTakGoCategoryBlock: React.FC<{ defaultOpen?: boolean }> = ({ def
             </span>
           </a>
           <span className="text-[10px] font-bold uppercase tracking-widest text-stone-400">
-            CBSE Class 10 Maths · 14 Chapters ({totalVideos} videos)
+            {totalVideos} videos
           </span>
         </div>
         <div className="flex items-center gap-3">
