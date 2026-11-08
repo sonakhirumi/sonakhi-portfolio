@@ -1,4 +1,4 @@
-// TikTakGo CBSE Class 10 Mathematics Chapter Video Curriculum (Progressively Ordered)
+﻿// TikTakGo CBSE Class 10 Mathematics Chapter Video Curriculum (Progressively Ordered)
 export interface TikTakGoVideo {
   id: string;
   title: string;
@@ -153,7 +153,7 @@ export const TIKTAKGO_CHAPTERS: TikTakGoChapter[] = [
   },
   {
     "chapterNumber": 3,
-    "chapterTitle": "Linear Equations in Two Variables",
+    "chapterTitle": "Pair of Linear Equations in Two Variables",
     "playlistId": "PL_30uyU-bC-1m_l3oIl3o2qnAMwQq5dTE",
     "playlistUrl": "https://www.youtube.com/playlist?list=PL_30uyU-bC-1m_l3oIl3o2qnAMwQq5dTE",
     "videos": [
