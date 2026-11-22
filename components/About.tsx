@@ -25,19 +25,17 @@ const About: React.FC = () => {
           As I continue to deepen my bond with words, I am looking for opportunities that will allow me to explore, experiment, contribute, and grow. More than anything, I hope to find spaces where curiosity is encouraged, ideas are valued, and there is always room to learn something new.
         </p>
         <p>
-          And somewhere along the way, help you find the right words.
-        </p>
-        <div className="font-medium text-stone-900 mt-8 md:mt-12">
+          And somewhere along the way,{' '}
           <a
             href="https://topmate.io/sonakhirumi"
             target="_blank"
             rel="noopener noreferrer"
-            className="relative z-20 inline-flex items-center gap-2 text-stone-900 hover:text-stone-500 hover:underline underline-offset-4 decoration-stone-900 transition-all cursor-pointer"
+            className="text-stone-900 font-medium underline underline-offset-4 decoration-stone-400 hover:decoration-stone-900 hover:text-stone-500 transition-all cursor-pointer"
           >
-            Let's spend some time with words together.
-            <ExternalLink className="w-4 h-4 md:w-5 md:h-5 text-stone-400" />
+            help you find the right words
           </a>
-        </div>
+          .
+        </p>
       </div>
     </div>
   );
