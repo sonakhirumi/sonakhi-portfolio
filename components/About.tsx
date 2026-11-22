@@ -30,7 +30,7 @@ const About: React.FC = () => {
             href="https://topmate.io/sonakhirumi"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-stone-900 font-medium underline underline-offset-4 decoration-stone-400 hover:decoration-stone-900 hover:text-stone-500 transition-all cursor-pointer"
+            className="text-stone-900 font-medium no-underline hover:no-underline hover:text-stone-500 transition-all cursor-pointer"
           >
             help you find the right words
           </a>
